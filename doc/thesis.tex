@@ -1,0 +1,92 @@
+\documentclass[english,a4paper,twoside]{ppfcmthesis}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{colortbl}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{pgfplotstable}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+\usepackage[algoruled]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{xifthen}
+
+% DRAFT
+% \usepackage{draftwatermark}
+% \SetWatermarkLightness{0.9}
+% END DRAFT
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+\usepackage{ifthen}
+
+\author{
+   Amadeusz Juskowiak \album{106453} \and
+   Wioletta Różańska \album{xxxxxx}}
+
+\title{Road to solving quadratic assignment problem using Physarum Machines}
+
+\ppsupervisor{Professor~Jacek~Błażewicz}
+\ppyear{2016}
+
+\newlength\longest
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize, 
+  basewidth={0.5em,0.5em}, 
+  frame=single, 
+  breaklines=true, 
+  language=C++
+}
+
+\graphicspath{ {figures/} }
+
+%algorithm2e
+\SetAlgorithmName{Pseudocode}{List of pseudocodes}
+
+\begin{document}
+\graphicspath{{figures/}}
+% Front matter starts here
+\frontmatter\pagestyle{empty}%
+\maketitle\cleardoublepage%
+
+% \includepdf{figures/karta.pdf}
+% \cleardoublepage
+
+\pagenumbering{gobble}
+
+% \input{"chapters/acknowledgements.tex"}
+% \cleardoublepage
+% \input{"chapters/abstract.tex"}
+% \cleardoublepage
+
+% Table of contents.
+\pagenumbering{Roman}\pagestyle{ppfcmthesis}%
+\tableofcontents* \cleardoublepage%
+
+% Main content of your thesis starts here.
+\mainmatter%
+% \input{"chapters/introduction.tex"}
+
+% \cleardoublepage\appendix
+% \input{"chapters/appendices/test_results.tex"}
+
+% Bibliography (books, articles) starts here.
+\bibliographystyle{alpha}{\raggedright\sloppy\small\bibliography{bibliography}}
+
+% Colophon is a place where you should let others know about copyrights etc.
+\cleardoublepage\ppcolophon
+
+\end{document}
