@@ -67,10 +67,10 @@
 
 \pagenumbering{gobble}
 
-% \input{"chapters/acknowledgements.tex"}
-% \cleardoublepage
-% \input{"chapters/abstract.tex"}
-% \cleardoublepage
+\input{"acknowledgements.tex"}
+\cleardoublepage
+\input{"abstract.tex"}
+\cleardoublepage
 
 % Table of contents.
 \pagenumbering{Roman}\pagestyle{ppfcmthesis}%
@@ -78,9 +78,21 @@
 
 % Main content of your thesis starts here.
 \mainmatter%
-% \input{"chapters/introduction.tex"}
 
-% \cleardoublepage\appendix
+\input{"chapters/introduction.tex"}
+
+\input{"chapters/physarum.tex"}
+
+\input{"chapters/qap.tex"}
+
+\input{"chapters/algorithm.tex"}
+
+\input{"chapters/conclusion.tex"}
+
+\cleardoublepage\appendix
+
+\input{"chapters/appendices/interface.tex"}
+
 % \input{"chapters/appendices/test_results.tex"}
 
 % Bibliography (books, articles) starts here.
