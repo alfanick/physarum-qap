@@ -1,0 +1,8 @@
+#!/bin/sh
+
+rm -rf bin
+mkdir -p bin logs docs build
+
+cd build
+cmake -Wno-dev -DCMAKE_BUILD_TYPE=Debug .. -DCMAKE_INSTALL_PREFIX=..
+cd ..
