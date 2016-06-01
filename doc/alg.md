@@ -1,10 +1,12 @@
 - dlaczego metahuerystyka?
   - po dlugich obserwacjach i researchu nt sluzowca i qap, uswiadomilismy sobie, ze my nie jestesmy w stanie tak przetrasformowac problem qap aby moglbyc w ogole reprezentowalny jako graf planarny na ktorym mailby sie poruszac sluzowiec
+
 - wymyslelismy algorytm ktory moglby dzialac na sluzowcach, jednak  nie jest on realizowalny w praktyce i nie daje tez zadnych zyskow nad metodami tradycyjnymi
   - wymaga w ramach preprocessingu wczesniejszego wygenerowania wszystkich n! przyporzadkowan
   - dla kazdego z nich ustawiany jest platek owsiany o wielkosci odwrotnie proporcjonalnej do kosztu qap (co wymaga policzenia kosztu)
   - sluzowiec jest wypuszczany w jednym lub kilku miejscach, na podstawie obserwacji mozemy zalozyc ze predzej czy pozniej zatrzymalby sie na najwiekszym platku owsianym
   - oczywiscie taki algorytm nie jest praktyczny - jest to rozwiazywanie problemu qap metoda brute force a jedyne co robilby sluzowiec to realizowal funkcje minimum na takim zbiorze rozwiazan
+
 - algorytm ten pomimo oczywistych wad, zainspirowal nas do stworzenia metaheurystyki inspirowanej sluzowowcami
   - o ile naszym case study jest problem qap, taka metaheurystyka moze byc zastosowana dla wielu problemow optymalizacyjnych
   - algorytm dzieli sie na trzy fazy
@@ -23,6 +25,7 @@
         - dzieki temu plasmodium moze jeszcze eksplorowac wczesniejsze okolice, pomimo ruchu w kierunku lepszego rozwiazania
     - odnalezenie rozwiazania
       - rozwiazaniem problemu qap jest takie rozwiazanie na ktorym aktualnie przebywa plasmodium i jego koszt jest najmniejszy (pokarm jest najwiekszy)
+
   - algorytm posiada wiele parametrow
     - wielkosc poczatkowej proby N - zwiekszenie proby powoduje odnajdowanie „dobrych” rozwiazan na wstepnym etapie
     - ilosc aktywnych plasmodiow K - zwiekszenie liczby plasmodiow powoduje eksploaracje wiekszego horyzontu i zwieksza szanse znalezienia optimum globalnego 
@@ -30,3 +33,5 @@
     - koszt ruchu CC - niski koszt stymuluje do ruchu i globalnego przeszukiwania, zmniejsza przeszukiwanie lokalne
     - energia poczatkowa E - wartosc energii ktora posiada nowe plasmodium niezaleznie od jego polozenia, umozliwia ona ruch i eksploracje nawet gdy poczatkowe polozenie jest maloenergetyczne
     - czas dzialania algorytmu - algorytm odbywa sie w dyskretnych krokach i zatrzymuje sie tylko gdy nie wykonuje sie dalsza optymalizacja lub gdy skonczy sie czas, wiekszy czas dzialania algorytmu umozliwia dokladniejsze przeszukanie przestrzeni rozwiazan
+
+
