@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
   PUT::Physarum::Environment environment(problem, 1.0, 0.001, 0.03);
   PUT::Physarum::Experiment experiment(environment, problem.getSize() * problem.getSize() * problem.getSize() / 3, 20);
 
-  experiment.run(300);
+  experiment.run(problem.getSize() * 3);
 
   std::cout << experiment.getSolution() << std::endl;
 
