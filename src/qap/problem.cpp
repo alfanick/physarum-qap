@@ -38,19 +38,19 @@ Problem::Problem(std::string path) : Problem() {
   }
 }
 
-unsigned long long Problem::cost(const std::vector<int> &solution) {
+unsigned long long Problem::cost(Solution solution) {
   unsigned long long total = 0;
 
   for (size_t i = 0; i < size; i++) {
     for (size_t j = 0; j < size; j++) {
-      total += flow[solution[i]][solution[j]] * distance[i][j];
+      total += flow[solution.assignment[i]][solution.assignment[j]] * distance[i][j];
     }
   }
 
   return total;
 }
 
-unsigned long long Problem::cost(const std::vector<int> &solution, unsigned long long previous_cost, size_t a, size_t b) {
+unsigned long long Problem::cost(Solution solution, unsigned long long previous_cost, size_t a, size_t b) {
   return 0;
 }
 
