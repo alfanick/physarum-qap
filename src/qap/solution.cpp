@@ -30,7 +30,9 @@ bool Solution::operator<(const Solution& other) const {
 std::ostream &operator<<(std::ostream &os, Solution const &s) {
   os << s.assignment.size() << ' ' << s.cost() << std::endl;
 
-  std::copy(s.assignment.begin(), s.assignment.end(), std::ostream_iterator<size_t>(os, " "));
+  for (size_t a : s.assignment) {
+    os << a+1 << ' ';
+  }
 
   return os;
 }
