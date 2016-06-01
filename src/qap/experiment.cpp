@@ -30,12 +30,20 @@ Solution Experiment::getSolution() {
   Solution best_solution(&environment.getProblem());
 
   for (auto& plasmodium : population) {
+    Solution best_local(&environment.getProblem());
     for (auto& solution : plasmodium.getPositions()) {
       if (solution.cost() < best_solution.cost()) {
         best_solution = solution;
       }
+
+      if (solution.cost() < best_local.cost()) {
+        best_local = solution;
+      }
     }
+
+    std::cerr << plasmodium.getId() << " " << environment.getInitialFood(best_local) << std::endl;
   }
+  std::cerr << std::endl;
 
   return best_solution;
 }
@@ -52,7 +60,7 @@ void Experiment::run(unsigned int max_time) {
 
     // merge()
 
-    if (epoch % 100000 == 0) {
+    if (epoch % 100 == 0) {
       std::cerr << "Epoch: " << epoch << std::endl;
       if (time(0) - start_time >= max_time)
         break;

@@ -11,6 +11,13 @@ namespace Physarum {
 class Problem;
 class Solution {
   public:
+    class Comparator {
+      public:
+        bool operator()(const Solution& a, const Solution& b) const {
+          return a.assignment < b.assignment;
+        }
+    };
+
     Solution(Problem* problem);
     Solution(Problem* problem, const std::vector<int> &assignment);
 

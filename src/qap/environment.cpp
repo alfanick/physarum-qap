@@ -12,11 +12,23 @@ void Environment::calibrate(unsigned long long c) {
 }
 
 float Environment::getInitialFood(const Solution& solution) {
-  return initial_food + getFood(solution);
+  return initial_food + best_cost / solution.cost();
+}
+
+void Environment::eatFood(const Solution& solution, float f) {
+  if (food_eaten.find(solution) != food_eaten.end()) {
+    food_eaten[solution] += f;
+  } else {
+    food_eaten.emplace(solution, f);
+  }
 }
 
 float Environment::getFood(const Solution& solution) {
-  return best_cost / solution.cost();
+  if (food_eaten.find(solution) != food_eaten.end()) {
+    return best_cost / solution.cost() - food_eaten[solution];
+  } else {
+    return best_cost / solution.cost();
+  }
 }
 
 }

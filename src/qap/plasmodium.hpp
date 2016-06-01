@@ -15,17 +15,17 @@ class Plasmodium {
     void explore();
     void crawl();
 
-    std::vector<Solution> frontier();
-
     float getFood() { return food; }
     size_t getId() { return id; }
     std::vector<Solution> getPositions() { return occupancy; }
 
   private:
     std::vector<Solution> occupancy;
+    std::vector<Solution> frontier;
     float food;
     Environment* environment;
     size_t id;
+    size_t size;
 
     static size_t next_id() {
       static std::atomic_size_t id_generator(0);
