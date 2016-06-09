@@ -6,6 +6,8 @@ namespace Physarum {
 Plasmodium::Plasmodium(Environment* e, Solution position, float f) : food(f), environment(e) {
   id = next_id();
   size = position.assignment.size();
+  explored_count = 0;
+  crawled_count = 0;
   occupancy.push_back(position);
 
   std::cerr << id << " " << f << std::endl;
@@ -24,14 +26,21 @@ void Plasmodium::explore() {
     while (a == b)
       b = rand() % size;
 
+    int i = 1;
     for (auto solution : occupancy) {
-      environment->eatFood(solution, explore_cost / occupancy.size());
+      // if (rand() > (float(i) / float(occupancy.size())) * RAND_MAX)
+      //   continue;
+
+      environment->eatFood(solution, explore_cost);
 
       std::swap(solution.assignment[a], solution.assignment[b]);
 
       frontier.push_back(solution);
+      explored_count++;
 
       food -= explore_cost;
+
+      i++;
     }
 
   }
@@ -48,6 +57,7 @@ void Plasmodium::crawl() {
     }), occupancy.end());
 
     occupancy.push_back(frontier[0]);
+    crawled_count++;
 
     food -= environment->getCrawlCost();
     food += environment->getFood(frontier[0]);

@@ -18,6 +18,8 @@ class Plasmodium {
     float getFood() { return food; }
     size_t getId() { return id; }
     std::vector<Solution> getPositions() { return occupancy; }
+    size_t getExploredCount() { return explored_count; }
+    size_t getCrawledCount() { return crawled_count; }
 
   private:
     std::vector<Solution> occupancy;
@@ -26,6 +28,8 @@ class Plasmodium {
     Environment* environment;
     size_t id;
     size_t size;
+    size_t explored_count;
+    size_t crawled_count;
 
     static size_t next_id() {
       static std::atomic_size_t id_generator(0);

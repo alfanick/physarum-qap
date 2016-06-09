@@ -41,7 +41,7 @@ Solution Experiment::getSolution() {
       }
     }
 
-    std::cerr << plasmodium.getId() << " " << environment.getInitialFood(best_local) << std::endl;
+    std::cerr << plasmodium.getId() << " " << environment.getInitialFood(best_local) << " " << plasmodium.getPositions().size() << " " << plasmodium.getExploredCount() << " " << plasmodium.getCrawledCount() << std::endl;
   }
   std::cerr << std::endl;
 
