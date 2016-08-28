@@ -59,6 +59,8 @@ void Plasmodium::crawl() {
     occupancy.push_back(frontier[0]);
     crawled_count++;
 
+    // std::cerr << crawled_count << ' ' << occupancy.size() << std::endl;
+
     food -= environment->getCrawlCost();
     food += environment->getFood(frontier[0]);
   }

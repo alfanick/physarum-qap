@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8.8)
 set(PROJECT_NAME_STR physarum-qap)
 project(${PROJECT_NAME_STR} CXX)
 
-set(CXX_CLANG_FLAGS "-Wall -Wextra -Wno-unused-parameter -std=c++11 -stdlib=libc++ -O2 -march=native")
-set(CXX_GNU_FLAGS "-std=c++11 -Wall -O2 -march=native")
+set(CXX_CLANG_FLAGS "-Wall -Wextra -Wno-unused-parameter -std=c++11 -stdlib=libc++ -O3 -march=native")
+set(CXX_GNU_FLAGS "-std=c++11 -Wall -O3 -march=native")
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
