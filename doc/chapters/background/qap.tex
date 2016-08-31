@@ -1,2 +1,39 @@
 \section{Quadratic Assignment Problem}
 \label{section:background_qap}
+
+\subsection{History and importance with examples (2)}
+
+The Quadratic Assignment Problem is a great challenge in combinatorial optimization.
+It history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957}.
+They have focused on allocation of indivisible resources using assignment of plants to location as an example.
+Two problems were considered, first in which the transportation costs between plants could be ignored and second where the costs are included.
+
+Ignoring the costs presents a relatively simple problem.
+The task is to assign into pairs two sets of an eual number $n$ of similar elements.
+Each assignment has a different score and after choosing all elements the sum of scores is calculated.
+The objective is to achieve the highest result and such dilemma is named linear assignment problem.
+
+Companies often have different tasks with different difficulties for their workers.
+Each employee could do the job more or less the with the same result, which will be the score of the pairing.
+Picking the best person for the job could be a good example of this simple problem.
+However, this expect that each person is suitable to do the job alone.
+Adding that tasks depend on each other makes selection less trivial.
+
+Introducing an assumption that some elements from one set are dependent on another elements from the same set complicates greatly linear assignment problem and presents quadratic assignment problem.
+In this situation we have two sets as before and a matrix with weights, where each matrix's element respresents one combination of assignment.
+
+\subsection{Math definition (1)}
+
+
+\subsection{Known algorithms (11-16)}
+
+\subsubsection{Exact solutions (2)}
+\subsubsection{Linearizations (3-5)}
+
+\subsubsection{Metaheuristics (6-8)}
+
+\paragraph{Greedy (1)}
+\paragraph{Tabu search (2)}
+\paragraph{Simulated annealing (2)}
+\paragraph{Ant colony (2-3)}
+

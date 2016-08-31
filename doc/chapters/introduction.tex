@@ -5,12 +5,12 @@ Nowadays, computing science intertwined with a various field of studies posing n
 
 A good example of such interdisciplinary connection is that the companies' managers sometimes are trying to answer a very difficult question. These businesses mostly consist of different branches, which require transferring of goods between them, such as production lines. Each element of the product could be manufactured in a various department and needed in the last part of the assembly in the main office. It could be easier to say that they should produce the whole product in one location, yet seldom it is better to divide the responsibility for specialists in each sector. Although, this process generates great costs for the company. It would be crucial minimizing the expenses during assignment of the branches to the locations. Trying to resolve this by hand could be a long process due to the complexity of the problem. However, with a usage of computers, it could be answered in shorter time. The result may not be the optimal one in each case, but it should meet all assumptions, which is enough to put it into real life.
 
-In computer science, the dilemma is named the quadratic assignment problem (QAP).  The QAP is a combinatorial optimization problem, which was presented by Koopmans and Beckmann in 1957, and is a generalization of assignment problem. It is np-hard thus finding results even for small instances is done by approximate methods.
+In computer science, the dilemma is named the quadratic assignment problem (QAP).  The QAP is a combinatorial optimization problem, which was presented by Koopmans and Beckmann in 1957 \cite{koopmans-beckmann1957}, and is a generalization of assignment problem. It is np-hard thus finding results even for small instances is done by approximate methods.
 
 The QAP can be formulated as follows: Given $ n $ different facilities ($F$) and $ n $ different locations ($L$), a weight function $ w: F \times F \mapsto R $ between facilities and a distance function $ d: L \times L \mapsto R $ between locations, find the assignment minimizing this cost function:
 
 \begin{equation}
-min \sum_{a, b \in P } w(a, B) * d( f(a), f(b))
+min \sum_{a, b \in P } w(a, b) * d( f(a), f(b))
 \end{equation}
 
 Over the years, a number of methods for solving this problem were established. Nevertheless, there is still a place for improvement and experts are searching for new ways of resolving that. Inspired by their works this thesis tries to find an innovative method using physarum organisms.
