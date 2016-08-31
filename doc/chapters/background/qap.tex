@@ -47,7 +47,7 @@ Similar to factories and location, here, offices and floors or rooms are allocat
 
 Let m be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment Problem (QAP) can be formulated as
 \begin{align}
-  \text{maximize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpg}x_{ij}x_{pq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
+  \text{maximize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}x_{ij}x_{pq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
   &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
   &\null x_{ij} = 0 \; or \; 1, \; i, j \in M
@@ -62,7 +62,7 @@ It could have been defined differently, however, this shows the objective functi
 \subsubsection{Linearizations (3-5)}
 
 A great approach to resolve such complex problem is to reduce it to linear programming problem.
-Lawler represented it by an equivalent integer programming problem and facilities the computations.
+The first to transform the problem was Lawler, who represented it by an equivalent 0-1 linear programming problem and facilities the computations \cite{lawler1963}.
 
 Defining $n^4$ variables $y_{ijpq}$ as $n^2$ variables $x_{ij}$ where
 \begin{equation}
@@ -70,16 +70,54 @@ y_{ijpq} = x_{ij}x_{pq}
 \end{equation}
 the problem can be linearized and stated as
 \begin{align}
-  \text{maximize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpg}y_{ijpq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
+  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
   &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
+  &\null x_{ij} = 0 \; or \; 1, \; i, j \in M \\
+  &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} y_{ijpq} = m^2 \; \\
+  &\null x_{ij} + x_{pq} - 2y_{ijpq} \leq 0, \; i, j, p, q \in M \\
+  &\null y_{ijij} = 0 \; or \; 1, \; i, j, p, q \in M \\
+\end{align}
+
+drafts below......
+
+Kaufmann and Broeckx
+
+\begin{align}
+  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} w_{ij}\\
+  \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
+  &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
+  &\null x_{ij} = 0 \; or \; 1, \; i, j \in M \\
+  &\null c_{ij}x_{ij} + \sum_{p \in M} \sum_{q \in M} a_{ijpq}x_{pq} - w{ij} \geq c_{ij} = 0 \; i, j \in M \\
+  &\null w_{ij} \geq 0, \; i, j \in M \\
+\end{align}
+
+Frieze and Yadegar
+
+\begin{align}
+  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} \\
+  \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
+  &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
+  &\null x_{ij} = 0 \; or \; 1, \; i, j \in M \\
   &\null \sum_{i \in M} y_{ijpq} = x_{pq}, \; j, p, q \in M \\
   &\null \sum_{j \in M} y_{ijpq} = x_{pq}, \; i, p, q \in M \\
-  &\null \sum_{p \in M} y_{ijpq} = x_{pq}, \; i, j, q \in M \\
-  &\null \sum_{q \in M} y_{ijpq}= x_{pq}, \; i, j, p \in M \\
+  &\null \sum_{p \in M} y_{ijpq} = x_{ij}, \; i, j, q \in M \\
+  &\null \sum_{q \in M} y_{ijpq}= x_{ij}, \; i, j, p \in M \\
   &\null y_{ijij} = x_{ij}, \; i, j \in M \\
-  &\null x_{ij} = 0 \; or \; 1, \; i, j \in M \\
   &\null 1 \geq y_{ijpq} \geq 0, \; i, j, p, q \in M
+\end{align}
+
+Adams and Johnson
+
+\begin{align}
+  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} \\
+  \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
+  &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
+  &\null x_{ij} = 0 \; or \; 1, \; i, j \in M \\
+  &\null \sum_{i \in M} y_{ijpq} = x_{pq}, \; j, p, q \in M \\
+  &\null \sum_{j \in M} y_{ijpq} = x_{pq}, \; i, p, q \in M \\
+  &\null y_{ijpq} = x_{pqij}, \; i, j, p, q \in M \\
+  &\null y_{ijpq} \geq 0, \; i, j, p, q \in M
 \end{align}
 
 \subsubsection{Metaheuristics (6-8)}
