@@ -44,9 +44,9 @@ As representant of \textit{Myxomycete}, a life cycle of the slime mould is very 
 
 For purposes of unconventional computing applications, \textit{Physarum} is preferred in its such plasmodial stage. However, during research transformations into other states are inevitable and must be dealt with. In case of drying and enforced starvation sclerotium is formed --- in this dormant phase \textit{Physarum Polycephalum} can survive for many years until dampness and nutrients are provided again.
 
-Plasmodium forms protoplasmic tubes accordingly to food availability. Such tubes are used for discovery and transportation of nutrients. The tubes are built in similar way to animal muscles. The ectoplasm contains actin and myosin complexes, which are organised into regular structures forming tubes. Such actomyosin complexes generate contractile motion resulting in streaming of protoplasm. Furthermore, synchronized oscillations of protoplasm stream direction can observed. Nutrients are transported in one direction, after 1-2~minutes the direction is reversed. Period of this oscillation depends on environment quality and accesibility to food \cite{wohlfarth1979oscillatory}. 
+Plasmodium forms protoplasmic tubes (also called pseudopodia) accordingly to food availability. Such tubes are used for discovery and transportation of nutrients. The tubes are built in similar way to animal muscles. The ectoplasm contains actin and myosin complexes, which are organised into regular structures forming tubes. Such actomyosin complexes generate contractile motion resulting in streaming of protoplasm. Furthermore, synchronized oscillations of protoplasm stream direction can observed. Nutrients are transported in one direction, after 1-2~minutes the direction is reversed. Period of this oscillation depends on environment quality and accesibility to food \cite{wohlfarth1979oscillatory} --- higher frequency oscillations are generated where nutrients available and no harmful environment exist, low frequency oscillations are caused by lack of food or as a result of unfavourable conditions. 
 
-The plasmodium can grow around 10~mm per hour when actively exploring environment \cite{coggin1996dynamic}. While moving, plasmodium leaves polysaccharide traces (informally called slime, hence the name slime mould). Network of the protoplasmic tubes adapts to forming efficient ways of transporting nutrients, depending on their amount and quality \cite{nakagaki2004obtaining}. 
+The plasmodium can grow around 10~mm per hour when actively exploring environment \cite{coggin1996dynamic}. While moving, plasmodium leaves polysaccharide traces (informally called slime, hence the name slime mould). Network of the protoplasmic tubes adapts, forming efficient ways of transporting nutrients, depending on their amount and quality \cite{nakagaki2004obtaining}. Usage of this behaviour is a fundamental principle for building physarum machines.
 
 
 \subsection{Related works}
@@ -60,9 +60,14 @@ Research towards computational applications of the \textit{Physarum} truly start
 \subsubsection{Maze-solving capabilities}
 
 % TODO ref
-Maze-solving or more constricted problem of finding, preferably shortest, paths is a very common in practice. It has many applications and many possible algorithms are already available. Algorithms such as breadth-first search or more complex $A*$ are commonly used to solve maze, however Toshiyuki Nakagaki et al. proposed usage slime moulds' natural capabilities as unconventional solution to this problem.
+Maze-solving or more constricted problem of finding, preferably shortest, paths is a very common in practice. It has many applications and many possible algorithms are already available. Algorithms such as breadth-first search or more complex $A*$ are commonly used for solving mazes, however Toshiyuki Nakagaki et al. proposed usage slime moulds' natural capabilities as unconventional solution to this problem.
 
-In order to use \textit{Physarum} to solve a labiryth, a maze must be represented as a physical object. Such maze is modelled on a Petri dish where floor is made of non-nutrient agar and walls are made of thin plastic film (the maze used in the experiment is presented on figure \ref{figure:bp_maze}). There are four possible routes available ${(\alpha_1,\beta_1), (\alpha_1,\beta_2), (\alpha_2,\beta_1), (\alpha_2,\beta_2)}$) between entry point $A$ and exit point $B$.
+% TODO wrzucic obrazek
+In order to use \textit{Physarum} to solve a labiryth, a maze must be represented as a physical object. Such maze is modelled on a Petri dish where floor is made of non-nutrient agar and walls are made of thin plastic film (the maze used in the experiment is presented on figure \ref{figure:bp_maze}). As the slime mould strictly prefers humid environment of the agar it will not pass arid walls made of plastic film. 
+
+There are four possible routes available $\{(\alpha_1,\beta_1), (\alpha_1,\beta_2), (\alpha_2,\beta_1), (\alpha_2,\beta_2)\}$ between entry point $A$ and exit point $B$. Oatmeal-agar based source of nutrients is planted in both entry and exit points, while large enough plasmodium is placed over whole floor of the maze. As time passes it can be observed that plasmodium retracts its body from labirth's dead-ends, leaving traces of slime where it previously has been placed. 
+
+As a result the slime mould rests only on direct paths connecting an entry with an exit point. Furthermore, it has been observed that \textit{Physarum Polycephalum} usually prefers shortest $(\alpha_2,\beta_1)$ path as it prefers most efficient way for transferring nutrients. 
 
 
 \subsubsection{Spatial memory}
