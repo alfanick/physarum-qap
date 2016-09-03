@@ -53,21 +53,43 @@ The plasmodium can grow around 10~mm per hour when actively exploring environmen
 
 Since early 1960s \textit{Physarum Polycephalum} has been a subject to many biological and microbiological studies \cite{guttes1964mitotic,daniel1962method}, however it is late 70s when its computational-like behaviours have been observed \cite{wohlfarth1979oscillatory}.
 
-% TODO ref names places
-Research towards computational applications of the \textit{Physarum} truly started in 1990s. Nowadays, there exist two prominent research centers focusing on the slime mould --- one based in United Kingdom, other one in Japan. Some of their works excited us about slime mould capabilities and inspired to write this thesis.  Presented here experiments with their results focus on different aspects of \textit{Physarums} behaviour. Analyzing and understanding them gives impression of emerging computational power of such simple organism as a slime mould.
+% TODO artists
+Research towards computational applications of the \textit{Physarum} truly started in 1990s. Nowadays, there exist two prominent research centers focusing on the slime mould --- one based in United Kingdom (Andrew Adamatzky\footnote{~\url{http://uncomp.uwe.ac.uk/adamatzky/}}, Jeff Jones\footnote{~\url{http://uncomp.uwe.ac.uk/jeff/}} from University of West England, Bristol), other one in Japan (Toshiyuki Nakagaki\footnote{~\url{http://www.cris.hokudai.ac.jp/cris/en/research/ob/ob\_innovative/nakagaki.html}}, Hokkaido University, Sapporo). Some of their works excited us about slime mould capabilities and inspired to write this thesis \cite{nakagaki2000intelligence,adamatzky2010physarum,jones2015pattern}. Experiments presented here, focus on different aspects of \textit{Physarums} behaviour. Analyzing and understanding them gives impression of emerging computational power of such simple organism as a slime mould.
 
 
 \subsubsection{Maze-solving capabilities}
 
-% TODO ref
-Maze-solving or more constricted problem of finding, preferably shortest, paths is a very common in practice. It has many applications and many possible algorithms are already available. Algorithms such as breadth-first search or more complex $A*$ are commonly used for solving mazes, however Toshiyuki Nakagaki et al. proposed usage slime moulds' natural capabilities as unconventional solution to this problem.
+Maze-solving or more constricted problem of finding, preferably shortest, paths is very common in practice. It has many applications and many possible algorithms are already available. Algorithms such as breadth-first search or more complex $A*$ are commonly used for solving mazes \cite{zelkowitz1979principles}, however Toshiyuki Nakagaki et al. proposed usage slime moulds' natural capabilities as unconventional solution to this problem \cite{nakagaki2000intelligence}.
 
 % TODO wrzucic obrazek
 In order to use \textit{Physarum} to solve a labiryth, a maze must be represented as a physical object. Such maze is modelled on a Petri dish where floor is made of non-nutrient agar and walls are made of thin plastic film (the maze used in the experiment is presented on figure \ref{figure:bp_maze}). As the slime mould strictly prefers humid environment of the agar it will not pass arid walls made of plastic film. 
 
-There are four possible routes available $\{(\alpha_1,\beta_1), (\alpha_1,\beta_2), (\alpha_2,\beta_1), (\alpha_2,\beta_2)\}$ between entry point $A$ and exit point $B$. Oatmeal-agar based source of nutrients is planted in both entry and exit points, while large enough plasmodium is placed over whole floor of the maze. As time passes it can be observed that plasmodium retracts its body from labirth's dead-ends, leaving traces of slime where it previously has been placed. 
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/maze1.jpg}
+    \caption{Plasmodium initially filling maze}
+    \label{figure:bp_maze_initial}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/maze2.jpg}
+    \caption{Intermediate state}
+    \label{figure:bp_maze_intermediate}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/maze3.jpg}
+    \caption{Final route}
+    \label{figure:bp_maze_final}
+  \end{subfigure}
+  \caption{\textit{Physarum} in various states of the maze experiment \cite{nakagaki2000intelligence}}
+\end{figure}
 
-As a result the slime mould rests only on direct paths connecting an entry with an exit point. Furthermore, it has been observed that \textit{Physarum Polycephalum} usually prefers shortest $(\alpha_2,\beta_1)$ path as it prefers most efficient way for transferring nutrients. 
+There are four possible routes available $\{(\alpha_1,\beta_1), (\alpha_1,\beta_2), (\alpha_2,\beta_1), (\alpha_2,\beta_2)\}$ between entry point $A$ and exit point $B$ (figure \ref{figure:bp_maze_initial}). Oatmeal-agar based source of nutrients is planted in both entry and exit points, while large enough plasmodium is placed over whole floor of the maze. As time passes it can be observed that plasmodium retracts its body from labirth's dead-ends, leaving traces of slime where it previously has been placed (figure \ref{figure:bp_maze_intermediate}). 
+
+As a result the slime mould rests only on direct paths connecting an entry with an exit point (figure \ref{figure:bp_maze_intermediate}). Furthermore, it has been observed that \textit{Physarum Polycephalum} usually prefers shortest $(\alpha_2,\beta_1)$ path as it prefers most efficient way for transferring nutrients. While obtained results are satisfactory, it must be noted that whole process takes about 4~hours. 
 
 
 \subsubsection{Spatial memory}
