@@ -1,11 +1,15 @@
 #include "./experiment.hpp"
 
 #include <queue>
+#include <cassert>
 
 namespace PUT {
 namespace Physarum {
 
 Experiment::Experiment(const Environment &e, size_t ss, size_t ips) : environment(e), sample_size(ss), initial_population_size(ips) {
+  // population must be smaller than number of samples
+  assert(ips <= ss);
+
   // sample solutions
   std::priority_queue<Solution> samples;
 
@@ -31,14 +35,15 @@ Solution Experiment::getSolution() {
 
   for (auto& plasmodium : population) {
     Solution best_local(&environment.getProblem());
-    for (auto& solution : plasmodium.getPositions()) {
-      if (solution.cost() < best_solution.cost()) {
-        best_solution = solution;
-      }
 
-      if (solution.cost() < best_local.cost()) {
+    for (auto& solution : plasmodium.getPositions()) {
+      if (solution < best_local) {
         best_local = solution;
       }
+    }
+
+    if (best_local < best_solution) {
+      best_solution = best_local;
     }
 
     std::cerr << plasmodium.getId() << " " << environment.getInitialFood(best_local) << " " << plasmodium.getPositions().size() << " " << plasmodium.getExploredCount() << " " << plasmodium.getCrawledCount() << std::endl;
