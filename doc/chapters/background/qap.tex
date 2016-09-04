@@ -2,11 +2,11 @@
 \label{section:background_qap}
 
 \subsection{History and importance with examples (2)}
-
 The Quadratic Assignment Problem is an enormous challenge in combinatorial optimization.
 Its history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957}.
 They have focused on the allocation of indivisible resources using the assignment of plants to location as an example.
 Two problems were considered, first in which the transportation costs between plants could be ignored and second where the costs are included.
+Since the presentation of the first formulation, there were no dramatic advances in improvement of solving methods.
 
 Ignoring the prices shows a relatively simple problem.
 The task is to assign into pairs two sets of an equal number $n$ of similar elements.
@@ -44,7 +44,6 @@ In the service industry, an example could be locating distinct departments.
 Similar to factories and location, here, offices and floors or rooms are allocated.
 
 \subsection{Math definition (1)}
-
 Let m be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment Problem (QAP) can be formulated as
 \begin{align}
   \text{maximize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}x_{ij}x_{pq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
@@ -54,17 +53,27 @@ Let m be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment P
 \end{align}
 
 This formulation is the most generalized model of quadratic assignment problem.
-It could have been defined differently, however, this shows the objective function as an quadratic one, which clearly indicated the name.
+It could have been defined differently, however, this shows the objective function as a quadratic one, which clearly indicated the name.
+The discrete nature and the complexity of quadratic objective function cause difficulties in finding an optimal solution thus making the problem NP-hard.
+Horowitz and Sahni have proved that in their book \cite{horowitz1978fundamentals} by showing that QAP needs an exponential time algorithm to solve optimally.
+
 
 \subsection{Known algorithms (11-16)}
-
 \subsubsection{Exact solutions (2)}
+
+The most simple method of resolving QAP is by using an enumeration or populary named "branch and bound", which is to evaluate all of the $m!$ permutations (assignments) and recording the best solution.
+Every calculation must be done from the start.
+This requires $m^2$ steps and must be computed $m!$ times, which makes it useless for bigger instances.
+However, when the problem is small, it has an advantage due to simplicity - the implementation is simple and requires little memory.
+
+Surprisingly, also the time could be better. Franzer in his paper \cite{frazer1997602} presented that for test problem with $m=10$ the enumeration could be faster than linear programming. Comparing memory usage also gave amazing results thus proving that linear or 0-1 programming are not appropriate solution methods.
+
 \subsubsection{Linearizations (3-5)}
+A great approach to resolving such complex problem is to reduce it to a linear programming problem.
+Unfortunately, most of the time this could be impractical even for small m.
+The first to transform the problem was Lawler, who represented it by an equivalent 0-1 linear programming problem and facilities the computations \cite{lawler1963}. He based his thinking on a traveling salesman problem looking for similarities between these two \cite{charnsethikul1988exact}.
 
-A great approach to resolve such complex problem is to reduce it to linear programming problem.
-The first to transform the problem was Lawler, who represented it by an equivalent 0-1 linear programming problem and facilities the computations \cite{lawler1963}.
-
-Defining $n^4$ variables $y_{ijpq}$ as $n^2$ variables $x_{ij}$ where
+Defining $m^4$ variables $y_{ijpq}$ as $m^2$ variables $x_{ij}$ where
 \begin{equation}
 y_{ijpq} = x_{ij}x_{pq}
 \end{equation}
@@ -78,11 +87,22 @@ the problem can be linearized and stated as
   &\null x_{ij} + x_{pq} - 2y_{ijpq} \leq 0, \; i, j, p, q \in M \\
   &\null y_{ijij} = 0 \; or \; 1, \; i, j, p, q \in M \\
 \end{align}
+In result there are $m^4 + m^2$ binary variables and $m^4 + 2 m^2 + 1$ constraints.
+His definition has still been impractical for any bigger m.
 
-drafts below......
+Kaufmann and Broeckx created another linearization, which has the smallest number of variables and constraints \cite{kaufman1978algorithm} and is based on the method suggested by Glover.
+Such manipulation reduces the complexity of the problem thus making calculations faster.
+The authors rearrange the objective function into
+\begin{equation}
+  \sum_{i \in M} \sum_{j \in M} x_{ij} \sum_{p \in M} \sum_{q \in M} a_{ijpq} x_{pq}
+\end{equation}
 
-Kaufmann and Broeckx
+Afterwards they define $m^2$ new real variables
+\begin{equation}
+  w_{ij} := x_{ij}\sum_{p \in M} \sum_{q \in M} a_{ijpq} x_{pq}
+\end{equation}
 
+Additionaly introducing $m^2$ constraints $ c_{ij} := \sum_{p \in M} \sum_{q \in M} a_{ijpq} $ the problem could be formulated as
 \begin{align}
   \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} w_{ij}\\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
@@ -92,10 +112,19 @@ Kaufmann and Broeckx
   &\null w_{ij} \geq 0, \; i, j \in M \\
 \end{align}
 
-Frieze and Yadegar
+In result there are $m^2$ real variables, $m^2$ binary variables and $m^2 + 2m$ constraints.
+This improves slightly previous methods.
+However, Kaku and Thompson reported \cite{kaku1986exact} that for small sizes, such as m = 8, the requirements become too large and optimality could not be proved.
 
+Another linearization was presented by Frieze and Yadegar \cite{frieze1983quadratic}.
+Obtaining their mixed integer linear programming formulation could be achieved by replacing the product of binary variables by continuous variables as
+\begin{equation}
+  y_{ijpq} := x_{ij} x_{pq}
+\end{equation}
+
+The outcome definition being
 \begin{align}
-  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} \\
+  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
   &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
   &\null x_{ij} = 0 \; or \; 1, \; i, j \in M \\
@@ -107,8 +136,10 @@ Frieze and Yadegar
   &\null 1 \geq y_{ijpq} \geq 0, \; i, j, p, q \in M
 \end{align}
 
-Adams and Johnson
+In result there are $m^4$ real variables, $m^2$ binary variables and $m^4 + 4m^3+m^2+2m$ constraints.
 
+Adams and Johnson presented also a new 0-1 linear integer programming formulation \cite{adams1994improved}.
+It has similarities to the previous definition.
 \begin{align}
   \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
@@ -120,8 +151,9 @@ Adams and Johnson
   &\null y_{ijpq} \geq 0, \; i, j, p, q \in M
 \end{align}
 
-\subsubsection{Metaheuristics (6-8)}
+In result there are $m^2$ binary variables, $m^4$ continuous variables and $m^4+2m^3+2m$ constraints.
 
+\subsubsection{Metaheuristics (6-8)}
 \paragraph{Greedy (1)}
 \paragraph{Tabu search (2)}
 \paragraph{Simulated annealing (2)}
