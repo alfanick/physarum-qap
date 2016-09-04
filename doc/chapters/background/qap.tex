@@ -6,8 +6,8 @@ The Quadratic Assignment Problem is an enormous challenge in combinatorial optim
 Its history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957}.
 They have focused on the allocation of indivisible resources using the assignment of plants to location as an example.
 Two problems were considered, first in which the transportation costs between plants could be ignored and second where the costs are included.
-Since the presentation of the first formulation, there were no dramatic advances in improvement of solving methods.
 
+Since the presentation of the first formulation, there were no dramatic advances in improvement of solving methods.
 Ignoring the prices shows a relatively simple problem.
 The task is to assign into pairs two sets of an equal number $n$ of similar elements.
 Each assignment has a different score and after choosing all elements, the sum of scores is calculated.
@@ -154,8 +154,56 @@ It has similarities to the previous definition.
 In result there are $m^2$ binary variables, $m^4$ continuous variables and $m^4+2m^3+2m$ constraints.
 
 \subsubsection{Metaheuristics (6-8)}
+Methods presented previously are not efficient with bigger instances.
+In order to enhance the results, heuristics were used.
+These approximate solution techniques have been used to facility combinatorial problems.
+After it became clear, that many of dilemmas are NP-hard, the role of heuristics increased.
+Even thought problems of dimensions $m > 20$ are still impractical to resolve due to high computational time, heuristics slightly improved a situation for medium size cases.
+
+
 \paragraph{Greedy (1)}
 \paragraph{Tabu search (2)}
+
+In the beginning of heuristics, the most popular approach was Local Search.
+Starting from one solution, the algorithm was improving it by applying slight modifications.
+
+Tabu search is a metaheuristic local search method created by Glover in 1986 \cite{glover1986future}, which improves the problems encountered in Local Search.
+Its goal is to conquer local optimality using not only advancing the result but also worsening.
+It is achieved by remembering already visited outcomes, which helps to see promising directions for further exploration.
+
+The method has few main elements, which needs to be defined in order to understand the procedure:
+\begin{itemize}
+  \item A \textit{search space} is a space of all possible solutions that could be visited during the search. This includes all feasible answers of the problem.
+  \item A \textit{neighborhood structure} is a subset of search space, which could be accomplished by applying a single \textit{transformation} to a current solution.
+  \item A \textit{move} is an operation, which changes solution $x$ to a neighbor $x'$. In the case of QAP, the neighborhood could be created by exchanging one pair of the solution.
+  \item A \textit{tabu list} is a list containing forbidden (tabu) moves and it is updated constantly with each iteration. It consists of the records of the recent history of transformations and prevents cycling back to already visited result.
+  \item An \textit{aspiration criterion} is a condition associated with each tabu move, which permits canceling its tabu state. A most common example is allowing the tabu move if the value of the objective function is superior to current. This obviously means that the solution was not previously visited.
+\end{itemize}
+
+In the beginning, the feasible solution is chosen and the tabu list is updated.
+There is also a list of neighbors available.
+The algorithm chooses the best neighboring solution, which could be produced by a non-tabu move.
+The neighbor does not have to raise the value of objective function.
+Afterward, the neighbor is the current result and the algorithm goes from the start.
+The calculations are ended after \textit{termination criteria}, which could be: fixed number of iterations, the number of iterations without an improvement in the value, after reaching the threshold value.
+
+In order to prevent visiting the same solutions over and over, a tabu criterion is used.
+It identifies moves, which could lead to cycles, and adds them to the tabu list.
+However, such moves could be applied if the aspiration criterion shows that they could introduce potentially winning solutions.
+The tabu list is an essential change comparing to local search.
+
+Each tabu search algorithm could be implemented slightly differently, which impede measurement of performance.
+Currently, three different tabu search methods were proposed.
+First, a fixed tabu list proposed by Skorin-Kapov \cite{skorin1990tabu}.
+The size of tabu list is a parameter, which needs to tunned before starting the calculation.
+It can also be dependent on the specific instance, thus such method is not recommended.
+Second, a robust tabu search proposed by Taillard \cite{taillard1991robust}.
+Here, a maximum and a minimum are defined and the size of the tabu list is chosen among them.
+Third, a reactive tabu search proposed by Battiti and Tecchiolli \cite{battiti1994reactive}.
+The size of the tabu list is adapting to the current situation.
+When the cycle is identified, the size is increased according to the length of the repetition.
+This approach shows the best results for QAP.
+
 \paragraph{Simulated annealing (2)}
 \paragraph{Ant colony (2-3)}
 
