@@ -62,7 +62,7 @@ Research towards computational applications of the \textit{Physarum} truly start
 Maze-solving or more constricted problem of finding, preferably shortest, paths is very common in practice. It has many applications and many possible algorithms are already available. Algorithms such as breadth-first search or more complex $A*$ are commonly used for solving mazes \cite{zelkowitz1979principles}, however Toshiyuki Nakagaki et al. proposed usage slime moulds' natural capabilities as unconventional solution to this problem \cite{nakagaki2000intelligence}.
 
 % TODO wrzucic obrazek
-In order to use \textit{Physarum} to solve a labiryth, a maze must be represented as a physical object. Such maze is modelled on a Petri dish where floor is made of non-nutrient agar and walls are made of thin plastic film (the maze used in the experiment is presented on figure \ref{figure:bp_maze}). As the slime mould strictly prefers humid environment of the agar it will not pass arid walls made of plastic film. 
+In order to use \textit{Physarum} to solve a labiryth, a maze must be represented as a physical object. Such maze is modelled on a Petri dish where floor is made of non-nutrient agar and walls are made of thin plastic film (the maze used in the experiment is presented on figure \ref{figure:bp_maze_initial}). As the slime mould strictly prefers humid environment of the agar it will not pass arid walls made of plastic film. 
 
 \begin{figure}
   \centering
@@ -87,9 +87,9 @@ In order to use \textit{Physarum} to solve a labiryth, a maze must be represente
   \caption{\textit{Physarum} in various states of the maze experiment \cite{nakagaki2000intelligence}}
 \end{figure}
 
-There are four possible routes available $\{(\alpha_1,\beta_1), (\alpha_1,\beta_2), (\alpha_2,\beta_1), (\alpha_2,\beta_2)\}$ between entry point $A$ and exit point $B$ (figure \ref{figure:bp_maze_initial}). Oatmeal-agar based source of nutrients is planted in both entry and exit points, while large enough plasmodium is placed over whole floor of the maze. As time passes it can be observed that plasmodium retracts its body from labirth's dead-ends, leaving traces of slime where it previously has been placed (figure \ref{figure:bp_maze_intermediate}). 
+There are four possible routes available $\{(\alpha_1,\beta_1), (\alpha_1,\beta_2), (\alpha_2,\beta_1), (\alpha_2,\beta_2)\}$ between entry point $A$ and exit point $B$. Oatmeal-agar based source of nutrients is planted in both entry and exit points, while large enough plasmodium is placed over whole floor of the maze. As time passes it can be observed that plasmodium retracts its body from labirth's dead-ends, leaving traces of slime where it previously has been placed (figure \ref{figure:bp_maze_intermediate}). 
 
-As a result the slime mould rests only on direct paths connecting an entry with an exit point (figure \ref{figure:bp_maze_intermediate}). Furthermore, it has been observed that \textit{Physarum Polycephalum} usually prefers shortest $(\alpha_2,\beta_1)$ path as it prefers most efficient way for transferring nutrients. While obtained results are satisfactory, it must be noted that whole process takes about 4~hours. 
+As a result the slime mould rests only on direct paths connecting an entry with an exit point (figure \ref{figure:bp_maze_final}). Furthermore, it has been observed that \textit{Physarum Polycephalum} usually prefers shortest $(\alpha_2,\beta_1)$ path as it prefers most efficient way for transferring nutrients. While obtained results are satisfactory, it must be noted that whole process takes about 4~hours. 
 
 
 \subsubsection{Spatial memory}
