@@ -121,9 +121,20 @@ A common problem testing autonomous navigational skills in robotics is U-shaped 
   \caption{U-trap test with possible outcomes}
 \end{figure}
 
-The experiment conducted by Reid, Latty, Dussutour and Beekman \cite{reid2012slime} used \textit{Physarum Polycephalum} as an agent in non-nutrient agar environment, where the trap was made out of acetate and the goal was highly nutritious glucose. 
-% TODO aversion to slime
-% TODO results
+The experiment conducted by Reid, Latty, Dussutour and Beekman \cite{reid2012slime} used \textit{Physarum Polycephalum} as an agent in non-nutrient agar environment, where the trap was made out of acetate and the goal was highly nutritious glucose. Agar base allows diffusion of glucose particles, resulting in nutrients gradient towards the goal.
+
+Initial experiments indicated that \textit{Physarum} moves in direction where its slime is not present, however if no such direction exists (that is there is the slime all around plasmodium) it moves in random direction or all over the substrate. Therefore a slime mould has a choice to explore unexplored, however it is not an ultimate one, as it always can maneuver in previously visited areas. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.74\textwidth]{background/physarum/trap_experiment.jpg}
+  \caption{\textit{Physarum Polycephalum} in U-trap experiment on a slime covered substrate \cite{reid2012slime}}
+  \label{figure:bp_trap_experiment}
+\end{figure}
+
+As the slime is stable, nonliving substance mostly made of galactose polymers it can be easily handled, collected and replanted. Two varieties of the experiment has been designed --- in a first one, previously collected slime is placed all over the substrate (figure \ref{figure:bp_trap_experiment}), where in a second one the substrate is just a clean agar. The first environment constrains \textit{Physarum} not to rely on slime for navigation, unlike the second one, in which \textit{Physarum} can use the slime freely for its navigation.
+
+% TODO results - long exploration for food, trapped in U when slime everywhere, when no slime it marks its previous position with slime and quickly goes out the trap
 
 
 \subsubsection{Adaptive network design}
