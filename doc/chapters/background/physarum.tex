@@ -95,8 +95,33 @@ As a result the slime mould rests only on direct paths connecting an entry with 
 
 Memory is usually associated with neurological functions of brain, however it can be externalized in multiple ways, in example as pheromone trails of ants \cite{carroll1973ecology} or even notes-writing as humans do \cite{fisher1973effect}. Team of researchers from University of Sydney, demonstrated that \textit{Physarum Polycephalum} uses its slime as a form of spatial externalized memory \cite{reid2012slime}.
 
-A common problem testing autonomous navigational skills in robotics is U-shaped trap problem. Efficient solution of the issue requires some kind spatial memory or other navigational aids, therefore it was a good candidate for a test of slime mould's memoizing capabilities. 
-% TODO introduce u-maze, robotics
+A common problem testing autonomous navigational skills in robotics is U-shaped trap problem. Efficient solution of the issue requires some kind spatial memory or other navigational aids, therefore it was a good candidate for a test of slime mould's memoizing capabilities. U-maze problem requires an agent (a robot or as in this example the slime mould) to navigate itself from starting position to the goal, where goal is hidden beside an u-shaped trap (figure \ref{figure:bp_trap_model}). The agent has to use some kind of environment map or use reactive guidance to bypass the trap (figure \ref{figure:bp_trap_model_success}), otherwise, most probably, it will be stuck inside the trap (figure \ref{figure:bp_trap_model_failure}).
+
+% TODO create vector images like these
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/trap_model_initial.jpg}
+    \caption{Initial setup}
+    \label{figure:bp_trap_model}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/trap_model_success.jpg}
+    \caption{Example successful route to goal}
+    \label{figure:bp_trap_model_success}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/trap_model_failure.jpg}
+    \caption{Typical failure}
+    \label{figure:bp_trap_model_failure}
+  \end{subfigure}
+  \caption{U-trap test with possible outcomes}
+\end{figure}
+
+The experiment conducted by Reid, Latty, Dussutour and Beekman \cite{reid2012slime} used \textit{Physarum Polycephalum} as an agent in non-nutrient agar environment, where the trap was made out of acetate and the goal was highly nutritious glucose. 
 % TODO aversion to slime
 % TODO results
 
