@@ -174,10 +174,9 @@ Networks are used in a variety fields of engineering --- from civil roads, water
 
 The choice of the slime mould was quite natural: the organism forms a network as it forages and it can be assumed, that trough uncountable years of evolution, its designs has reached an equilibrium between cost, efficiency and robustness. The researchers prepared an experiment based on design of Tokyo-area rail network. On a substrate made of agar 36~food~sources (identical oatmeals) have been placed as in topographical positions of the rail stations (figure \ref{figure:bp_network_initial}). A blob of plasmodium has been placed where city of Tokyo would be, after some time, as the slime mould forages, it covers the substrate and connects each food source (figures \ref{figure:bp_network_intermediate_a}, \ref{figure:bp_network_intermediate_b}). Afterwards \textit{Physarum} retracts its body from the empty areas, leaving only interconnected food sources (figure \ref{figure:bp_network_final}). It should be observed, that some junctions have been left where no food is placed --- these are Steiner~points \cite{kou1981fast} enhancing overall efficiency of the network.
 
-% TODO multiple networks
-% TODO constraint by light
-% TODO results vs years of placing points by humans
-% TODO model
+The experiment has been replicated 20~times, each time resulting in slightly different design of the final network, however they always resembled a Tokyo rail network designed by civil engineers. In order to even further improve similarity, the substrate has been illuminated where geographical features restrain the rail network. As the slime mould avoids light, such illumination acted as constraint for the network --- these networks bore even bigger similarities to original plans than networks made without constraints. 
+
+In the end it was concluded that networks designed by \textit{Physarum Polycephalum} have lower overall cost with similar transport efficiency, however they lack a bit of fault tolerance --- while in only 4\% of faults the rail network would lead to isolation of any part, in case of networks designed by the slime mould such isolation would occur in 14\% of faults. Still, these results are acceptable as network has much lower cost. Nonetheless, it should be observed that these networks should not be compared directly --- stops on Tokyo network have not been planned at once, they evolved as the city grew, while task given to \textit{Physarum} assumed known locations of the stops. The processes differs even more, as design of real rail network is usually centrilezed, however the slime mould acts as self-organized mechanism without central control.
 
 
 \subsection{Observations}
@@ -193,6 +192,8 @@ lorem
 
 \subsection{Computer models}
 
+% TODO adaptive network model
+% TODO multiagent simulation by jones, tsp by shrinking blob
 lorem
 
 
