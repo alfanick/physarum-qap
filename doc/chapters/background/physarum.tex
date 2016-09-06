@@ -179,6 +179,16 @@ The experiment has been replicated 20~times, each time resulting in slightly dif
 In the end it was concluded that networks designed by \textit{Physarum Polycephalum} have lower overall cost with similar transport efficiency, however they lack a bit of fault tolerance --- while in only 4\% of faults the rail network would lead to isolation of any part, in case of networks designed by the slime mould such isolation would occur in 14\% of faults. Still, these results are acceptable as \textit{Physarum}'s network has much lower cost. Nonetheless, it should be noted that these networks should not be compared directly --- stops on Tokyo network have not been planned at once, they evolved as the city grew, while task given to \textit{Physarum} assumed known locations of the stops. The processes differs even more, as design of real rail network is usually centrilezed, however the slime mould acts as self-organized mechanism without central control.
 
 
+\subsubsection{Slime mould models}
+
+In the same work \cite{tero2010rules} Japanese researchers proposed a mathematical model of \textit{Physarum Polycephalum} used for adaptive network designs based on a flow network. The slime mould has been adapted as initially random lattice, where edges represents the pseudopodia. Flux inside pseudopodia has been accurrately defined with Hagen-Poiseuille equation for laminar flow \cite{sutera1993history}. Simulation is conducted in discrete time steps, in each steps a random food source node is selected to drive the flow through the network, where another food source is selected a sink. Strength of the flow influences conductibity of each tube --- unused tubes gradually disappear, while effective tubes adapts to increase throughput. This model reflects some of the properties of the real slime mould and can be used for design of adaptive network model.
+
+Quite profound work on modelling \textit{Physarum Polycephalum} has been presented by Jeff Jones in his book \cite{jones2015pattern}. He modelled plasmodium in multi-agent fashion as a material made of multiple particles representing reaction-diffusion processes.
+% TODO multiagent simulation by jones, tsp by shrinking blob
+
+lorem
+
+
 \subsection{Observations}
 
 lorem
@@ -187,13 +197,6 @@ lorem
 \subsubsection{Sensoric input}
 
 % nasa gravisens
-lorem
-
-
-\subsection{Computer models}
-
-% TODO adaptive network model
-% TODO multiagent simulation by jones, tsp by shrinking blob
 lorem
 
 
