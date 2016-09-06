@@ -181,12 +181,42 @@ In the end it was concluded that networks designed by \textit{Physarum Polycepha
 
 \subsubsection{Slime mould models}
 
-In the same work \cite{tero2010rules} Japanese researchers proposed a mathematical model of \textit{Physarum Polycephalum} used for adaptive network designs based on a flow network. The slime mould has been adapted as initially random lattice, where edges represents the pseudopodia. Flux inside pseudopodia has been accurrately defined with Hagen-Poiseuille equation for laminar flow \cite{sutera1993history}. Simulation is conducted in discrete time steps, in each steps a random food source node is selected to drive the flow through the network, where another food source is selected a sink. Strength of the flow influences conductibity of each tube --- unused tubes gradually disappear, while effective tubes adapts to increase throughput. This model reflects some of the properties of the real slime mould and can be used for design of adaptive network model.
+In the same work \cite{tero2010rules} Japanese researchers proposed a mathematical model of \textit{Physarum Polycephalum} used for adaptive network designs based on a flow network. The slime mould has been adapted as initially random lattice, where edges represents the pseudopodia. Flux inside pseudopodia has been accurrately defined with Hagen-Poiseuille formula for laminar flow \cite{sutera1993history}. Simulation is conducted in discrete time steps, in each steps a random food source node is selected to drive the flow through the network, where another food source is selected a sink. Strength of the flow influences conductibity of each tube --- unused tubes gradually disappear, while effective tubes adapts to increase throughput. This model reflects some of the properties of the real slime mould and can be used for design of adaptive network model.
 
-Quite profound work on modelling \textit{Physarum Polycephalum} has been presented by Jeff Jones in his book \cite{jones2015pattern}. He modelled plasmodium in multi-agent fashion as a material made of multiple particles representing reaction-diffusion processes.
-% TODO multiagent simulation by jones, tsp by shrinking blob
+Quite profound work on modelling \textit{Physarum Polycephalum} has been presented by Jeff Jones in his book \cite{jones2015pattern}. He modelled plasmodium in multi-agent fashion as a material made of multiple particles working towards reaction-diffusion process. A single agent is represents a particle of plasmodium gel/sol structure --- its movement resembles protoplasmatic flow, however when it is immobile it could be treated as gel matrix. Each agent can sense chemoattractants in two-dimensional substrate using three forward-directed sensors. A single agent can move in oscillatory or non-oscillatory modes, where first one can be used to approximate resistance within plasmodium and the second one represents ideal movement without any external forcees. Plasmodium-like behaviour emerges from collection of such randomly placed agents. Furthermore chemoattractants and chemorepellents can be placed on the substrate, stimulating the agents to regroup and move. This model can be tuned to closely resemble real \textit{Physarum Polycephalum} in a variety of environment conditions.
 
-lorem
+% TODO crop images so they are aligned
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/tsp_initial.png}
+    \caption{Initial placement within convex hull}
+    \label{figure:bp_tsp_initial}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/tsp_intermediate.png}
+    \caption{State after removal of some agents}
+    \label{figure:bp_tsp_intermediate}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/tsp_final.png}
+    \caption{Final state of simulation}
+    \label{figure:bp_tsp_final}
+  \end{subfigure}
+  \caption{Solving TSP using shrinking blob method \cite{jones2014computation}}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.3\textwidth]{background/physarum/tsp_readout.png}
+  \caption{TSP tour readout method \cite{jones2014computation}}
+  \label{figure:bp_tsp_readout}
+\end{figure}
+
+Based on this model Jeff Jones and Andy Adamatzky proposed a method of shrinking blob for approximating solution of Travelling Salesman Problem \cite{jones2014computation}. This method requires putting previously described agents inside a convex hull computed on topology of TSP input (figure \ref{figure:bp_tsp_initial}). Initially chemoattractants are placed nearby data points, as simulation goes some agents are removed from the virtual plasmodium, effectively shrinking the blob (figure \ref{figure:bp_tsp_intermediate}). Simulation is stopped when each node is partially uncovered --- a $5x5$ window passes over each node and checks for such condition (figure \ref{figure:bp_tsp_final}). Resulting TSP tour can be read by tracking perimeter of the blob at the end of simulation (figure \ref{figure:bp_tsp_readout}). The authors evaluated this method to be 4.27\% worse than optimal solutions in their dataset.
 
 
 \subsection{Observations}
