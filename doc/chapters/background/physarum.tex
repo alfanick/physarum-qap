@@ -141,6 +141,44 @@ Experiments have shown that \textit{Physarum} placed on a substrate already coat
 
 Networks are used in a variety fields of engineering --- from civil roads, water pipelines, railway systems to energy grids, not to mention the Internet. Design of a useful robust network usually implies a balance between efficiency, cost and fault tolerance. Increasing robustness involves creation of redundant connections between some of the nodes. This might seem not to be profitable, however it allows network to gracefully degrade and still maintain some of its throughput. Japanese team of scientists shows \textit{Physarum Polycephalum} can be used to design networks on a par with human or algorithmic designs \cite{tero2010rules}.
 
+% TODO remove letters from pictures
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/network_initial.jpg}
+    \caption{Initial placement}
+    \label{figure:bp_network_initial}
+  \end{subfigure}
+  \begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/network_intermediate_a.jpg}
+    \caption{State in $t=8h$}
+    \label{figure:bp_network_intermediate_a}
+  \end{subfigure}
+  \\
+  \begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/network_intermediate_b.jpg}
+    \caption{State in $t=16h$}
+    \label{figure:bp_network_intermediate_b}
+  \end{subfigure}
+  \begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{background/physarum/network_final.jpg}
+    \caption{Final plasmodium state}
+    \label{figure:bp_network_final}
+  \end{subfigure}
+  \caption{Example \textit{Physarum Polycephalum} network in railway experiment \cite{tero2010rules}}
+\end{figure}
+
+The choice of the slime mould was quite natural: the organism forms a network as it forages and it can be assumed, that trough uncountable years of evolution, its designs has reached an equilibrium between cost, efficiency and robustness. The researchers prepared an experiment based on design of Tokyo-area rail network. On a substrate made of agar 36~food~sources (identical oatmeals) have been placed as in topographical positions of the rail stations (figure \ref{figure:bp_network_initial}). A blob of plasmodium has been placed where city of Tokyo would be, after some time, as the slime mould forages, it covers the substrate and connects each food source (figures \ref{figure:bp_network_intermediate_a}, \ref{figure:bp_network_intermediate_b}). Afterwards \textit{Physarum} retracts its body from the empty areas, leaving only interconnected food sources (figure \ref{figure:bp_network_final}). It should be observed, that some junctions have been left where no food is placed --- these are Steiner~points \cite{kou1981fast} enhancing overall efficiency of the network.
+
+% TODO multiple networks
+% TODO constraint by light
+% TODO results vs years of placing points by humans
+% TODO model
+
 
 \subsection{Observations}
 
