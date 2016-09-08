@@ -160,8 +160,44 @@ These approximate solution techniques have been used to facility combinatorial p
 After it became clear, that many of dilemmas are NP-hard, the role of heuristics increased.
 Even thought problems of dimensions $m > 20$ are still impractical to resolve due to high computational time, heuristics slightly improved a situation for medium size cases.
 
+\paragraph{Greedy(1)}
 
-\paragraph{Greedy (1)}
+The easiest heuristic is a greedy algorithm.
+In each step, a choice is made trying to locally better the current solution.
+After a while, when the algorithm does not see a chance to improve, is stops.
+The biggest disadvantage is that it may never reach global optimum due to locking in a local optimum.
+
+There is also a steepest algorithm, where the next result is the best neighbor.
+
+
+\paragraph{Genetic algorithm (1)}
+
+A genetic algorithm (GA) is inspired by the processes of natural selection.
+It uses the analogies from a real world such as mutation, crossover and selection and belongs to the class of evolutionary algorithms (EA).
+Its high-quality solutions make it commonly utilized.
+The first genetic algorithm was presented by Holland in 1975 \cite{holland1975adaptation}.
+
+In the beginning, there is a set of initial feasible solutions, which are generated randomly.
+This is called the \textit{initial population}.
+An \textit{individual} is usually an element of the initial population.
+From the current group, the algorithm selects a number of \textit{parents}, which are pairs of individuals.
+Each pair of the parents is used to \textit{child} out the next feasible solution using \textit{cross-over rules}.
+In the situation that the child solution is corrupted, it needs to be thrown out of the current population.
+Until fulfillment of \textit{stop criterion}, which examples are run-time, a specific number of operation etc, these steps are continued.
+
+Periodically, \textit{mutations} or \textit{immigrants} are applied to population.
+They improve the overall quality of outcome by modification of current individuals or replacement of them.
+
+QAP has been tested with such genetic algorithm.
+The first one, presented by Tate and Smith \cite{tate1995genetic}, did not achieve great results - for the small size of instances, it strived to provide the optimal solution.
+
+Even though it seemed that GA did not suit property for QAP, hybrid approaches showed otherwise.
+They introduced local optimization tools by using \textit{tournaments}.
+During the tournament, several runs of GA are initialized from different initial populations.
+After stopping them, a new population is derived as a union of all the runs.
+Next, the new population is given as an initial population to a new run of GA.
+A good example was presented by Ahuja, Orlin, and Tiwari \cite{ahuja2000greedy} presented in 1995, which gave excellent results comparing to classical GA.
+
 \paragraph{Tabu search (2)}
 
 In the beginning of heuristics, the most popular approach was Local Search.
@@ -206,4 +242,30 @@ This approach shows the best results for QAP.
 
 \paragraph{Simulated annealing (2)}
 \paragraph{Ant colony (2-3)}
+
+Ant colony heuristic is modeled on the phenomenon occurring in the environment and was orginally introduced by Dorigo \cite{dorigo1992optimization} and Colorni, Dorigo, and Maniezzo \cite{dorigo1996ant}.
+It tries to imitate the behavior of an ant colony in search of food.
+It bases on the fact that, when ants have multiple roads to food, they always pick the shortest one.
+In general, these insects do not have high intelligence - their knowledge is limited to remembering the travel distance and reading the level of pheromones.
+They are also capable of distinguishing the pheromones between their self and others.
+Nevertheless, this information allows them to solve a rather complex problems.
+
+In the beginning, ants move randomly in the vicinity of their nest, guided only by coincidence.
+However, after finding a food source, the lucky ant takes it back to the nest.
+On its way home, it releases the trail of pheromones on the ground.
+Each ant traveling the same path with food will also leave some pheromones, which will accumulate.
+In the end, the intensity of the trail is proportional to the amount of food found in the source, so the largest sources would have the highest strength.
+Thus, in order to bring more food home, the successors will more likely to prefer more intensive paths.
+
+In ants behaviour, few analogies to the computational algorithms could be distinguished:
+\begin{itemize}
+  \item the set of feasible solutions is resembled by the search area
+  \item the value of the objective function is resembled by the amount of food in sources
+  \item a component of adaptive memory is resembled by the pheromone trail
+\end{itemize}
+
+The most recent algorithms provided the best results.
+The nontrivial instance of QAP with size $ m = 36 $ was solved optimally by a benchmark library QAPLIB, which revolucionized further research \cite{dorigo2004ant}.
+This revolucionized further research and attracted scientisct to analyze on the usage of ant colony optimization (AOC) in case of the QAP.
+AS-QAP, MMAS-QAP, ANTS-QAP are few examples of the QAP specific implementation of the AOC.
 
