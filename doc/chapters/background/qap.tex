@@ -3,11 +3,10 @@
 
 \subsection{History and importance with examples (2)}
 The Quadratic Assignment Problem is an enormous challenge in combinatorial optimization.
-Its history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957}.
+Its history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957} and since the presentation of the original formulation, there were no dramatic advances in improvement of solving methods.
 They have focused on the allocation of indivisible resources using the assignment of plants to location as an example.
 Two problems were considered, first in which the transportation costs between plants could be ignored and second where the costs are included.
 
-Since the presentation of the first formulation, there were no dramatic advances in improvement of solving methods.
 Ignoring the prices shows a relatively simple problem.
 The task is to assign into pairs two sets of an equal number $n$ of similar elements.
 Each assignment has a different score and after choosing all elements, the sum of scores is calculated.
@@ -241,6 +240,37 @@ When the cycle is identified, the size is increased according to the length of t
 This approach shows the best results for QAP.
 
 \paragraph{Simulated annealing (2)}
+
+Simulated annealing (SA) is a heuristic which searches locally a big exploration space.
+Firstly presented by Kirkpatrick, Gelatt and Vecchi \cite{kirkpatrick1983optimization} and {\v{C}}ern{\`y} \cite{vcerny1985thermodynamical}.
+It is based on the analogy to annealing known from metallurgy.
+
+The first step includes generating the initial feasible solution and calculating its value using the cost function.
+After that, the neighboring result is produced and its rate estimated.
+Both of them are compared, and if the cost of the neighbor is smaller than initial solution then the algorithm moves to the neighbor.
+Otherwise, it may move to the new solution.
+This helps to avoid local optima.
+The decision is made by determining \textit{acceptance probability} and opposing it to a random number.
+These steps are repeated until a satisfactory solution is found or the specified number of iterations are reached.
+
+A very important element is the acceptance probability function.
+Taking into account the new cost, the old cost and the current temperature it calculates a number between 0 and 1.
+The result is a guidance whether to switch solution or not.
+This cost is compared with a randomly generated number from the same range.
+If the acceptance probability is larger than the second number then the new current solution is the neighbor.
+
+The temperature is another element of the algorithm.
+It starts at 1.0 and with each iteration is multiplied by a constant typically between 0.8 and 0.99.
+This slightly decreases the value and simulates slow cooling of the metal.
+It is also used as a stopping criterion - algorithm stops when the temperature reach 0.
+
+Burkard and Rendl \cite{burkard1984thermodynamically} have applied SA to the QAP.
+They have presented that if the problem could have a neighborhood defined, it can be solved using SA, thus this algorithm is a general heuristic.
+Other authors presenting SA to solve QAP are Wilhelm and Ward \cite{wilhelm1987solving} and Connolly \cite{connolly1990improved}.
+Each of them defined neighbor as a solution with one pair-exchange from the current.
+The difference between them is the implementation of the cooling method.
+Due to the fact that SA is very dependent on its control parameters, it may present varying performance.
+
 \paragraph{Ant colony (2-3)}
 
 Ant colony heuristic is modeled on the phenomenon occurring in the environment and was orginally introduced by Dorigo \cite{dorigo1992optimization} and Colorni, Dorigo, and Maniezzo \cite{dorigo1996ant}.
