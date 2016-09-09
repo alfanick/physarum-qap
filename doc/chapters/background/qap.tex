@@ -9,7 +9,7 @@ Two problems were considered, first in which the transportation costs between pl
 
 Ignoring the prices shows a relatively simple problem.
 The task is to assign into pairs two sets of an equal number $n$ of similar elements.
-Each assignment has a different score and after choosing all elements, the sum of scores is calculated.
+Each assignment has a different score and after choosing all elements, the sum of rates is calculated.
 The objective is to achieve the highest result.
 Such dilemma is named linear assignment problem.
 
@@ -20,7 +20,7 @@ However, this expects that each person is suitable to do the activity alone.
 Adding that tasks hinge on each other makes selection less trivial.
 
 Introducing an assumption that some elements from one set are dependent on other elements from the same set complicates greatly linear assignment problem and presents quadratic assignment problem.
-In this situation, we have two sets as before and a matrix with weights, where each matrix's element represents one combination of assignment.
+In this situation, we have two collections as before and a matrix with weights, where each matrix's element represents one combination of assignment.
 Here, choosing the solution for even a small number of elements could be demanding.
 
 Nonetheless, the problem's importance could be shown by real life patterns existing in many fields of studies.
@@ -65,12 +65,12 @@ Every calculation must be done from the start.
 This requires $m^2$ steps and must be computed $m!$ times, which makes it useless for bigger instances.
 However, when the problem is small, it has an advantage due to simplicity - the implementation is simple and requires little memory.
 
-Surprisingly, also the time could be better. Franzer in his paper \cite{frazer1997602} presented that for test problem with $m=10$ the enumeration could be faster than linear programming. Comparing memory usage also gave amazing results thus proving that linear or 0-1 programming are not appropriate solution methods.
+Surprisingly, also the time could be better. Franzer presented in his paper \cite{frazer1997602} that for test problem with $m=10$ the enumeration could be faster than linear programming. Comparing memory usage also gave amazing results thus proving that linear or 0-1 programming are not appropriate solution methods in this case.
 
 \subsubsection{Linearizations (3-5)}
-A great approach to resolving such complex problem is to reduce it to a linear programming problem.
+A great approach to resolving complex problem is to reduce it to a linear programming problem.
 Unfortunately, most of the time this could be impractical even for small m.
-The first to transform the problem was Lawler, who represented it by an equivalent 0-1 linear programming problem and facilities the computations \cite{lawler1963}. He based his thinking on a traveling salesman problem looking for similarities between these two \cite{charnsethikul1988exact}.
+The first to transform the problem was Lawler \cite{lawler1963}, who represented it by an equivalent 0-1 linear programming problem and facilities the computations. He based his thinking on a traveling salesman problem looking for similarities between these two \cite{charnsethikul1988exact}.
 
 Defining $m^4$ variables $y_{ijpq}$ as $m^2$ variables $x_{ij}$ where
 \begin{equation}
@@ -89,7 +89,7 @@ the problem can be linearized and stated as
 In result there are $m^4 + m^2$ binary variables and $m^4 + 2 m^2 + 1$ constraints.
 His definition has still been impractical for any bigger m.
 
-Kaufmann and Broeckx created another linearization, which has the smallest number of variables and constraints \cite{kaufman1978algorithm} and is based on the method suggested by Glover.
+Kaufmann and Broeckx \cite{kaufman1978algorithm} created another linearization, which has the smallest number of variables and constraints and is based on the method suggested by Glover.
 Such manipulation reduces the complexity of the problem thus making calculations faster.
 The authors rearrange the objective function into
 \begin{equation}
@@ -113,7 +113,7 @@ Additionaly introducing $m^2$ constraints $ c_{ij} := \sum_{p \in M} \sum_{q \in
 
 In result there are $m^2$ real variables, $m^2$ binary variables and $m^2 + 2m$ constraints.
 This improves slightly previous methods.
-However, Kaku and Thompson reported \cite{kaku1986exact} that for small sizes, such as m = 8, the requirements become too large and optimality could not be proved.
+However, Kaku and Thompson \cite{kaku1986exact} reported that for small sizes, such as m = 8, the requirements become too large and optimality could not be proved.
 
 Another linearization was presented by Frieze and Yadegar \cite{frieze1983quadratic}.
 Obtaining their mixed integer linear programming formulation could be achieved by replacing the product of binary variables by continuous variables as
@@ -137,7 +137,7 @@ The outcome definition being
 
 In result there are $m^4$ real variables, $m^2$ binary variables and $m^4 + 4m^3+m^2+2m$ constraints.
 
-Adams and Johnson presented also a new 0-1 linear integer programming formulation \cite{adams1994improved}.
+Adams and Johnson \cite{adams1994improved} presented also a new 0-1 linear integer programming formulation.
 It has similarities to the previous definition.
 \begin{align}
   \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} \\
@@ -155,16 +155,16 @@ In result there are $m^2$ binary variables, $m^4$ continuous variables and $m^4+
 \subsubsection{Metaheuristics (6-8)}
 Methods presented previously are not efficient with bigger instances.
 In order to enhance the results, heuristics were used.
-These approximate solution techniques have been used to facility combinatorial problems.
+These approximate solution techniques have been adopted to facility combinatorial problems.
 After it became clear, that many of dilemmas are NP-hard, the role of heuristics increased.
-Even thought problems of dimensions $m > 20$ are still impractical to resolve due to high computational time, heuristics slightly improved a situation for medium size cases.
+Even though problems of dimensions $m > 20$ are still impractical to resolve due to high computational time, heuristics slightly improved a situation for medium size cases.
 
 \paragraph{Greedy(1)}
 
 The easiest heuristic is a greedy algorithm.
 In each step, a choice is made trying to locally better the current solution.
-After a while, when the algorithm does not see a chance to improve, is stops.
-The biggest disadvantage is that it may never reach global optimum due to locking in a local optimum.
+After a while, when the algorithm does not see a chance to improve, it stops.
+The biggest disadvantage is that it may never reach global optimum due to locking in a local one.
 
 There is also a steepest algorithm, where the next result is the best neighbor.
 
@@ -174,7 +174,7 @@ There is also a steepest algorithm, where the next result is the best neighbor.
 A genetic algorithm (GA) is inspired by the processes of natural selection.
 It uses the analogies from a real world such as mutation, crossover and selection and belongs to the class of evolutionary algorithms (EA).
 Its high-quality solutions make it commonly utilized.
-The first genetic algorithm was presented by Holland in 1975 \cite{holland1975adaptation}.
+The first genetic algorithm was presented by Holland \cite{holland1975adaptation} in 1975.
 
 In the beginning, there is a set of initial feasible solutions, which are generated randomly.
 This is called the \textit{initial population}.
@@ -202,8 +202,8 @@ A good example was presented by Ahuja, Orlin, and Tiwari \cite{ahuja2000greedy} 
 In the beginning of heuristics, the most popular approach was Local Search.
 Starting from one solution, the algorithm was improving it by applying slight modifications.
 
-Tabu search is a metaheuristic local search method created by Glover in 1986 \cite{glover1986future}, which improves the problems encountered in Local Search.
-Its goal is to conquer local optimality using not only advancing the result but also worsening.
+Tabu search is a metaheuristic local search method created by Glover \cite{glover1986future} in 1986, which improves the problems encountered in Local Search.
+Its goal is to conquer local optimality using not only advancing the result, but also worsening.
 It is achieved by remembering already visited outcomes, which helps to see promising directions for further exploration.
 
 The method has few main elements, which needs to be defined in order to understand the procedure:
@@ -230,7 +230,7 @@ The tabu list is an essential change comparing to local search.
 Each tabu search algorithm could be implemented slightly differently, which impede measurement of performance.
 Currently, three different tabu search methods were proposed.
 First, a fixed tabu list proposed by Skorin-Kapov \cite{skorin1990tabu}.
-The size of tabu list is a parameter, which needs to tunned before starting the calculation.
+The size of tabu list is a parameter, which needs to be tunned before starting the calculation.
 It can also be dependent on the specific instance, thus such method is not recommended.
 Second, a robust tabu search proposed by Taillard \cite{taillard1991robust}.
 Here, a maximum and a minimum are defined and the size of the tabu list is chosen among them.
@@ -242,15 +242,14 @@ This approach shows the best results for QAP.
 \paragraph{Simulated annealing (2)}
 
 Simulated annealing (SA) is a heuristic which searches locally a big exploration space.
-Firstly presented by Kirkpatrick, Gelatt and Vecchi \cite{kirkpatrick1983optimization} and {\v{C}}ern{\`y} \cite{vcerny1985thermodynamical}.
-It is based on the analogy to annealing known from metallurgy.
+The method, firstly presented by Kirkpatrick, Gelatt and Vecchi \cite{kirkpatrick1983optimization} and {\v{C}}ern{\`y} \cite{vcerny1985thermodynamical}, is based on the analogy to annealing known from metallurgy.
 
 The first step includes generating the initial feasible solution and calculating its value using the cost function.
 After that, the neighboring result is produced and its rate estimated.
-Both of them are compared, and if the cost of the neighbor is smaller than initial solution then the algorithm moves to the neighbor.
+Both of them are compared, and if the cost of the neighbor is smaller than current solution then the algorithm moves to the neighbor.
 Otherwise, it may move to the new solution.
-This helps to avoid local optima.
 The decision is made by determining \textit{acceptance probability} and opposing it to a random number.
+This helps to avoid local optima.
 These steps are repeated until a satisfactory solution is found or the specified number of iterations are reached.
 
 A very important element is the acceptance probability function.
@@ -278,7 +277,7 @@ It tries to imitate the behavior of an ant colony in search of food.
 It bases on the fact that, when ants have multiple roads to food, they always pick the shortest one.
 In general, these insects do not have high intelligence - their knowledge is limited to remembering the travel distance and reading the level of pheromones.
 They are also capable of distinguishing the pheromones between their self and others.
-Nevertheless, this information allows them to solve a rather complex problems.
+Nevertheless, this information allows them to solve rather complex problems.
 
 In the beginning, ants move randomly in the vicinity of their nest, guided only by coincidence.
 However, after finding a food source, the lucky ant takes it back to the nest.
