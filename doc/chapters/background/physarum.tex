@@ -97,24 +97,23 @@ Memory is usually associated with neurological functions of brain, however it ca
 
 A common problem testing autonomous navigational skills in robotics is U-shaped trap problem \cite{chatterjee2001use}. Efficient solution of the issue requires some kind spatial memory or other navigational aids \cite{balch1993avoiding}, therefore it was a good candidate for a test of slime mould's memoizing capabilities. The U-maze problem requires an agent (a robot or as in this example the slime mould) to navigate itself from starting position to the goal, where goal is hidden beside the U-shaped trap (figure \ref{figure:bp_trap_model}). The agent has to use some kind of environment map or use reactive guidance to bypass the trap (figure \ref{figure:bp_trap_model_success}), otherwise, most probably it will be stuck inside the trap (figure \ref{figure:bp_trap_model_failure}).
 
-% TODO create vector images like these
 \begin{figure}
   \centering
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.33\textwidth}
     \centering
-    \includegraphics[width=0.9\textwidth]{background/physarum/trap_model_initial.jpg}
+    \includegraphics[width=0.9\textwidth]{background/physarum/trap_initial.eps}
     \caption{Initial setup}
     \label{figure:bp_trap_model}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.37\textwidth}
     \centering
-    \includegraphics[width=0.9\textwidth]{background/physarum/trap_model_success.jpg}
+    \includegraphics[width=0.9\textwidth]{background/physarum/trap_success.eps}
     \caption{Example successful route to goal}
     \label{figure:bp_trap_model_success}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.37\textwidth}
     \centering
-    \includegraphics[width=0.9\textwidth]{background/physarum/trap_model_failure.jpg}
+    \includegraphics[width=0.9\textwidth]{background/physarum/trap_failure.eps}
     \caption{Typical failure}
     \label{figure:bp_trap_model_failure}
   \end{subfigure}
