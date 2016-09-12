@@ -12,12 +12,11 @@ Such machine requires specific placement of food sources and constraints which m
   \label{figure:a_machine}
 \end{figure}
 
-Such machine requires designing two transformations --- an input transformation and an output transformation. lorem lorem lorem
+It can be seen that design of the Physarum Machine is a complex task --- methods of communication, observation, food placement, limits formation must be created, not to mention essential two non-trival transformations must be engineered. Quadratic Assignment Problem is defined by two input matrices --- weight matrix and distance matrix. While it is natural to interpret weight matrix as graph of facilities connected with trade relation, one cannot think the same about the location matrix since it depends on the assignment: one of interpretions of the problem is to assign these facilities so transport cost of goods between different facilities is the lowest. Finding the optimal assignment is a complex task, in fact there are $n!$ possible assignments. As previously shown slime moulds have been used to approximate solutions of some graph problems (such as shortest path or networking problem), there are even some approaches to solving Travelling Salesman Problem --- all of these issues have one thing in common, stating the problem in \textit{Physarum} domain, as set of food locations and constraints is trivial as \textit{input transformation} is relatively easy function. 
 
-% TODO conclude the research
-% TODO physarum machine
-% TODO diagram of general problem solution
-% TODO problem with transformation
+An obvious challenge is to model QAP input using a \textit{input transformation function}, only when such function is defined, the other part of the machine, \textit{output transformation function} can be designed. Initially we thought of treating the slime mould as restricted linear programming solver, stating the QAP in one of the forms of linearized mathematical programming problems. Literature gives many different approaches for such linearization, but even this did not inspire us for any practical representation in a "slime mould world".
+
+Another approach has been proposed, which explores space of all possible assignments using crawling plasmodium. It could have been implemented as physical physarum machine, however it have no practical benefits, requiring lots of preparation and observation overhead. Details of this algorithm are presented it the next section. While it may not be practical, it showed us that we are not capable of designing a better physarum machine, however we took an inspiration from this experience and designed a metaheuristic based on observed behaviour of \textit{Physarum Polycephalum}.
 
 \input{"chapters/algorithm/naive.tex"}
 
