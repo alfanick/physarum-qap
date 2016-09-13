@@ -3,7 +3,29 @@
 
 Emboldened by the experience with the physarum machine, we thought of making it more practical. We thought of simulating \textit{Physarum Polycephalum}, hoping for lowering execution time for the naive algorithm. Instead we propose a new algorithm designed from the ground up, which is inspired by observed behaviour of the slime mould. While the algorithm was created for solving Quadratic Assignment Problem, it is an universal metaheuristic which can be applied to number of optimization problems.
 
+The algorithm can be divided in three distinct phases: exploration, crawling and merging. These phases are executed sequentially in a loop, until stop condition is satisfied.
+
+\begin{algorithm}[H]
+  \KwData{optimization problem with neighbourhood definition}
+  \KwResult{approximated result}
+
+  \BlankLine
+  environment $\leftarrow$ initialize\_environment(problem)\;
+  colony $\leftarrow$ initialize\_colony(environment)\;
+
+  \Repeat{$colony.dead \lor {\neg}experiment.next$}{
+    colony.explore()\;
+    colony.crawl()\;
+    colony.merge()\;
+  }
+
+  \Return{colony.largest}\;
+
+  \caption{Overview of physarum-based metaheuristic}
+  \label{algorithm:m_general}
+\end{algorithm}
 % TODO general loop
+% TODO initial population, calibration
 % TODO stop condition
 % TODO explore phase
 % TODO crawl phase
