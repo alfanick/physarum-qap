@@ -42,14 +42,26 @@ This affects the performance of the whole electrical network and minimization is
 In the service industry, an example could be locating distinct departments.
 Similar to factories and location, here, offices and floors or rooms are allocated.
 
-\subsection{Math definition (1)}
+\subsection{Math definition}
+The Quadratic Assignment Problem (QAP) can be generally presented as:
+\begin{equation}
+min \sum_{a, b \in P } w(a, b) * d( f(a), f(b))
+\end{equation}
+
+where $w$ is a weight function $w: F \times F \mapsto R$ between $m$ different facilites ($F$) and $d$ is a distance function $d: L \times L \mapsto R$ between $m$ various locations ($L$). $y = f(x)$ means assignment of the facility $x$ to location $y$.
+
+This coulbe be extended to a quadratic integer problem formulation:
 Let m be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment Problem (QAP) can be formulated as
 \begin{align}
-  \text{maximize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}x_{ij}x_{pq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
+  \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}x_{ij}x_{pq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
   &\null \sum_{j \in M} x_{ij} = 1, \; i \in M \\
   &\null x_{ij} = 0 \; or \; 1, \; i, j \in M
 \end{align}
+
+where $a_{ijpq}$ indicates the ratio of flow between factories $i$ and $p$ and distance between their assigned locations $j = f(i)$ and $q = f(p)$.
+The assignment of factory $i$ to location $j$ is symbolized by $x_{ij} = 1$.
+Additionaly the $b_{ij}$ is the cost of such assignment, which may or may not be taken into consideration depending of the instance of the problem.
 
 This formulation is the most generalized model of quadratic assignment problem.
 It could have been defined differently, however, this shows the objective function as a quadratic one, which clearly indicated the name.
@@ -57,8 +69,8 @@ The discrete nature and the complexity of quadratic objective function cause dif
 Horowitz and Sahni have proved that in their book \cite{horowitz1978fundamentals} by showing that QAP needs an exponential time algorithm to solve optimally.
 
 
-\subsection{Known algorithms (11-16)}
-\subsubsection{Exact solutions (2)}
+\subsection{Known algorithms}
+\subsubsection{Exact solutions}
 
 The most simple method of resolving QAP is by using an enumeration or populary named "branch and bound", which is to evaluate all of the $m!$ permutations (assignments) and recording the best solution.
 Every calculation must be done from the start.
@@ -67,7 +79,7 @@ However, when the problem is small, it has an advantage due to simplicity - the 
 
 Surprisingly, also the time could be better. Franzer presented in his paper \cite{frazer1997602} that for test problem with $m=10$ the enumeration could be faster than linear programming. Comparing memory usage also gave amazing results thus proving that linear or 0-1 programming are not appropriate solution methods in this case.
 
-\subsubsection{Linearizations (3-5)}
+\subsubsection{Linearizations}
 A great approach to resolving complex problem is to reduce it to a linear programming problem.
 Unfortunately, most of the time this could be impractical even for small m.
 The first to transform the problem was Lawler \cite{lawler1963}, who represented it by an equivalent 0-1 linear programming problem and facilities the computations. He based his thinking on a traveling salesman problem looking for similarities between these two \cite{charnsethikul1988exact}.
@@ -152,14 +164,14 @@ It has similarities to the previous definition.
 
 In result there are $m^2$ binary variables, $m^4$ continuous variables and $m^4+2m^3+2m$ constraints.
 
-\subsubsection{Metaheuristics (6-8)}
+\subsubsection{Metaheuristics}
 Methods presented previously are not efficient with bigger instances.
 In order to enhance the results, heuristics were used.
 These approximate solution techniques have been adopted to facility combinatorial problems.
 After it became clear, that many of dilemmas are NP-hard, the role of heuristics increased.
 Even though problems of dimensions $m > 20$ are still impractical to resolve due to high computational time, heuristics slightly improved a situation for medium size cases.
 
-\paragraph{Greedy(1)}
+\paragraph{Greedy}
 
 The easiest heuristic is a greedy algorithm.
 In each step, a choice is made trying to locally better the current solution.
@@ -169,7 +181,7 @@ The biggest disadvantage is that it may never reach global optimum due to lockin
 There is also a steepest algorithm, where the next result is the best neighbor.
 
 
-\paragraph{Genetic algorithm (1)}
+\paragraph{Genetic algorithm}
 
 A genetic algorithm (GA) is inspired by the processes of natural selection.
 It uses the analogies from a real world such as mutation, crossover and selection and belongs to the class of evolutionary algorithms (EA).
@@ -197,7 +209,7 @@ After stopping them, a new population is derived as a union of all the runs.
 Next, the new population is given as an initial population to a new run of GA.
 A good example was presented by Ahuja, Orlin, and Tiwari \cite{ahuja2000greedy} presented in 1995, which gave excellent results comparing to classical GA.
 
-\paragraph{Tabu search (2)}
+\paragraph{Tabu search}
 
 In the beginning of heuristics, the most popular approach was Local Search.
 Starting from one solution, the algorithm was improving it by applying slight modifications.
@@ -239,7 +251,7 @@ The size of the tabu list is adapting to the current situation.
 When the cycle is identified, the size is increased according to the length of the repetition.
 This approach shows the best results for QAP.
 
-\paragraph{Simulated annealing (2)}
+\paragraph{Simulated annealing}
 
 Simulated annealing (SA) is a heuristic which searches locally a big exploration space.
 The method, firstly presented by Kirkpatrick, Gelatt and Vecchi \cite{kirkpatrick1983optimization} and {\v{C}}ern{\`y} \cite{vcerny1985thermodynamical}, is based on the analogy to annealing known from metallurgy.
@@ -259,9 +271,20 @@ This cost is compared with a randomly generated number from the same range.
 If the acceptance probability is larger than the second number then the new current solution is the neighbor.
 
 The temperature is another element of the algorithm.
-It starts at 1.0 and with each iteration is multiplied by a constant typically between 0.8 and 0.99.
+It starts at 1.0 symbolizing heat and that all particles are randomly arranged in this liquid state.
+With each iteration it is multiplied by a constant typically between 0.8 and 0.99 and as the temperature decreases the probability tends to concentrate on low energy states.
 This slightly decreases the value and simulates slow cooling of the metal.
 It is also used as a stopping criterion - algorithm stops when the temperature reach 0.
+In the end, at thermal equilibrium, the probability that a system is in a configuration $i$ with energy $E_i$ is given by Boltzmann distribution:
+
+\begin{equation}
+  p_i = \frac{exp(-\frac{E_i}{kT})}{S}
+\end{equation}
+
+Here $T$ is the absolute temperature, $k$ the Boltzmann constant, $N$ the total number of configurations and
+\begin{equation}
+  \sum_{i=1}^{N} p_i = 1
+\end{equation}
 
 Burkard and Rendl \cite{burkard1984thermodynamically} have applied SA to the QAP.
 They have presented that if the problem could have a neighborhood defined, it can be solved using SA, thus this algorithm is a general heuristic.
@@ -270,7 +293,7 @@ Each of them defined neighbor as a solution with one pair-exchange from the curr
 The difference between them is the implementation of the cooling method.
 Due to the fact that SA is very dependent on its control parameters, it may present varying performance.
 
-\paragraph{Ant colony (2-3)}
+\paragraph{Ant colony}
 
 Ant colony heuristic is modeled on the phenomenon occurring in the environment and was orginally introduced by Dorigo \cite{dorigo1992optimization} and Colorni, Dorigo, and Maniezzo \cite{dorigo1996ant}.
 It tries to imitate the behavior of an ant colony in search of food.
