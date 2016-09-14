@@ -20,12 +20,15 @@ class Plasmodium {
     std::vector<Solution> getPositions() { return occupancy; }
     size_t getExploredCount() { return explored_count; }
     size_t getCrawledCount() { return crawled_count; }
+    bool isAlive() { return alive; }
 
   private:
     std::vector<Solution> occupancy;
     std::vector<Solution> frontier;
     float food;
+    float initial_food;
     Environment* environment;
+    bool alive;
     size_t id;
     size_t size;
     size_t explored_count;

@@ -25,7 +25,7 @@ Experiment::Experiment(const Environment &e, size_t ss, size_t ips) : environmen
   for (size_t i = 0; i < ips; i++) {
     auto& sample = samples.top();
 
-    population.emplace_back(&environment, sample, environment.getInitialFood(sample));
+    population.emplace_back(&environment, sample, environment.getInitialFood());
     samples.pop();
   }
 }
@@ -37,16 +37,16 @@ Solution Experiment::getSolution() {
     Solution best_local(&environment.getProblem());
 
     for (auto& solution : plasmodium.getPositions()) {
-      if (solution < best_local) {
+      if (solution.cost() < best_local.cost()) {
         best_local = solution;
       }
     }
 
-    if (best_local < best_solution) {
+    if (best_local.cost() < best_solution.cost()) {
       best_solution = best_local;
     }
 
-    std::cerr << plasmodium.getId() << " " << environment.getInitialFood(best_local) << " " << plasmodium.getPositions().size() << " " << plasmodium.getExploredCount() << " " << plasmodium.getCrawledCount() << std::endl;
+    std::cerr << plasmodium.getId() << " " << environment.getFoodNotEaten(best_local) << " " << best_local.cost() << " " << plasmodium.getPositions().size() << " " << plasmodium.getExploredCount() << " " << plasmodium.getCrawledCount() << std::endl;
   }
   std::cerr << std::endl;
 
@@ -56,11 +56,17 @@ Solution Experiment::getSolution() {
 void Experiment::run(unsigned int max_time) {
   size_t epoch = 0;
   unsigned int start_time = time(0);
+  bool is_alive = true;
 
-  while (true) {
+  while (is_alive) {
+    is_alive = false;
+
     for (auto& plasmodium : population) {
-      plasmodium.explore();
-      plasmodium.crawl();
+      if (plasmodium.isAlive()) {
+        plasmodium.explore();
+        plasmodium.crawl();
+        is_alive = true;
+      }
     }
 
     // merge()

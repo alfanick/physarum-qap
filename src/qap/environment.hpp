@@ -12,9 +12,10 @@ class Environment {
     Environment(const Problem &p, float initial_food, float explore_cost, float crawl_cost);
 
     void calibrate(unsigned long long c);
-    float getInitialFood(const Solution& solution);
+    float getInitialFood() { return initial_food; }
     void eatFood(const Solution& solution, float f);
     float getFood(const Solution& solution);
+    float getFoodNotEaten(const Solution& solution);
     float getExploreCost() { return explore_cost; }
     float getCrawlCost() { return crawl_cost; }
     Problem& getProblem() { return problem; }

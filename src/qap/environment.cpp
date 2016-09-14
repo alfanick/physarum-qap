@@ -1,4 +1,5 @@
 #include "./environment.hpp"
+#include <cassert>
 
 namespace PUT {
 namespace Physarum {
@@ -9,10 +10,6 @@ Environment::Environment(const Problem &p, float ifd, float ec, float cc) : prob
 
 void Environment::calibrate(unsigned long long c) {
   best_cost = c;
-}
-
-float Environment::getInitialFood(const Solution& solution) {
-  return initial_food + best_cost / solution.cost();
 }
 
 void Environment::eatFood(const Solution& solution, float f) {
@@ -27,8 +24,12 @@ float Environment::getFood(const Solution& solution) {
   if (food_eaten.find(solution) != food_eaten.end()) {
     return best_cost / solution.cost() - food_eaten[solution];
   } else {
-    return best_cost / solution.cost();
+    return getFoodNotEaten(solution);
   }
+}
+
+float Environment::getFoodNotEaten(const Solution& solution) {
+  return best_cost / solution.cost();
 }
 
 }

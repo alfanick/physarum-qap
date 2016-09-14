@@ -11,8 +11,8 @@ int main(int argc, char** argv) {
   std::srand(time(0));
 
   PUT::Physarum::Problem problem(argv[1]);
-  PUT::Physarum::Environment environment(problem, 1.0, 0.001, 0.01);
-  PUT::Physarum::Experiment experiment(environment, problem.getSize() * problem.getSize() * problem.getSize() / 3, 20);
+  PUT::Physarum::Environment environment(problem, 1.0, 0.001, 0.0001);
+  PUT::Physarum::Experiment experiment(environment, problem.getSize() * 4, problem.getSize());
 
   experiment.run(problem.getSize() * 3);
   // experiment.run(3);
