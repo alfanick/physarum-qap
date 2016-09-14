@@ -3,17 +3,20 @@
 
 Emboldened by the experience with the physarum machine, we thought of making it more practical. We thought of simulating \textit{Physarum Polycephalum}, hoping for lowering execution time for the naive algorithm. Instead we propose a new algorithm designed from the ground up, which is inspired by observed behaviour of the slime mould. While the algorithm was created for solving Quadratic Assignment Problem, it is an universal metaheuristic which can be applied to number of optimization problems.
 
-General overview of the algorithm can be seen in pseudocode \ref{algorithm:m_general}. The algorithm can be divided in three distinct phases: exploration, crawling and merging. These phases are executed sequentially in a loop, until stop condition is satisfied.
+
+\subsection{Algorithm overview}
+
+The algorithm can be divided in three distinct phases: exploration, crawling and merging. These phases are executed sequentially in a loop, until stop condition is satisfied. General overview of the algorithm can be seen in pseudocode \ref{algorithm:m_general}. 
 
 \begin{algorithm}[H]
   \KwData{optimization problem with neighbourhood definition}
   \KwResult{approximated result}
-
   \BlankLine
+
   environment $\leftarrow$ initialize\_environment(problem)\;
   colony $\leftarrow$ initialize\_colony(environment)\;
 
-  \Repeat{$colony.dead \lor colony.stable \lor {\neg}experiment.next$}{
+  \Repeat{$colony.stable \lor {\neg}experiment.next$}{
     colony.explore()\;
     colony.crawl()\;
     colony.merge()\;
@@ -24,11 +27,69 @@ General overview of the algorithm can be seen in pseudocode \ref{algorithm:m_gen
   \caption{Overview of physarum-based metaheuristic}
   \label{algorithm:m_general}
 \end{algorithm}
-% TODO general loop
-% TODO initial population, calibration
-% TODO stop condition
+
+Initialization of environment includes sampling of solutions space: $k$ random assignments are taken, for each of them a cost is computed (pseudocode \ref{algorithm:m_env_initialization}). An assignment with the smallest cost is saved as exemplar for further calibration. Colony of "virtual physarum" is put on best $l$ out $k$ samples (pseudocode \ref{algorithm:m_colony_initialization}).
+
+\begin{algorithm}
+  \KwData{optimization problem}
+  \KwResult{list of samples}
+  \BlankLine
+
+  solutions $\leftarrow$ \{\}\;
+  \For{$i \leftarrow 0$ \KwTo $k$}{
+    solutions $\leftarrow$ solutions $\cup$ \{random\_solution()\}\;
+  }
+
+  sorted\_solutions $\leftarrow$ sort(solutions, problem.cost)\;
+  environment.best\_cost $\leftarrow$ problem.cost(sorted\_solutions.first)\;
+  
+  \Return{sorted\_solutions}\;
+
+  \caption{Initialization of environment}
+  \label{algorithm:m_env_initialization}
+\end{algorithm}
+
+\begin{algorithm}
+  \KwData{environment with sampled solutions}
+  \KwResult{set of virtual physarum}
+  \BlankLine
+
+  colony $\leftarrow$ \{\}\;
+  \For{$i \leftarrow 0$ \KwTo $l$}{
+    plasmodium $\leftarrow$ create\_plasmodium(environment.samples[i])\;
+    colony $\leftarrow$ colony $\cup$ \{plasmodium\}\;
+  }
+  \Return{colony}\;
+
+  \caption{Initialization of colony}
+  \label{algorithm:m_colony_initialization}
+\end{algorithm}
+
+Simulation stops when plasmodia crawl no more (are in stable state) or given number of iterations or time has been exceeded.
+
+
+\subsection{Environment}
+
+
+\subsection{Virtual plasmodium}
+
+
+\subsubsection{Exploration phase}
 % TODO explore phase
+
+
+\subsubsection{Crawling phase}
 % TODO crawl phase
+
+
+\subsubsection{Merging plasmodia}
 % TODO merge phase
-% TODO parameters tuning
+
+
+\subsection{Available parameters}
 % TODO illustrative example
+
+
+\subsection{Illustrative operation}
+% TODO parameters tuning
+
