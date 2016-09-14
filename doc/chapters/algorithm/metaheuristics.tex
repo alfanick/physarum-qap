@@ -133,10 +133,21 @@ Exploration consumes pool of $E_{initial}$ energy, when none is left, energy fro
 The exploration phase simply selects candidate solutions (frontier) for further optimization. Physarum can occupy many food sources, representing this way a trail of previously tested solutions --- when choosing a neighbour it tries to avoid suspensing in a local minimum as it can explore historic neighbourhoods.
 
 \subsubsection{Crawling phase}
-% TODO crawl phase
-% TODO choosen the best candidate from frontier
-% TODO adds the best candidate to the body if has enough food eatign e_crawl
-% TODO removes its body from every FS which is worse from the worst in frontier (even if moved there) 
+
+The crawling phase moves plasmodium onto new food sources. Food sources discovered in exploration phase as a frontier are sorted by their energetic value if none has been found, plasmodium is considered to be dead. Crawling is split into two parts --- adding new food source and removal of nonefficient food sources (pseudocode \ref{algorithm:m_crawling}). Plasmodium crawls onto most energetic food source in a frontier only if its energy recompensates energy of discovering and crawling (when plasmodium creeps onto new food source it uses $E_{crawl}$ energy). 
+
+Plasmodium leaves previously occupied food sources when the worst solution in the frontier carries more energy than considered food source. This behaviour controls size of plasmodial body, which in fact could be treated as history of solutions.
+
+\begin{algorithm}
+  \KwData{plasmodium placed within environment}
+  \KwResult{new state of plasmodium}
+  \BlankLine
+
+  \caption{Plasmodial crawling phase}
+  \label{algorithm:m_crawling}
+\end{algorithm}
+
+One should remember that every plasmodial operation uses energy stored in food, so solutions already visited are much less probable to be visited, as their energy has been already used. Furthermore, this affects crawling out of food sources too --- only very low energetic food sources are removed as the worst food source in the frontier carries indeed very little energy.
 
 
 \subsubsection{Merging plasmodia}

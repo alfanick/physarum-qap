@@ -57,7 +57,7 @@ void Plasmodium::crawl() {
     return environment->getFood(a) > environment->getFood(b);
   });
 
-  if (environment->getFood(frontier[0]) > (environment->getCrawlCost())) {
+  if (environment->getFood(frontier.front()) > (environment->getCrawlCost() + environment->getExploreCost())) {
     if (initial_food >= environment->getCrawlCost()) {
       initial_food -= environment->getCrawlCost();
     } else {
@@ -83,14 +83,12 @@ void Plasmodium::crawl() {
 
     food -= food_diff;
 
-    occupancy.push_back(frontier[0]);
+    occupancy.push_back(frontier.front());
     crawled_count++;
 
     // std::cerr << '#' << id << ' ' << occupancy.size() << ' ' << food << std::endl;
     food -= environment->getCrawlCost();
-    food += environment->getFood(frontier[0]);
-  } else {
-    std::cout << "meh" << std::endl;
+    food += environment->getFood(frontier.front());
   }
 }
 
