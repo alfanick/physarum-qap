@@ -74,6 +74,7 @@ Simulation stops when plasmodia crawl no more (are in a stable state) or given n
 
 The naive algorithm assumed uniform distribution of food sources which are inversely proportional to the cost of solution, however there is no such need in our metaheuristic solution. In similar manner solutions are represented as vierual food sources, but they are generated dynamically --- virtual food consume no memory unless they are visited by plasmodium. "Nutritional energy" is calculated dynamically when a food is visited as follows: 
 
+% TODO maybe just frac squared???
 \begin{equation}
   E_{solution} = a \cdot q^{\frac{calibrated\_cost}{cost(solution)}} + {\Delta}E_{solution}
 \end{equation}
@@ -88,7 +89,7 @@ Within this environment lives a colony of virtual plasmodia --- $l$ different pl
 
 A plasmodium is an active state of \textit{Physarum Polycephalum}, in laboratory it moves on an agar substrate foraging for food, usually the oatmeal. It feeds by covering multiple food sources with its body and transfers nutrients to its distant parts.
 
-Virtual plasmodium is modelled after biological one: it feeds on virtual food, which provides energy required for further exploration and movement. Energy is essential for keeping the plasmodium active --- some of it most is used for exploration phase, while the rest is used for actual movement to the other food sources.
+Virtual plasmodium is modelled after biological one: it feeds on virtual food, which provides energy required for further exploration and movement. Energy is essential for keeping the plasmodium active --- most of it is used for exploration phase, while the rest is used for actual movement to the other food sources. Each virtual plasmodium is created with some initial energy motivating initial exploration. After exploration it can crawl to some of explored food sources and exploit every source of energy it remains on.
 
 
 \subsubsection{Exploration phase}
