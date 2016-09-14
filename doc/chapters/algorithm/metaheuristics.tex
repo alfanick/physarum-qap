@@ -17,8 +17,10 @@ The algorithm can be divided in three distinct phases: exploration, crawling and
   colony $\leftarrow$ initialize\_colony(environment)\;
 
   \Repeat{$colony.stable \lor {\neg}experiment.next$}{
-    colony.explore()\;
-    colony.crawl()\;
+    \For{$plasmodium \in colony$}{
+      plasmodium.explore()\;
+      plasmodium.crawl()\;
+    }
     colony.merge()\;
   }
 
@@ -65,13 +67,28 @@ Initialization of environment includes sampling of solutions space: $k$ random a
   \label{algorithm:m_colony_initialization}
 \end{algorithm}
 
-Simulation stops when plasmodia crawl no more (are in stable state) or given number of iterations or time has been exceeded. Result of optimization can be obtained as the solution with the smallest cost which is occupied by a virtual physarum at the end of simulation.
+Simulation stops when plasmodia crawl no more (are in a stable state) or given number of iterations or time has been exceeded. Result of optimization can be obtained as the solution with the smallest cost which is occupied by a virtual physarum at the end of simulation.
 
 
 \subsection{Environment}
 
+The naive algorithm assumed uniform distribution of food sources which are inversely proportional to the cost of solution, however there is no such need in our metaheuristic solution. In similar manner solutions are represented as vierual food sources, but they are generated dynamically --- virtual food consume no memory unless they are visited by plasmodium. "Nutritional energy" is calculated dynamically when a food is visited as follows: 
+
+\begin{equation}
+  E_{solution} = a \cdot q^{\frac{calibrated\_cost}{cost(solution)}} + {\Delta}E_{solution}
+\end{equation}
+
+Where $calibrated_cost$ is cost of minimal solution obtained via initial sampling process, $a > 0$ is scaling factor, $q > 1$ is exponentiation base. ${\Delta}E_{solution}$ is already consumed energy from given $solution$. At the start each ${\Delta}E_{solution}$ is equal $0$, so there is no need of storing such information, but as plasmodium explores and crawls ${\Delta}E_{solution}$ is updated, taking at most $O(n!)$ memory if every solution would be explored.
+
+The algorithm defines neighbourhood for Quadratic Assignment Problem as single pair swap, giving $\frac{n\cdot(n-1)}{2}$ possible neighbours for each assignment. However, instead of deterministc generation of the neighbourhood, a stochastic one is used --- the neighbour solution is created by swapping two random positions from given assignment.
+
+Within this environment lives a colony of virtual plasmodia --- $l$ different plasmodia are placed on different food sources selected from initial sampling (pseudocode \ref{algorithm:m_colony_initialization}). 
 
 \subsection{Virtual plasmodium}
+
+A plasmodium is an active state of \textit{Physarum Polycephalum}, in laboratory it moves on an agar substrate foraging for food, usually the oatmeal. It feeds by covering multiple food sources with its body and transfers nutrients to its distant parts.
+
+Virtual plasmodium is modelled after biological one: it feeds on virtual food, which provides energy required for further exploration and movement. Energy is essential for keeping the plasmodium active --- some of it most is used for exploration phase, while the rest is used for actual movement to the other food sources.
 
 
 \subsubsection{Exploration phase}
