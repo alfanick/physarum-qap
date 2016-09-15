@@ -158,7 +158,9 @@ Plasmodium leaves previously occupied food sources when the worst solution in th
       ${\Delta}E_{plasmodium} \leftarrow {\Delta}E_{plasmodium} - E_{crawl}$\;
     }
     \Else{
-      ${\Delta}E_{solution} \leftarrow {\Delta}E_{solution} - E_{crawl}$\;
+      \For{$solution \in plasmodium$}{
+        ${\Delta}E_{solution} \leftarrow {\Delta}E_{solution} - \frac{E_{crawl}}{|plasmodium|}$\;
+      }
     }
 
     $plasmodium \leftarrow plasmodium \setminus \{solution : E_{solution} < E_{worst\_solution} - E_{crawl}\}$\; 
