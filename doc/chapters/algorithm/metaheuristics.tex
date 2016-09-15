@@ -137,7 +137,7 @@ The exploration phase simply selects candidate solutions (frontier) for further 
 
 The crawling phase moves plasmodium onto new food sources. Food sources discovered in exploration phase as a frontier are sorted by their energetic value if none has been found, plasmodium is considered to be dead. Crawling is split into two parts --- adding new food source and removal of nonefficient food sources (pseudocode \ref{algorithm:m_crawling}). Plasmodium crawls onto most energetic food source in a frontier only if its energy recompensates energy of discovering and crawling (when plasmodium creeps onto new food source it uses $E_{crawl}$ energy). 
 
-Plasmodium leaves previously occupied food sources when the worst solution in the frontier carries more energy than considered food source. This behaviour controls size of plasmodial body, which in fact could be treated as history of solutions. Crawling phase can be considered asymmetric by the results --- it adds at most single food source, but can result in removal of multiple food sources from the body.
+Plasmodium leaves previously occupied food sources when the worst solution in the frontier carries more energy than considered food source (even after including $E_{crawl}$). This behaviour controls size of plasmodial body, which in fact could be treated as history of solutions. Crawling phase can be considered asymmetric by the results --- it adds at most single food source, but can result in removal of multiple food sources from the body.
 
 \begin{algorithm}
   \KwData{plasmodium placed within environment}
@@ -164,7 +164,7 @@ Plasmodium leaves previously occupied food sources when the worst solution in th
       }
     }
 
-    $plasmodium \leftarrow plasmodium \setminus \{solution \in plasmodium : E_{solution} < E_{worst\_solution} - E_{crawl}\}$\; 
+    $plasmodium \leftarrow plasmodium \setminus \{solution \in plasmodium | E_{solution} < E_{worst\_solution} - E_{crawl}\}$\; 
 
     $plasmodium \leftarrow plasmodium \cup \{best\_solution\}$\;
   }
@@ -215,14 +215,19 @@ Out of selected $k$ samples, $l \leq k$ most efficient solutions are chosen as s
 
 \subsubsection{Cost to food transformation}
 
-Food energy $E_{solution}$ is computed using exponential function (equation \ref{equation:m_e_solution}). Two parameters are used: scaling factor $a$ and exponential base $q$. The exponent is inversely proportional to calibrated cost obtained as the best result from sampling phase. Selecting $a = \frac{1}{q}$ is recommended as it will scale the function down to unit scale. Selection of $q$ impacts amplification of cost quotient. Larger $q$ values will provide more energy $E_{solution}$ when a solution is better than sampled solution, giving more energy which can be used for further exploration.
+Food energy $E_{solution}$ is computed using exponential function (equation \ref{equation:m_e_solution}). Two parameters are used: scaling factor $a$ and exponential base $q$. The exponent is inversely proportional to calibrated cost obtained as the best result from sampling phase. Selecting $a = \frac{1}{q}$ is recommended as it will scale the function down to unit scale (the best solution in sampling phase is going to have energy $E_{solution} = 1$). Selection of $q$ impacts amplification of cost quotient. Larger $q$ values will provide more energy $E_{solution}$ when a solution is better than sampled solution, giving more energy which can be used for further exploration.
 
 
 \subsubsection{Energetic requirements}
 
+The algorithm heavily uses a concept of energy: an energy can be used for exploration $E_{explore}$ and crawling $E_{crawl}$ and it is provided by food sources representing solutions $E_{solution}$ and some initial quanta $E_{initial}$. Each plasmodium uses as much energy as it can for exploration phase, leaving only $E_{crawl}$ energy left, needed for crawling phase --- it visits up to $(E_{plasmodium} - E_{crawl}) \div E_{explore}$ neighbours. Therefore $E_{explore}$ energy value can be used for controlling number of visited neighbours. $E_{initial}$ may be used for stimulating exploration phase at very initial iteration of algorithm as the plasmodium can visit more neighbour than energy $E_{solution}$ harvested from initial food source allows to.
+
+On the other hand $E_{crawl}$ energy is required for including new food source to physarum's body. As the food source is added only if its $E_{solution}$ recompensates energy of discovering it $E_{explore}$ and crawling $E_{crawl}$ to it, $E_{crawl}$ can be used to set minimum needed to making the solution useful. Furthermore value of $E_{crawl}$ has an another effect --- smaller values tend to reduce the size of plasmodium as it is easier to find such food sources that are worse than the worst in given frontier.
+
+In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control way of acting of the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy. If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preffered to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}). Usually it is preffered to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
+
 % TODO pictures for different Ecrawl and Eexplore
 % TODO Ecrawl = Eexplore, Ecrawl < Eexplore, Ecrawl > Eexplore, Ecrawl = Explore = ~1/2 = ~1/3 = ~1/4
 
-
-% TODO parameters tuning
+It should be noted, that selecting very small values of $E_{explore}$ causes buildup of frontier heavily using memory as $|frontier| \sim \frac{E_{plasmodium} - E_{crawl}}{E_{explore}}$. Selecting $E_{explore}$ and $E_{crawl}$ values should be done with care, depending on characterstics of given optimization problem. When no information about problem is given, choosing $E_{explore} = E_{crawl} \ll 1$ may be wise. 
 
