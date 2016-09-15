@@ -163,7 +163,7 @@ Plasmodium leaves previously occupied food sources when the worst solution in th
       }
     }
 
-    $plasmodium \leftarrow plasmodium \setminus \{solution : E_{solution} < E_{worst\_solution} - E_{crawl}\}$\; 
+    $plasmodium \leftarrow plasmodium \setminus \{solution \in plasmodium : E_{solution} < E_{worst\_solution} - E_{crawl}\}$\; 
 
     $plasmodium \leftarrow plasmodium \cup \{best\_solution\}$\;
   }
@@ -178,7 +178,8 @@ One should remember that every plasmodial operation uses energy stored in food, 
 
 
 \subsubsection{Merging plasmodia}
-% TODO merge phase
+
+Plasmodia are initially distributed on various $l$ out of $k$ samples, however as they crawl, multiple plasmodia could occupy the same food source. Just as with physical \textit{Physarum Polycephalum}, such plasmodia are merged into a single larger body.
 
 
 \subsection{Available parameters}
