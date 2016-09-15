@@ -16,7 +16,7 @@ The algorithm can be divided in three distinct phases: exploration, crawling and
   environment $\leftarrow$ initialize\_environment(problem)\;
   colony $\leftarrow$ initialize\_colony(environment)\;
 
-  \Repeat{$colony.dead \lor {\neg}experiment.next$}{
+  \Repeat{${\neg}colony.alive \lor {\neg}experiment.next$}{
     \For{$plasmodium \in colony$}{
       plasmodium.explore()\;
       plasmodium.crawl()\;
