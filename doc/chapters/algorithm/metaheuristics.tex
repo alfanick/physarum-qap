@@ -222,6 +222,24 @@ Food energy $E_{solution}$ is computed using exponential function (equation \ref
 
 The algorithm heavily uses a concept of energy: an energy can be used for exploration $E_{explore}$ and crawling $E_{crawl}$ and it is provided by food sources representing solutions $E_{solution}$ and some initial quanta $E_{initial}$. Each plasmodium uses as much energy as it can for exploration phase, leaving only $E_{crawl}$ energy left, needed for crawling phase --- it visits up to $(E_{plasmodium} - E_{crawl}) \div E_{explore}$ neighbours. Therefore $E_{explore}$ energy value can be used for controlling number of visited neighbours. $E_{initial}$ may be used for stimulating exploration phase at very initial iteration of algorithm as the plasmodium can visit more neighbour than energy $E_{solution}$ harvested from initial food source allows to.
 
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{0.47\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/strategy_dfs.png}
+    \caption{Effect of depth search strategy}
+  \end{subfigure}
+  \begin{subfigure}{0.47\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/strategy_bfs.png}
+    \caption{Effect of breadth search strategy}
+  \end{subfigure}
+
+  \caption{Different search strategies}
+  \label{figure:m_strategy}
+\end{figure}
+
 On the other hand $E_{crawl}$ energy is required for including new food source to physarum's body. As the food source is added only if its $E_{solution}$ recompensates energy of discovering it $E_{explore}$ and crawling $E_{crawl}$ to it, $E_{crawl}$ can be used to set minimum needed to making the solution useful. Furthermore value of $E_{crawl}$ has an another effect --- smaller values tend to reduce the size of plasmodium as it is easier to find such food sources that are worse than the worst in given frontier.
 
 \begin{figure}
@@ -270,7 +288,7 @@ On the other hand $E_{crawl}$ energy is required for including new food source t
   \label{figure:m_explore_dfs}
 \end{figure}
 
-In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy. If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preffered to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}) --- smaller values of $E_{explore}$ causes thorough local search, not like smaller values of $E_{crawl}$ which causes many jumps to different neighbourhoods. Usually it is preffered to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die (figure \ref{figure:m_explore_dead}) or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
+In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy (figure \ref{figure:m_strategy}). If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preffered to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}) --- smaller values of $E_{explore}$ causes thorough local search, not like smaller values of $E_{crawl}$ which causes many jumps to different neighbourhoods. Usually it is preffered to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die (figure \ref{figure:m_explore_dead}) or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
 
 \begin{figure}
   \centering
