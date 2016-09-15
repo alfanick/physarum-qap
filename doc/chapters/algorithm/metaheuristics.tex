@@ -202,9 +202,23 @@ One should notice that search space is very large ($n!$ solutions), where initia
 
 
 \subsection{Available parameters}
-% TODO illustrative example
+
+Introduced algorithm can be tuned using many available parameters. A practical approach is recommended for tuning, depending on the input data and expected result efficiency. Some guidelines for choosing the parameters can be found as a result of provided performance evaluation in the next chapter.
+
+\subsubsection{Colony size}
+
+The algorithm performes initial sampling of $k$ solutions. If $k$ is close to $n!$ the algorithm could find the optimial assignment at this very early stage, however it would require $n!$ operations, as in typical brute force approach. Selecting large value for $k$ increases chances for finding close to optimal solutions, but with increased chances for local minima.
+
+Out of selected $k$ samples, $l \leq k$ most efficient solutions are chosen as starting points for $l$ virtual plasmodia. Selecting large $l$ value result in longer computations as multiple plasmodia are simulated. However it may be worth it as they start in different positions of the space search --- every plasmodium has a different distance to optimal solution, creating more plasmodia increases chances for being close to the optimum.
 
 
-\subsection{Illustrative operation}
+\subsubsection{Cost to food transformation}
+
+
+\subsubsection{Energetic requirements}
+
+% TODO pictures for different Ecrawl and Eexplore
+
+
 % TODO parameters tuning
 
