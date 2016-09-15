@@ -136,7 +136,7 @@ The exploration phase simply selects candidate solutions (frontier) for further 
 
 The crawling phase moves plasmodium onto new food sources. Food sources discovered in exploration phase as a frontier are sorted by their energetic value if none has been found, plasmodium is considered to be dead. Crawling is split into two parts --- adding new food source and removal of nonefficient food sources (pseudocode \ref{algorithm:m_crawling}). Plasmodium crawls onto most energetic food source in a frontier only if its energy recompensates energy of discovering and crawling (when plasmodium creeps onto new food source it uses $E_{crawl}$ energy). 
 
-Plasmodium leaves previously occupied food sources when the worst solution in the frontier carries more energy than considered food source. This behaviour controls size of plasmodial body, which in fact could be treated as history of solutions.
+Plasmodium leaves previously occupied food sources when the worst solution in the frontier carries more energy than considered food source. This behaviour controls size of plasmodial body, which in fact could be treated as history of solutions. Crawling phase can be considered asymmetric by the results --- it adds at most single food source, but can result in removal of multiple food sources from the body.
 
 \begin{algorithm}
   \KwData{plasmodium placed within environment}
@@ -179,7 +179,16 @@ One should remember that every plasmodial operation uses energy stored in food, 
 
 \subsubsection{Merging plasmodia}
 
-Plasmodia are initially distributed on various $l$ out of $k$ samples, however as they crawl, multiple plasmodia could occupy the same food source. Just as with physical \textit{Physarum Polycephalum}, such plasmodia are merged into a single larger body.
+Plasmodia are initially distributed on various $l$ out of $k$ samples, however as they crawl, multiple plasmodia could occupy the same food source. Just as with physical \textit{Physarum Polycephalum}, such plasmodia are merged into a single larger body (pseudocode \ref{algorithm:m_merging}). As a resul merged plasmodium occupies more food sources having and number of colonies in the environment is reduced. 
+
+\begin{algorithm}
+  \KwData{colony of living plasmodia}
+  \KwResult{reduced colony}
+  \BlankLine
+
+  \caption{Merging multiple plasmodia}
+  \label{algorithm:m_merging}
+\end{algorithm}
 
 
 \subsection{Available parameters}
