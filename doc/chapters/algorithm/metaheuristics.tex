@@ -182,13 +182,23 @@ One should remember that every plasmodial operation uses energy stored in food, 
 Plasmodia are initially distributed on various $l$ out of $k$ samples, however as they crawl, multiple plasmodia could occupy the same food source. Just as with physical \textit{Physarum Polycephalum}, such plasmodia are merged into a single larger body (pseudocode \ref{algorithm:m_merging}). As a resul merged plasmodium occupies more food sources having and number of colonies in the environment is reduced. 
 
 \begin{algorithm}
-  \KwData{colony of living plasmodia}
-  \KwResult{reduced colony}
+  \KwData{conflicting plasmodia}
+  \KwResult{merged plasmodium}
   \BlankLine
+  
+  new\_plasmodium $\leftarrow \bigcup{conflicting\_plasmodia}$\;
+
+  \For{$plasmodium \in conflicting\_plasmodia$}{
+    plasmodium.state $\leftarrow$ not\_alive\;
+  }
+
+  \Return{new\_plasmodium}\;
 
   \caption{Merging multiple plasmodia}
   \label{algorithm:m_merging}
 \end{algorithm}
+
+One should notice that search space is very large ($n!$ solutions), where initial size of colony is $l$ and $l \ll n!$, using an approximation of maximal size of each plasmodium as $1 \div E_{crawl}$, a chance for collision can be approximated as $\frac{l}{E_{crawl} \cdot n!}$ which is a very small for most practical $l$ and $E_{crawl}$ values. This reasoning allows to skip merging phase for most practical problems (i.e. where $n > 12$) as collision is rather unprobable.
 
 
 \subsection{Available parameters}
