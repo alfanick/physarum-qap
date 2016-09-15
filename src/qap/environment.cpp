@@ -1,10 +1,11 @@
 #include "./environment.hpp"
 #include <cassert>
+#include <cmath>
 
 namespace PUT {
 namespace Physarum {
 
-Environment::Environment(const Problem &p, float ifd, float ec, float cc) : problem(p), initial_food(ifd), explore_cost(ec), crawl_cost(cc) {
+Environment::Environment(const Problem &p, float ifd, float ec, float cc, float _a, float _q) : problem(p), initial_food(ifd), explore_cost(ec), crawl_cost(cc), a(_a), q(_q) {
 
 }
 
@@ -22,14 +23,18 @@ void Environment::eatFood(const Solution& solution, float f) {
 
 float Environment::getFood(const Solution& solution) {
   if (food_eaten.find(solution) != food_eaten.end()) {
-    return best_cost / solution.cost() - food_eaten[solution];
+    return getFoodNotEaten(solution) - food_eaten[solution];
   } else {
     return getFoodNotEaten(solution);
   }
 }
 
 float Environment::getFoodNotEaten(const Solution& solution) {
-  return best_cost / solution.cost();
+  if (q == 0) {
+    return a * best_cost / solution.cost();
+  } else {
+    return a * pow(q, best_cost / solution.cost());
+  }
 }
 
 }

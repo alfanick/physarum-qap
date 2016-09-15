@@ -9,7 +9,7 @@ namespace Physarum {
 
 class Environment {
   public:
-    Environment(const Problem &p, float initial_food, float explore_cost, float crawl_cost);
+    Environment(const Problem &p, float initial_food, float explore_cost, float crawl_cost, float a, float q);
 
     void calibrate(unsigned long long c);
     float getInitialFood() { return initial_food; }
@@ -27,6 +27,8 @@ class Environment {
     float crawl_cost;
 
     float best_cost;
+    float a;
+    float q;
 
     std::map<Solution, float, Solution::Comparator> food_eaten;
 };
