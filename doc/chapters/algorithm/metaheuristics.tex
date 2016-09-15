@@ -224,10 +224,94 @@ The algorithm heavily uses a concept of energy: an energy can be used for explor
 
 On the other hand $E_{crawl}$ energy is required for including new food source to physarum's body. As the food source is added only if its $E_{solution}$ recompensates energy of discovering it $E_{explore}$ and crawling $E_{crawl}$ to it, $E_{crawl}$ can be used to set minimum needed to making the solution useful. Furthermore value of $E_{crawl}$ has an another effect --- smaller values tend to reduce the size of plasmodium as it is easier to find such food sources that are worse than the worst in given frontier.
 
-In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control way of acting of the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy. If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preffered to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}). Usually it is preffered to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
+\begin{figure}
+  \centering
 
-% TODO pictures for different Ecrawl and Eexplore
-% TODO Ecrawl = Eexplore, Ecrawl < Eexplore, Ecrawl > Eexplore, Ecrawl = Explore = ~1/2 = ~1/3 = ~1/4
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/bfs1.png}
+    \caption{Broad neighbour exploration}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/bfs2.png}
+    \caption{Best solution is selected}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/bfs3.png}
+    \caption{Next iteration}
+  \end{subfigure}
 
-It should be noted, that selecting very small values of $E_{explore}$ causes buildup of frontier heavily using memory as $|frontier| \sim \frac{E_{plasmodium} - E_{crawl}}{E_{explore}}$. Selecting $E_{explore}$ and $E_{crawl}$ values should be done with care, depending on characterstics of given optimization problem. When no information about problem is given, choosing $E_{explore} = E_{crawl} \ll 1$ may be wise. 
+  \caption{Breadth-first-like search when $E_{explore} < E_{crawl}$}
+  \label{figure:m_explore_bfs}
+\end{figure}
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/dfs1.png}
+    \caption{Narrow exploration}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/dfs2.png}
+    \caption{Best solution is selected}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/dfs3.png}
+    \caption{Next iteration}
+  \end{subfigure}
+
+  \caption{Depth-first-like search when $E_{explore} > E_{crawl}$}
+  \label{figure:m_explore_dfs}
+\end{figure}
+
+In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy. If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preffered to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}) --- smaller values of $E_{explore}$ causes thorough local search, not like smaller values of $E_{crawl}$ which causes many jumps to different neighbourhoods. Usually it is preffered to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die (figure \ref{figure:m_explore_dead}) or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/dead1.png}
+    \caption{Not enough energy for exploration}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/dead2.png}
+    \caption{Death of plasmodium}
+  \end{subfigure}
+
+  \caption{Premature death of plasmodium when $E_{explore}$ is too large}
+  \label{figure:m_explore_dead}
+\end{figure}
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/random1.png}
+    \caption{Random selection of neighbour}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/random2.png}
+    \caption{Crawling to the random neighbour}
+  \end{subfigure}
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{algorithm/metaheuristic/random3.png}
+    \caption{Random walk in effect}
+  \end{subfigure}
+
+  \caption{Random walk when $E_{explore} \approx E_{crawl}, E_{explore} + E_{crawl} \approx E_{plasmodium}$}
+  \label{figure:m_explore_special}
+\end{figure}
+
+It should be noted, that selecting very small values of $E_{explore}$ causes buildup of frontier heavily, thus using memory as $|frontier| \sim \frac{E_{plasmodium} - E_{crawl}}{E_{explore}}$. Selecting $E_{explore}$ and $E_{crawl}$ values should be done with care, depending on characterstics of given optimization problem. When no information about problem is given, choosing $E_{explore} = E_{crawl} \ll 1$ may be wise. 
 
