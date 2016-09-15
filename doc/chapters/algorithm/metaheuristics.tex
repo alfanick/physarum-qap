@@ -143,6 +143,31 @@ Plasmodium leaves previously occupied food sources when the worst solution in th
   \KwResult{new state of plasmodium}
   \BlankLine
 
+  \If{$frontier = \emptyset$}{
+    \Return{dead}\;
+  }
+
+  sorted\_frontier $\leftarrow$ sort(frontier, $E_{solution}$)\;
+
+  best\_solution $\leftarrow$ front(sorted\_frontier)\;
+  worst\_solution $\leftarrow$ back(sorted\_frontier)\;
+
+  \If{$E_{best\_solution} > E_{crawl} + E_{explore}$}{
+
+    \uIf{$E_{initial} \geq |{\Delta}E_{plasmodium}| + E_{crawl}$}{
+      ${\Delta}E_{plasmodium} \leftarrow {\Delta}E_{plasmodium} - E_{crawl}$\;
+    }
+    \Else{
+      ${\Delta}E_{solution} \leftarrow {\Delta}E_{solution} - E_{crawl}$\;
+    }
+
+    $plasmodium \leftarrow plasmodium \setminus \{solution : E_{solution} < E_{worst\_solution} - E_{crawl}\}$\; 
+
+    $plasmodium \leftarrow plasmodium \cup \{best\_solution\}$\;
+  }
+
+  \Return{plasmodium}\;
+
   \caption{Plasmodial crawling phase}
   \label{algorithm:m_crawling}
 \end{algorithm}
