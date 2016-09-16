@@ -12,12 +12,18 @@ Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_foo
   food = initial_food + e->getFood(position);
   alive = true;
 
-  std::cerr << id << " " << e->getFood(position) << " " << position.cost() << std::endl;
+#ifdef LOG
+  std::cerr << "plasmodium=" << id << " state=new food=" << food << " cost=" << position.cost() << " size=1 frontier=0i total_explored=0 total_crawled=0" << std::endl;
+#endif
 }
 
 void Plasmodium::explore() {
   float explore_cost = environment->getExploreCost();
   frontier.clear();
+
+#ifdef LOG
+    std::cerr << "plasmodium=" << id << " state=exploring food=" << food << " size=" << occupancy.size() << " frontier=0 total_explored=" << explored_count << " total_crawled=" << crawled_count << std::endl;
+#endif
 
   // try to move
   while (food > (environment->getCrawlCost() + occupancy.size() * environment->getExploreCost())) {
@@ -44,12 +50,19 @@ void Plasmodium::explore() {
     }
 
   }
+
+#ifdef LOG
+    // not used, same as crawl
+    // std::cerr << "plasmodium=" << id << " state=explored food=" << food << " size=" << occupancy.size() << " frontier=" << frontier.size() << " total_explored=" << explored_count << " total_crawled=" << crawled_count << std::endl;
+#endif
 }
 
 void Plasmodium::crawl() {
   if (frontier.empty()) {
     alive = false;
-    std::cerr << "dead " << id << std::endl;
+#ifdef LOG
+    std::cerr << "plasmodium=" << id << " state=dead food=" << food << " size=" << occupancy.size() << " frontier=0 total_explored=" << explored_count << " total_crawled=" << crawled_count << std::endl;
+#endif
     return;
   }
 
@@ -58,6 +71,10 @@ void Plasmodium::crawl() {
   });
 
   if (environment->getFood(frontier.front()) > (environment->getCrawlCost() + environment->getExploreCost())) {
+#ifdef LOG
+    std::cerr << "plasmodium=" << id << " state=crawling food=" << food << " size=" << occupancy.size() << " frontier=" << frontier.size() << " total_explored=" << explored_count << " total_crawled=" << crawled_count << " frontier_best_cost=" << frontier.front().cost() << " frontier_worst_cost=" << frontier.back().cost() << std::endl;
+#endif
+
     if (initial_food >= environment->getCrawlCost()) {
       initial_food -= environment->getCrawlCost();
     } else {
@@ -72,11 +89,9 @@ void Plasmodium::crawl() {
     for (const auto& s : occupancy)
       food_diff += environment->getFood(s);
 
-    // std::cerr << '#' << id << " pre " << occupancy.size();
     occupancy.erase(std::remove_if(occupancy.begin(), occupancy.end(), [&](const Solution& s) {
       return environment->getFood(s) < (environment->getFood(frontier.back()) - environment->getCrawlCost());
     }), occupancy.end());
-    // std::cerr << " post " << occupancy.size() << std::endl;
 
     for (const auto& s : occupancy)
       food_diff -= environment->getFood(s);
@@ -86,9 +101,17 @@ void Plasmodium::crawl() {
     occupancy.push_back(frontier.front());
     crawled_count++;
 
-    // std::cerr << '#' << id << ' ' << occupancy.size() << ' ' << food << std::endl;
     food -= environment->getCrawlCost();
     food += environment->getFood(frontier.front());
+
+#ifdef LOG
+    std::cerr << "plasmodium=" << id << " state=crawled food=" << food << " size=" << occupancy.size() << " frontier=" << frontier.size() << " total_explored=" << explored_count << " total_crawled=" << crawled_count << std::endl;
+#endif
+  }
+  else {
+#ifdef LOG
+    std::cerr << "plasmodium=" << id << " state=not_crawled food=" << food << " size=" << occupancy.size() << " frontier=" << frontier.size() << " total_explored=" << explored_count << " total_crawled=" << crawled_count << std::endl;
+#endif
   }
 }
 

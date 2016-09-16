@@ -46,9 +46,7 @@ Solution Experiment::getSolution() {
       best_solution = best_local;
     }
 
-    std::cerr << plasmodium.getId() << " " << environment.getFoodNotEaten(best_local) << " " << best_local.cost() << " " << plasmodium.getPositions().size() << " " << plasmodium.getExploredCount() << " " << plasmodium.getCrawledCount() << std::endl;
   }
-  std::cerr << std::endl;
 
   return best_solution;
 }
@@ -72,7 +70,6 @@ void Experiment::run(unsigned int max_time) {
     // merge()
 
     if (epoch % 100 == 0) {
-      std::cerr << "Epoch: " << epoch << std::endl;
       if (time(0) - start_time >= max_time)
         break;
     }
