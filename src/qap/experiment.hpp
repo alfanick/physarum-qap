@@ -11,10 +11,11 @@ namespace Physarum {
 
 class Experiment {
   public:
-    Experiment(const Environment &environment, size_t sample_size, size_t initial_population_size);
+    Experiment(const Environment &environment, size_t sample_size, size_t initial_population_size, bool should_merge);
 
     void run() { run(10); }
     void run(unsigned int max_time);
+    void merge();
     Solution getSolution();
 
     size_t getSampleSize() { return sample_size; }
@@ -24,6 +25,7 @@ class Experiment {
     Environment environment;
     size_t sample_size;
     size_t initial_population_size;
+    bool should_merge;
 
     std::vector<Plasmodium> population;
 };

@@ -38,6 +38,8 @@ class Plasmodium {
       static std::atomic_size_t id_generator(0);
       return id_generator++;
     }
+
+    friend class Experiment;
 };
 
 }

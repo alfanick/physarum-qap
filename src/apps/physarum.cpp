@@ -16,6 +16,7 @@ int main(int argc, char** argv) {
   float e_crawl = 0.001;
   float a = 0.1;
   float q = 10.0;
+  bool should_not_merge = false;
 
   std::string problem_name;
 
@@ -32,6 +33,7 @@ int main(int argc, char** argv) {
 
   flags.Var(problem_name, 'd', "data", std::string("(unset)"), "Path to input QAP problem data", "General");
   flags.Var(time_limit, 't', "time", time_limit, "Time limit in seconds", "General");
+  flags.Bool(should_not_merge, 'm', "no-merge", "Disables merging phase", "General");
   flags.Var(seed, 's', "seed", seed, "Seed for random generator, -1 for time based seed", "General");
   flags.Bool(help, 'h', "help", "Shows this help message and exit", "General");
 
@@ -58,7 +60,7 @@ int main(int argc, char** argv) {
 
   PUT::Physarum::Problem problem(problem_name);
   PUT::Physarum::Environment environment(problem, e_initial, e_explore, e_crawl, a, q);
-  PUT::Physarum::Experiment experiment(environment, samples, population_size);
+  PUT::Physarum::Experiment experiment(environment, samples, population_size, !should_not_merge);
 
   experiment.run(time_limit);
 
