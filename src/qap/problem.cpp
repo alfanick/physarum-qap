@@ -8,6 +8,7 @@ namespace Physarum {
 Problem::Problem() {
   path = "/dev/null";
   size = 0;
+  generator.seed(rand());
 }
 
 Problem::Problem(std::string path) : Problem() {

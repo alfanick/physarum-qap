@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <random>
 
 #include "./solution.hpp"
 
@@ -20,6 +21,7 @@ class Problem {
 
     size_t getSize() { return size; }
 
+    std::mt19937 generator{std::random_device{}()};
   private:
     size_t size;
 

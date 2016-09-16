@@ -11,8 +11,7 @@ Solution::Solution(Problem* p) : problem(p) {
   for (size_t i = 0; i < assignment.size(); i++)
     assignment[i] = i;
 
-  std::mt19937 r{std::random_device{}()};
-  std::shuffle(assignment.begin(), assignment.end(), r);
+  std::shuffle(assignment.begin(), assignment.end(), problem->generator);
 }
 
 Solution::Solution(Problem* p, const std::vector<int> &assignment) : problem(p) {
