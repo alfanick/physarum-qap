@@ -1,5 +1,9 @@
 #include "./experiment.hpp"
 
+#ifdef LOG
+#include "../external/getRSS.h"
+#endif
+
 #include <queue>
 #include <cassert>
 
@@ -64,7 +68,7 @@ void Experiment::run(unsigned int max_time) {
     is_alive = false;
 
 #ifdef LOG
-    std::cerr << "plasmodium=* epoch=" << epoch+1 << std::endl;
+    std::cerr << "plasmodium=* epoch=" << epoch+1 << " memory=" << getCurrentRSS() << std::endl;
 #endif
 
     for (auto& plasmodium : population) {
