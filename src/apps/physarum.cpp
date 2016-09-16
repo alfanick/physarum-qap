@@ -1,4 +1,5 @@
 #include <iostream>
+#include "../external/flags/Flags.hh"
 
 #include "qap/experiment.hpp"
 
