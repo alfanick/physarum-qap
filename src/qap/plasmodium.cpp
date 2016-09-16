@@ -13,7 +13,7 @@ Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_foo
   alive = true;
 
 #ifdef LOG
-  std::cerr << "plasmodium=" << id << " state=new food=" << food << " cost=" << position.cost() << " size=1 frontier=0i total_explored=0 total_crawled=0" << std::endl;
+  std::cerr << "plasmodium=" << id << " state=new food=" << food << " cost=" << position.cost() << " size=1 frontier=0 total_explored=0 total_crawled=0" << std::endl;
 #endif
 }
 
