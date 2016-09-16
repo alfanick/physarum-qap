@@ -59,6 +59,10 @@ void Experiment::run(unsigned int max_time) {
   while (is_alive) {
     is_alive = false;
 
+#ifdef LOG
+    std::cerr << "plasmodium=* epoch=" << epoch << std::endl;
+#endif
+
     for (auto& plasmodium : population) {
       if (plasmodium.isAlive()) {
         plasmodium.explore();
