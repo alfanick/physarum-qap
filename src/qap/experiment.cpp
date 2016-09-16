@@ -13,6 +13,10 @@ Experiment::Experiment(const Environment &e, size_t ss, size_t ips) : environmen
   // sample solutions
   std::priority_queue<Solution> samples;
 
+#ifdef LOG
+    std::cerr << "plasmodium=* epoch=0" << std::endl;
+#endif
+
   // create samples
   for (size_t i = 0; i < ss; i++) {
     samples.emplace(&environment.getProblem());
@@ -60,7 +64,7 @@ void Experiment::run(unsigned int max_time) {
     is_alive = false;
 
 #ifdef LOG
-    std::cerr << "plasmodium=* epoch=" << epoch << std::endl;
+    std::cerr << "plasmodium=* epoch=" << epoch+1 << std::endl;
 #endif
 
     for (auto& plasmodium : population) {
