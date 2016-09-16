@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
   flags.Var(e_initial, 'i', "e_initial", e_initial, "Initial energy for each plasmodium", "Energy");
   flags.Var(e_explore, 'e', "e_explore", e_explore, "Energy required for exploration of neighbour", "Energy");
   flags.Var(e_crawl, 'c', "e_crawl", e_crawl, "Energy required for crawling to neighbour", "Energy");
-  flags.Var(a, 'a', "scaling", a, "Scaling factor for cost to food energy transformation", "Energy");
+  flags.Var(a, 'a', "scale", a, "Scaling factor for cost to food energy transformation", "Energy");
   flags.Var(q, 'q', "base", q, "Exponential base for cost to food energy transformation", "Energy");
 
   flags.Var(problem_name, 'd', "data", std::string("(unset)"), "Path to input QAP problem data", "General");
