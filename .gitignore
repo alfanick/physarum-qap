@@ -2,7 +2,8 @@ bin/
 build/
 *.o
 doc/thesis.pdf
-doc/thesis_final.pdf
+doc/thesis_ebook.pdf
+doc/thesis_print.pdf
 *eps-converted-to.pdf
 *.pyc
 .ropeproject
