@@ -6,7 +6,7 @@ namespace PUT {
 namespace Physarum {
 
 Environment::Environment(const Problem &p, float ifd, float ec, float cc, float _a, float _q) : problem(p), initial_food(ifd), explore_cost(ec), crawl_cost(cc), a(_a), q(_q) {
-
+  food_eaten_count = 0;
 }
 
 void Environment::calibrate(unsigned long long c) {
@@ -18,6 +18,7 @@ void Environment::eatFood(const Solution& solution, float f) {
     food_eaten[solution] += f;
   } else {
     food_eaten.emplace(solution, f);
+    food_eaten_count++;
   }
 }
 

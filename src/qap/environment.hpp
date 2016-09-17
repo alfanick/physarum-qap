@@ -19,6 +19,7 @@ class Environment {
     float getExploreCost() { return explore_cost; }
     float getCrawlCost() { return crawl_cost; }
     Problem& getProblem() { return problem; }
+    size_t getFoodEatenCount() { return food_eaten_count; }
 
   private:
     Problem problem;
@@ -31,6 +32,7 @@ class Environment {
     float q;
 
     std::map<Solution, float, Solution::Comparator> food_eaten;
+    size_t food_eaten_count;
 };
 
 }

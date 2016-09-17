@@ -45,6 +45,10 @@ void Plasmodium::explore() {
 
       std::swap(solution.assignment[a], solution.assignment[b]);
 
+      if (environment->getFood(solution) <= 0) {
+        continue;
+      }
+
       frontier.push_back(solution);
       explored_count++;
     }

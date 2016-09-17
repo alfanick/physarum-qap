@@ -69,7 +69,7 @@ void Experiment::run(unsigned int max_time) {
     is_alive = false;
 
 #ifdef LOG
-    std::cerr << "plasmodium=* epoch=" << epoch+1 <<" time=" << time(0) - start_time << " memory=" << getCurrentRSS() << std::endl;
+    std::cerr << "plasmodium=* epoch=" << epoch+1 <<" time=" << time(0) - start_time << " memory=" << getCurrentRSS() << " total_food_eaten_count=" << environment.getFoodEatenCount() << std::endl;
 #endif
 
     for (auto& plasmodium : population) {
@@ -93,7 +93,7 @@ void Experiment::run(unsigned int max_time) {
   }
 
 #ifdef LOG
-    std::cerr << "plasmodium=* epoch=" << epoch+1 <<" time=" << time(0) - start_time << " memory=" << getCurrentRSS() << std::endl;
+    std::cerr << "plasmodium=* epoch=" << epoch+1 <<" time=" << time(0) - start_time << " memory=" << getCurrentRSS() << " total_food_eaten_count=" << environment.getFoodEatenCount() << std::endl;
 #endif
 }
 
