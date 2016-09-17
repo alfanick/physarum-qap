@@ -113,7 +113,7 @@ class PlotGenerator:
             plt.axis((x1, x2, 0, y2*1.01))
 
         if legend:
-            plt.legend()
+            plt.legend(loc='best')
 
         if title is True:
             plt.set_title("%s aggregated %s - %s" %
@@ -159,7 +159,7 @@ class PlotGenerator:
             plt.axis((x1, x2, 0, y2*1.01))
 
         if legend:
-            plt.legend()
+            plt.legend(loc='best')
 
         if title is True:
             plt.set_title("%s - %s" %
@@ -210,7 +210,7 @@ class PlotGenerator:
             plt.set_ylabel('number of plasmodia')
             plt.set_xlabel('epoch')
             plt.set_xlim(right=max_epoch)
-            plt.legend()
+            plt.legend(loc='best')
 
             x1, x2, y1, y2 = plt.axis()
             plt.axis((x1, x2, y1, y2+1))
@@ -260,7 +260,7 @@ class PlotGenerator:
                 plt.axis((x1, x2, 0, y2*1.01))
 
             if legend:
-                plt.legend()
+                plt.legend(loc='best')
 
             if title is True:
                 plt.set_title("%s for each plasmodium - %s" %
