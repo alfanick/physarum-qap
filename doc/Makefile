@@ -5,7 +5,7 @@ pdf_ebook:
 	bibtex thesis
 	pdflatex -shell-escape '\def\eop{png} \input{thesis.tex}'
 	pdflatex -shell-escape '\def\eop{png} \input{thesis.tex}'
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -r300 -sOutputFile=thesis_ebook.pdf thesis.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -r96 -sOutputFile=thesis_ebook.pdf thesis.pdf
 	
 	rm -f thesis.pdf
 	rm -f thesis.aux thesis.bbl thesis.log thesis.out thesis.toc thesis.blg

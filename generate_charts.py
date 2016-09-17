@@ -346,21 +346,21 @@ if __name__ == '__main__':
 
         try:
             plot.savefig("%s/%s.%s" % (args.out, filename, args.format),
-                         bbox_inches='tight', dpi=72)
+                         bbox_inches='tight', dpi=150)
         except:
             pass
 
         plot.gca().set_xlim(0, 0.2 * plot.gca().get_xlim()[1])
         try:
             plot.savefig("%s/%s.zoomed.%s" % (args.out, filename, args.format),
-                         bbox_inches='tight', dpi=72)
+                         bbox_inches='tight', dpi=150)
         except:
             pass
 
         plot.gca().set_xlim(0, 0.25 * plot.gca().get_xlim()[1])
         try:
             plot.savefig("%s/%s.zzzoomed.%s" % (args.out, filename, args.format),
-                         bbox_inches='tight', dpi=72)
+                         bbox_inches='tight', dpi=150)
         except:
             pass
 
