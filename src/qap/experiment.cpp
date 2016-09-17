@@ -85,12 +85,12 @@ void Experiment::run(unsigned int max_time) {
       merge();
     }
 
+    epoch++;
+
     if (epoch % 100 == 0) {
       if (time(0) - start_time >= max_time)
         break;
     }
-
-    epoch++;
   }
 
 #ifdef LOG

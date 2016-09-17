@@ -3,3 +3,5 @@ build/
 *.o
 doc/thesis.pdf
 *eps-converted-to.pdf
+*.pyc
+.ropeproject
