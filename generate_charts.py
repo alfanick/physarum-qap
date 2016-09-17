@@ -1,12 +1,12 @@
 #!/usr/bin/python
 
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot
 import argparse
 from os.path import basename
 import os
 
-def avg(a):
-    return float(sum(a))/len(a)
 
 class Dataset:
     def __init__(self, log):
@@ -117,13 +117,11 @@ class PlotGenerator:
 
         if title is True:
             plt.set_title("%s aggregated %s - %s" %
-                            (key, aggregate.__name__, dataset.name))
+                          (key, aggregate.__name__, dataset.name))
         elif isinstance(title, basestring):
             plt.set_title(title)
 
-
         return [figure]
-
 
     def multiple_instance_single_key(self, key, label=None, title=True,
                                      legend=True):
@@ -165,13 +163,11 @@ class PlotGenerator:
 
         if title is True:
             plt.set_title("%s - %s" %
-                            (key, dataset.name))
+                          (key, dataset.name))
         elif isinstance(title, basestring):
             plt.set_title(title)
 
-
         return [figure]
-
 
     def single_instance_plasmodia_state(self):
         plots = []
@@ -223,9 +219,7 @@ class PlotGenerator:
 
             plots.append(figure)
 
-
         return plots
-
 
     def single_instance_multiple_plasmodia(self, key, states=('crawling',),
                                            label=None, title=True,
@@ -279,8 +273,9 @@ class PlotGenerator:
         return plots
 
 
-
 if __name__ == '__main__':
+    matplotlib.pyplot.rcParams['backend'] = 'TkAgg'
+    matplotlib.pyplot.rcParams['agg.path.chunksize'] = 100000
     matplotlib.pyplot.rc('text', usetex=True)
     matplotlib.pyplot.rc('font', family='serif')
 
@@ -290,6 +285,7 @@ if __name__ == '__main__':
                         required=True, nargs='+')
 
     parser.add_argument('-o', '--out', type=str, required=True)
+    parser.add_argument('-f', '--format', type=str, default='png')
 
     args = parser.parse_args()
     if not os.path.exists(args.out):
@@ -315,13 +311,23 @@ if __name__ == '__main__':
 
     f += generator.single_instance_plasmodia_state()
 
-    detailed = {'food': (('new', 'crawled'), 'plasmodium energy'),
-                'size': (('new', 'crawled', 'dead'), 'number of occupied solutions'),
-                'total_explored': (('new', 'crawled'), 'total number of explored solutions'),
-                'total_crawled': (('new', 'crawled'), 'total number of crawled solutions'),
-                'frontier': (('crawled', 'merged'), 'number of solutions in frontier'),
-                'frontier_best_cost': (('crawled',), 'cost of best solution in frontier'),
-                'frontier_worst_cost': (('crawled',), 'cost of worst solution in frontier')}
+    detailed = {'food': (('new', 'crawled'),
+                         'plasmodium energy'),
+                'size': (('new', 'crawled', 'dead'),
+                         'number of occupied solutions'),
+                'total_explored': (('new', 'crawled'),
+                                   'total number of explored solutions'),
+                'total_crawled': (('new', 'crawled'),
+                                  'total number of crawled solutions'),
+                'frontier': (('crawled', 'merged'),
+                             'number of solutions in frontier'),
+                'frontier_best_cost': (('crawled',),
+                                       'cost of best solution in frontier'),
+                'frontier_worst_cost': (('crawled',),
+                                        'cost of worst solution in frontier')}
+
+    def avg(a):
+        return float(sum(a))/len(a)
 
     aggregates = (min, max, sum, avg)
 
@@ -338,13 +344,24 @@ if __name__ == '__main__':
         filename = plot.gca().title.get_text()
         plot.gca().title.set_visible(False)
 
-        plot.savefig("%s/%s.pdf" % (args.out, filename),
-                     bbox_inches='tight')
+        try:
+            plot.savefig("%s/%s.%s" % (args.out, filename, args.format),
+                         bbox_inches='tight', dpi=300)
+        except:
+            pass
 
         plot.gca().set_xlim(0, 0.2 * plot.gca().get_xlim()[1])
-        plot.savefig("%s/%s.zoomed.pdf" % (args.out, filename),
-                     bbox_inches='tight')
+        try:
+            plot.savefig("%s/%s.zoomed.%s" % (args.out, filename, args.format),
+                         bbox_inches='tight', dpi=300)
+        except:
+            pass
 
         plot.gca().set_xlim(0, 0.25 * plot.gca().get_xlim()[1])
-        plot.savefig("%s/%s.zzzoomed.pdf" % (args.out, filename),
-                     bbox_inches='tight')
+        try:
+            plot.savefig("%s/%s.zzzoomed.%s" % (args.out, filename, args.format),
+                         bbox_inches='tight', dpi=300)
+        except:
+            pass
+
+        plot.clf()
