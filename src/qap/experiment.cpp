@@ -7,6 +7,7 @@
 #include <queue>
 #include <cassert>
 #include <set>
+#include <algorithm>
 
 namespace PUT {
 namespace Physarum {

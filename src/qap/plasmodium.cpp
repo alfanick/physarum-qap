@@ -1,4 +1,5 @@
 #include "./plasmodium.hpp"
+#include <algorithm>
 
 namespace PUT {
 namespace Physarum {

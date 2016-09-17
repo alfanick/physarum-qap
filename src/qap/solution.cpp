@@ -1,6 +1,7 @@
 #include "./solution.hpp"
 
 #include <random>
+#include <algorithm>
 
 namespace PUT {
 namespace Physarum {
