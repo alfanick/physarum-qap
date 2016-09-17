@@ -96,10 +96,8 @@ class PlotGenerator:
             aggregated_data = []
 
             for epoch, values in data.iteritems():
-                try:
+                if len(values) > 0:
                     aggregated_data.append(aggregate(values))
-                except:
-                    pass
 
             plt.plot(aggregated_data, label=dataset.name)
 
