@@ -99,7 +99,7 @@ class PlotGenerator:
                 try:
                     aggregated_data.append(aggregate(values))
                 except:
-                    aggregated_data.append(0)
+                    pass
 
             plt.plot(aggregated_data, label=dataset.name)
 
@@ -311,6 +311,9 @@ if __name__ == '__main__':
 
     f += generator.multiple_instance_single_key('time',
                                                 label='execution time')
+
+    f += generator.multiple_instance_single_key('solution_cost',
+                                                label='cost of best solution')
 
     f += generator.single_instance_plasmodia_state()
 
