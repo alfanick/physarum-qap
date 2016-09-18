@@ -81,14 +81,30 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
 
 For small testcases a regularity has been observed --- larger populations tend to find better results in earlier epochs (figure \ref{figure:am_best_cost}). Furthermore, larger $\frac{l}{k}$ proportions (number of plasmodia vs number of samples) are preferred as they exhibit the same characteristic --- when the same number of samples is used, more plasmodia started on these samples yield better results earlier. Plasmodium initialized on a bad solution can crawl towards better one, where a plasmodium initialized on a relatively good solution may not find any better in its local neighbourhood. Thus one should use $l$ close to $k$ to fully use the algorithm potential. 
 
+
+\subsection{Energy values}
+
+Essential parts of the algorithm are $E_{explore}$ and $E_{crawl}$ energy values.
 % TODO different energies
 
-% TODO scale/base
 % TODO initial
-% TODO special cases - random walk and dead plasmodium
 
+\subsubsection{Random walk}
+% TODO random walk
+
+\subsubsection{Plasmodial death}
+% TODO plasmodial death
+
+\subsection{Cost to food transformation}
+% TODO scale/base
+
+\subsection{Solution costs}
+
+\subsubsection{Improved algorithm}
 % TODO store global minimum
 
 % TODO time/memory
+
+\subsubsection{QAPLIB results}
 % TODO complete run for qaplib
 % TODO comparison with other
