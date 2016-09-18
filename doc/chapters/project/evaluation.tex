@@ -171,12 +171,33 @@ An important step is the cost to food transformation --- each solution's cost is
 
 Using such transformation gives solutions equal to the best sample an unit value of $E_{solution}=1$, worse solutions carry lower energy, while better solutions carry bigger energy. Modifying the base $q$ (and correspoding scale $a$) can be used to intensify this difference.
 
-% TODO scale/base
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/ctf/food aggregated sum - lipa20a $a=0.25$ $q=4$.zoomed.\eop}
+  
+  \caption{Plasmodium energy $E_{plasmodium}$ with different base $q$ and scale $a$ (dataset \texttt{lipa20a} $n=20$, $l=1$, $k=10$)}
+  \label{figure:am_ctf_food}
+\end{figure}
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/ctf/frontier aggregated min - lipa20a $a=0.25$ $q=4$.zoomed.\eop}
+  
+  \caption{Size of frontier with different base $q$ and scale $a$ (dataset \texttt{lipa20a} $n=20$, $l=1$, $k=10$)}
+  \label{figure:am_ctf_frontier}
+\end{figure}
+
+Experiments confirm that larger $q$ values provide more energy to plasmodia (figure \ref{figure:am_ctf_food}) as explored solution carry more $E_{solution}$ energy. This extra energy is used for exploration phase and result in larger frontier sizes (figure \ref{figure:am_ctf_frontier}).
 
 \subsection{Solution costs}
 
+% TODO lipa results
+
 \subsubsection{Improved algorithm}
 % TODO store global minimum
+% TODO lipa results
 
 % TODO time/memory
 
