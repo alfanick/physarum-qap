@@ -166,6 +166,11 @@ Extreme values of $E_{explore}$ combined with large values $E_{crawl}$ results i
 
 
 \subsection{Cost to food transformation}
+
+An important step is the cost to food transformation --- each solution's cost is transformed into nutritional energy using equation \ref{equation:m_e_solution}. Every solution is compared to the best solution from the sampling phase, every qutient $\frac{calibrated\_cost}{cost(solution)}$ is amplified using exponential function with exponential function with the  base $q$, linearly scaled using coefficient $a$ (usually $a=q^{-1}$). 
+
+Using such transformation gives solutions equal to the best sample an unit value of $E_{solution}=1$, worse solutions carry lower energy, while better solutions carry bigger energy. Modifying the base $q$ (and correspoding scale $a$) can be used to intensify this difference.
+
 % TODO scale/base
 
 \subsection{Solution costs}
