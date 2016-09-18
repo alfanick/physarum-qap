@@ -16,22 +16,72 @@ Same seed value has been used across the tests, unless mentioned otherwise --- t
 All tests have been done on the same test machine with given specification: processor Intel Xeon E3-1246 3.5GHz, DDR3-1600 32GB RAM, Linux kernel 3.19. Every plot used in this work is generated automatically from logs made by \texttt{physarum-debug} (the logs are included with the source). Some detailed numerical values are provided in tables in Appendix \ref{chapter:results}.
 
 
+\subsection{Colony initialization phase}
+
+The algorithm initialization phase begins with sampling of $k$ random solutions from whole $n!$ search space --- than on $l$ best solution instances of \texttt{Plasmodium} are put. Size of population directly affects total number of visited solutions (solutions that were used as food source when plasmodia crawled), larger populations visit more solutions (figure \ref{figure:am_visited_solutions}), because they start in multiple points of the space search. An obvious observation is that introducing more plasmodia results in more computation, as a result each discrete epoch takes longer time to compute --- these experiments were limited to 300~s execution time, larger colonies finished on earlier epochs.
+
+Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am_state_of_colony}), which is an anticipated behaviour --- the chance of encountering another plasmodium is greater as there are more plasmodia sharing the same space search. It can be observed that as a result of merging number of solutions stops increasing drastically as in early epochs, because there are less plasmodia crawling.
+
 \begin{figure}
-  \includegraphics[width=1.1\textwidth,center]{foo.\eop}
+  \centering
 
-  \caption{foo bar bla bla}
-
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa20a/total_food_eaten_count - lipa20a $l=300$ $k=300$.\eop}
+    \caption{instance \texttt{lipa20a} $n=20$}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/total_food_eaten_count - lipa90a $l=300$ $k=300$.zoomed.\eop}
+    \caption{instance \texttt{lipa90a} $n=90$}
+  \end{subfigure}
+  
+  \caption{Number of visited solutions with different colony size $l$, samples $k$}
+  \label{figure:am_visited_solutions}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=1.1\textwidth,center]{bar.\eop}
+  \centering
 
-  \caption{foo bar}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/state of colony - lipa90a $l=10$ $k=30$.\eop}
+    \caption{population $l=10$, samples $k=30$}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/state of colony - lipa90a $l=100$ $k=300$.\eop}
+    \caption{population $l=100$, samples $k=300$}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/state of colony - lipa90a $l=300$ $k=300$.\eop}
+    \caption{population $l=300$, samples $k=300$}
+  \end{subfigure}
 
+  \caption{State of colony with different colony size $l$, samples $k$ (instance \texttt{lipa90a} $n=90$)}
+  \label{figure:am_state_of_colony}
 \end{figure}
 
-% TODO number of plasmoida/merge number/dead number vs time -- lipa20 vs lipa90
-% TODO food of each plasmodium vs time -- lipa20 vs lipa 90
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa20a/frontier_best_cost aggregated min - lipa20a $l=300$ $k=300$.zoomed.\eop}
+    \caption{instance \texttt{lipa20a} $n=20$}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/nug20/frontier_best_cost aggregated min - nug20 $l=300$ $k=300$.zoomed.\eop}
+    \caption{instance \texttt{nug20} $n=20$}
+  \end{subfigure}
+  
+  \caption{Cost of the best detected solution by any plasmodium with different colony size $l$, samples $k$}
+  \label{figure:am_best_cost}
+\end{figure}
+
+For small testcases a regularity has been observed --- larger populations tend to find better results in earlier epochs (figure \ref{figure:am_best_cost}). Furthermore, larger $\frac{l}{k}$ proportions (number of plasmodia vs number of samples) are preferred as they exhibit the same characteristic --- when the same number of samples is used, more plasmodia started on these samples yield better results earlier. Plasmodium initialized on a bad solution can crawl towards better one, where a plasmodium initialized on a relatively good solution may not find any better in its local neighbourhood. Thus one should use $l$ close to $k$ to fully use the algorithm potential. 
+
+% TODO different energies
 
 % TODO scale/base
 % TODO initial
