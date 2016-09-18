@@ -4,16 +4,17 @@
 The implementation of Physarum-based Metaheuristic algorithm is tested under variety of conditions. Some tests have been made to show general behaviour of the algorithm depending on input problem size, while other test influence of various parameters, helping out with their selection. In the end the algorithm is compared to other common algorithms.
 
 
-\subsection{Test platform}
-
-All tests have been done on the same test machine with given specification: processor Intel Xeon E3-1246 3.5GHz, DDR3-1600 32GB RAM, Linux kernel 3.19. Same seed value has been used across the tests, unless mentioned otherwise.
-
-
 \subsection{Dataset description}
 
-bla bla bla
+% TODO de facto standard
+
 
 \subsection{Testing methodology}
+
+Same seed value has been used across the tests, unless mentioned otherwise --- this simple trick ensures the same initial position even if different configuration options are used. Test cases \texttt{lipa20a} and \texttt{lipa90a} are used for testing various parameters as they greatly differ in size ($n=20$ and $n=90$), so influences of the parameters can be observed. Values of observable parameters are measured every epoch (a discrete algorithm step), while execution time is bounded by 300~s limit, unless mentioned otherwise.
+
+All tests have been done on the same test machine with given specification: processor Intel Xeon E3-1246 3.5GHz, DDR3-1600 32GB RAM, Linux kernel 3.19. Every plot used in this work is generated automatically from logs made by \texttt{physarum-debug} (the logs are included with the source). Some detailed numerical values are provided in tables in Appendix \ref{chapter:results}.
+
 
 \begin{figure}
   \centering
@@ -32,11 +33,16 @@ bla bla bla
   \caption{foo bar}
 
 \end{figure}
+
 % TODO number of plasmoida/merge number/dead number vs time -- lipa20 vs lipa90
 % TODO food of each plasmodium vs time -- lipa20 vs lipa 90
 
 % TODO scale/base
 % TODO initial
+% TODO special cases - random walk and dead plasmodium
 
-% TODO various params
-% TODO comparison
+% TODO store global minimum
+
+% TODO time/memory
+% TODO complete run for qaplib
+% TODO comparison with other
