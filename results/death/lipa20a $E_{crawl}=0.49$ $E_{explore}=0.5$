@@ -1,0 +1,63 @@
+plasmodium=* epoch=0
+plasmodium=0 state=new food=1 cost=3888 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=1 state=new food=0.99411 cost=3898 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=2 state=new food=0.993525 cost=3899 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=3 state=new food=0.991773 cost=3902 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=4 state=new food=0.990608 cost=3904 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=5 state=new food=0.983671 cost=3916 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=6 state=new food=0.983097 cost=3917 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=7 state=new food=0.980237 cost=3922 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=8 state=new food=0.979667 cost=3923 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=9 state=new food=0.975127 cost=3931 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=* epoch=1 time=0 memory=831488 total_food_eaten_count=0 solution_cost=3888
+plasmodium=0 state=exploring food=1 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=0 state=not_crawled food=0.5 size=1 frontier=1 total_explored=1 total_crawled=0
+plasmodium=1 state=exploring food=0.99411 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=1 state=not_crawled food=0.49411 size=1 frontier=1 total_explored=1 total_crawled=0
+plasmodium=2 state=exploring food=0.993525 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=2 state=crawling food=0.493525 size=1 frontier=1 total_explored=1 total_crawled=0 frontier_best_cost=3889 frontier_worst_cost=3889
+plasmodium=2 state=crawled food=0.999408 size=1 frontier=1 total_explored=1 total_crawled=1
+plasmodium=3 state=exploring food=0.991773 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=3 state=crawling food=0.491773 size=1 frontier=1 total_explored=1 total_crawled=0 frontier_best_cost=3898 frontier_worst_cost=3898
+plasmodium=3 state=crawled food=0.99411 size=1 frontier=1 total_explored=1 total_crawled=1
+plasmodium=4 state=exploring food=0.990608 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=4 state=crawling food=0.490608 size=1 frontier=1 total_explored=1 total_crawled=0 frontier_best_cost=3884 frontier_worst_cost=3884
+plasmodium=4 state=crawled food=1.00237 size=1 frontier=1 total_explored=1 total_crawled=1
+plasmodium=5 state=exploring food=0.983671 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=5 state=dead food=0.983671 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=6 state=exploring food=0.983097 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=6 state=dead food=0.983097 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=7 state=exploring food=0.980237 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=7 state=dead food=0.980237 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=8 state=exploring food=0.979667 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=8 state=dead food=0.979667 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=9 state=exploring food=0.975127 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=9 state=dead food=0.975127 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=1 state=merge with=3 food=0.49411 size=1 frontier=0 total_explored=2 total_crawled=1
+plasmodium=* epoch=2 time=0 memory=839680 total_food_eaten_count=5 solution_cost=3884
+plasmodium=0 state=exploring food=0.5 size=1 frontier=0 total_explored=1 total_crawled=0
+plasmodium=0 state=dead food=0.5 size=1 frontier=0 total_explored=1 total_crawled=0
+plasmodium=1 state=exploring food=0.49411 size=1 frontier=0 total_explored=2 total_crawled=1
+plasmodium=1 state=dead food=0.49411 size=1 frontier=0 total_explored=2 total_crawled=1
+plasmodium=2 state=exploring food=0.999408 size=1 frontier=0 total_explored=1 total_crawled=1
+plasmodium=2 state=crawling food=0.499408 size=1 frontier=1 total_explored=2 total_crawled=1 frontier_best_cost=3899 frontier_worst_cost=3899
+plasmodium=2 state=crawled food=0.993525 size=1 frontier=1 total_explored=2 total_crawled=2
+plasmodium=4 state=exploring food=1.00237 size=1 frontier=0 total_explored=1 total_crawled=1
+plasmodium=4 state=crawling food=0.502374 size=1 frontier=1 total_explored=2 total_crawled=1 frontier_best_cost=3878 frontier_worst_cost=3878
+plasmodium=4 state=crawled food=1.00596 size=1 frontier=1 total_explored=2 total_crawled=2
+plasmodium=* epoch=3 time=0 memory=839680 total_food_eaten_count=7 solution_cost=3878
+plasmodium=2 state=exploring food=0.993525 size=1 frontier=0 total_explored=2 total_crawled=2
+plasmodium=2 state=not_crawled food=0.493525 size=1 frontier=1 total_explored=3 total_crawled=2
+plasmodium=4 state=exploring food=1.00596 size=1 frontier=0 total_explored=2 total_crawled=2
+plasmodium=4 state=crawling food=0.505955 size=1 frontier=1 total_explored=3 total_crawled=2 frontier_best_cost=3869 frontier_worst_cost=3869
+plasmodium=4 state=crawled food=1.01137 size=1 frontier=1 total_explored=3 total_crawled=3
+plasmodium=* epoch=4 time=0 memory=839680 total_food_eaten_count=9 solution_cost=3869
+plasmodium=2 state=exploring food=0.493525 size=1 frontier=0 total_explored=3 total_crawled=2
+plasmodium=2 state=dead food=0.493525 size=1 frontier=0 total_explored=3 total_crawled=2
+plasmodium=4 state=exploring food=1.01137 size=1 frontier=0 total_explored=3 total_crawled=3
+plasmodium=4 state=not_crawled food=0.511372 size=1 frontier=1 total_explored=4 total_crawled=3
+plasmodium=* epoch=5 time=0 memory=839680 total_food_eaten_count=10 solution_cost=3869
+plasmodium=4 state=exploring food=0.511372 size=1 frontier=0 total_explored=4 total_crawled=3
+plasmodium=4 state=dead food=0.511372 size=1 frontier=0 total_explored=4 total_crawled=3
+plasmodium=* epoch=6 time=0 memory=839680 total_food_eaten_count=10 solution_cost=3869
+plasmodium=* epoch=7 time=0 memory=839680 total_food_eaten_count=10 solution_cost=3869

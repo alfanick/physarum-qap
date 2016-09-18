@@ -145,6 +145,26 @@ Some combinations of $E_{explore}$ and $E_{crawl}$ can result in meaningless "ra
 \subsubsection{Plasmodial death}
 % TODO plasmodial death
 
+Extreme values of $E_{explore}$ combined with large values $E_{crawl}$ results in premature plasmodium death. Instead of merging or lasting until the time limit, multiple plasmodia die as they lack energy for crawling to another solution and gaining some new energy (figure \ref{figure:am_energy_death}).
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/death/state of colony - lipa20a $E_{crawl}=0.49$ $E_{explore}=0.5$.\eop}
+    \caption{$E_{explore}=0.5$, $E_{crawl}=0.49$}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/death/state of colony - lipa20a $E_{crawl}=0.45$ $E_{explore}=0.5$.\eop}
+    \caption{$E_{explore}=0.5$, $E_{crawl}=0.45$}
+  \end{subfigure}
+  
+  \caption{State of colony with different extreme $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
+  \label{figure:am_energy_death}
+\end{figure}
+
+
 \subsection{Cost to food transformation}
 % TODO scale/base
 
