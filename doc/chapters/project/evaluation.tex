@@ -128,8 +128,19 @@ Another parameter that can be used to tune the algorithm is $E_{initial}$ --- in
   \label{figure:am_energy_initial}
 \end{figure}
 
+
 \subsubsection{Random walk}
-% TODO random walk
+
+Some combinations of $E_{explore}$ and $E_{crawl}$ can result in meaningless "random walk" and should be avoided. When $E_{explore}$ and $E_{crawl}$ are of similar value and their sum is close to unit value (energy of best solution from the sampling phase), plasmodia will choose any solution no matter their energetical value and corresponding cost (figure \ref{figure:am_energy_random}). Such behaviour omits any optimization behaviour, crawling to solutions without any benefits, hence the name random walk.
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/random/frontier_best_cost for each plasmodium - random $E_{crawl}=0.001$ $E_{explore}=0.5$.\eop}
+
+  \caption{Cost of best solution in frontier for every plasmodium with random walk conditions $E_{crawl}=0.3$, $E_{explore}=0.5$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
+  \label{figure:am_energy_random}
+\end{figure}
 
 \subsubsection{Plasmodial death}
 % TODO plasmodial death
