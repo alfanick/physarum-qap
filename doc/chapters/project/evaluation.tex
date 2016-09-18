@@ -84,8 +84,38 @@ For small testcases a regularity has been observed --- larger populations tend t
 
 \subsection{Energy values}
 
-Essential parts of the algorithm are $E_{explore}$ and $E_{crawl}$ energy values.
-% TODO different energies
+Essential parts of the algorithm are $E_{explore}$ and $E_{crawl}$ energy values. The first one has direct effect on the size of frontier and number of explored solutions, while the second one has an effect on the size of plasmodium.
+
+Indeed, large values of $E_{explore}$ cause frontier to be rather small, as little solutions can be explored and added as interesting to the frontier (figure \ref{figure:am_energy_frontier}). On the other hand, larger values of $E_{crawl}$ make plasmodium to occupy less food sources (figure \ref{figure:am_energy_size}).
+
+Moreover there is a latent relation between frontier size and $E_{crawl}$ value --- frontier size tend to oscillate when $E_{crawl}$ is rather large (figure \ref{figure:am_energy_frontier}), it is so because a plasmodium must conserve energy for crawl phase instead of exploration phase. We also can notice a strong relationship between $E_{explore}$ and cost of the explored best solution (figure \ref{figure:am_energy_cost}) --- small values of $E_{explore}$ tend to visit minimal solutions in earlier epochs. 
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/frontier aggregated avg - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.zzzoomed.\eop}
+
+  \caption{Average size of frontier for colonies with different energies $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
+  \label{figure:am_energy_frontier}
+\end{figure}
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/size aggregated avg - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.zzzoomed.\eop}
+
+  \caption{Average size of plasmodia for colonies with different energies $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
+  \label{figure:am_energy_size}
+\end{figure}
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/frontier_best_cost aggregated min - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.zzzoomed.\eop}
+
+  \caption{Cost of the best detected solution by any plasmodium with different energies $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
+  \label{figure:am_energy_cost}
+\end{figure}
 
 % TODO initial
 
