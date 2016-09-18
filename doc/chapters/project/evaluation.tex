@@ -117,7 +117,16 @@ Moreover there is a latent relation between frontier size and $E_{crawl}$ value 
   \label{figure:am_energy_cost}
 \end{figure}
 
-% TODO initial
+Another parameter that can be used to tune the algorithm is $E_{initial}$ --- initial quanta of energy given to plasmodia on their initialization. Experiments have shown that it has little to none meaning in usual cases. A clear change is visible in frontier size at the first epoch (figure \ref{figure:am_energy_initial}) --- with bigger $E_{initial}$ there is more energy so more exploration steps can be done (each using $E_{explore}$). In tested cases it has little effect on the solution, however one can imagine a large instance of QAP where thorough exploration of neighbours on initialization can in fact result in finding close to optimal solution at early stages.
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/initial90/frontier aggregated avg - lipa90a $E_{initial}=10.0$.zzzoomed.\eop}
+
+  \caption{Average frontier size with different initial energy $E_{initial}$ (dataset \texttt{lipa90a} $n=90$, $l=10$, $k=30$)}
+  \label{figure:am_energy_initial}
+\end{figure}
 
 \subsubsection{Random walk}
 % TODO random walk
