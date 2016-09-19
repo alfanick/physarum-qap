@@ -1,0 +1,551 @@
+plasmodium=* epoch=0
+plasmodium=0 state=new food=1 cost=367043 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=1 state=new food=0.999097 cost=367187 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=2 state=new food=0.998872 cost=367223 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=3 state=new food=0.998791 cost=367236 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=4 state=new food=0.998703 cost=367250 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=5 state=new food=0.998684 cost=367253 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=6 state=new food=0.998515 cost=367280 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=7 state=new food=0.998203 cost=367330 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=8 state=new food=0.99809 cost=367348 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=9 state=new food=0.997828 cost=367390 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=* epoch=1 time=0 memory=1060864 total_food_eaten_count=0 solution_cost=367043
+plasmodium=0 state=exploring food=1 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=0 state=crawling food=0.00104641 size=1 frontier=9989 total_explored=9989 total_crawled=0 frontier_best_cost=366827 frontier_worst_cost=367361
+plasmodium=0 state=crawled food=1.00136 size=1 frontier=9989 total_explored=9989 total_crawled=1
+plasmodium=1 state=exploring food=0.999097 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=1 state=crawling food=0.00104391 size=1 frontier=9980 total_explored=9980 total_crawled=0 frontier_best_cost=366970 frontier_worst_cost=367453
+plasmodium=1 state=crawled food=1.00046 size=1 frontier=9980 total_explored=9980 total_crawled=1
+plasmodium=2 state=exploring food=0.998872 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=2 state=crawling food=0.00101855 size=1 frontier=9978 total_explored=9978 total_crawled=0 frontier_best_cost=366986 frontier_worst_cost=367485
+plasmodium=2 state=crawled food=1.00036 size=1 frontier=9978 total_explored=9978 total_crawled=1
+plasmodium=3 state=exploring food=0.998791 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=3 state=crawling food=0.00103729 size=1 frontier=9977 total_explored=9977 total_crawled=0 frontier_best_cost=366961 frontier_worst_cost=367511
+plasmodium=3 state=crawled food=1.00051 size=1 frontier=9977 total_explored=9977 total_crawled=1
+plasmodium=4 state=exploring food=0.998703 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=4 state=crawling food=0.00104969 size=1 frontier=9976 total_explored=9976 total_crawled=0 frontier_best_cost=367019 frontier_worst_cost=367590
+plasmodium=4 state=crawled food=1.00015 size=1 frontier=9976 total_explored=9976 total_crawled=1
+plasmodium=5 state=exploring food=0.998684 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=5 state=crawling food=0.00103091 size=1 frontier=9976 total_explored=9976 total_crawled=0 frontier_best_cost=366969 frontier_worst_cost=367530
+plasmodium=5 state=crawled food=1.00046 size=1 frontier=9976 total_explored=9976 total_crawled=1
+plasmodium=6 state=exploring food=0.998515 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=6 state=crawling food=0.00106197 size=1 frontier=9974 total_explored=9974 total_crawled=0 frontier_best_cost=366996 frontier_worst_cost=367565
+plasmodium=6 state=crawled food=1.00029 size=1 frontier=9974 total_explored=9974 total_crawled=1
+plasmodium=7 state=exploring food=0.998203 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=7 state=crawling food=0.00104933 size=1 frontier=9971 total_explored=9971 total_crawled=0 frontier_best_cost=367030 frontier_worst_cost=367573
+plasmodium=7 state=crawled food=1.00008 size=1 frontier=9971 total_explored=9971 total_crawled=1
+plasmodium=8 state=exploring food=0.99809 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=8 state=crawling food=0.00103676 size=1 frontier=9970 total_explored=9970 total_crawled=0 frontier_best_cost=367087 frontier_worst_cost=367617
+plasmodium=8 state=crawled food=0.999724 size=1 frontier=9970 total_explored=9970 total_crawled=1
+plasmodium=9 state=exploring food=0.997828 size=1 frontier=0 total_explored=0 total_crawled=0
+plasmodium=9 state=crawling food=0.00107436 size=1 frontier=9967 total_explored=9967 total_crawled=0 frontier_best_cost=367113 frontier_worst_cost=367695
+plasmodium=9 state=crawled food=0.999561 size=1 frontier=9967 total_explored=9967 total_crawled=1
+plasmodium=* epoch=2 time=14 memory=78307328 total_food_eaten_count=10 solution_cost=366827
+plasmodium=0 state=exploring food=1.00136 size=1 frontier=0 total_explored=9989 total_crawled=1
+plasmodium=0 state=crawling food=0.00100257 size=1 frontier=10003 total_explored=19992 total_crawled=1 frontier_best_cost=366618 frontier_worst_cost=367043
+plasmodium=0 state=crawled food=1.00268 size=2 frontier=10003 total_explored=19992 total_crawled=2
+plasmodium=1 state=exploring food=1.00046 size=1 frontier=0 total_explored=9980 total_crawled=1
+plasmodium=1 state=crawling food=0.00100436 size=1 frontier=9994 total_explored=19974 total_crawled=1 frontier_best_cost=366762 frontier_worst_cost=367187
+plasmodium=1 state=crawled food=1.00177 size=2 frontier=9994 total_explored=19974 total_crawled=2
+plasmodium=2 state=exploring food=1.00036 size=1 frontier=0 total_explored=9978 total_crawled=1
+plasmodium=2 state=crawling food=0.001004 size=1 frontier=9993 total_explored=19971 total_crawled=1 frontier_best_cost=366781 frontier_worst_cost=367223
+plasmodium=2 state=crawled food=1.00165 size=2 frontier=9993 total_explored=19971 total_crawled=2
+plasmodium=3 state=exploring food=1.00051 size=1 frontier=0 total_explored=9977 total_crawled=1
+plasmodium=3 state=crawling food=0.0010606 size=1 frontier=9994 total_explored=19971 total_crawled=1 frontier_best_cost=366667 frontier_worst_cost=367236
+plasmodium=3 state=crawled food=1.00242 size=2 frontier=9994 total_explored=19971 total_crawled=2
+plasmodium=4 state=exploring food=1.00015 size=1 frontier=0 total_explored=9976 total_crawled=1
+plasmodium=4 state=crawling food=0.00109685 size=1 frontier=9990 total_explored=19966 total_crawled=1 frontier_best_cost=366815 frontier_worst_cost=367250
+plasmodium=4 state=crawled food=1.00153 size=2 frontier=9990 total_explored=19966 total_crawled=2
+plasmodium=5 state=exploring food=1.00046 size=1 frontier=0 total_explored=9976 total_crawled=1
+plasmodium=5 state=crawling food=0.00101068 size=1 frontier=9994 total_explored=19970 total_crawled=1 frontier_best_cost=366723 frontier_worst_cost=367253
+plasmodium=5 state=crawled food=1.00202 size=2 frontier=9994 total_explored=19970 total_crawled=2
+plasmodium=6 state=exploring food=1.00029 size=1 frontier=0 total_explored=9974 total_crawled=1
+plasmodium=6 state=crawling food=0.00104093 size=1 frontier=9992 total_explored=19966 total_crawled=1 frontier_best_cost=366750 frontier_worst_cost=367280
+plasmodium=6 state=crawled food=1.00188 size=2 frontier=9992 total_explored=19966 total_crawled=2
+plasmodium=7 state=exploring food=1.00008 size=1 frontier=0 total_explored=9971 total_crawled=1
+plasmodium=7 state=crawling food=0.00102773 size=1 frontier=9990 total_explored=19961 total_crawled=1 frontier_best_cost=366821 frontier_worst_cost=367330
+plasmodium=7 state=crawled food=1.00142 size=2 frontier=9990 total_explored=19961 total_crawled=2
+plasmodium=8 state=exploring food=0.999724 size=1 frontier=0 total_explored=9970 total_crawled=1
+plasmodium=8 state=crawling food=0.00107031 size=1 frontier=9986 total_explored=19956 total_crawled=1 frontier_best_cost=366871 frontier_worst_cost=367348
+plasmodium=8 state=crawled food=1.00115 size=2 frontier=9986 total_explored=19956 total_crawled=2
+plasmodium=9 state=exploring food=0.999561 size=1 frontier=0 total_explored=9967 total_crawled=1
+plasmodium=9 state=crawling food=0.0010074 size=1 frontier=9985 total_explored=19952 total_crawled=1 frontier_best_cost=366891 frontier_worst_cost=367390
+plasmodium=9 state=crawled food=1.00096 size=2 frontier=9985 total_explored=19952 total_crawled=2
+plasmodium=* epoch=3 time=31 memory=88879104 total_food_eaten_count=20 solution_cost=366618
+plasmodium=0 state=exploring food=1.00268 size=2 frontier=0 total_explored=19992 total_crawled=2
+plasmodium=0 state=crawling food=0.00102129 size=2 frontier=10014 total_explored=30006 total_crawled=2 frontier_best_cost=366420 frontier_worst_cost=366618
+plasmodium=0 state=crawled food=1.50532 size=2 frontier=10014 total_explored=30006 total_crawled=3
+plasmodium=1 state=exploring food=1.00177 size=2 frontier=0 total_explored=19974 total_crawled=2
+plasmodium=1 state=crawling food=0.00111628 size=2 frontier=10006 total_explored=29980 total_crawled=2 frontier_best_cost=366569 frontier_worst_cost=367187
+plasmodium=1 state=crawled food=1.50398 size=2 frontier=10006 total_explored=29980 total_crawled=3
+plasmodium=2 state=exploring food=1.00165 size=2 frontier=0 total_explored=19971 total_crawled=2
+plasmodium=2 state=crawling food=0.00119637 size=2 frontier=10002 total_explored=29973 total_crawled=2 frontier_best_cost=366582 frontier_worst_cost=367223
+plasmodium=2 state=crawled food=1.50387 size=2 frontier=10002 total_explored=29973 total_crawled=3
+plasmodium=3 state=exploring food=1.00242 size=2 frontier=0 total_explored=19971 total_crawled=2
+plasmodium=3 state=crawling food=0.00117049 size=2 frontier=10011 total_explored=29982 total_crawled=2 frontier_best_cost=366425 frontier_worst_cost=367236
+plasmodium=3 state=crawled food=1.50518 size=2 frontier=10011 total_explored=29982 total_crawled=3
+plasmodium=4 state=exploring food=1.00153 size=2 frontier=0 total_explored=19966 total_crawled=2
+plasmodium=4 state=crawling food=0.00107514 size=2 frontier=10004 total_explored=29970 total_crawled=2 frontier_best_cost=366615 frontier_worst_cost=367250
+plasmodium=4 state=crawled food=1.50345 size=2 frontier=10004 total_explored=29970 total_crawled=3
+plasmodium=5 state=exploring food=1.00202 size=2 frontier=0 total_explored=19970 total_crawled=2
+plasmodium=5 state=crawling food=0.00116811 size=2 frontier=10007 total_explored=29977 total_crawled=2 frontier_best_cost=366537 frontier_worst_cost=366723
+plasmodium=5 state=crawled food=1.50432 size=2 frontier=10007 total_explored=29977 total_crawled=3
+plasmodium=6 state=exploring food=1.00188 size=2 frontier=0 total_explored=19966 total_crawled=2
+plasmodium=6 state=crawling food=0.00102832 size=2 frontier=10007 total_explored=29973 total_crawled=2 frontier_best_cost=366519 frontier_worst_cost=367280
+plasmodium=6 state=crawled food=1.50427 size=2 frontier=10007 total_explored=29973 total_crawled=3
+plasmodium=7 state=exploring food=1.00142 size=2 frontier=0 total_explored=19961 total_crawled=2
+plasmodium=7 state=crawling food=0.00116846 size=2 frontier=10000 total_explored=29961 total_crawled=2 frontier_best_cost=366626 frontier_worst_cost=367330
+plasmodium=7 state=crawled food=1.50345 size=2 frontier=10000 total_explored=29961 total_crawled=3
+plasmodium=8 state=exploring food=1.00115 size=2 frontier=0 total_explored=19956 total_crawled=2
+plasmodium=8 state=crawling food=0.00109673 size=2 frontier=9999 total_explored=29955 total_crawled=2 frontier_best_cost=366668 frontier_worst_cost=366871
+plasmodium=8 state=crawled food=1.50297 size=2 frontier=9999 total_explored=29955 total_crawled=3
+plasmodium=9 state=exploring food=1.00096 size=2 frontier=0 total_explored=19952 total_crawled=2
+plasmodium=9 state=crawling food=0.00110794 size=2 frontier=9997 total_explored=29949 total_crawled=2 frontier_best_cost=366691 frontier_worst_cost=367390
+plasmodium=9 state=crawled food=1.5028 size=2 frontier=9997 total_explored=29949 total_crawled=3
+plasmodium=* epoch=4 time=49 memory=91090944 total_food_eaten_count=30 solution_cost=366420
+plasmodium=0 state=exploring food=1.50532 size=2 frontier=0 total_explored=30006 total_crawled=3
+plasmodium=0 state=crawling food=0.0011867 size=2 frontier=15039 total_explored=45045 total_crawled=3 frontier_best_cost=366245 frontier_worst_cost=366618
+plasmodium=0 state=crawled food=1.00522 size=3 frontier=15039 total_explored=45045 total_crawled=4
+plasmodium=1 state=exploring food=1.50398 size=2 frontier=0 total_explored=29980 total_crawled=3
+plasmodium=1 state=crawling food=0.00103914 size=2 frontier=15026 total_explored=45006 total_crawled=3 frontier_best_cost=366392 frontier_worst_cost=367031
+plasmodium=1 state=crawled food=1.0041 size=1 frontier=15026 total_explored=45006 total_crawled=4
+plasmodium=2 state=exploring food=1.50387 size=2 frontier=0 total_explored=29973 total_crawled=3
+plasmodium=2 state=crawling food=0.00113759 size=2 frontier=15023 total_explored=44996 total_crawled=3 frontier_best_cost=366385 frontier_worst_cost=366781
+plasmodium=2 state=crawled food=1.00428 size=3 frontier=15023 total_explored=44996 total_crawled=4
+plasmodium=3 state=exploring food=1.50518 size=2 frontier=0 total_explored=29982 total_crawled=3
+plasmodium=3 state=crawling food=0.00104605 size=2 frontier=15039 total_explored=45021 total_crawled=3 frontier_best_cost=366204 frontier_worst_cost=366667
+plasmodium=3 state=crawled food=1.00534 size=3 frontier=15039 total_explored=45021 total_crawled=4
+plasmodium=4 state=exploring food=1.50345 size=2 frontier=0 total_explored=29970 total_crawled=3
+plasmodium=4 state=crawling food=0.00111545 size=2 frontier=15020 total_explored=44990 total_crawled=3 frontier_best_cost=366418 frontier_worst_cost=366815
+plasmodium=4 state=crawled food=1.00405 size=3 frontier=15020 total_explored=44990 total_crawled=4
+plasmodium=5 state=exploring food=1.50432 size=2 frontier=0 total_explored=29977 total_crawled=3
+plasmodium=5 state=crawling food=0.00118646 size=2 frontier=15029 total_explored=45006 total_crawled=3 frontier_best_cost=366349 frontier_worst_cost=366723
+plasmodium=5 state=crawled food=1.00456 size=3 frontier=15029 total_explored=45006 total_crawled=4
+plasmodium=6 state=exploring food=1.50427 size=2 frontier=0 total_explored=29973 total_crawled=3
+plasmodium=6 state=crawling food=0.0011302 size=2 frontier=15030 total_explored=45003 total_crawled=3 frontier_best_cost=366302 frontier_worst_cost=366750
+plasmodium=6 state=crawled food=1.0048 size=3 frontier=15030 total_explored=45003 total_crawled=4
+plasmodium=7 state=exploring food=1.50345 size=2 frontier=0 total_explored=29961 total_crawled=3
+plasmodium=7 state=crawling food=0.00110853 size=2 frontier=15017 total_explored=44978 total_crawled=3 frontier_best_cost=366431 frontier_worst_cost=366821
+plasmodium=7 state=crawled food=1.00396 size=3 frontier=15017 total_explored=44978 total_crawled=4
+plasmodium=8 state=exploring food=1.50297 size=2 frontier=0 total_explored=29955 total_crawled=3
+plasmodium=8 state=crawling food=0.0010296 size=2 frontier=15015 total_explored=44970 total_crawled=3 frontier_best_cost=366475 frontier_worst_cost=366871
+plasmodium=8 state=crawled food=1.0036 size=3 frontier=15015 total_explored=44970 total_crawled=4
+plasmodium=9 state=exploring food=1.5028 size=2 frontier=0 total_explored=29949 total_crawled=3
+plasmodium=9 state=crawling food=0.00105893 size=2 frontier=15016 total_explored=44965 total_crawled=3 frontier_best_cost=366491 frontier_worst_cost=366891
+plasmodium=9 state=crawled food=1.00353 size=3 frontier=15016 total_explored=44965 total_crawled=4
+plasmodium=* epoch=5 time=75 memory=122675200 total_food_eaten_count=40 solution_cost=366204
+plasmodium=0 state=exploring food=1.00522 size=3 frontier=0 total_explored=45045 total_crawled=4
+plasmodium=0 state=crawling food=0.00106203 size=3 frontier=10039 total_explored=55084 total_crawled=4 frontier_best_cost=366110 frontier_worst_cost=366420
+plasmodium=0 state=crawled food=1.59226 size=3 frontier=10039 total_explored=55084 total_crawled=5
+plasmodium=1 state=exploring food=1.0041 size=1 frontier=0 total_explored=45006 total_crawled=4
+plasmodium=1 state=crawling food=0.00104462 size=1 frontier=10030 total_explored=55036 total_crawled=4 frontier_best_cost=366216 frontier_worst_cost=366569
+plasmodium=1 state=crawled food=1.00521 size=1 frontier=10030 total_explored=55036 total_crawled=5
+plasmodium=2 state=exploring food=1.00428 size=3 frontier=0 total_explored=44996 total_crawled=4
+plasmodium=2 state=crawling food=0.00102701 size=3 frontier=10031 total_explored=55027 total_crawled=4 frontier_best_cost=366214 frontier_worst_cost=366582
+plasmodium=2 state=crawled food=1.59099 size=3 frontier=10031 total_explored=55027 total_crawled=5
+plasmodium=3 state=exploring food=1.00534 size=3 frontier=0 total_explored=45021 total_crawled=4
+plasmodium=3 state=crawling food=0.00118086 size=3 frontier=10041 total_explored=55062 total_crawled=4 frontier_best_cost=366025 frontier_worst_cost=366425
+plasmodium=3 state=crawled food=1.59303 size=3 frontier=10041 total_explored=55062 total_crawled=5
+plasmodium=4 state=exploring food=1.00405 size=3 frontier=0 total_explored=44990 total_crawled=4
+plasmodium=4 state=crawling food=0.00109624 size=3 frontier=10026 total_explored=55016 total_crawled=4 frontier_best_cost=366200 frontier_worst_cost=367155
+plasmodium=4 state=crawled food=1.00536 size=1 frontier=10026 total_explored=55016 total_crawled=5
+plasmodium=5 state=exploring food=1.00456 size=3 frontier=0 total_explored=45006 total_crawled=4
+plasmodium=5 state=crawling food=0.00100353 size=3 frontier=10029 total_explored=55035 total_crawled=4 frontier_best_cost=366161 frontier_worst_cost=366537
+plasmodium=5 state=crawled food=1.59144 size=3 frontier=10029 total_explored=55035 total_crawled=5
+plasmodium=6 state=exploring food=1.0048 size=3 frontier=0 total_explored=45003 total_crawled=4
+plasmodium=6 state=crawling food=0.0012445 size=3 frontier=10034 total_explored=55037 total_crawled=4 frontier_best_cost=366146 frontier_worst_cost=366519
+plasmodium=6 state=crawled food=1.59194 size=3 frontier=10034 total_explored=55037 total_crawled=5
+plasmodium=7 state=exploring food=1.00396 size=3 frontier=0 total_explored=44978 total_crawled=4
+plasmodium=7 state=crawling food=0.00100722 size=3 frontier=10028 total_explored=55006 total_crawled=4 frontier_best_cost=366239 frontier_worst_cost=366626
+plasmodium=7 state=crawled food=1.59066 size=3 frontier=10028 total_explored=55006 total_crawled=5
+plasmodium=8 state=exploring food=1.0036 size=3 frontier=0 total_explored=44970 total_crawled=4
+plasmodium=8 state=crawling food=0.0012507 size=3 frontier=10021 total_explored=54991 total_crawled=4 frontier_best_cost=366304 frontier_worst_cost=366668
+plasmodium=8 state=crawled food=1.59031 size=3 frontier=10021 total_explored=54991 total_crawled=5
+plasmodium=9 state=exploring food=1.00353 size=3 frontier=0 total_explored=44965 total_crawled=4
+plasmodium=9 state=crawling food=0.00117895 size=3 frontier=10020 total_explored=54985 total_crawled=4 frontier_best_cost=366327 frontier_worst_cost=367196
+plasmodium=9 state=crawled food=1.00456 size=1 frontier=10020 total_explored=54985 total_crawled=5
+plasmodium=* epoch=6 time=94 memory=108351488 total_food_eaten_count=50 solution_cost=366025
+plasmodium=0 state=exploring food=1.59226 size=3 frontier=0 total_explored=55084 total_crawled=5
+plasmodium=0 state=crawling food=0.0012071 size=3 frontier=15906 total_explored=70990 total_crawled=5 frontier_best_cost=365970 frontier_worst_cost=366245
+plasmodium=0 state=crawled food=1.62138 size=3 frontier=15906 total_explored=70990 total_crawled=6
+plasmodium=1 state=exploring food=1.00521 size=1 frontier=0 total_explored=55036 total_crawled=5
+plasmodium=1 state=crawling food=0.00105785 size=1 frontier=10041 total_explored=65077 total_crawled=5 frontier_best_cost=366047 frontier_worst_cost=366392
+plasmodium=1 state=crawled food=1.00634 size=2 frontier=10041 total_explored=65077 total_crawled=6
+plasmodium=2 state=exploring food=1.59099 size=3 frontier=0 total_explored=55027 total_crawled=5
+plasmodium=2 state=crawling food=0.00113914 size=3 frontier=15896 total_explored=70923 total_crawled=5 frontier_best_cost=366032 frontier_worst_cost=366385
+plasmodium=2 state=crawled food=1.62054 size=3 frontier=15896 total_explored=70923 total_crawled=6
+plasmodium=3 state=exploring food=1.59303 size=3 frontier=0 total_explored=55062 total_crawled=5
+plasmodium=3 state=crawling food=0.00107395 size=3 frontier=15915 total_explored=70977 total_crawled=5 frontier_best_cost=365848 frontier_worst_cost=366204
+plasmodium=3 state=crawled food=1.62235 size=3 frontier=15915 total_explored=70977 total_crawled=6
+plasmodium=4 state=exploring food=1.00536 size=1 frontier=0 total_explored=55016 total_crawled=5
+plasmodium=4 state=crawling food=0.00100841 size=1 frontier=10043 total_explored=65059 total_crawled=5 frontier_best_cost=366017 frontier_worst_cost=366418
+plasmodium=4 state=crawled food=1.00652 size=1 frontier=10043 total_explored=65059 total_crawled=6
+plasmodium=5 state=exploring food=1.59144 size=3 frontier=0 total_explored=55035 total_crawled=5
+plasmodium=5 state=crawling food=0.00128634 size=3 frontier=15897 total_explored=70932 total_crawled=5 frontier_best_cost=366016 frontier_worst_cost=366349
+plasmodium=5 state=crawled food=1.62091 size=3 frontier=15897 total_explored=70932 total_crawled=6
+plasmodium=6 state=exploring food=1.59194 size=3 frontier=0 total_explored=55037 total_crawled=5
+plasmodium=6 state=crawling food=0.00119254 size=3 frontier=15903 total_explored=70940 total_crawled=5 frontier_best_cost=366014 frontier_worst_cost=366302
+plasmodium=6 state=crawled food=1.62091 size=3 frontier=15903 total_explored=70940 total_crawled=6
+plasmodium=7 state=exploring food=1.59066 size=3 frontier=0 total_explored=55006 total_crawled=5
+plasmodium=7 state=crawling food=0.00111282 size=3 frontier=15891 total_explored=70897 total_crawled=5 frontier_best_cost=366059 frontier_worst_cost=366431
+plasmodium=7 state=crawled food=1.62022 size=3 frontier=15891 total_explored=70897 total_crawled=6
+plasmodium=8 state=exploring food=1.59031 size=3 frontier=0 total_explored=54991 total_crawled=5
+plasmodium=8 state=crawling food=0.00105928 size=3 frontier=15887 total_explored=70878 total_crawled=5 frontier_best_cost=366121 frontier_worst_cost=366475
+plasmodium=8 state=crawled food=1.61954 size=3 frontier=15887 total_explored=70878 total_crawled=6
+plasmodium=9 state=exploring food=1.00456 size=1 frontier=0 total_explored=54985 total_crawled=5
+plasmodium=9 state=crawling food=0.00100472 size=1 frontier=10035 total_explored=65020 total_crawled=5 frontier_best_cost=366176 frontier_worst_cost=366491
+plasmodium=9 state=crawled food=1.00552 size=1 frontier=10035 total_explored=65020 total_crawled=6
+plasmodium=* epoch=7 time=116 memory=113238016 total_food_eaten_count=60 solution_cost=365848
+plasmodium=0 state=exploring food=1.62138 size=3 frontier=0 total_explored=70990 total_crawled=6
+plasmodium=0 state=crawling food=0.00122439 size=3 frontier=16197 total_explored=87187 total_crawled=6 frontier_best_cost=365839 frontier_worst_cost=366110
+plasmodium=0 state=crawled food=1.40892 size=3 frontier=16197 total_explored=87187 total_crawled=7
+plasmodium=1 state=exploring food=1.00634 size=2 frontier=0 total_explored=65077 total_crawled=6
+plasmodium=1 state=crawling food=0.00108813 size=2 frontier=10052 total_explored=75129 total_crawled=6 frontier_best_cost=365878 frontier_worst_cost=366392
+plasmodium=1 state=crawled food=1.51057 size=2 frontier=10052 total_explored=75129 total_crawled=7
+plasmodium=2 state=exploring food=1.62054 size=3 frontier=0 total_explored=70923 total_crawled=6
+plasmodium=2 state=crawling food=0.00128551 size=3 frontier=16188 total_explored=87111 total_crawled=6 frontier_best_cost=365881 frontier_worst_cost=366214
+plasmodium=2 state=crawled food=1.4086 size=3 frontier=16188 total_explored=87111 total_crawled=7
+plasmodium=3 state=exploring food=1.62235 size=3 frontier=0 total_explored=70977 total_crawled=6
+plasmodium=3 state=crawling food=0.00129816 size=3 frontier=16206 total_explored=87183 total_crawled=6 frontier_best_cost=365688 frontier_worst_cost=366204
+plasmodium=3 state=crawled food=1.00887 size=4 frontier=16206 total_explored=87183 total_crawled=7
+plasmodium=4 state=exploring food=1.00652 size=1 frontier=0 total_explored=65059 total_crawled=6
+plasmodium=4 state=crawling food=0.00106894 size=1 frontier=10048 total_explored=75107 total_crawled=6 frontier_best_cost=365831 frontier_worst_cost=366422
+plasmodium=4 state=crawled food=1.00771 size=1 frontier=10048 total_explored=75107 total_crawled=7
+plasmodium=5 state=exploring food=1.62091 size=3 frontier=0 total_explored=70932 total_crawled=6
+plasmodium=5 state=crawling food=0.00105022 size=3 frontier=16195 total_explored=87127 total_crawled=6 frontier_best_cost=365874 frontier_worst_cost=366161
+plasmodium=5 state=crawled food=1.40858 size=3 frontier=16195 total_explored=87127 total_crawled=7
+plasmodium=6 state=exploring food=1.62091 size=3 frontier=0 total_explored=70940 total_crawled=6
+plasmodium=6 state=crawling food=0.00105523 size=3 frontier=16193 total_explored=87133 total_crawled=6 frontier_best_cost=365882 frontier_worst_cost=366146
+plasmodium=6 state=crawled food=1.40844 size=3 frontier=16193 total_explored=87133 total_crawled=7
+plasmodium=7 state=exploring food=1.62022 size=3 frontier=0 total_explored=70897 total_crawled=6
+plasmodium=7 state=crawling food=0.00126489 size=3 frontier=16187 total_explored=87084 total_crawled=6 frontier_best_cost=365919 frontier_worst_cost=366239
+plasmodium=7 state=crawled food=1.40833 size=3 frontier=16187 total_explored=87084 total_crawled=7
+plasmodium=8 state=exploring food=1.61954 size=3 frontier=0 total_explored=70878 total_crawled=6
+plasmodium=8 state=crawling food=0.00118313 size=3 frontier=16181 total_explored=87059 total_crawled=6 frontier_best_cost=365943 frontier_worst_cost=366304
+plasmodium=8 state=crawled food=1.40787 size=3 frontier=16181 total_explored=87059 total_crawled=7
+plasmodium=9 state=exploring food=1.00552 size=1 frontier=0 total_explored=65020 total_crawled=6
+plasmodium=9 state=crawling food=0.0010606 size=1 frontier=10041 total_explored=75061 total_crawled=6 frontier_best_cost=366023 frontier_worst_cost=366581
+plasmodium=9 state=crawled food=1.00649 size=1 frontier=10041 total_explored=75061 total_crawled=7
+plasmodium=* epoch=8 time=138 memory=126107648 total_food_eaten_count=70 solution_cost=365688
+plasmodium=0 state=exploring food=1.40892 size=3 frontier=0 total_explored=87187 total_crawled=7
+plasmodium=0 state=crawling food=0.00120055 size=3 frontier=14074 total_explored=101261 total_crawled=7 frontier_best_cost=365715 frontier_worst_cost=365970
+plasmodium=0 state=crawled food=1.54335 size=3 frontier=14074 total_explored=101261 total_crawled=8
+plasmodium=1 state=exploring food=1.51057 size=2 frontier=0 total_explored=75129 total_crawled=7
+plasmodium=1 state=crawling food=0.0010327 size=2 frontier=15091 total_explored=90220 total_crawled=7 frontier_best_cost=365719 frontier_worst_cost=366047
+plasmodium=1 state=crawled food=1.0084 size=3 frontier=15091 total_explored=90220 total_crawled=8
+plasmodium=2 state=exploring food=1.4086 size=3 frontier=0 total_explored=87111 total_crawled=7
+plasmodium=2 state=crawling food=0.0011805 size=3 frontier=14071 total_explored=101182 total_crawled=7 frontier_best_cost=365742 frontier_worst_cost=366032
+plasmodium=2 state=crawled food=1.54302 size=3 frontier=14071 total_explored=101182 total_crawled=8
+plasmodium=3 state=exploring food=1.00887 size=4 frontier=0 total_explored=87183 total_crawled=7
+plasmodium=3 state=crawling food=0.00121163 size=4 frontier=10073 total_explored=97256 total_crawled=7 frontier_best_cost=365535 frontier_worst_cost=366541
+plasmodium=3 state=crawled food=1.00962 size=1 frontier=10073 total_explored=97256 total_crawled=8
+plasmodium=4 state=exploring food=1.00771 size=1 frontier=0 total_explored=75107 total_crawled=7
+plasmodium=4 state=crawling food=0.0010507 size=1 frontier=10066 total_explored=85173 total_crawled=7 frontier_best_cost=365685 frontier_worst_cost=366017
+plasmodium=4 state=crawled food=1.00864 size=2 frontier=10066 total_explored=85173 total_crawled=8
+plasmodium=5 state=exploring food=1.40858 size=3 frontier=0 total_explored=87127 total_crawled=7
+plasmodium=5 state=crawling food=0.00116226 size=3 frontier=14067 total_explored=101194 total_crawled=7 frontier_best_cost=365734 frontier_worst_cost=366016
+plasmodium=5 state=crawled food=1.54302 size=3 frontier=14067 total_explored=101194 total_crawled=8
+plasmodium=6 state=exploring food=1.40844 size=3 frontier=0 total_explored=87133 total_crawled=7
+plasmodium=6 state=crawling food=0.00101902 size=3 frontier=14071 total_explored=101204 total_crawled=7 frontier_best_cost=365750 frontier_worst_cost=366014
+plasmodium=6 state=crawled food=1.54288 size=3 frontier=14071 total_explored=101204 total_crawled=8
+plasmodium=7 state=exploring food=1.40833 size=3 frontier=0 total_explored=87084 total_crawled=7
+plasmodium=7 state=crawling food=0.00120901 size=3 frontier=14068 total_explored=101152 total_crawled=7 frontier_best_cost=365756 frontier_worst_cost=366059
+plasmodium=7 state=crawled food=1.54282 size=3 frontier=14068 total_explored=101152 total_crawled=8
+plasmodium=8 state=exploring food=1.40787 size=3 frontier=0 total_explored=87059 total_crawled=7
+plasmodium=8 state=crawling food=0.00105261 size=3 frontier=14063 total_explored=101122 total_crawled=7 frontier_best_cost=365800 frontier_worst_cost=366121
+plasmodium=8 state=crawled food=1.54239 size=3 frontier=14063 total_explored=101122 total_crawled=8
+plasmodium=9 state=exploring food=1.00649 size=1 frontier=0 total_explored=75061 total_crawled=7
+plasmodium=9 state=crawling food=0.0010308 size=1 frontier=10054 total_explored=85115 total_crawled=7 frontier_best_cost=365879 frontier_worst_cost=366176
+plasmodium=9 state=crawled food=1.00738 size=2 frontier=10054 total_explored=85115 total_crawled=8
+plasmodium=* epoch=9 time=158 memory=123293696 total_food_eaten_count=80 solution_cost=365535
+plasmodium=0 state=exploring food=1.54335 size=3 frontier=0 total_explored=101261 total_crawled=8
+plasmodium=0 state=crawling food=0.0012108 size=3 frontier=15420 total_explored=116681 total_crawled=8 frontier_best_cost=365583 frontier_worst_cost=365839
+plasmodium=0 state=crawled food=1.52702 size=3 frontier=15420 total_explored=116681 total_crawled=9
+plasmodium=1 state=exploring food=1.0084 size=3 frontier=0 total_explored=90220 total_crawled=8
+plasmodium=1 state=crawling food=0.00124856 size=3 frontier=10071 total_explored=100291 total_crawled=8 frontier_best_cost=365595 frontier_worst_cost=366413
+plasmodium=1 state=crawled food=1.00921 size=1 frontier=10071 total_explored=100291 total_crawled=9
+plasmodium=2 state=exploring food=1.54302 size=3 frontier=0 total_explored=101182 total_crawled=8
+plasmodium=2 state=crawling food=0.00117824 size=3 frontier=15409 total_explored=116591 total_crawled=8 frontier_best_cost=365616 frontier_worst_cost=365881
+plasmodium=2 state=crawled food=1.52667 size=3 frontier=15409 total_explored=116591 total_crawled=9
+plasmodium=3 state=exploring food=1.00962 size=1 frontier=0 total_explored=97256 total_crawled=8
+plasmodium=3 state=crawling food=0.00106119 size=1 frontier=10085 total_explored=107341 total_crawled=8 frontier_best_cost=365387 frontier_worst_cost=365688
+plasmodium=3 state=crawled food=1.01056 size=1 frontier=10085 total_explored=107341 total_crawled=9
+plasmodium=4 state=exploring food=1.00864 size=2 frontier=0 total_explored=85173 total_crawled=8
+plasmodium=4 state=crawling food=0.00118325 size=2 frontier=10073 total_explored=95246 total_crawled=8 frontier_best_cost=365534 frontier_worst_cost=366017
+plasmodium=4 state=crawled food=1.51401 size=2 frontier=10073 total_explored=95246 total_crawled=9
+plasmodium=5 state=exploring food=1.54302 size=3 frontier=0 total_explored=101194 total_crawled=8
+plasmodium=5 state=crawling food=0.00117514 size=3 frontier=15414 total_explored=116608 total_crawled=8 frontier_best_cost=365600 frontier_worst_cost=365874
+plasmodium=5 state=crawled food=1.52686 size=3 frontier=15414 total_explored=116608 total_crawled=9
+plasmodium=6 state=exploring food=1.54288 size=3 frontier=0 total_explored=101204 total_crawled=8
+plasmodium=6 state=crawling food=0.00103449 size=3 frontier=15413 total_explored=116617 total_crawled=8 frontier_best_cost=365620 frontier_worst_cost=365882
+plasmodium=6 state=crawled food=1.52658 size=3 frontier=15413 total_explored=116617 total_crawled=9
+plasmodium=7 state=exploring food=1.54282 size=3 frontier=0 total_explored=101152 total_crawled=8
+plasmodium=7 state=crawling food=0.00127562 size=3 frontier=15411 total_explored=116563 total_crawled=8 frontier_best_cost=365625 frontier_worst_cost=366380
+plasmodium=7 state=crawled food=1.00897 size=1 frontier=15411 total_explored=116563 total_crawled=9
+plasmodium=8 state=exploring food=1.54239 size=3 frontier=0 total_explored=101122 total_crawled=8
+plasmodium=8 state=crawling food=0.00115058 size=3 frontier=15410 total_explored=116532 total_crawled=8 frontier_best_cost=365657 frontier_worst_cost=365943
+plasmodium=8 state=crawled food=1.52624 size=3 frontier=15410 total_explored=116532 total_crawled=9
+plasmodium=9 state=exploring food=1.00738 size=2 frontier=0 total_explored=85115 total_crawled=8
+plasmodium=9 state=crawling food=0.0011282 size=2 frontier=10060 total_explored=95175 total_crawled=8 frontier_best_cost=365763 frontier_worst_cost=366176
+plasmodium=9 state=crawled food=1.51192 size=2 frontier=10060 total_explored=95175 total_crawled=9
+plasmodium=* epoch=10 time=176 memory=119099392 total_food_eaten_count=90 solution_cost=365387
+plasmodium=0 state=exploring food=1.52702 size=3 frontier=0 total_explored=116681 total_crawled=9
+plasmodium=0 state=crawling food=0.00107419 size=3 frontier=15257 total_explored=131938 total_crawled=9 frontier_best_cost=365444 frontier_worst_cost=365715
+plasmodium=0 state=crawled food=1.49553 size=3 frontier=15257 total_explored=131938 total_crawled=10
+plasmodium=1 state=exploring food=1.00921 size=1 frontier=0 total_explored=100291 total_crawled=9
+plasmodium=1 state=crawling food=0.00105332 size=1 frontier=10081 total_explored=110372 total_crawled=9 frontier_best_cost=365471 frontier_worst_cost=365719
+plasmodium=1 state=crawled food=1.01 size=1 frontier=10081 total_explored=110372 total_crawled=10
+plasmodium=2 state=exploring food=1.52667 size=3 frontier=0 total_explored=116591 total_crawled=9
+plasmodium=2 state=crawling food=0.00102498 size=3 frontier=15252 total_explored=131843 total_crawled=9 frontier_best_cost=365487 frontier_worst_cost=365742
+plasmodium=2 state=crawled food=1.49517 size=3 frontier=15252 total_explored=131843 total_crawled=10
+plasmodium=3 state=exploring food=1.01056 size=1 frontier=0 total_explored=107341 total_crawled=9
+plasmodium=3 state=crawling food=0.00100674 size=1 frontier=10093 total_explored=117434 total_crawled=9 frontier_best_cost=365263 frontier_worst_cost=365778
+plasmodium=3 state=crawled food=1.01136 size=1 frontier=10093 total_explored=117434 total_crawled=10
+plasmodium=4 state=exploring food=1.51401 size=2 frontier=0 total_explored=95246 total_crawled=9
+plasmodium=4 state=crawling food=0.00107585 size=2 frontier=15124 total_explored=110370 total_crawled=9 frontier_best_cost=365406 frontier_worst_cost=365685
+plasmodium=4 state=crawled food=1.01044 size=3 frontier=15124 total_explored=110370 total_crawled=10
+plasmodium=5 state=exploring food=1.52686 size=3 frontier=0 total_explored=116608 total_crawled=9
+plasmodium=5 state=crawling food=0.00122236 size=3 frontier=15251 total_explored=131859 total_crawled=9 frontier_best_cost=365476 frontier_worst_cost=365734
+plasmodium=5 state=crawled food=1.49539 size=3 frontier=15251 total_explored=131859 total_crawled=10
+plasmodium=6 state=exploring food=1.52658 size=3 frontier=0 total_explored=116617 total_crawled=9
+plasmodium=6 state=crawling food=0.00124152 size=3 frontier=15251 total_explored=131868 total_crawled=9 frontier_best_cost=365490 frontier_worst_cost=366272
+plasmodium=6 state=crawled food=1.00983 size=1 frontier=15251 total_explored=131868 total_crawled=10
+plasmodium=7 state=exploring food=1.00897 size=1 frontier=0 total_explored=116563 total_crawled=9
+plasmodium=7 state=crawling food=0.00101282 size=1 frontier=10079 total_explored=126642 total_crawled=9 frontier_best_cost=365507 frontier_worst_cost=365756
+plasmodium=7 state=crawled food=1.00972 size=1 frontier=10079 total_explored=126642 total_crawled=10
+plasmodium=8 state=exploring food=1.52624 size=3 frontier=0 total_explored=116532 total_crawled=9
+plasmodium=8 state=crawling food=0.00120019 size=3 frontier=15247 total_explored=131779 total_crawled=9 frontier_best_cost=365503 frontier_worst_cost=365800
+plasmodium=8 state=crawled food=1.49504 size=3 frontier=15247 total_explored=131779 total_crawled=10
+plasmodium=9 state=exploring food=1.51192 size=2 frontier=0 total_explored=95175 total_crawled=9
+plasmodium=9 state=crawling food=0.00118074 size=2 frontier=15105 total_explored=110280 total_crawled=9 frontier_best_cost=365648 frontier_worst_cost=366292
+plasmodium=9 state=crawled food=1.00887 size=1 frontier=15105 total_explored=110280 total_crawled=10
+plasmodium=* epoch=11 time=194 memory=120156160 total_food_eaten_count=100 solution_cost=365263
+plasmodium=0 state=exploring food=1.49553 size=3 frontier=0 total_explored=131938 total_crawled=10
+plasmodium=0 state=crawling food=0.00109266 size=3 frontier=14941 total_explored=146879 total_crawled=10 frontier_best_cost=365324 frontier_worst_cost=365583
+plasmodium=0 state=crawled food=1.52443 size=3 frontier=14941 total_explored=146879 total_crawled=11
+plasmodium=1 state=exploring food=1.01 size=1 frontier=0 total_explored=110372 total_crawled=10
+plasmodium=1 state=crawling food=0.00104498 size=1 frontier=10089 total_explored=120461 total_crawled=10 frontier_best_cost=365350 frontier_worst_cost=365840
+plasmodium=1 state=crawled food=1.01077 size=1 frontier=10089 total_explored=120461 total_crawled=11
+plasmodium=2 state=exploring food=1.49517 size=3 frontier=0 total_explored=131843 total_crawled=10
+plasmodium=2 state=crawling food=0.00103604 size=3 frontier=14939 total_explored=146782 total_crawled=10 frontier_best_cost=365369 frontier_worst_cost=365616
+plasmodium=2 state=crawled food=1.52396 size=3 frontier=14939 total_explored=146782 total_crawled=11
+plasmodium=3 state=exploring food=1.01136 size=1 frontier=0 total_explored=117434 total_crawled=10
+plasmodium=3 state=crawling food=0.00100019 size=1 frontier=10101 total_explored=127535 total_crawled=10 frontier_best_cost=365146 frontier_worst_cost=365654
+plasmodium=3 state=crawled food=1.01211 size=1 frontier=10101 total_explored=127535 total_crawled=11
+plasmodium=4 state=exploring food=1.01044 size=3 frontier=0 total_explored=110370 total_crawled=10
+plasmodium=4 state=crawling food=0.00118944 size=3 frontier=10090 total_explored=120460 total_crawled=10 frontier_best_cost=365284 frontier_worst_cost=365406
+plasmodium=4 state=crawled food=1.68489 size=2 frontier=10090 total_explored=120460 total_crawled=11
+plasmodium=5 state=exploring food=1.49539 size=3 frontier=0 total_explored=131859 total_crawled=10
+plasmodium=5 state=crawling food=0.00125917 size=3 frontier=14938 total_explored=146797 total_crawled=10 frontier_best_cost=365356 frontier_worst_cost=365600
+plasmodium=5 state=crawled food=1.52421 size=3 frontier=14938 total_explored=146797 total_crawled=11
+plasmodium=6 state=exploring food=1.00983 size=1 frontier=0 total_explored=131868 total_crawled=10
+plasmodium=6 state=crawling food=0.00107407 size=1 frontier=10087 total_explored=141955 total_crawled=10 frontier_best_cost=365378 frontier_worst_cost=365880
+plasmodium=6 state=crawled food=1.01055 size=1 frontier=10087 total_explored=141955 total_crawled=11
+plasmodium=7 state=exploring food=1.00972 size=1 frontier=0 total_explored=126642 total_crawled=10
+plasmodium=7 state=crawling food=0.00106584 size=1 frontier=10086 total_explored=136728 total_crawled=10 frontier_best_cost=365393 frontier_worst_cost=365625
+plasmodium=7 state=crawled food=1.01052 size=2 frontier=10086 total_explored=136728 total_crawled=11
+plasmodium=8 state=exploring food=1.49504 size=3 frontier=0 total_explored=131779 total_crawled=10
+plasmodium=8 state=crawling food=0.00120281 size=3 frontier=14933 total_explored=146712 total_crawled=10 frontier_best_cost=365374 frontier_worst_cost=365657
+plasmodium=8 state=crawled food=1.52396 size=3 frontier=14933 total_explored=146712 total_crawled=11
+plasmodium=9 state=exploring food=1.00887 size=1 frontier=0 total_explored=110280 total_crawled=10
+plasmodium=9 state=crawling food=0.00101592 size=1 frontier=10078 total_explored=120358 total_crawled=10 frontier_best_cost=365534 frontier_worst_cost=365763
+plasmodium=9 state=crawled food=1.0096 size=1 frontier=10078 total_explored=120358 total_crawled=11
+plasmodium=* epoch=12 time=209 memory=121204736 total_food_eaten_count=110 solution_cost=365146
+plasmodium=0 state=exploring food=1.52443 size=3 frontier=0 total_explored=146879 total_crawled=11
+plasmodium=0 state=crawling food=0.00118921 size=3 frontier=15229 total_explored=162108 total_crawled=11 frontier_best_cost=365202 frontier_worst_cost=365444
+plasmodium=0 state=crawled food=1.51816 size=3 frontier=15229 total_explored=162108 total_crawled=12
+plasmodium=1 state=exploring food=1.01077 size=1 frontier=0 total_explored=120461 total_crawled=11
+plasmodium=1 state=crawling food=0.00101831 size=1 frontier=10096 total_explored=130557 total_crawled=11 frontier_best_cost=365213 frontier_worst_cost=365719
+plasmodium=1 state=crawled food=1.01165 size=1 frontier=10096 total_explored=130557 total_crawled=12
+plasmodium=2 state=exploring food=1.52396 size=3 frontier=0 total_explored=146782 total_crawled=11
+plasmodium=2 state=crawling food=0.00101652 size=3 frontier=15226 total_explored=162008 total_crawled=11 frontier_best_cost=365270 frontier_worst_cost=365487
+plasmodium=2 state=crawled food=1.51747 size=3 frontier=15226 total_explored=162008 total_crawled=12
+plasmodium=3 state=exploring food=1.01211 size=1 frontier=0 total_explored=127535 total_crawled=11
+plasmodium=3 state=crawling food=0.00104987 size=1 frontier=10107 total_explored=137642 total_crawled=11 frontier_best_cost=365036 frontier_worst_cost=365552
+plasmodium=3 state=crawled food=1.01281 size=1 frontier=10107 total_explored=137642 total_crawled=12
+plasmodium=4 state=exploring food=1.68489 size=2 frontier=0 total_explored=120460 total_crawled=11
+plasmodium=4 state=crawling food=0.00112165 size=2 frontier=16830 total_explored=137290 total_crawled=11 frontier_best_cost=365163 frontier_worst_cost=365284
+plasmodium=4 state=crawled food=1.18079 size=2 frontier=16830 total_explored=137290 total_crawled=12
+plasmodium=5 state=exploring food=1.52421 size=3 frontier=0 total_explored=146797 total_crawled=11
+plasmodium=5 state=crawling food=0.0012718 size=3 frontier=15226 total_explored=162023 total_crawled=11 frontier_best_cost=365238 frontier_worst_cost=365476
+plasmodium=5 state=crawled food=1.51783 size=3 frontier=15226 total_explored=162023 total_crawled=12
+plasmodium=6 state=exploring food=1.01055 size=1 frontier=0 total_explored=141955 total_crawled=11
+plasmodium=6 state=crawling food=0.00108968 size=1 frontier=10094 total_explored=152049 total_crawled=11 frontier_best_cost=365253 frontier_worst_cost=365490
+plasmodium=6 state=crawled food=1.01144 size=2 frontier=10094 total_explored=152049 total_crawled=12
+plasmodium=7 state=exploring food=1.01052 size=2 frontier=0 total_explored=136728 total_crawled=11
+plasmodium=7 state=crawling food=0.00106238 size=2 frontier=10092 total_explored=146820 total_crawled=11 frontier_best_cost=365265 frontier_worst_cost=365625
+plasmodium=7 state=crawled food=1.51655 size=2 frontier=10092 total_explored=146820 total_crawled=12
+plasmodium=8 state=exploring food=1.52396 size=3 frontier=0 total_explored=146712 total_crawled=11
+plasmodium=8 state=crawling food=0.00102081 size=3 frontier=15225 total_explored=161937 total_crawled=11 frontier_best_cost=365252 frontier_worst_cost=365503
+plasmodium=8 state=crawled food=1.51755 size=3 frontier=15225 total_explored=161937 total_crawled=12
+plasmodium=9 state=exploring food=1.0096 size=1 frontier=0 total_explored=120358 total_crawled=11
+plasmodium=9 state=crawling food=0.00104307 size=1 frontier=10081 total_explored=130439 total_crawled=11 frontier_best_cost=365403 frontier_worst_cost=365904
+plasmodium=9 state=crawled food=1.01044 size=1 frontier=10081 total_explored=130439 total_crawled=12
+plasmodium=* epoch=13 time=225 memory=120471552 total_food_eaten_count=120 solution_cost=365036
+plasmodium=0 state=exploring food=1.51816 size=3 frontier=0 total_explored=162108 total_crawled=12
+plasmodium=0 state=crawling food=0.00122534 size=3 frontier=15166 total_explored=177274 total_crawled=12 frontier_best_cost=365102 frontier_worst_cost=365324
+plasmodium=0 state=crawled food=1.51495 size=3 frontier=15166 total_explored=177274 total_crawled=13
+plasmodium=1 state=exploring food=1.01165 size=1 frontier=0 total_explored=130557 total_crawled=12
+plasmodium=1 state=crawling food=0.0010954 size=1 frontier=10098 total_explored=140655 total_crawled=12 frontier_best_cost=365090 frontier_worst_cost=365582
+plasmodium=1 state=crawled food=1.01244 size=1 frontier=10098 total_explored=140655 total_crawled=13
+plasmodium=2 state=exploring food=1.51747 size=3 frontier=0 total_explored=162008 total_crawled=12
+plasmodium=2 state=crawling food=0.00112761 size=3 frontier=15160 total_explored=177168 total_crawled=12 frontier_best_cost=365156 frontier_worst_cost=365369
+plasmodium=2 state=crawled food=1.51438 size=3 frontier=15160 total_explored=177168 total_crawled=13
+plasmodium=3 state=exploring food=1.01281 size=1 frontier=0 total_explored=137642 total_crawled=12
+plasmodium=3 state=crawling food=0.00105571 size=1 frontier=10113 total_explored=147755 total_crawled=12 frontier_best_cost=364921 frontier_worst_cost=365442
+plasmodium=3 state=crawled food=1.01355 size=1 frontier=10113 total_explored=147755 total_crawled=13
+plasmodium=4 state=exploring food=1.18079 size=2 frontier=0 total_explored=137290 total_crawled=12
+plasmodium=4 state=crawling food=0.0011108 size=2 frontier=11793 total_explored=149083 total_crawled=12 frontier_best_cost=365057 frontier_worst_cost=365163
+plasmodium=4 state=crawled food=1.43429 size=2 frontier=11793 total_explored=149083 total_crawled=13
+plasmodium=5 state=exploring food=1.51783 size=3 frontier=0 total_explored=162023 total_crawled=12
+plasmodium=5 state=crawling food=0.00118575 size=3 frontier=15160 total_explored=177183 total_crawled=12 frontier_best_cost=365119 frontier_worst_cost=365356
+plasmodium=5 state=crawled food=1.51471 size=3 frontier=15160 total_explored=177183 total_crawled=13
+plasmodium=6 state=exploring food=1.01144 size=2 frontier=0 total_explored=152049 total_crawled=12
+plasmodium=6 state=crawling food=0.00118229 size=2 frontier=10100 total_explored=162149 total_crawled=12 frontier_best_cost=365141 frontier_worst_cost=365253
+plasmodium=6 state=crawled food=1.51784 size=2 frontier=10100 total_explored=162149 total_crawled=13
+plasmodium=7 state=exploring food=1.51655 size=2 frontier=0 total_explored=146820 total_crawled=12
+plasmodium=7 state=crawling food=0.00100984 size=2 frontier=15151 total_explored=161971 total_crawled=12 frontier_best_cost=365156 frontier_worst_cost=365393
+plasmodium=7 state=crawled food=1.01198 size=3 frontier=15151 total_explored=161971 total_crawled=13
+plasmodium=8 state=exploring food=1.51755 size=3 frontier=0 total_explored=161937 total_crawled=12
+plasmodium=8 state=crawling food=0.00120865 size=3 frontier=15160 total_explored=177097 total_crawled=12 frontier_best_cost=365138 frontier_worst_cost=365374
+plasmodium=8 state=crawled food=1.51458 size=3 frontier=15160 total_explored=177097 total_crawled=13
+plasmodium=9 state=exploring food=1.01044 size=1 frontier=0 total_explored=130439 total_crawled=12
+plasmodium=9 state=crawling food=0.00107991 size=1 frontier=10093 total_explored=140532 total_crawled=12 frontier_best_cost=365289 frontier_worst_cost=365816
+plasmodium=9 state=crawled food=1.01116 size=1 frontier=10093 total_explored=140532 total_crawled=13
+plasmodium=2 state=merge with=7 food=1.5144 size=5 frontier=0 total_explored=339139 total_crawled=26
+plasmodium=* epoch=14 time=241 memory=117587968 total_food_eaten_count=130 solution_cost=364921
+plasmodium=0 state=exploring food=1.51495 size=3 frontier=0 total_explored=177274 total_crawled=13
+plasmodium=0 state=crawling food=0.0010158 size=3 frontier=15138 total_explored=192412 total_crawled=13 frontier_best_cost=365012 frontier_worst_cost=365202
+plasmodium=0 state=crawled food=1.52106 size=3 frontier=15138 total_explored=192412 total_crawled=14
+plasmodium=1 state=exploring food=1.01244 size=1 frontier=0 total_explored=140655 total_crawled=13
+plasmodium=1 state=crawling food=0.0010842 size=1 frontier=10113 total_explored=150768 total_crawled=13 frontier_best_cost=364990 frontier_worst_cost=365213
+plasmodium=1 state=crawled food=1.01312 size=2 frontier=10113 total_explored=150768 total_crawled=14
+plasmodium=2 state=exploring food=1.5144 size=5 frontier=0 total_explored=339139 total_crawled=26
+plasmodium=2 state=crawling food=0.00126155 size=5 frontier=15126 total_explored=354265 total_crawled=26 frontier_best_cost=365075 frontier_worst_cost=365265
+plasmodium=2 state=crawled food=1.87461 size=4 frontier=15126 total_explored=354265 total_crawled=27
+plasmodium=3 state=exploring food=1.01355 size=1 frontier=0 total_explored=147755 total_crawled=13
+plasmodium=3 state=crawling food=0.00109445 size=1 frontier=10122 total_explored=157877 total_crawled=13 frontier_best_cost=364807 frontier_worst_cost=365327
+plasmodium=3 state=crawled food=1.01428 size=1 frontier=10122 total_explored=157877 total_crawled=14
+plasmodium=4 state=exploring food=1.43429 size=2 frontier=0 total_explored=149083 total_crawled=13
+plasmodium=4 state=crawling food=0.00116596 size=2 frontier=14326 total_explored=163409 total_crawled=13 frontier_best_cost=364951 frontier_worst_cost=365626
+plasmodium=4 state=crawled food=1.01333 size=1 frontier=14326 total_explored=163409 total_crawled=14
+plasmodium=5 state=exploring food=1.51471 size=3 frontier=0 total_explored=177183 total_crawled=13
+plasmodium=5 state=crawling food=0.00107121 size=3 frontier=15130 total_explored=192313 total_crawled=13 frontier_best_cost=365013 frontier_worst_cost=365238
+plasmodium=5 state=crawled food=1.52101 size=3 frontier=15130 total_explored=192313 total_crawled=14
+plasmodium=6 state=exploring food=1.51784 size=2 frontier=0 total_explored=162149 total_crawled=13
+plasmodium=6 state=crawling food=0.00110019 size=2 frontier=15163 total_explored=177312 total_crawled=13 frontier_best_cost=365036 frontier_worst_cost=365253
+plasmodium=6 state=crawled food=1.01284 size=3 frontier=15163 total_explored=177312 total_crawled=14
+plasmodium=8 state=exploring food=1.51458 size=3 frontier=0 total_explored=177097 total_crawled=13
+plasmodium=8 state=crawling food=0.00124462 size=3 frontier=15132 total_explored=192229 total_crawled=13 frontier_best_cost=365032 frontier_worst_cost=365252
+plasmodium=8 state=crawled food=1.52098 size=3 frontier=15132 total_explored=192229 total_crawled=14
+plasmodium=9 state=exploring food=1.01116 size=1 frontier=0 total_explored=140532 total_crawled=13
+plasmodium=9 state=crawling food=0.00100901 size=1 frontier=10101 total_explored=150633 total_crawled=13 frontier_best_cost=365182 frontier_worst_cost=365403
+plasmodium=9 state=crawled food=1.01181 size=2 frontier=10101 total_explored=150633 total_crawled=14
+plasmodium=* epoch=15 time=256 memory=112345088 total_food_eaten_count=139 solution_cost=364807
+plasmodium=0 state=exploring food=1.52106 size=3 frontier=0 total_explored=192412 total_crawled=14
+plasmodium=0 state=crawling food=0.00111616 size=3 frontier=15194 total_explored=207606 total_crawled=14 frontier_best_cost=364931 frontier_worst_cost=365102
+plasmodium=0 state=crawled food=1.5198 size=3 frontier=15194 total_explored=207606 total_crawled=15
+plasmodium=1 state=exploring food=1.01312 size=2 frontier=0 total_explored=150768 total_crawled=14
+plasmodium=1 state=crawling food=0.00106417 size=2 frontier=10120 total_explored=160888 total_crawled=14 frontier_best_cost=364891 frontier_worst_cost=365469
+plasmodium=1 state=crawled food=1.01372 size=1 frontier=10120 total_explored=160888 total_crawled=15
+plasmodium=2 state=exploring food=1.87461 size=4 frontier=0 total_explored=354265 total_crawled=27
+plasmodium=2 state=crawling food=0.00121509 size=4 frontier=18732 total_explored=372997 total_crawled=27 frontier_best_cost=364995 frontier_worst_cost=365612
+plasmodium=2 state=crawled food=1.01301 size=1 frontier=18732 total_explored=372997 total_crawled=28
+plasmodium=3 state=exploring food=1.01428 size=1 frontier=0 total_explored=157877 total_crawled=14
+plasmodium=3 state=crawling food=0.00102796 size=1 frontier=10132 total_explored=168009 total_crawled=14 frontier_best_cost=364706 frontier_worst_cost=364921
+plasmodium=3 state=crawled food=1.01489 size=2 frontier=10132 total_explored=168009 total_crawled=15
+plasmodium=4 state=exploring food=1.01333 size=1 frontier=0 total_explored=163409 total_crawled=14
+plasmodium=4 state=crawling food=0.00107705 size=1 frontier=10122 total_explored=173531 total_crawled=14 frontier_best_cost=364859 frontier_worst_cost=365057
+plasmodium=4 state=crawled food=1.01392 size=1 frontier=10122 total_explored=173531 total_crawled=15
+plasmodium=5 state=exploring food=1.52101 size=3 frontier=0 total_explored=192313 total_crawled=14
+plasmodium=5 state=crawling food=0.00106989 size=3 frontier=15194 total_explored=207507 total_crawled=14 frontier_best_cost=364906 frontier_worst_cost=365119
+plasmodium=5 state=crawled food=1.51994 size=3 frontier=15194 total_explored=207507 total_crawled=15
+plasmodium=6 state=exploring food=1.01284 size=3 frontier=0 total_explored=177312 total_crawled=14
+plasmodium=6 state=crawling food=0.00118468 size=3 frontier=10110 total_explored=187422 total_crawled=14 frontier_best_cost=364934 frontier_worst_cost=365036
+plasmodium=6 state=crawled food=1.68866 size=2 frontier=10110 total_explored=187422 total_crawled=15
+plasmodium=8 state=exploring food=1.52098 size=3 frontier=0 total_explored=192229 total_crawled=14
+plasmodium=8 state=crawling food=0.00103628 size=3 frontier=15197 total_explored=207426 total_crawled=14 frontier_best_cost=364928 frontier_worst_cost=365658
+plasmodium=8 state=crawled food=1.01343 size=1 frontier=15197 total_explored=207426 total_crawled=15
+plasmodium=9 state=exploring food=1.01181 size=2 frontier=0 total_explored=150633 total_crawled=14
+plasmodium=9 state=crawling food=0.00115678 size=2 frontier=10106 total_explored=160739 total_crawled=14 frontier_best_cost=365081 frontier_worst_cost=365659
+plasmodium=9 state=crawled food=1.0125 size=1 frontier=10106 total_explored=160739 total_crawled=15
+plasmodium=* epoch=16 time=270 memory=119242752 total_food_eaten_count=148 solution_cost=364706
+plasmodium=0 state=exploring food=1.5198 size=3 frontier=0 total_explored=207606 total_crawled=15
+plasmodium=0 state=crawling food=0.00105559 size=3 frontier=15184 total_explored=222790 total_crawled=15 frontier_best_cost=364854 frontier_worst_cost=365012
+plasmodium=0 state=crawled food=1.52019 size=3 frontier=15184 total_explored=222790 total_crawled=16
+plasmodium=1 state=exploring food=1.01372 size=1 frontier=0 total_explored=160888 total_crawled=15
+plasmodium=1 state=crawling food=0.00106238 size=1 frontier=10126 total_explored=171014 total_crawled=15 frontier_best_cost=364796 frontier_worst_cost=364990
+plasmodium=1 state=crawled food=1.01433 size=1 frontier=10126 total_explored=171014 total_crawled=16
+plasmodium=2 state=exploring food=1.01301 size=1 frontier=0 total_explored=372997 total_crawled=28
+plasmodium=2 state=crawling food=0.00105726 size=1 frontier=10119 total_explored=383116 total_crawled=28 frontier_best_cost=364922 frontier_worst_cost=365407
+plasmodium=2 state=crawled food=1.01348 size=1 frontier=10119 total_explored=383116 total_crawled=29
+plasmodium=3 state=exploring food=1.01489 size=2 frontier=0 total_explored=168009 total_crawled=15
+plasmodium=3 state=crawling food=0.00103604 size=2 frontier=10138 total_explored=178147 total_crawled=15 frontier_best_cost=364626 frontier_worst_cost=365202
+plasmodium=3 state=crawled food=1.01545 size=1 frontier=10138 total_explored=178147 total_crawled=16
+plasmodium=4 state=exploring food=1.01392 size=1 frontier=0 total_explored=173531 total_crawled=15
+plasmodium=4 state=crawling food=0.00106846 size=1 frontier=10128 total_explored=183659 total_crawled=15 frontier_best_cost=364763 frontier_worst_cost=364951
+plasmodium=4 state=crawled food=1.01457 size=2 frontier=10128 total_explored=183659 total_crawled=16
+plasmodium=5 state=exploring food=1.51994 size=3 frontier=0 total_explored=207507 total_crawled=15
+plasmodium=5 state=crawling food=0.00120102 size=3 frontier=15186 total_explored=222693 total_crawled=15 frontier_best_cost=364817 frontier_worst_cost=365013
+plasmodium=5 state=crawled food=1.52058 size=3 frontier=15186 total_explored=222693 total_crawled=16
+plasmodium=6 state=exploring food=1.68866 size=2 frontier=0 total_explored=187422 total_crawled=15
+plasmodium=6 state=crawling food=0.00108754 size=2 frontier=16870 total_explored=204292 total_crawled=15 frontier_best_cost=364834 frontier_worst_cost=365036
+plasmodium=6 state=crawled food=1.01413 size=3 frontier=16870 total_explored=204292 total_crawled=16
+plasmodium=8 state=exploring food=1.01343 size=1 frontier=0 total_explored=207426 total_crawled=15
+plasmodium=8 state=crawling food=0.00107514 size=1 frontier=10123 total_explored=217549 total_crawled=15 frontier_best_cost=364834 frontier_worst_cost=365032
+plasmodium=8 state=crawled food=1.01404 size=1 frontier=10123 total_explored=217549 total_crawled=16
+plasmodium=9 state=exploring food=1.0125 size=1 frontier=0 total_explored=160739 total_crawled=15
+plasmodium=9 state=crawling food=0.00104224 size=1 frontier=10114 total_explored=170853 total_crawled=15 frontier_best_cost=364991 frontier_worst_cost=365182
+plasmodium=9 state=crawled food=1.01308 size=1 frontier=10114 total_explored=170853 total_crawled=16
+plasmodium=6 state=merge with=8 food=1.01413 size=3 frontier=0 total_explored=421841 total_crawled=32
+plasmodium=* epoch=17 time=283 memory=116641792 total_food_eaten_count=157 solution_cost=364626
+plasmodium=0 state=exploring food=1.52019 size=3 frontier=0 total_explored=222790 total_crawled=16
+plasmodium=0 state=crawling food=0.00114892 size=3 frontier=15184 total_explored=237974 total_crawled=16 frontier_best_cost=364789 frontier_worst_cost=364931
+plasmodium=0 state=crawled food=1.52182 size=3 frontier=15184 total_explored=237974 total_crawled=17
+plasmodium=1 state=exploring food=1.01433 size=1 frontier=0 total_explored=171014 total_crawled=16
+plasmodium=1 state=crawling food=0.00107383 size=1 frontier=10132 total_explored=181146 total_crawled=16 frontier_best_cost=364714 frontier_worst_cost=364891
+plasmodium=1 state=crawled food=1.01489 size=2 frontier=10132 total_explored=181146 total_crawled=17
+plasmodium=2 state=exploring food=1.01348 size=1 frontier=0 total_explored=383116 total_crawled=29
+plasmodium=2 state=crawling food=0.00102618 size=1 frontier=10124 total_explored=393240 total_crawled=29 frontier_best_cost=364851 frontier_worst_cost=364995
+plasmodium=2 state=crawled food=1.01396 size=2 frontier=10124 total_explored=393240 total_crawled=30
+plasmodium=3 state=exploring food=1.01545 size=1 frontier=0 total_explored=178147 total_crawled=16
+plasmodium=3 state=crawling food=0.00109457 size=1 frontier=10143 total_explored=188290 total_crawled=16 frontier_best_cost=364520 frontier_worst_cost=364706
+plasmodium=3 state=crawled food=1.01613 size=1 frontier=10143 total_explored=188290 total_crawled=17
+plasmodium=4 state=exploring food=1.01457 size=2 frontier=0 total_explored=183659 total_crawled=16
+plasmodium=4 state=crawling food=0.00110913 size=2 frontier=10130 total_explored=193789 total_crawled=16 frontier_best_cost=364678 frontier_worst_cost=364951
+plasmodium=4 state=crawled food=1.52242 size=2 frontier=10130 total_explored=193789 total_crawled=17
+plasmodium=5 state=exploring food=1.52058 size=3 frontier=0 total_explored=222693 total_crawled=16
+plasmodium=5 state=crawling food=0.00124176 size=3 frontier=15192 total_explored=237885 total_crawled=16 frontier_best_cost=364725 frontier_worst_cost=364906
+plasmodium=5 state=crawled food=1.52244 size=3 frontier=15192 total_explored=237885 total_crawled=17
+plasmodium=6 state=exploring food=1.01413 size=3 frontier=0 total_explored=421841 total_crawled=32
+plasmodium=6 state=crawling food=0.0012749 size=3 frontier=10125 total_explored=431966 total_crawled=32 frontier_best_cost=364762 frontier_worst_cost=364934
+plasmodium=6 state=crawled food=1.52184 size=3 frontier=10125 total_explored=431966 total_crawled=33
+plasmodium=9 state=exploring food=1.01308 size=1 frontier=0 total_explored=170853 total_crawled=16
+plasmodium=9 state=crawling food=0.00101986 size=1 frontier=10118 total_explored=180971 total_crawled=16 frontier_best_cost=364905 frontier_worst_cost=365404
+plasmodium=9 state=crawled food=1.01363 size=1 frontier=10118 total_explored=180971 total_crawled=17
+plasmodium=* epoch=18 time=294 memory=108253184 total_food_eaten_count=165 solution_cost=364520
+plasmodium=0 state=exploring food=1.52182 size=3 frontier=0 total_explored=237974 total_crawled=17
+plasmodium=0 state=crawling food=0.00128301 size=3 frontier=15203 total_explored=253177 total_crawled=17 frontier_best_cost=364733 frontier_worst_cost=364854
+plasmodium=0 state=crawled food=1.522 size=3 frontier=15203 total_explored=253177 total_crawled=18
+plasmodium=1 state=exploring food=1.01489 size=2 frontier=0 total_explored=181146 total_crawled=17
+plasmodium=1 state=crawling food=0.0010302 size=2 frontier=10135 total_explored=191281 total_crawled=17 frontier_best_cost=364633 frontier_worst_cost=364891
+plasmodium=1 state=crawled food=1.52282 size=2 frontier=10135 total_explored=191281 total_crawled=18
+plasmodium=2 state=exploring food=1.01396 size=2 frontier=0 total_explored=393240 total_crawled=30
+plasmodium=2 state=crawling food=0.00110019 size=2 frontier=10124 total_explored=403364 total_crawled=30 frontier_best_cost=364781 frontier_worst_cost=364995
+plasmodium=2 state=crawled food=1.52145 size=2 frontier=10124 total_explored=403364 total_crawled=31
+plasmodium=3 state=exploring food=1.01613 size=1 frontier=0 total_explored=188290 total_crawled=17
+plasmodium=3 state=crawling food=0.00107872 size=1 frontier=10150 total_explored=198440 total_crawled=17 frontier_best_cost=364441 frontier_worst_cost=364626
+plasmodium=3 state=crawled food=1.01665 size=2 frontier=10150 total_explored=198440 total_crawled=18
+plasmodium=4 state=exploring food=1.52242 size=2 frontier=0 total_explored=193789 total_crawled=17
+plasmodium=4 state=crawling food=0.00107514 size=2 frontier=15212 total_explored=209001 total_crawled=17 frontier_best_cost=364592 frontier_worst_cost=364763
+plasmodium=4 state=crawled food=1.01567 size=3 frontier=15212 total_explored=209001 total_crawled=18
+plasmodium=5 state=exploring food=1.52244 size=3 frontier=0 total_explored=237885 total_crawled=17
+plasmodium=5 state=crawling food=0.00129481 size=3 frontier=15207 total_explored=253092 total_crawled=17 frontier_best_cost=364642 frontier_worst_cost=364817
+plasmodium=5 state=crawled food=1.52274 size=3 frontier=15207 total_explored=253092 total_crawled=18
+plasmodium=6 state=exploring food=1.52184 size=3 frontier=0 total_explored=431966 total_crawled=33
+plasmodium=6 state=crawling food=0.00100388 size=3 frontier=15206 total_explored=447172 total_crawled=33 frontier_best_cost=364681 frontier_worst_cost=365328
+plasmodium=6 state=crawled food=1.01503 size=1 frontier=15206 total_explored=447172 total_crawled=34
+plasmodium=9 state=exploring food=1.01363 size=1 frontier=0 total_explored=180971 total_crawled=17
+plasmodium=9 state=crawling food=0.00107264 size=1 frontier=10123 total_explored=191094 total_crawled=17 frontier_best_cost=364819 frontier_worst_cost=365279
+plasmodium=9 state=crawled food=1.01418 size=1 frontier=10123 total_explored=191094 total_crawled=18
+plasmodium=* epoch=19 time=305 memory=107204608 total_food_eaten_count=173 solution_cost=364441

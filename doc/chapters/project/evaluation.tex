@@ -128,6 +128,25 @@ Another parameter that can be used to tune the algorithm is $E_{initial}$ --- in
   \label{figure:am_energy_initial}
 \end{figure}
 
+An unfortunate consequence of the algorithm design is $O(n!)$ space complexity (figure \ref{figure:am_energy_spacetime}). If every solution is visited, ${\Delta}E_{solution}$ values  must be stored $n!$ times, however this is the worst case scenario, rather not likely to happen in practice. Rather small number of solutions are crawled and occupied during work of the program, it would require extremely small $E_{explore}$ values to force algorithm to occupy every solution, therefore using $O(n!)$ memory and $O(n!)$ computation steps - using sane values of energy averts these adverse effects. As more solutions are explored, lower number of epochs is done, as whole computation time is given to exploration phase.
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/memory - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.\eop}
+    \caption{Memory usage}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/time - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.\eop}
+    \caption{Total time}
+  \end{subfigure}
+  
+  \caption{Resources usage with different $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20})}
+  \label{figure:am_energy_spacetime}
+\end{figure}
+
 
 \subsubsection{Random walk}
 
@@ -192,7 +211,7 @@ Using such transformation gives solutions equal to the best sample an unit value
 Experiments confirm that larger $q$ values provide more energy to plasmodia (figure \ref{figure:am_ctf_food}) as explored solution carry more $E_{solution}$ energy. This extra energy is used for exploration phase and result in larger frontier sizes (figure \ref{figure:am_ctf_frontier}).
 
 
-\subsection{Solution costs}
+\subsection{Optimization results}
 
 In order to assess usefulness of the Physarum-based Metaheuristic algorithm two measures are used: relative distance to optimal solution and assignment similarity measure. The relative distance is defined as follows:
 \begin{equation}
@@ -250,8 +269,20 @@ At this point a minor improvement to the algorithm has been added --- each plasm
 
 As predicted this change made a positive influence on the results (figure \ref{figure:am_lipa_results_improved}). For \texttt{lipa20a} and \texttt{lipa30a} optimal assignment have been found, where for other instances of \texttt{lipa}, assignments worse only less than $1~\%$ from the optimum have been found. Furthermore the improved implementation has been tested with longer execution time $t=10n$ instead $t=4n$, which has given slighly better results The improved version of algorithm provides better result and it will be used for further tests.
 
-An unfortunate consequence of the algorithm design is $O(n!)$ space complexity. If every solution is visited, ${\Delta}E_{solution}$ values  must be stored $n!$ times, however this is the worst case scenario, rather not likely to happen in practice. Rather small number of solutions are crawled and occupied during work of the program, it would require extremely small $E_{explore}$ values to force algorithm to occupy every solution, therefore using $O(n!)$ memory and $O(n!)$ computation steps - using sane values of energy averts these adverse effects.
 
 \subsubsection{QAPLIB results}
+
+Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.001$, $E_{crawl}=0.01$, exponential base $q=10$ scale $a=0.1$), tests for every case in \texttt{QAPLIB} have been done. Every test has been repeated ten times, no random seed has been preset as in practical usage. Results are aggregated in different ways --- by minimum cost (showing the best case), by maximal cost (showing the worst case) and by average cost presenting an usual result for given dataset. Every instance has been allowed to run for time $t=10n$, but no longer than 900~s.
+
 % TODO complete run for qaplib
+% TODO some charts grouped by dataset
+
+% TODO table in appendix b
+
+\subsubsection{Optimizing large instances}
+
+% TODO some parameters
+
+\subsection{Final results}
 % TODO comparison with other
+% TODO table in appendix b
