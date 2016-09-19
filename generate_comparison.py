@@ -3,6 +3,7 @@
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot
+import copy
 import argparse
 import numpy as np
 from os.path import basename
@@ -14,6 +15,7 @@ class Solution:
     def __init__(self, sln):
         self.name = os.path.splitext(basename(sln.name))[0]
         self.cost, self.size, self.assignment = self.parse_solution(sln)
+        self.aggregated = False
 
     def parse_solution(self, sln):
         numbers = [int(v) for v in sln.read().split()]
@@ -25,7 +27,7 @@ class Solution:
         return (cost, size, assignment)
 
     def __repr__(self):
-        return self.name
+        return "%s = %d" % (self.name, self.cost)
 
     def distance(self, baseline):
         return float(self.cost - baseline.cost) / baseline.cost
@@ -106,6 +108,8 @@ if __name__ == '__main__':
                         default='qapdatsol')
     parser.add_argument('-o', '--out', type=str, required=True)
     parser.add_argument('-f', '--format', type=str, default='png')
+    parser.add_argument('-a', '--aggregate', action='store_true')
+    parser.set_defaults(aggregate=False)
 
     args = parser.parse_args()
     if not os.path.exists(args.out):
@@ -122,6 +126,47 @@ if __name__ == '__main__':
 
         groups[group_name].append(Solution(f))
 
+    if args.aggregate:
+        aggregated_groups = {}
+
+        for group_name in groups:
+            if group_name != args.baseline:
+                avg_name = group_name + "_avg"
+                min_name = group_name + "_min"
+                max_name = group_name + "_max"
+
+                for n in (avg_name, min_name, max_name):
+                    aggregated_groups[n] = []
+
+                instances = {}
+                for solution in groups[group_name]:
+                    (name, instance) = solution.name.split('.')
+
+                    if name not in instances:
+                        instances[name] = []
+
+                    solution.name = name
+                    instances[name].append(solution)
+
+                print instances
+
+                for instance_name, solutions in instances.iteritems():
+                    aggregated_groups[min_name].append(min(solutions, key=lambda x: x.cost))
+                    aggregated_groups[max_name].append(max(solutions, key=lambda x: x.cost))
+
+                    s = copy.copy(solutions[0])
+                    sum_cost = 0
+
+                    for solution in solutions:
+                        sum_cost += solution.cost
+
+                    s.cost = float(sum_cost) / len(solutions)
+                    aggregated_groups[avg_name].append(s)
+
+
+
+        print aggregated_groups
+    sys.exit(0)
     for gn in groups:
         groups[gn] = sorted(groups[gn], key=lambda x: x.size)
 
