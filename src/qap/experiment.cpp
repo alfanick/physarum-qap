@@ -101,10 +101,8 @@ void Experiment::run(unsigned int max_time) {
 
     epoch++;
 
-    if (epoch % 100 == 0) {
-      if (time(0) - start_time >= max_time)
-        break;
-    }
+    if (time(0) - start_time >= max_time)
+      break;
   }
 
 #ifdef LOG
