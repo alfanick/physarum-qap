@@ -194,9 +194,43 @@ Experiments confirm that larger $q$ values provide more energy to plasmodia (fig
 
 \subsection{Solution costs}
 
-% TODO lipa results
+In order to assess usefulness of the Physarum-based Metaheuristic algorithm two measures are used: relative distance to optimal solution and assignment similarity measure. The relative distance is defined as follows:
+\begin{equation}
+  dist(cost, optimum) = \frac{cost - optimum}{optimum}
+\end{equation}
+Where $cost$ is the cost of compared solution and $optimum$ is optimum (or its best known approximation) given as input data from \texttt{QAPLIB}. With such measure values closer to $0.0$ are preffered, as they are closer to the optimal cost.
+
+The similarity measure aggregated differences in the assignment to simple real value. The similarity is defined as fraction of assignments on the same position:
+\begin{equation}
+  sim(a, b) = \frac{| x : a(x) = b(x), x \in [1, n] \subset \mathbb{N}|}{|n|}
+\end{equation}
+Where $a$ and $b$ are compared assignment and $n$ is the problem size. Such defined measure is defined between zero and one, with $sim(a, b) = 0$ meaning complete mismatch and $sim(a, b) = 1$ meaning complete match. One should notice that an assignment can be optimal ($dist=0$), even though its $sim(a, opt) \leq 1$ --- multiple assignments can yield the same optimal cost.
+
+The first experiments have been done on \texttt{lipa} dataset, which is made of 8 different problem definitions of size $n \in {20, 30, 40, 50, 60, 70, 80, 90}$. An universal values of $E_{explore}=0.001$ and $E_{crawl}=0.01$, population size $l=100$ out of $k=300$ samples, time of execution was made relative to input size $t=4n$.
+
+\begin{figure}
+  \centering
+
+  \begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/complipaoriginal/distance.eps}
+    \caption{Distance to the optimal solution}
+  \end{subfigure}
+  \begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/complipaoriginal/similarity.eps}
+    \caption{Similarity with optimal assignment}
+  \end{subfigure}
+  
+  \caption{Results for \texttt{lipa} dataset}
+  \label{figure:am_lipa_results}
+\end{figure}
+
+Obtained results (figure \ref{figure:am_lipa_results}) look promising, but are not truly satisfactory. For small instances relative error is quite large, even though most of the assignment is the same as the optimal assignment. A conclusion can be made, that plasmodium is close to the solution, however it might have missed it or crawled out of it. Furthermore, for larger instances almost there is almost no similarity between computed and optimal assignment, even though relative distance is acceptable ($dist < 1\%$) --- the plasmodia have crawled into local minima, far from optimal neighbourhood.
 
 \subsubsection{Improved algorithm}
+
+A solution for this subefficient behaviour has been quickly found. In earlier evaluations of the algorithm (figure \ref{figure:am_best_cost}), we observed that plasmodia can crawl out of optimal solutions. This behaviour is a result of plasmodia avoiding being stuck in a local optimum, however it has no knowledge if the optimum is local or a global minimum. 
+
+At this point a minor improvement to the algorithm has been added --- each plasmodium stores the best solution it explored during its lifetime. This does not change a behaviour of the plasmodium it just adds another observation of plasmodial behaviour. While original algorithm returned the best occupied solution by any plasmodium, the improved algorithm returns the best solution ever found by any plasmodium.
 % TODO store global minimum
 % TODO lipa results
 

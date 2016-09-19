@@ -83,13 +83,13 @@ class PlotGenerator:
 
     def multiple_instance_distance(self):
         return self.bar_chart(lambda a,b: a.distance(b),
-                              title='distance comparison',
+                              title='distance',
                               label='relative error')
 
 
     def multiple_instance_similarity(self):
         return self.bar_chart(lambda a,b: a.similarity(b),
-                             title='similarity comparison',
+                             title='similarity',
                              label='fraction of correct assignment')
 
 if __name__ == '__main__':
