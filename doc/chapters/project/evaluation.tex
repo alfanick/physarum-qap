@@ -79,7 +79,7 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
   \label{figure:am_best_cost}
 \end{figure}
 
-For small testcases a regularity has been observed --- larger populations tend to find better results in earlier epochs (figure \ref{figure:am_best_cost}). Furthermore, larger $\frac{l}{k}$ proportions (number of plasmodia vs number of samples) are preferred as they exhibit the same characteristic --- when the same number of samples is used, more plasmodia started on these samples yield better results earlier. Plasmodium initialized on a bad solution can crawl towards better one, where a plasmodium initialized on a relatively good solution may not find any better in its local neighbourhood. Thus one should use $l$ close to $k$ to fully use the algorithm potential. 
+For small test cases a regularity has been observed --- larger populations tend to find better results in earlier epochs (figure \ref{figure:am_best_cost}). Furthermore, larger $\frac{l}{k}$ proportions (number of plasmodia vs number of samples) are preferred as they exhibit the same characteristic --- when the same number of samples is used, more plasmodia started on these samples yield better results earlier. Plasmodium initialised on a bad solution can crawl towards better one, where a plasmodium initialised on a relatively good solution may not find any better in its local neighbourhood. Thus one should use $l$ close to $k$ to fully use the algorithm potential. 
 
 
 \subsection{Energy values}
@@ -150,7 +150,7 @@ An unfortunate consequence of the algorithm design is $O(n!)$ space complexity (
 
 \subsubsection{Random walk}
 
-Some combinations of $E_{explore}$ and $E_{crawl}$ can result in meaningless "random walk" and should be avoided. When $E_{explore}$ and $E_{crawl}$ are of similar value and their sum is close to unit value (energy of best solution from the sampling phase), plasmodia will choose any solution no matter their energetical value and corresponding cost (figure \ref{figure:am_energy_random}). Such behaviour omits any optimization behaviour, crawling to solutions without any benefits, hence the name random walk.
+Some combinations of $E_{explore}$ and $E_{crawl}$ can result in meaningless "random walk" and should be avoided. When $E_{explore}$ and $E_{crawl}$ are of similar value and their sum is close to unit value (energy of best solution from the sampling phase), plasmodia will choose any solution no matter their energetic value and corresponding cost (figure \ref{figure:am_energy_random}). Such behaviour omits any optimization behaviour, crawling to solutions without any benefits, hence the name random walk.
 
 \begin{figure}
   \centering
@@ -186,9 +186,9 @@ Extreme values of $E_{explore}$ combined with large values $E_{crawl}$ results i
 
 \subsection{Cost to food transformation}
 
-An important step is the cost to food transformation --- each solution's cost is transformed into nutritional energy using equation \ref{equation:m_e_solution}. Every solution is compared to the best solution from the sampling phase, every qutient $\frac{calibrated\_cost}{cost(solution)}$ is amplified using exponential function with exponential function with the  base $q$, linearly scaled using coefficient $a$ (usually $a=q^{-1}$). 
+An important step is the cost to food transformation --- each solution's cost is transformed into nutritional energy using equation \ref{equation:m_e_solution}. Every solution is compared to the best solution from the sampling phase, every quotient $\frac{calibrated\_cost}{cost(solution)}$ is amplified using exponential function with exponential function with the  base $q$, linearly scaled using coefficient $a$ (usually $a=q^{-1}$). 
 
-Using such transformation gives solutions equal to the best sample an unit value of $E_{solution}=1$, worse solutions carry lower energy, while better solutions carry bigger energy. Modifying the base $q$ (and correspoding scale $a$) can be used to intensify this difference.
+Using such transformation gives solutions equal to the best sample an unit value of $E_{solution}=1$, worse solutions carry lower energy, while better solutions carry bigger energy. Modifying the base $q$ (and corresponding scale $a$) can be used to intensify this difference.
 
 \begin{figure}
   \centering
@@ -217,7 +217,7 @@ In order to assess usefulness of the Physarum-based Metaheuristic algorithm two 
 \begin{equation}
   dist(cost, optimum) = \frac{cost - optimum}{optimum}
 \end{equation}
-Where $cost$ is the cost of compared solution and $optimum$ is optimum (or its best known approximation) given as input data from \texttt{QAPLIB}. With such measure values closer to $0.0$ are preffered, as they are closer to the optimal cost.
+Where $cost$ is the cost of compared solution and $optimum$ is optimum (or its best known approximation) given as input data from \texttt{QAPLIB}. With such measure values closer to $0.0$ are preferred, as they are closer to the optimal cost.
 
 The similarity measure aggregated differences in the assignment to simple real value. The similarity is defined as fraction of assignments on the same position:
 \begin{equation}
@@ -247,7 +247,7 @@ Obtained results (figure \ref{figure:am_lipa_results}) look promising, but are n
 
 \subsubsection{Improved algorithm}
 
-A solution for this subefficient behaviour has been quickly found. In earlier evaluations of the algorithm (figure \ref{figure:am_best_cost}), we observed that plasmodia can crawl out of optimal solutions. This behaviour is a result of plasmodia avoiding being stuck in a local optimum, however it has no knowledge if the optimum is local or a global minimum. 
+A solution for this sub-efficient behaviour has been quickly found. In earlier evaluations of the algorithm (figure \ref{figure:am_best_cost}), we observed that plasmodia can crawl out of optimal solutions. This behaviour is a result of plasmodia avoiding being stuck in a local optimum, however it has no knowledge if the optimum is local or a global minimum. 
 
 At this point a minor improvement to the algorithm has been added --- each plasmodium stores the best solution it explored during its lifetime. This does not change a behaviour of the plasmodium, it just adds another observation of plasmodial behaviour. While original algorithm returned the best occupied solution by any plasmodium, the improved algorithm returns the best solution ever found by any plasmodium.
 
@@ -267,7 +267,7 @@ At this point a minor improvement to the algorithm has been added --- each plasm
   \label{figure:am_lipa_results_improved}
 \end{figure}
 
-As predicted this change made a positive influence on the results (figure \ref{figure:am_lipa_results_improved}). For \texttt{lipa20a} and \texttt{lipa30a} optimal assignment have been found, where for other instances of \texttt{lipa}, assignments worse only less than $1~\%$ from the optimum have been found. Furthermore the improved implementation has been tested with longer execution time $t=10n$ instead $t=4n$, which has given slighly better results The improved version of algorithm provides better result and it will be used for further tests.
+As predicted this change made a positive influence on the results (figure \ref{figure:am_lipa_results_improved}). For \texttt{lipa20a} and \texttt{lipa30a} optimal assignment have been found, where for other instances of \texttt{lipa}, assignments worse only less than $1~\%$ from the optimum have been found. Furthermore the improved implementation has been tested with longer execution time $t=10n$ instead $t=4n$, which has given slightly better results The improved version of algorithm provides better result and it will be used for further tests.
 
 
 \subsubsection{QAPLIB results}
@@ -279,7 +279,7 @@ Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.00
 
 % TODO table in appendix b
 
-\subsubsection{Optimizing large instances}
+\subsubsection{Optimising large instances}
 
 % TODO some parameters
 

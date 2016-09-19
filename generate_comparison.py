@@ -49,7 +49,7 @@ class PlotGenerator:
         self.baseline = baseline
         self.groups = groups
 
-    def bar_chart(self, comparator, title, label):
+    def bar_chart(self, comparator, title, label, exclude_avg=False):
         figure, plt = matplotlib.pyplot.subplots()
 
         plt.set_axisbelow(True)
@@ -62,6 +62,9 @@ class PlotGenerator:
         i = 0
 
         for group_name, solutions in self.groups.iteritems():
+            if exclude_avg and group_name.endswith('_avg'):
+                continue
+
             data[group_name] = {}
 
             for idx, baseline_solution in enumerate(self.baseline):
@@ -92,12 +95,13 @@ class PlotGenerator:
     def multiple_instance_similarity(self):
         return self.bar_chart(lambda a,b: a.similarity(b),
                              title='similarity',
-                             label='fraction of correct assignment')
+                             label='fraction of correct assignment',
+                             exclude_avg=True)
 
 if __name__ == '__main__':
     matplotlib.pyplot.rcParams['backend'] = 'TkAgg'
     matplotlib.pyplot.rcParams['agg.path.chunksize'] = 100000
-    matplotlib.pyplot.rc('text', usetex=True)
+    # matplotlib.pyplot.rc('text', usetex=True)
     matplotlib.pyplot.rc('font', family='serif')
 
     parser = argparse.ArgumentParser(description="Comparison charts generator")
@@ -124,7 +128,10 @@ if __name__ == '__main__':
         if group_name not in groups:
             groups[group_name] = []
 
-        groups[group_name].append(Solution(f))
+        try:
+            groups[group_name].append(Solution(f))
+        except:
+            print("skipping %s" % f.name)
 
     if args.aggregate:
         aggregated_groups = {}
@@ -148,8 +155,6 @@ if __name__ == '__main__':
                     solution.name = name
                     instances[name].append(solution)
 
-                print instances
-
                 for instance_name, solutions in instances.iteritems():
                     aggregated_groups[min_name].append(min(solutions, key=lambda x: x.cost))
                     aggregated_groups[max_name].append(max(solutions, key=lambda x: x.cost))
@@ -164,11 +169,13 @@ if __name__ == '__main__':
                     aggregated_groups[avg_name].append(s)
 
 
+        print groups
 
-        print aggregated_groups
-    sys.exit(0)
+        aggregated_groups[args.baseline] = groups[args.baseline]
+        groups = aggregated_groups
+
     for gn in groups:
-        groups[gn] = sorted(groups[gn], key=lambda x: x.size)
+        groups[gn] = sorted(groups[gn], key=lambda x: x.name)
 
     if args.baseline not in groups:
         print('No baseline given')

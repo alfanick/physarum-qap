@@ -7,7 +7,7 @@ The code source closely resembles algorithm in its essential explore, crawl and 
 
 \subsection{Building instructions}
 
-In order to build the program a POSIX-compatible environment is required (i.e. Mac OS X, Linux), with minor changes it should be compatible with Windows platforms. Tools such as C++11 compiler (authors used \texttt{clang 703.0.29} and \texttt{g++ 4.9.4}) and $cmake$ build tool are required. The executable can be created using \texttt{build.sh} command, which will create two binary files --- \texttt{bin/physarum} and \texttt{bin/physarum-debug}, where the second one genereates detailed machine readable logs of plasmodial behaviour.
+In order to build the program a POSIX-compatible environment is required (i.e. Mac OS X, Linux), with minor changes it should be compatible with Windows platforms. Tools such as C++11 compiler (authors used \texttt{clang 703.0.29} and \texttt{g++ 4.9.4}) and $cmake$ build tool are required. The executable can be created using \texttt{build.sh} command, which will create two binary files --- \texttt{bin/physarum} and \texttt{bin/physarum-debug}, where the second one generates detailed machine readable logs of plasmodial behaviour.
 
 \subsection{Data format}
 
@@ -39,5 +39,5 @@ The program accepts options in format of flags. The configuration options closel
 
 \subsection{External libraries}
 
-The implementation uses \texttt{Flags.hh} library by Song Gao for parsing command line options and \texttt{getRSS.c} by David Robert Nadeau for analysing memory usage when collecting logs. Both libraries are not essential parts of the implementation, their source codes are includes in \texttt{src/external/} with adequate licenses and copyright informations. 
+The implementation uses \texttt{Flags.hh} library by Song Gao for parsing command line options and \texttt{getRSS.c} by David Robert Nadeau for analysing memory usage when collecting logs. Both libraries are not essential parts of the implementation, their source codes are includes in \texttt{src/external/} with adequate licenses and copyright information. 
 

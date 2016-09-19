@@ -1,7 +1,7 @@
 \section{Physarum-based Metaheuristic}
 \label{section:algorithm_metaheuristic}
 
-Emboldened by the experience with the physarum machine, we thought of making it more practical. We thought of simulating \textit{Physarum Polycephalum}, hoping for lowering execution time for the naive algorithm. Instead we propose a new algorithm designed from the ground up, which is inspired by observed behaviour of the slime mould. While the algorithm was created for solving Quadratic Assignment Problem, it is an universal metaheuristic which can be applied to number of optimization problems.
+Emboldened by the experience with the physarum machine, we thought of making it more practical. We thought of simulating \textit{Physarum Polycephalum}, hoping for lowering execution time for the naive algorithm. Instead we propose a new algorithm designed from the ground up, which is inspired by observed behaviour of the slime mould. While the algorithm was created for solving Quadratic Assignment Problem, it is an universal metaheuristic which can be applied to number of optimisation problems.
 
 
 \subsection{Algorithm overview}
@@ -9,7 +9,7 @@ Emboldened by the experience with the physarum machine, we thought of making it 
 The algorithm can be divided in three distinct phases: exploration, crawling and merging. These phases are executed sequentially in a loop, until stop condition is satisfied. General overview of the algorithm can be seen in pseudocode \ref{algorithm:m_general}. 
 
 \begin{algorithm}[H]
-  \KwData{optimization problem with neighbourhood definition}
+  \KwData{optimisation problem with neighbourhood definition}
   \KwResult{approximated result}
   \BlankLine
 
@@ -33,7 +33,7 @@ The algorithm can be divided in three distinct phases: exploration, crawling and
 Initialization of environment includes sampling of solutions space: $k$ random assignments are taken, for each of them a cost is computed (pseudocode \ref{algorithm:m_env_initialization}). An assignment with the smallest cost is saved as exemplar for further calibration. Colony of "virtual physarum" is put on best $l$ out $k$ samples (pseudocode \ref{algorithm:m_colony_initialization}).
 
 \begin{algorithm}
-  \KwData{optimization problem}
+  \KwData{optimisation problem}
   \KwResult{list of samples}
   \BlankLine
 
@@ -72,7 +72,7 @@ Simulation stops when plasmodia crawl no more (are dead, lacking energy) or give
 
 \subsection{Environment}
 
-The naive algorithm assumed uniform distribution of food sources which are inversely proportional to the cost of solution, however there is no such need in our metaheuristic solution. In similar manner solutions are represented as vierual food sources, but they are generated dynamically --- virtual food consume no memory unless they are visited by plasmodium. "Nutritional energy" is calculated dynamically when a food is visited as follows: 
+The naive algorithm assumed uniform distribution of food sources which are inversely proportional to the cost of solution, however there is no such need in our metaheuristic solution. In similar manner solutions are represented as virtual food sources, but they are generated dynamically --- virtual food consume no memory unless they are visited by plasmodium. "Nutritional energy" is calculated dynamically when a food is visited as follows: 
 
 % TODO maybe just frac squared???
 \begin{equation}
@@ -82,7 +82,7 @@ The naive algorithm assumed uniform distribution of food sources which are inver
 
 Where $calibrated_cost$ is cost of minimal solution obtained via initial sampling process, $a > 0$ is scaling factor, $q > 1$ is exponentiation base. ${\Delta}E_{solution}$ is already consumed energy from given $solution$. At the start each ${\Delta}E_{solution}$ is equal $0$, so there is no need of storing such information, but as plasmodium explores and crawls ${\Delta}E_{solution}$ is updated, taking at most $O(n!)$ memory if every solution would be explored.
 
-The algorithm defines neighbourhood for Quadratic Assignment Problem as single pair swap, giving $\frac{n\cdot(n-1)}{2}$ possible neighbours for each assignment. However, instead of deterministc generation of the neighbourhood, a stochastic one is used --- the neighbour solution is created by swapping two random positions from given assignment.
+The algorithm defines neighbourhood for Quadratic Assignment Problem as single pair swap, giving $\frac{n\cdot(n-1)}{2}$ possible neighbours for each assignment. However, instead of deterministic generation of the neighbourhood, a stochastic one is used --- the neighbour solution is created by swapping two random positions from given assignment.
 
 Within this environment lives a colony of virtual plasmodia --- $l$ different plasmodia are placed on different food sources selected from initial sampling (pseudocode \ref{algorithm:m_colony_initialization}). 
 
@@ -101,7 +101,7 @@ If no energy is left ($E_{plasmodium}$ is equal zero), the plasmodium is conside
 
 \subsubsection{Exploration phase}
 
-The exploration phase looks through neighbourhood in so new food sources can be found (pseudocode \ref{algorithm:m_exploration}). For every already occupied food source, a neighbour is generated by swapping two randomly choosen assignments. Such neighbour solution is added to a frontier, which is an analogy to slime mould's head. Each visit consumes parametrized $E_{explore}$ energy. This phase is repeated as long as there is enough energy left for crawling to another solution $E_{crawl}$.
+The exploration phase looks through neighbourhood in so new food sources can be found (pseudocode \ref{algorithm:m_exploration}). For every already occupied food source, a neighbour is generated by swapping two randomly chosen assignments. Such neighbour solution is added to a frontier, which is an analogy to slime mould's head. Each visit consumes parametrized $E_{explore}$ energy. This phase is repeated as long as there is enough energy left for crawling to another solution $E_{crawl}$.
 
 Exploration consumes pool of $E_{initial}$ energy, when none is left, energy from the food sources is used, effectively decreasing $E_{solution}$ available within the environment.
 
@@ -131,11 +131,11 @@ Exploration consumes pool of $E_{initial}$ energy, when none is left, energy fro
   \label{algorithm:m_exploration}
 \end{algorithm}
 
-The exploration phase simply selects candidate solutions (frontier) for further optimization. Physarum can occupy many food sources, representing this way a trail of previously tested solutions --- when choosing a neighbour it tries to avoid suspensing in a local minimum as it can explore historic neighbourhoods.
+The exploration phase simply selects candidate solutions (frontier) for further optimization. Physarum can occupy many food sources, representing this way a trail of previously tested solutions --- when choosing a neighbour it tries to avoid suspension in a local minimum as it can explore historic neighbourhoods.
 
 \subsubsection{Crawling phase}
 
-The crawling phase moves plasmodium onto new food sources. Food sources discovered in exploration phase as a frontier are sorted by their energetic value if none has been found, plasmodium is considered to be dead. Crawling is split into two parts --- adding new food source and removal of nonefficient food sources (pseudocode \ref{algorithm:m_crawling}). Plasmodium crawls onto most energetic food source in a frontier only if its energy recompensates energy of discovering and crawling (when plasmodium creeps onto new food source it uses $E_{crawl}$ energy). 
+The crawling phase moves plasmodium onto new food sources. Food sources discovered in exploration phase as a frontier are sorted by their energetic value if none has been found, plasmodium is considered to be dead. Crawling is split into two parts --- adding new food source and removal of inefficient food sources (pseudocode \ref{algorithm:m_crawling}). Plasmodium crawls onto most energetic food source in a frontier only if its energy recompensates energy of discovering and crawling (when plasmodium creeps onto new food source it uses $E_{crawl}$ energy). 
 
 Plasmodium leaves previously occupied food sources when the worst solution in the frontier carries more energy than considered food source (even after including $E_{crawl}$). This behaviour controls size of plasmodial body, which in fact could be treated as history of solutions. Crawling phase can be considered asymmetric by the results --- it adds at most single food source, but can result in removal of multiple food sources from the body.
 
@@ -180,7 +180,7 @@ One should remember that every plasmodial operation uses energy stored in food, 
 
 \subsubsection{Merging plasmodia}
 
-Plasmodia are initially distributed on various $l$ out of $k$ samples, however as they crawl, multiple plasmodia could occupy the same food source. Just as with physical \textit{Physarum Polycephalum}, such plasmodia are merged into a single larger body (pseudocode \ref{algorithm:m_merging}). As a resul merged plasmodium occupies more food sources having and number of colonies in the environment is reduced. 
+Plasmodia are initially distributed on various $l$ out of $k$ samples, however as they crawl, multiple plasmodia could occupy the same food source. Just as with physical \textit{Physarum Polycephalum}, such plasmodia are merged into a single larger body (pseudocode \ref{algorithm:m_merging}). As a result merged plasmodium occupies more food sources having and number of colonies in the environment is reduced. 
 
 \begin{algorithm}
   \KwData{conflicting plasmodia}
@@ -199,7 +199,7 @@ Plasmodia are initially distributed on various $l$ out of $k$ samples, however a
   \label{algorithm:m_merging}
 \end{algorithm}
 
-One should notice that search space is very large ($n!$ solutions), where initial size of colony is $l$ and $l \ll n!$, using an approximation of maximal size of each plasmodium as $1 \div E_{crawl}$, a chance for collision can be approximated as $\frac{l}{E_{crawl} \cdot n!}$ which is a very small for most practical $l$ and $E_{crawl}$ values. This reasoning allows to skip merging phase for most practical problems (i.e. where $n > 12$) as collision is rather unprobable.
+One should notice that search space is very large ($n!$ solutions), where initial size of colony is $l$ and $l \ll n!$, using an approximation of maximal size of each plasmodium as $1 \div E_{crawl}$, a chance for collision can be approximated as $\frac{l}{E_{crawl} \cdot n!}$ which is a very small for most practical $l$ and $E_{crawl}$ values. This reasoning allows to skip merging phase for most practical problems (i.e. where $n > 12$) as collision is rather improbable.
 
 
 \subsection{Available parameters}
@@ -209,7 +209,7 @@ Introduced algorithm can be tuned using many available parameters. A practical a
 
 \subsubsection{Colony size}
 
-The algorithm performes initial sampling of $k$ solutions. If $k$ is close to $n!$ the algorithm could find the optimial assignment at this very early stage, however it would require $n!$ operations, as in typical brute force approach. Selecting large value for $k$ increases chances for finding close to optimal solutions, but with increased chances for local minima.
+The algorithm performs initial sampling of $k$ solutions. If $k$ is close to $n!$ the algorithm could find the optimal assignment at this very early stage, however it would require $n!$ operations, as in typical brute force approach. Selecting large value for $k$ increases chances for finding close to optimal solutions, but with increased chances for local minima.
 
 Out of selected $k$ samples, $l \leq k$ most efficient solutions are chosen as starting points for $l$ virtual plasmodia. Selecting large $l$ value result in longer computations as multiple plasmodia are simulated. However it may be worth it as they start in different positions of the space search --- every plasmodium has a different distance to optimal solution, creating more plasmodia increases chances for being close to the optimum.
 
@@ -289,7 +289,7 @@ On the other hand $E_{crawl}$ energy is required for including new food source t
   \label{figure:m_explore_dfs}
 \end{figure}
 
-In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy (figure \ref{figure:m_strategy}). If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preffered to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}) --- smaller values of $E_{explore}$ causes thorough local search, not like smaller values of $E_{crawl}$ which causes many jumps to different neighbourhoods. Usually it is preffered to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die (figure \ref{figure:m_explore_dead}) or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
+In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to control the algorithm. Their antagonist behaviour fluidly overlooks search strategy --- an algorithm can look through solutions space using more breadth-first or more depth-first strategy (figure \ref{figure:m_strategy}). If $E_{explore}$ is smaller than $E_{crawl}$ local neighbours are preferred to be explored (figure \ref{figure:m_explore_bfs}), otherwise if $E_{crawl} < E_{explore}$ plasmodium prefers to crawl to other solution even if they are not locally the best (figure \ref{figure:m_explore_dfs}) --- smaller values of $E_{explore}$ causes thorough local search, not like smaller values of $E_{crawl}$ which causes many jumps to different neighbourhoods. Usually it is preferred to have both energy values smaller than unit value ($E_{crawl} \ll 1$, $E_{explore} \ll 1$), when values are too big plasmodium may prematurely die (figure \ref{figure:m_explore_dead}) or demonstrate less useful behaviours (figure \ref{figure:m_explore_special}).
 
 \begin{figure}
   \centering
@@ -332,5 +332,5 @@ In fact $E_{explore}$ and $E_{crawl}$ are closely related and can be used to con
   \label{figure:m_explore_special}
 \end{figure}
 
-It should be noted, that selecting very small values of $E_{explore}$ causes buildup of frontier heavily, thus using memory as $|frontier| \sim \frac{E_{plasmodium} - E_{crawl}}{E_{explore}}$. Selecting $E_{explore}$ and $E_{crawl}$ values should be done with care, depending on characterstics of given optimization problem. When no information about problem is given, choosing $E_{explore} = E_{crawl} \ll 1$ may be wise. 
+It should be noted, that selecting very small values of $E_{explore}$ causes buildup of frontier heavily, thus using memory as $|frontier| \sim \frac{E_{plasmodium} - E_{crawl}}{E_{explore}}$. Selecting $E_{explore}$ and $E_{crawl}$ values should be done with care, depending on characteristics of given optimization problem. When no information about problem is given, choosing $E_{explore} = E_{crawl} \ll 1$ may be wise. 
 
