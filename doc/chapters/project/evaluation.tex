@@ -248,9 +248,9 @@ At this point a minor improvement to the algorithm has been added --- each plasm
   \label{figure:am_lipa_results_improved}
 \end{figure}
 
-As predicted this change made a positive influence on the results (figure \ref{figure:am_lipa_results_improved}). For \texttt{lipa20a} and \texttt{lipa30a} optimal assignment have been found, where for other instances of \texttt{lipa}, assignments worse only less than $1~\%$ from the optimum have been found. Furthermore an improved algorithm has been tested with longer execution time $t=10n$ instead $t=4n$, which has given slighly better results.
+As predicted this change made a positive influence on the results (figure \ref{figure:am_lipa_results_improved}). For \texttt{lipa20a} and \texttt{lipa30a} optimal assignment have been found, where for other instances of \texttt{lipa}, assignments worse only less than $1~\%$ from the optimum have been found. Furthermore the improved implementation has been tested with longer execution time $t=10n$ instead $t=4n$, which has given slighly better results The improved version of algorithm provides better result and it will be used for further tests.
 
-% TODO time/memory
+An unfortunate consequence of the algorithm design is $O(n!)$ space complexity. If every solution is visited, ${\Delta}E_{solution}$ values  must be stored $n!$ times, however this is the worst case scenario, rather not likely to happen in practice. Rather small number of solutions are crawled and occupied during work of the program, it would require extremely small $E_{explore}$ values to force algorithm to occupy every solution, therefore using $O(n!)$ memory and $O(n!)$ computation steps - using sane values of energy averts these adverse effects.
 
 \subsubsection{QAPLIB results}
 % TODO complete run for qaplib
