@@ -13,6 +13,6 @@ Dir['data/qapdatsol/*.dat'].sort.each do |input|
   time = [n * 10, 1200].min
 
   10.times do |i|
-    puts "./bin/physarum --data data/qapdatsol/#{name}.dat --time=#{time} --population=100 --sample=300 --e_explore=0.001 --e_crawl=0.01 -x > results/multiple/#{group}/#{name}.#{i}.sln"
+    puts "sleep #{i+1}; ./bin/physarum --data data/qapdatsol/#{name}.dat --time=#{time} --population=100 --sample=300 --e_explore=0.001 --e_crawl=0.01 -x > results/multiple/#{group}/#{name}.#{i}.sln"
   end
 end
