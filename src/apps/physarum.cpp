@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
   std::string problem_name;
 
   bool help = false;
+  bool historical_min = false;
 
   flags.Var(samples, 'k', "samples", samples, "Number of initial samples", "Sampling");
   flags.Var(population_size, 'l', "population", population_size, "Number of plasmodia in colony", "Sampling");
@@ -36,6 +37,7 @@ int main(int argc, char** argv) {
   flags.Bool(should_not_merge, 'm', "no-merge", "Disables merging phase", "General");
   flags.Var(seed, 's', "seed", seed, "Seed for random generator, -1 for time based seed", "General");
   flags.Bool(help, 'h', "help", "Shows this help message and exit", "General");
+  flags.Bool(historical_min, 'x', "historical-minimum", "Obtains solution as the best cost during whole lifetime", "General");
 
   if (!flags.Parse(argc, argv)) {
     flags.PrintHelp(argv[0]);
@@ -64,7 +66,7 @@ int main(int argc, char** argv) {
 
   experiment.run(time_limit);
 
-  std::cout << experiment.getSolution() << std::endl;
+  std::cout << (historical_min ? experiment.getHistoricalSolution() : experiment.getSolution()) << std::endl;
 
   return 0;
 }

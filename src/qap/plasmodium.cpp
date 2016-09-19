@@ -4,7 +4,7 @@
 namespace PUT {
 namespace Physarum {
 
-Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_food(i), environment(e) {
+Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_food(i), environment(e), best_historical_solution(Solution(&(e->getProblem()))) {
   id = next_id();
   size = position.assignment.size();
   explored_count = 0;
@@ -12,6 +12,7 @@ Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_foo
   occupancy.push_back(position);
   food = initial_food + e->getFood(position);
   alive = true;
+  best_historical_cost = best_historical_solution.cost();
 
 #ifdef LOG
   std::cerr << "plasmodium=" << id << " state=new food=" << food << " cost=" << position.cost() << " size=1 frontier=0 total_explored=0 total_crawled=0" << std::endl;
@@ -74,6 +75,12 @@ void Plasmodium::crawl() {
   std::sort(frontier.begin(), frontier.end(), [&](const Solution& a,  const Solution& b) {
     return environment->getFood(a) > environment->getFood(b);
   });
+
+  float c = frontier.front().cost();
+  if (c < best_historical_cost) {
+    best_historical_solution = frontier.front();
+    best_historical_cost = c;
+   }
 
   if (environment->getFood(frontier.front()) > (environment->getCrawlCost() + environment->getExploreCost())) {
 #ifdef LOG

@@ -34,6 +34,9 @@ class Plasmodium {
     size_t explored_count;
     size_t crawled_count;
 
+    float best_historical_cost;
+    Solution best_historical_solution;
+
     static size_t next_id() {
       static std::atomic_size_t id_generator(0);
       return id_generator++;

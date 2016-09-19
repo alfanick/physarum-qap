@@ -17,6 +17,7 @@ class Experiment {
     void run(unsigned int max_time);
     void merge();
     Solution getSolution();
+    Solution getHistoricalSolution();
 
     size_t getSampleSize() { return sample_size; }
     size_t getInitialPopulationSize() { return initial_population_size; }

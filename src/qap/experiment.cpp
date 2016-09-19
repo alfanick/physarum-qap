@@ -61,6 +61,20 @@ Solution Experiment::getSolution() {
   return best_solution;
 }
 
+Solution Experiment::getHistoricalSolution() {
+  Solution best_solution(&environment.getProblem());
+  float bhc = best_solution.cost();
+
+  for (auto& plasmodium : population) {
+    if (plasmodium.best_historical_cost < bhc) {
+      best_solution = plasmodium.best_historical_solution;
+      bhc = plasmodium.best_historical_cost;
+    }
+  }
+
+  return best_solution;
+}
+
 void Experiment::run(unsigned int max_time) {
   size_t epoch = 0;
   unsigned int start_time = time(0);
@@ -137,6 +151,11 @@ void Experiment::run(unsigned int max_time) {
         other_plasmodium.frontier.clear();
         other_plasmodium.occupancy.clear();
         plasmodium.frontier.clear();
+
+        if (other_plasmodium.best_historical_cost < plasmodium.best_historical_cost) {
+          plasmodium.best_historical_cost = other_plasmodium.best_historical_cost;
+          plasmodium.best_historical_solution = other_plasmodium.best_historical_solution;
+        }
 #ifdef LOG
     std::cerr << "plasmodium=" << plasmodium.id << " state=merge with=" << other_plasmodium.id << " food=" << plasmodium.food << " size=" << plasmodium.occupancy.size() << " frontier=0 total_explored=" << plasmodium.explored_count << " total_crawled=" << plasmodium.crawled_count << std::endl;
 #endif
