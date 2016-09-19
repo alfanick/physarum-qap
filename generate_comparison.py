@@ -4,6 +4,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot
 import argparse
+import numpy as np
 from os.path import basename
 import os
 import sys
@@ -38,6 +39,58 @@ class Solution:
 
         return float(same) / len(baseline.assignment)
 
+
+class PlotGenerator:
+    COLORS = ['b', 'g', 'r', 'c', 'm', 'y']
+
+    def __init__(self, baseline, groups):
+        self.baseline = baseline
+        self.groups = groups
+
+    def bar_chart(self, comparator, title, label):
+        figure, plt = matplotlib.pyplot.subplots()
+
+        plt.set_axisbelow(True)
+        plt.yaxis.grid(b=True, which='major', color='lightgray', linestyle='-')
+
+        data = {}
+        lgnd = {}
+
+        width = 1.0/(len(self.groups) + 2)
+        i = 0
+
+        for group_name, solutions in self.groups.iteritems():
+            data[group_name] = {}
+
+            for idx, baseline_solution in enumerate(self.baseline):
+                data[group_name][baseline_solution.name] = comparator(solutions[idx], baseline_solution)
+
+            values = [data[group_name][k] for k in sorted(data[group_name])]
+            b = plt.bar(np.arange(len(solutions)) + i * width, values, width,
+                        color = self.COLORS[i%len(self.COLORS)])
+            i += 1
+            lgnd[b[0]] = group_name
+
+        plt.set_title(title)
+        plt.set_xlabel('dataset')
+        plt.set_ylabel(label)
+        plt.set_xticklabels([v.name for v in self.baseline], rotation=45)
+        plt.set_xticks(np.arange(len(self.baseline)) + width)
+
+        plt.legend(lgnd.keys(), lgnd.values(), loc='best')
+
+        return [figure]
+
+    def multiple_instance_distance(self):
+        return self.bar_chart(lambda a,b: a.distance(b),
+                              title='distance comparison',
+                              label='relative error')
+
+
+    def multiple_instance_similarity(self):
+        return self.bar_chart(lambda a,b: a.similarity(b),
+                             title='similarity comparison',
+                             label='fraction of correct assignment')
 
 if __name__ == '__main__':
     matplotlib.pyplot.rcParams['backend'] = 'TkAgg'
@@ -79,11 +132,19 @@ if __name__ == '__main__':
     groups_without_baseline = dict((i,groups[i]) for i in groups if i != args.baseline)
     baseline = groups[args.baseline]
 
-    for idx, baseline_solution in enumerate(baseline):
-        print(baseline_solution.name)
+    generator = PlotGenerator(baseline, groups_without_baseline)
 
-        for group_name, solutions in groups_without_baseline.iteritems():
-            print("  " + group_name)
-            print(solutions[idx].distance(baseline_solution))
-            print(solutions[idx].similarity(baseline_solution))
+    f = []
+
+    f += generator.multiple_instance_distance()
+    f += generator.multiple_instance_similarity()
+
+    for plot in f:
+        filename = plot.gca().title.get_text()
+        plot.gca().title.set_visible(False)
+
+        plot.savefig("%s/%s.%s" % (args.out, filename, args.format),
+                     bbox_inches='tight', dpi=150)
+
+        plot.clf()
 
