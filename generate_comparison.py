@@ -9,12 +9,14 @@ import numpy as np
 from os.path import basename
 import os
 import sys
+import csv
 
 
 class Solution:
     def __init__(self, sln):
         self.name = os.path.splitext(basename(sln.name))[0]
         self.cost, self.size, self.assignment = self.parse_solution(sln)
+        self.instance = 0
         self.aggregated = False
 
     def parse_solution(self, sln):
@@ -133,8 +135,14 @@ if __name__ == '__main__':
         except:
             print("skipping %s" % f.name)
 
+    if args.baseline not in groups:
+        print('No baseline given')
+        sys.exit(-1)
+
     if args.aggregate:
         aggregated_groups = {}
+        report = []
+        name_vs_instances = {}
 
         for group_name in groups:
             if group_name != args.baseline:
@@ -152,8 +160,13 @@ if __name__ == '__main__':
                     if name not in instances:
                         instances[name] = []
 
+                    if name not in name_vs_instances:
+                        name_vs_instances[name] = []
+
                     solution.name = name
+                    solution.instance = int(instance)
                     instances[name].append(solution)
+                    name_vs_instances[name].append(solution)
 
                 for instance_name, solutions in instances.iteritems():
                     aggregated_groups[min_name].append(min(solutions, key=lambda x: x.cost))
@@ -169,17 +182,54 @@ if __name__ == '__main__':
                     aggregated_groups[avg_name].append(s)
 
 
-        print groups
+        best_header = ['name', 'cost_{optimal}', 'size', 'cost_{min}',
+                'dist_{min}', 'sim_{min}', 'cost_{1}', 'cost_{2}', 'cost_{3}',
+                'cost_{4}', 'cost_{5}', 'cost_{6}', 'cost_{7}', 'cost_{8}',
+                'cost_{9}', 'cost_{10}', 'cost_{avg}']
+        rows = []
+
+        for name in name_vs_instances:
+            opt = filter(lambda x: x.name == name, groups[args.baseline])[0]
+
+            row = {'name': name,
+                   'cost_{optimal}': opt.cost,
+                   'size': len(opt.assignment)}
+
+            min_instance = None
+            s = 0
+
+            for idx, instance in enumerate(name_vs_instances[name]):
+                row["cost_{%d}" % (idx+1)] = instance.cost
+                s += instance.cost
+
+                if min_instance is None or instance.cost < min_instance.cost:
+                    min_instance = instance
+
+            row['cost_{avg}'] = s / len(name_vs_instances[name])
+            row['cost_{min}'] = min_instance.cost
+            row['dist_{min}'] = min_instance.distance(opt)
+            row['sim_{min}'] = min_instance.similarity(opt)
+
+            for idx in range(0, 10):
+                name = "cost_{%d}" % (idx+1)
+
+                if not name in row:
+                    row[name] = None
+
+            rows.append(row)
+
+        with open("%s/data.csv" % args.out, 'w') as f:
+            writer = csv.DictWriter(f, fieldnames=best_header)
+            # writer.writeheader()
+
+            for r in sorted(rows, key=lambda x: x['name']):
+                writer.writerow(r)
 
         aggregated_groups[args.baseline] = groups[args.baseline]
         groups = aggregated_groups
 
     for gn in groups:
         groups[gn] = sorted(groups[gn], key=lambda x: x.name)
-
-    if args.baseline not in groups:
-        print('No baseline given')
-        sys.exit(-1)
 
     groups_without_baseline = dict((i,groups[i]) for i in groups if i != args.baseline)
     baseline = groups[args.baseline]

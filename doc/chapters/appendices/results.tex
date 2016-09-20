@@ -1,2 +1,86 @@
 \chapter{Benchmark Results}
 \label{chapter:results}
+
+\section*{QAPLIB results}
+
+Presented here are results of experiments using improved Physarum-based Metaheuristic algorithm for QAP using generic parameters of population $l=100$, samples $k=300$, $E_{explore}=0.001$, $E_{crawl}=0.01$, exponential base $q=10$, scale $a=0.1$, $t=min(900, 10n)$.
+
+\textbf{TODO FORMATTING!}
+
+\newcommand{\qaplibresulttable}[1]{
+  \begin{sidewaystable}[h!]
+    \centering
+    \caption{Experiment results for dataset \texttt{#1}}
+    \label{table:result_qaplib:#1}
+
+    \pgfplotstabletypeset[
+      multicolumn names,
+      col sep=comma,
+      header=false,
+      every col no 0/.style={
+        string type,
+        column name={Name}
+      },
+      every col no 1/.style={
+        column name={$cost_{optimal}$},
+      },
+      every col no 2/.style={
+        column name={Size}
+      },
+      every col no 3/.style={
+        column name={$cost_{min}$}
+      },
+      every col no 4/.style={
+        column name={$dist_{min}$}
+      },
+      every col no 5/.style={
+        column name={$sim_{min}$}
+      },
+      every col no 6/.style={
+        column name={1}
+      },
+      every col no 7/.style={
+        column name={2}
+      },
+      every col no 8/.style={
+        column name={3}
+      },
+      every col no 9/.style={
+        column name={4}
+      },
+      every col no 10/.style={
+        column name={5}
+      },
+      every col no 11/.style={
+        column name={6}
+      },
+      every col no 12/.style={
+        column name={7}
+      },
+      every col no 13/.style={
+        column name={8}
+      },
+      every col no 14/.style={
+        column name={9}
+      },
+      every col no 15/.style={
+        column name={10}
+      },
+      every col no 16/.style={
+        column name={$cost_{avg}$}
+      }
+    ]{figures/algorithm/metaheuristic/charts/multiple/#1/data.csv}
+  \end{sidewaystable}
+}
+
+
+\qaplibresulttable{bur}
+\qaplibresulttable{chr}
+\qaplibresulttable{had}
+\qaplibresulttable{lipaa}
+\qaplibresulttable{lipab}
+\qaplibresulttable{nug}
+\qaplibresulttable{rou}
+\qaplibresulttable{scr}
+\qaplibresulttable{sko}
+\qaplibresulttable{tai}
