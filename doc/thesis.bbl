@@ -1,0 +1,293 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{KGV{\etalchar{+}}83}
+
+\bibitem[AC12]{adamatzky2012physarum}
+Andrew Adamatzky and Ben De~Lacy Costello.
+\newblock Physarum attraction: Why slime mold behaves as cats do?
+\newblock {\em Communicative \& integrative biology}, 5(3):297--299, 2012.
+
+\bibitem[Ada07]{adamatzky2007physarum}
+Andrew Adamatzky.
+\newblock Physarum machine: implementation of a kolmogorov-uspensky machine on
+  a biological substrate.
+\newblock {\em Parallel Processing Letters}, 17(04):455--467, 2007.
+
+\bibitem[Ada10]{adamatzky2010physarum}
+Andrew Adamatzky.
+\newblock {\em Physarum machines: computers from slime mould}, volume~74.
+\newblock World Scientific, 2010.
+
+\bibitem[AJ94]{adams1994improved}
+WARREN~P Adams and Terri~A Johnson.
+\newblock Improved linear programming-based lower bounds for the quadratic
+  assignment problem.
+\newblock {\em DIMACS series in discrete mathematics and theoretical computer
+  science}, 16:43--75, 1994.
+
+\bibitem[AOT00]{ahuja2000greedy}
+Ravindra~K Ahuja, James~B Orlin, and Ashish Tiwari.
+\newblock A greedy genetic algorithm for the quadratic assignment problem.
+\newblock {\em Computers \& Operations Research}, 27(10):917--934, 2000.
+
+\bibitem[Bal93]{balch1993avoiding}
+Tucker Balch.
+\newblock Avoiding the past: a simple but effective strategy for reactive
+  navigation.
+\newblock In {\em Robotics and Automation, 1993. Proceedings., 1993 IEEE
+  International Conference on}, pages 678--685. IEEE, 1993.
+
+\bibitem[Bec57]{koopmans-beckmann1957}
+Tjalling C. Koopmans;~Martin Beckmann.
+\newblock {\em Assignment Problems and the Location of Economic Activities},
+  volume~25.
+\newblock The Econometric Society, 1957.
+
+\bibitem[BKR97]{burkard1997qaplib}
+Rainer~E Burkard, Stefan~E Karisch, and Franz Rendl.
+\newblock Qaplib--a quadratic assignment problem library.
+\newblock {\em Journal of Global optimization}, 10(4):391--403, 1997.
+
+\bibitem[BR84]{burkard1984thermodynamically}
+Rainer~E Burkard and Franz Rendl.
+\newblock A thermodynamically motivated simulation procedure for combinatorial
+  optimization problems.
+\newblock {\em European Journal of Operational Research}, 17(2):169--174, 1984.
+
+\bibitem[Bra65]{bracewell1965fourier}
+Ron Bracewell.
+\newblock The fourier transform and iis applications.
+\newblock {\em New York}, 5, 1965.
+
+\bibitem[BT94]{battiti1994reactive}
+Roberto Battiti and Giampietro Tecchiolli.
+\newblock The reactive tabu search.
+\newblock {\em ORSA journal on computing}, 6(2):126--140, 1994.
+
+\bibitem[Cel13]{cela2013quadratic}
+Eranda Cela.
+\newblock {\em The quadratic assignment problem: theory and algorithms},
+  volume~1.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem[{\v{C}}er85]{vcerny1985thermodynamical}
+Vladim{\'\i}r {\v{C}}ern{\`y}.
+\newblock Thermodynamical approach to the traveling salesman problem: An
+  efficient simulation algorithm.
+\newblock {\em Journal of optimization theory and applications}, 45(1):41--51,
+  1985.
+
+\bibitem[Cha88]{charnsethikul1988exact}
+Peerayuth Charnsethikul.
+\newblock {\em An exact branch and bound algorithm for the general quadratic
+  assignment problem}.
+\newblock PhD thesis, Texas Tech University, 1988.
+
+\bibitem[CJ73]{carroll1973ecology}
+C~Ronald Carroll and Daniel~H Janzen.
+\newblock Ecology of foraging by ants.
+\newblock {\em Annual Review of Ecology and systematics}, pages 231--257, 1973.
+
+\bibitem[CM01]{chatterjee2001use}
+Ranajit Chatterjee and Fumitoshi Matsuno.
+\newblock Use of single side reflex for autonomous navigation of mobile robots
+  in unknown environments.
+\newblock {\em Robotics and Autonomous Systems}, 35(2):77--96, 2001.
+
+\bibitem[Con90]{connolly1990improved}
+David~T Connolly.
+\newblock An improved annealing scheme for the qap.
+\newblock {\em European Journal of Operational Research}, 46(1):93--100, 1990.
+
+\bibitem[CP96]{coggin1996dynamic}
+Steven~J Coggin and James~L Pazun.
+\newblock Dynamic complexity inphysarum polycephalum shuttle streaming.
+\newblock {\em Protoplasma}, 194(3-4):243--249, 1996.
+
+\bibitem[DMC96]{dorigo1996ant}
+Marco Dorigo, Vittorio Maniezzo, and Alberto Colorni.
+\newblock Ant system: optimization by a colony of cooperating agents.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics, Part B
+  (Cybernetics)}, 26(1):29--41, 1996.
+
+\bibitem[Dor92]{dorigo1992optimization}
+Marco Dorigo.
+\newblock Optimization, learning and natural algorithms.
+\newblock {\em Ph. D. Thesis, Politecnico di Milano, Italy}, 1992.
+
+\bibitem[DR62]{daniel1962method}
+John~W Daniel and Harold~P Rusch.
+\newblock Method for inducing sporulation of pure cultures of the myxomycete
+  physarum polycephalum.
+\newblock {\em Journal of bacteriology}, 83(2):234--240, 1962.
+
+\bibitem[DS04]{dorigo2004ant}
+M.~Dorigo and T.~St{\"u}tzle.
+\newblock {\em Ant Colony Optimization}.
+\newblock A Bradford book. BRADFORD BOOK, 2004.
+
+\bibitem[FH73]{fisher1973effect}
+Judith~L Fisher and Mary~B Harris.
+\newblock Effect of note taking and review on recall.
+\newblock {\em Journal of Educational Psychology}, 65(3):321, 1973.
+
+\bibitem[Fra97]{frazer1997602}
+Mark Frazer.
+\newblock E\&ce 602 project.
+\newblock 1997.
+
+\bibitem[FY83]{frieze1983quadratic}
+AM~Frieze and J~Yadegar.
+\newblock On the quadratic assignment problem.
+\newblock {\em Discrete applied mathematics}, 5(1):89--98, 1983.
+
+\bibitem[GG64]{guttes1964mitotic}
+Edmund Guttes and Sophie Guttes.
+\newblock Mitotic synchrony in the plasmodia of physarum polycephalum and
+  mitotic synchronization by coalescence of microplasmodia.
+\newblock {\em Methods in Cell Biology}, 1:43--54, 1964.
+
+\bibitem[Glo86]{glover1986future}
+Fred Glover.
+\newblock Future paths for integer programming and links to artificial
+  intelligence.
+\newblock {\em Computers \& operations research}, 13(5):533--549, 1986.
+
+\bibitem[Hol75]{holland1975adaptation}
+John~H Holland.
+\newblock {\em Adaptation in natural and artificial systems: an introductory
+  analysis with applications to biology, control, and artificial intelligence.}
+\newblock U Michigan Press, 1975.
+
+\bibitem[HS78]{horowitz1978fundamentals}
+Ellis Horowitz and Sartaj Sahni.
+\newblock {\em Fundamentals of computer algorithms}.
+\newblock Computer Science Press, 1978.
+
+\bibitem[JA14]{jones2014computation}
+Jeff Jones and Andrew Adamatzky.
+\newblock Computation of the travelling salesman problem by a shrinking blob.
+\newblock {\em Natural Computing}, 13(1):1--16, 2014.
+
+\bibitem[Jon15]{jones2015pattern}
+Jeff Jones.
+\newblock {\em From Pattern Formation to Material Computation: Multi-agent
+  Modelling of Physarum Polycephalum}, volume~15.
+\newblock Springer, 2015.
+
+\bibitem[KB78]{kaufman1978algorithm}
+L~Kaufman and Fernand Broeckx.
+\newblock An algorithm for the quadratic assignment problem using bender's
+  decomposition.
+\newblock {\em European Journal of Operational Research}, 2(3):207--211, 1978.
+
+\bibitem[KGV{\etalchar{+}}83]{kirkpatrick1983optimization}
+Scott Kirkpatrick, C~Daniel Gelatt, Mario~P Vecchi, et~al.
+\newblock Optimization by simmulated annealing.
+\newblock {\em science}, 220(4598):671--680, 1983.
+
+\bibitem[KMB81]{kou1981fast}
+L~Kou, George Markowsky, and Leonard Berman.
+\newblock A fast algorithm for steiner trees.
+\newblock {\em Acta informatica}, 15(2):141--145, 1981.
+
+\bibitem[KT86]{kaku1986exact}
+Bharat~K Kaku and Gerald~L Thompson.
+\newblock An exact algorithm for the general quadratic assignment problem.
+\newblock {\em European Journal of Operational Research}, 23(3):382--390, 1986.
+
+\bibitem[Law63]{lawler1963}
+Eugene~L. Lawler.
+\newblock The quadratic assignment problem.
+\newblock {\em Management Science}, 9(4):586--599, 1963.
+
+\bibitem[MBR70]{mccormick1970isolation}
+J~Justin McCormick, Judith~C Blomquist, and Harold~P Rusch.
+\newblock Isolation and characterization of an extracellular polysaccharide
+  from physarum polycephalum.
+\newblock {\em Journal of bacteriology}, 104(3):1110--1118, 1970.
+
+\bibitem[NKNU04]{nakagaki2004obtaining}
+Toshiyuki Nakagaki, Ryo Kobayashi, Yasumasa Nishiura, and Tetsuo Ueda.
+\newblock Obtaining multiple separate food sources: behavioural intelligence in
+  the physarum plasmodium.
+\newblock {\em Proceedings of the Royal Society of London B: Biological
+  Sciences}, 271(1554):2305--2310, 2004.
+
+\bibitem[NKPP13]{narkiewicz2013grzyby}
+Czes{\l}aw Narkiewicz, W{\l}odzimierz Kita, Wojciech Pusz, and Eugeniusz Panek.
+\newblock Grzyby i {\'s}luzowce.
+\newblock {\em Przyroda Karkonoskiego Parku Narodowego. Jelenia G{\'o}ra:
+  Karkonoski Park Narodowy}, pages 339--358, 2013.
+
+\bibitem[NYT00]{nakagaki2000intelligence}
+Toshiyuki Nakagaki, Hiroyasu Yamada, and {\'A}gota T{\'o}th.
+\newblock Intelligence: Maze-solving by an amoeboid organism.
+\newblock {\em Nature}, 407(6803):470--470, 2000.
+
+\bibitem[RLDB12]{reid2012slime}
+Chris~R Reid, Tanya Latty, Audrey Dussutour, and Madeleine Beekman.
+\newblock Slime mold uses an externalized spatial “memory” to navigate in
+  complex environments.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  109(43):17490--17494, 2012.
+
+\bibitem[SK90]{skorin1990tabu}
+Jadranka Skorin-Kapov.
+\newblock Tabu search applied to the quadratic assignment problem.
+\newblock {\em ORSA Journal on computing}, 2(1):33--45, 1990.
+
+\bibitem[SS93]{sutera1993history}
+Salvatore~P Sutera and Richard Skalak.
+\newblock The history of poiseuille's law.
+\newblock {\em Annual Review of Fluid Mechanics}, 25(1):1--20, 1993.
+
+\bibitem[SS{\etalchar{+}}94]{stephenson1994myxomycetes}
+Steven L~Stephenson Stephenson, L~Steven, et~al.
+\newblock {\em Myxomycetes; a handbook of slime molds}.
+\newblock Number 04; QK635. A1, S8. 1994.
+
+\bibitem[Tai91]{taillard1991robust}
+{\'E}ric Taillard.
+\newblock Robust taboo search for the quadratic assignment problem.
+\newblock {\em Parallel computing}, 17(4):443--455, 1991.
+
+\bibitem[TS95]{tate1995genetic}
+David~M Tate and Alice~E Smith.
+\newblock A genetic approach to the quadratic assignment problem.
+\newblock {\em Computers \& Operations Research}, 22(1):73--83, 1995.
+
+\bibitem[TTS{\etalchar{+}}10]{tero2010rules}
+Atsushi Tero, Seiji Takagi, Tetsu Saigusa, Kentaro Ito, Dan~P Bebber, Mark~D
+  Fricker, Kenji Yumiki, Ryo Kobayashi, and Toshiyuki Nakagaki.
+\newblock Rules for biologically inspired adaptive network design.
+\newblock {\em Science}, 327(5964):439--442, 2010.
+
+\bibitem[UM83]{uden1983chlorinated}
+Peter~C Uden and Joel~W Miller.
+\newblock Chlorinated acids and chloral in drinking water.
+\newblock {\em Journal (American Water Works Association)}, pages 524--527,
+  1983.
+
+\bibitem[WB79]{wohlfarth1979oscillatory}
+KE~Wohlfarth-Bottermann.
+\newblock Oscillatory contraction activity in physarum.
+\newblock {\em Journal of experimental biology}, 81(1):15--32, 1979.
+
+\bibitem[WW87]{wilhelm1987solving}
+Mickey~R Wilhelm and Thomas~L Ward.
+\newblock Solving quadratic assignment problems by ‘simulated annealing’.
+\newblock {\em IIE transactions}, 19(1):107--119, 1987.
+
+\bibitem[ZAKH13]{zhu2013amoeba}
+Liping Zhu, Masashi Aono, Song-Ju Kim, and Masahiko Hara.
+\newblock Amoeba-based computing for traveling salesman problem: Long-term
+  correlations between spatially separated individual cells of physarum
+  polycephalum.
+\newblock {\em BioSystems}, 112(1):1--10, 2013.
+
+\bibitem[ZSG79]{zelkowitz1979principles}
+Marvin~V Zelkowitz, Alan~C Shaw, and John~D Gannon.
+\newblock {\em Principles of software engineering and design}.
+\newblock Prentice-Hall Englewood Cliffs, 1979.
+
+\end{thebibliography}
