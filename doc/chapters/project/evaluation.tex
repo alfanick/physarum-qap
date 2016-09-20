@@ -330,5 +330,57 @@ Selecting a larger number of samples $k=3000000$ improves results dramatically -
 Some more research should be done before using the Physarum-based Metaheuristic for optimizing real world large instances of QAP, especially when the optimum is not known beforehand. It is recommended to use a large number of samples $k$ and give the algorithm long time limit $t$. For such big instances, obtaining result even after whole day of computations is usually worth the effort.
 
 \subsection{Final results}
-% TODO comparison with other - wiola, juskowiak&pewinski
-% TODO table in appendix b (our solution vs other solutions)
+
+We have compared our algorithm to some industry leading solutions such as \textit{ANGEL}, ant colony, simulated annealing, \textit{GRASP} and MILP \cite{TODO}. While some works are lacking of results for some datasets, a comparison of distance to optimal solution can be seen in table \ref{table:result_comparison_distance}, while exact costs of the resulting assignment are visible in table \ref{table:result_comparison_cost}. 
+
+% TODO formatting
+\begin{table}
+  \centering
+  \caption{Comparison of distance to optimal solution using different methods \textbf{formatting!}}
+  \label{table:result_comparison_distance}
+
+  \pgfplotstabletypeset[
+    col sep=comma,
+    fixed,
+    precision=3,
+    every col no 0/.style={
+      string type,
+      column type=r|
+    },
+    every col no 7/.style={
+      column type=|c
+    },
+    every head row/.style={before row=\toprule,after row=\midrule},
+    every last row/.style={after row=\bottomrule}
+  ]{resultsdist.csv}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Cost obtained using various methods \textbf{formatting!}}
+  \label{table:result_comparison_cost}
+
+  \pgfplotstabletypeset[
+    col sep=comma,
+    fixed,
+    precision=0,
+    every col no 0/.style={
+      string type,
+      column type=r
+    },
+    every col no 1/.style={
+      column type=c|
+    },
+    every col no 8/.style={
+      column type=|c
+    },
+    every head row/.style={before row=\toprule,after row=\midrule},
+    every last row/.style={after row=\bottomrule}
+  ]{results.csv}
+\end{table}
+
+Based on this comparison, we can observe that our algorithm is beaten only by \textit{ANGEL}, but only in little number of cases. This method is a complex hybrid algorithm based on genetic programming, ant colonies and local optimization and is a popular choice for solving practical QAP instances. Mixed-integer linear programming gives the same results as our method (however it was tested only for a few cases), but in pracice it is very resource consuming as whole field of mathematical programming. Other methods are relatively far from the optimum assignment when compared to the proposed algorithm.
+
+Furthermore, we have not found any data on behaviour of other algorithms on especaily large QAP instances. We have shown, that the algorithm being a main matter for this thesis can approximate assignments for large instances in relatively short time.
+
+We conclude that with some further parameters tweaking, the same results as leading \textit{ANGEL} method could be obtained. When using the Physarum-based metaheuristic algorithm, one should always test few combination of configuration parameters in order to tune it well.
