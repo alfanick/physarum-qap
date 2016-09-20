@@ -274,6 +274,36 @@ As predicted this change made a positive influence on the results (figure \ref{f
 
 Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.001$, $E_{crawl}=0.01$, exponential base $q=10$ scale $a=0.1$), tests for every case in \texttt{QAPLIB} have been done. Every test has been repeated ten times, no random seed has been preset as in practical usage. Results are aggregated in different ways --- by minimum cost (showing the best case) and by average cost presenting an usual result for given dataset. Every instance has been allowed to run for time $t=10n$, but no longer than 900~s.
 
+
+\newcommand{\qaplibresultchart}[1]{
+  \begin{figure}
+    \centering
+
+    \begin{subfigure}{0.47\textwidth}
+      \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/multiple/#1/distance.eps}
+      \caption{Distance to the optimal solution}
+    \end{subfigure}
+    \begin{subfigure}{0.47\textwidth}
+      \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/multiple/#1/similarity.eps}
+      \caption{Similarity with optimal assignment}
+    \end{subfigure}
+    
+    \caption{Aggregated results for \texttt{#1} dataset}
+    \label{figure:am_qaplib_result:#1}
+  \end{figure}
+}
+
+\qaplibresultchart{bur}
+\qaplibresultchart{chr}
+\qaplibresultchart{had}
+\qaplibresultchart{lipaa}
+\qaplibresultchart{lipab}
+\qaplibresultchart{nug}
+\qaplibresultchart{rou}
+\qaplibresultchart{scr}
+\qaplibresultchart{sko}
+\qaplibresultchart{tai}
+
 % TODO complete run for qaplib
 % TODO some charts grouped by dataset
 
