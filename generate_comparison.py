@@ -24,7 +24,7 @@ class Solution:
 
         size = numbers[0]
         cost = numbers[1]
-        assignment = numbers[2:-1]
+        assignment = numbers[2:]
 
         return (cost, size, assignment)
 
