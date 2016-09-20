@@ -26,12 +26,12 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
   \centering
 
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa20a/total_food_eaten_count - lipa20a $l=300$ $k=300$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_visited_solutions_lipa20a.\eop}
     \caption{instance \texttt{lipa20a} $n=20$}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/total_food_eaten_count - lipa90a $l=300$ $k=300$.zoomed.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_visited_solutions_lipa90a.\eop}
     \caption{instance \texttt{lipa90a} $n=90$}
   \end{subfigure}
   
@@ -43,17 +43,17 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
   \centering
 
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/state of colony - lipa90a $l=10$ $k=30$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_state_of_colony_10_30.\eop}
     \caption{population $l=10$, samples $k=30$}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/state of colony - lipa90a $l=100$ $k=300$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_state_of_colony_100_300.\eop}
     \caption{population $l=100$, samples $k=300$}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa90a/state of colony - lipa90a $l=300$ $k=300$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_state_of_colony_300_300.\eop}
     \caption{population $l=300$, samples $k=300$}
   \end{subfigure}
 
@@ -66,12 +66,12 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
   \centering
 
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/lipa20a/frontier_best_cost aggregated min - lipa20a $l=300$ $k=300$.zoomed.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_best_cost_lipa20a.\eop}
     \caption{instance \texttt{lipa20a} $n=20$}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/single/nug20/frontier_best_cost aggregated min - nug20 $l=300$ $k=300$.zoomed.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_best_cost_nug20.\eop}
     \caption{instance \texttt{nug20} $n=20$}
   \end{subfigure}
   
@@ -93,7 +93,7 @@ Moreover there is a latent relation between frontier size and $E_{crawl}$ value 
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/frontier aggregated avg - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.zzzoomed.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_frontier.\eop}
 
   \caption{Average size of frontier for colonies with different energies $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
   \label{figure:am_energy_frontier}
@@ -102,7 +102,7 @@ Moreover there is a latent relation between frontier size and $E_{crawl}$ value 
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/size aggregated avg - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.zzzoomed.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_size.\eop}
 
   \caption{Average size of plasmodia for colonies with different energies $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
   \label{figure:am_energy_size}
@@ -111,7 +111,7 @@ Moreover there is a latent relation between frontier size and $E_{crawl}$ value 
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/frontier_best_cost aggregated min - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.zzzoomed.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_cost.\eop}
 
   \caption{Cost of the best detected solution by any plasmodium with different energies $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
   \label{figure:am_energy_cost}
@@ -122,7 +122,7 @@ Another parameter that can be used to tune the algorithm is $E_{initial}$ --- in
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/initial90/frontier aggregated avg - lipa90a $E_{initial}=10.0$.zzzoomed.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_initial.\eop}
 
   \caption{Average frontier size with different initial energy $E_{initial}$ (dataset \texttt{lipa90a} $n=90$, $l=10$, $k=30$)}
   \label{figure:am_energy_initial}
@@ -134,12 +134,12 @@ An unfortunate consequence of the algorithm design is $O(n!)$ space complexity (
   \centering
 
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/memory - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_spacetime_space.\eop}
     \caption{Memory usage}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/energy/time - lipa20a $E_{explore}=0.001$ $E_{crawl}=0.001$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_spacetime_time.\eop}
     \caption{Total time}
   \end{subfigure}
   
@@ -155,7 +155,7 @@ Some combinations of $E_{explore}$ and $E_{crawl}$ can result in meaningless "ra
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/random/frontier_best_cost for each plasmodium - random $E_{crawl}=0.001$ $E_{explore}=0.5$.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_random.\eop}
 
   \caption{Cost of best solution in frontier for every plasmodium with random walk conditions $E_{crawl}=0.3$, $E_{explore}=0.5$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
   \label{figure:am_energy_random}
@@ -170,12 +170,12 @@ Extreme values of $E_{explore}$ combined with large values $E_{crawl}$ results i
   \centering
 
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/death/state of colony - lipa20a $E_{crawl}=0.49$ $E_{explore}=0.5$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_death_5_49.\eop}
     \caption{$E_{explore}=0.5$, $E_{crawl}=0.49$}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}{\textwidth}
-    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/death/state of colony - lipa20a $E_{crawl}=0.45$ $E_{explore}=0.5$.\eop}
+    \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_death_5_45.\eop}
     \caption{$E_{explore}=0.5$, $E_{crawl}=0.45$}
   \end{subfigure}
   
@@ -193,7 +193,7 @@ Using such transformation gives solutions equal to the best sample an unit value
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/ctf/food aggregated sum - lipa20a $a=0.25$ $q=4$.zoomed.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_ctf_food.\eop}
   
   \caption{Plasmodium energy $E_{plasmodium}$ with different base $q$ and scale $a$ (dataset \texttt{lipa20a} $n=20$, $l=1$, $k=10$)}
   \label{figure:am_ctf_food}
@@ -202,7 +202,7 @@ Using such transformation gives solutions equal to the best sample an unit value
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/ctf/frontier aggregated min - lipa20a $a=0.25$ $q=4$.zoomed.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_ctf_frontier.\eop}
   
   \caption{Size of frontier with different base $q$ and scale $a$ (dataset \texttt{lipa20a} $n=20$, $l=1$, $k=10$)}
   \label{figure:am_ctf_frontier}
@@ -319,7 +319,7 @@ As the space search of such problems is huge, used number of samples $k=300$ is 
 \begin{figure}
   \centering
 
-  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/tai/frontier_best_cost aggregated min - tai150b $l=100$ $k=300000$.\eop}
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_tai_frontier.\eop}
   
   \caption{Cost of the best detected solution by any plasmodium with different initial sample size on large nontrivial dataset \texttt{tai150} $n=150$}
   \label{figure:am_tai_frontier}
