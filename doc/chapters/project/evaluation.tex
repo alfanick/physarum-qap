@@ -272,8 +272,7 @@ As predicted this change made a positive influence on the results (figure \ref{f
 
 \subsubsection{QAPLIB results}
 
-Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.001$, $E_{crawl}=0.01$, exponential base $q=10$ scale $a=0.1$), tests for every case in \texttt{QAPLIB} have been done. Every test has been repeated ten times, no random seed has been preset as in practical usage. Results are aggregated in different ways --- by minimum cost (showing the best case) and by average cost presenting an usual result for given dataset. Every instance has been allowed to run for time $t=10n$, but no longer than 900~s.
-
+Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.001$, $E_{crawl}=0.01$, exponential base $q=10$ scale $a=0.1$), tests for every case in \texttt{QAPLIB} have been done. Every test has been repeated ten times, no random seed has been preset as in practical usage. Results are aggregated in different ways --- by minimum cost (showing the best case) and by average cost presenting an usual result for given dataset. Every instance has been allowed to run for time $t=10n$, but no longer than 900~s. Results from these tests are aggregated in \Crefrange{figure:am_qaplib_result:bur}{figure:am_qaplib_result:tai}, detailed data in tabular form are available in Appendix \ref{chapter:results}.
 
 \newcommand{\qaplibresultchart}[1]{
   \begin{figure}
@@ -304,14 +303,31 @@ Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.00
 \qaplibresultchart{sko}
 \qaplibresultchart{tai}
 
-% TODO complete run for qaplib
-% TODO some charts grouped by dataset
+From the obtained results we can conclude that our algorithm, with proposed settings, works satisfactory well for most of the problem, especially when instance size is relatively small $n<40$. In such cases the cost is usally less than $1\%$ worse than the optimal solution, multiple times find the optimal assignment (datasets \texttt{bur}, \texttt{had}, \texttt{lipa}, \texttt{nug}, \texttt{rou} and \texttt{scr}). Furthermore in some cases, the optimal assignment has been found, though it is a different one than the one proposed by the authors of \texttt{QAPLIB} --- such behaviour can be observed in \texttt{had14}, \texttt{had16} (figure \ref{figure:am_qaplib_result:had}), \texttt{nug15} (figure \ref{figure:am_qaplib_result:nug}) and others.
 
-% TODO table in appendix b (optimal solution, each case, avg, stderr, similarity and cost for best)
+Two datasets \texttt{chr} and \texttt{lipab} can be considered unusually difficult for the algorithm, yielding rather poor results. An explenation for \texttt{lipab} is usage of very large numbers in weight matrix, unfortunately the default cost to food transform cannot represent these values effectively, some further research on selecting $a$ and $q$ might be needed to solve this case efficiently. As for \texttt{chr} the distance matrix is very sparse and the algorithm struggles with finding useful random neighbours.
+
 
 \subsubsection{Optimising large instances}
 
-% TODO some parameters
+Solving large QAP is especially practical and indeed requires usage of heuristic methods. For such large instances of $n>50$, number of possible arrangements is unimaginable. Our algorithm gives acceptable results for many large inputs like \texttt{lipa80a}, \texttt{lipa90a} (figure \ref{figure:am_qaplib_result:lipaa}) with distance of less than $1\%$ or whole \texttt{sko} dataset where average distance is less than $2.5\%$ (figure \ref{figure:am_qaplib_result:sko}). 
+
+However there are some testcases where the approximated assignment is far from being optimal: \texttt{tai100b} ($dist>7\%$), \texttt{tai150b} ($dist>15\%$) or \texttt{tai256c} ($dist>6\%$). For such cases, generic parameters of the algorithm are not suitable and some more work on their selection muse be done.
+
+As the space search of such problems is huge, used number of samples $k=300$ is too small to be practical, causing the population to be initialized on very unefficient solutions. We can confirm this, as no merges occur during run of the algorithm, thus each plasmodium must occupy far solutions from each other. Some experiments with different number of samples $k$ and population size $l$ have been done (figure \ref{figure:am_tai_frontier}).
+
+\begin{figure}
+  \centering
+
+  \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/tai/frontier_best_cost aggregated min - tai150b $l=100$ $k=300000$.\eop}
+  
+  \caption{Cost of the best detected solution by any plasmodium with different initial sample size on large nontrivial dataset \texttt{tai150} $n=150$}
+  \label{figure:am_tai_frontier}
+\end{figure}
+
+Selecting a larger number of samples $k=3000000$ improves results dramatically --- from initial $dist>15\%$ to much better $dist{\approx}2\%$. It should be noticed that even this number of samples is relatively small compared to size of search spaces, when $n=150$ (in case of \texttt{tai150}) only about $\frac{1}{10^{250}}$ space search is sampled.
+
+Some more research should be done before using the Physarum-based Metaheuristic for optimizing real world large instances of QAP, especially when the optimum is not known beforehand. It is recommended to use a large number of samples $k$ and give the algorithm long time limit $t$. For such big instances, obtaining result even after whole day of computations is usually worth the effort.
 
 \subsection{Final results}
 % TODO comparison with other - wiola, juskowiak&pewinski
