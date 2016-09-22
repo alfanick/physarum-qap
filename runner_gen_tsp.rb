@@ -12,7 +12,7 @@ Dir['data/tsplib/{bays29,berlin52,bier127,pr152,pr226,st70,swiss42,eil101,d198,c
 
   n = name.delete('^0-9').to_i
 
-  time = [n * 12, 900].min
+  time = [n * 12, 3600].min
 
   cmds << "sleep I; ./bin/physarum-tsp --data data/tsplib/#{name}.in --time=#{time} --population=10 --sample=1000000 --e_explore=0.01 --e_initial=100.0 -x -q 1.25 -a 0.8 > results/tsp/multiple/#{group}/#{name}.I.sln"
 end
