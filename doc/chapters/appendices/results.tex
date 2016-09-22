@@ -5,82 +5,121 @@
 
 Presented here are results of experiments using improved Physarum-based Metaheuristic algorithm for QAP using generic parameters of population $l=100$, samples $k=300$, $E_{explore}=0.001$, $E_{crawl}=0.01$, exponential base $q=10$, scale $a=0.1$, $t=min(900, 10n)$.
 
-\textbf{TODO FORMATTING!}
-
 \newcommand{\qaplibresulttable}[1]{
-  \begin{sidewaystable}[h!]
     \centering
     \caption{Experiment results for dataset \texttt{#1}}
     \label{table:result_qaplib:#1}
 
+    \resizebox{\columnwidth}{!}{
     \pgfplotstabletypeset[
       multicolumn names,
       col sep=comma,
       header=false,
+      fixed,
+      precision=3,
+      every head row/.style={before row=\toprule,after row=\midrule},
+      every last row/.style={after row=\bottomrule},
       every col no 0/.style={
         string type,
-        column name={Name}
+        column name={Name},
+        column type=r
       },
       every col no 1/.style={
         column name={$cost_{optimal}$},
+        column type=r
       },
       every col no 2/.style={
-        column name={Size}
+        column name={Size},
+        column type=c|
       },
       every col no 3/.style={
         column name={$cost_{min}$}
       },
       every col no 4/.style={
-        column name={$dist_{min}$}
+        column name={$dist_{min}$},
+        fixed zerofill
       },
       every col no 5/.style={
-        column name={$sim_{min}$}
+        column name={$sim_{min}$},
+        fixed zerofill,
+        column type=c|
       },
       every col no 6/.style={
-        column name={1}
+        column name={1},
+        dec sep align
       },
       every col no 7/.style={
-        column name={2}
+        column name={2},
+        dec sep align
       },
       every col no 8/.style={
-        column name={3}
+        column name={3},
+        dec sep align
       },
       every col no 9/.style={
-        column name={4}
+        column name={4},
+        dec sep align
       },
       every col no 10/.style={
-        column name={5}
+        column name={5},
+        dec sep align
       },
       every col no 11/.style={
-        column name={6}
+        column name={6},
+        dec sep align
       },
       every col no 12/.style={
-        column name={7}
+        column name={7},
+        dec sep align
       },
       every col no 13/.style={
-        column name={8}
+        column name={8},
+        dec sep align
       },
       every col no 14/.style={
-        column name={9}
+        column name={9},
+        dec sep align
       },
       every col no 15/.style={
-        column name={10}
+        column name={10},
+        dec sep align,
+        column type/.add={}{|}
       },
       every col no 16/.style={
-        column name={$cost_{avg}$}
+        column name={$cost_{avg}$},
+        dec sep align
       }
     ]{figures/algorithm/metaheuristic/charts/multiple/#1/data.csv}
-  \end{sidewaystable}
+  }
 }
 
 
-\qaplibresulttable{bur}
-\qaplibresulttable{chr}
-\qaplibresulttable{had}
-\qaplibresulttable{lipaa}
-\qaplibresulttable{lipab}
+\begin{sidewaystable}
+  \qaplibresulttable{bur}
+  \bigskip\bigskip
+  \qaplibresulttable{chr}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+  \qaplibresulttable{had}
+  \bigskip\bigskip
+  \qaplibresulttable{lipaa}
+  \bigskip\bigskip
+  \qaplibresulttable{lipab}
+\end{sidewaystable}
+
+\begin{sidewaystable}
 \qaplibresulttable{nug}
-\qaplibresulttable{rou}
-\qaplibresulttable{scr}
-\qaplibresulttable{sko}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+  \qaplibresulttable{rou}
+  \bigskip\bigskip
+  \qaplibresulttable{scr}
+  \bigskip\bigskip
+  \qaplibresulttable{sko}
+\end{sidewaystable}
+
+\begin{sidewaystable}
 \qaplibresulttable{tai}
+\end{sidewaystable}
