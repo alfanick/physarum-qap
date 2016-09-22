@@ -331,12 +331,12 @@ Some more research should be done before using the Physarum-based Metaheuristic 
 
 \subsection{Final results}
 
+% TODO cite
 We have compared our algorithm to some industry leading solutions such as \textit{ANGEL}, ant colony, simulated annealing, \textit{GRASP} and MILP \cite{TODO}. While some works are lacking of results for some datasets, a comparison of distance to optimal solution can be seen in table \ref{table:result_comparison_distance}, while exact costs of the resulting assignment are visible in table \ref{table:result_comparison_cost}. 
 
-% TODO formatting
 \begin{table}
   \centering
-  \caption{Comparison of distance to optimal solution using different methods \textbf{formatting!}}
+  \caption{Comparison of distance to optimal solution using different methods}
   \label{table:result_comparison_distance}
 
   \pgfplotstabletypeset[
@@ -346,6 +346,24 @@ We have compared our algorithm to some industry leading solutions such as \texti
     every col no 0/.style={
       string type,
       column type=r|
+    },
+    every col no 1/.style={
+      dec sep align
+    },
+    every col no 2/.style={
+      dec sep align
+    },
+    every col no 3/.style={
+      dec sep align
+    },
+    every col no 4/.style={
+      dec sep align
+    },
+    every col no 5/.style={
+      dec sep align
+    },
+    every col no 6/.style={
+      dec sep align
     },
     every col no 7/.style={
       column type=|c
@@ -371,8 +389,28 @@ We have compared our algorithm to some industry leading solutions such as \texti
     every col no 1/.style={
       column type=c|
     },
+    every col no 2/.style={
+      dec sep align
+    },
+    every col no 3/.style={
+      dec sep align
+    },
+    every col no 4/.style={
+      dec sep align
+    },
+    every col no 5/.style={
+      dec sep align
+    },
+    every col no 6/.style={
+      dec sep align
+    },
+    every col no 7/.style={
+      dec sep align,
+      column type/.add={}{|}
+    },
     every col no 8/.style={
-      column type=|c
+      column type={c},
+      dec sep align
     },
     every head row/.style={before row=\toprule,after row=\midrule},
     every last row/.style={after row=\bottomrule}
