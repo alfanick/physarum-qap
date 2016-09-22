@@ -5,7 +5,7 @@
 namespace PUT {
 namespace Physarum {
 
-Environment::Environment(const Problem &p, float ifd, float ec, float cc, float _a, float _q) : problem(p), initial_food(ifd), explore_cost(ec), crawl_cost(cc), a(_a), q(_q) {
+Environment::Environment(Problem* p, float ifd, float ec, float cc, float _a, float _q) : problem(p), initial_food(ifd), explore_cost(ec), crawl_cost(cc), a(_a), q(_q) {
   food_eaten_count = 0;
 }
 

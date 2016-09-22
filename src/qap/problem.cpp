@@ -51,9 +51,5 @@ unsigned long long Problem::cost(Solution solution) {
   return total;
 }
 
-unsigned long long Problem::cost(Solution solution, unsigned long long previous_cost, size_t a, size_t b) {
-  return 0;
-}
-
 }
 }

@@ -25,7 +25,7 @@ Experiment::Experiment(const Environment &e, size_t ss, size_t ips, bool sm) : e
 
   // create samples
   for (size_t i = 0; i < ss; i++) {
-    samples.emplace(&environment.getProblem());
+    samples.emplace(environment.getProblem());
   }
 
   // best cost
@@ -41,10 +41,10 @@ Experiment::Experiment(const Environment &e, size_t ss, size_t ips, bool sm) : e
 }
 
 Solution Experiment::getSolution() {
-  Solution best_solution(&environment.getProblem());
+  Solution best_solution(environment.getProblem());
 
   for (auto& plasmodium : population) {
-    Solution best_local(&environment.getProblem());
+    Solution best_local(environment.getProblem());
 
     for (auto& solution : plasmodium.getPositions()) {
       if (solution.cost() < best_local.cost()) {
@@ -62,7 +62,7 @@ Solution Experiment::getSolution() {
 }
 
 Solution Experiment::getHistoricalSolution() {
-  Solution best_solution(&environment.getProblem());
+  Solution best_solution(environment.getProblem());
   float bhc = best_solution.cost();
 
   for (auto& plasmodium : population) {

@@ -16,13 +16,12 @@ class Problem {
     Problem();
     Problem(std::string path);
 
-    unsigned long long cost(Solution solution);
-    unsigned long long cost(Solution solution, unsigned long long previous_cost, size_t a, size_t b);
+    virtual unsigned long long cost(Solution solution);
 
     size_t getSize() { return size; }
 
     std::mt19937 generator{std::random_device{}()};
-  private:
+  protected:
     size_t size;
 
     std::vector<std::vector<unsigned int>> flow;

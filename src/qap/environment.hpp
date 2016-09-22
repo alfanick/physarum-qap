@@ -9,7 +9,7 @@ namespace Physarum {
 
 class Environment {
   public:
-    Environment(const Problem &p, float initial_food, float explore_cost, float crawl_cost, float a, float q);
+    Environment(Problem* p, float initial_food, float explore_cost, float crawl_cost, float a, float q);
 
     void calibrate(unsigned long long c);
     float getInitialFood() { return initial_food; }
@@ -18,11 +18,11 @@ class Environment {
     float getFoodNotEaten(const Solution& solution);
     float getExploreCost() { return explore_cost; }
     float getCrawlCost() { return crawl_cost; }
-    Problem& getProblem() { return problem; }
+    Problem* getProblem() { return problem; }
     size_t getFoodEatenCount() { return food_eaten_count; }
 
   private:
-    Problem problem;
+    Problem* problem;
     float initial_food;
     float explore_cost;
     float crawl_cost;

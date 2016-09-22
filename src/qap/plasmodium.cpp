@@ -4,7 +4,7 @@
 namespace PUT {
 namespace Physarum {
 
-Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_food(i), environment(e), best_historical_solution(Solution(&(e->getProblem()))) {
+Plasmodium::Plasmodium(Environment* e, Solution position, float i) : initial_food(i), environment(e), best_historical_solution(Solution(e->getProblem())) {
   id = next_id();
   size = position.assignment.size();
   explored_count = 0;

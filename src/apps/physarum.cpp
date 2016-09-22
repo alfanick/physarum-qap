@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
     std::srand(seed);
   }
 
-  PUT::Physarum::Problem problem(problem_name);
+  PUT::Physarum::Problem* problem = new PUT::Physarum::Problem(problem_name);
   PUT::Physarum::Environment environment(problem, e_initial, e_explore, e_crawl, a, q);
   PUT::Physarum::Experiment experiment(environment, samples, population_size, !should_not_merge);
 
