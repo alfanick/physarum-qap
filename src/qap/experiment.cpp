@@ -9,6 +9,8 @@
 #include <set>
 #include <algorithm>
 
+#define BATCH_SIZE 10000
+
 namespace PUT {
 namespace Physarum {
 
@@ -23,9 +25,26 @@ Experiment::Experiment(const Environment &e, size_t ss, size_t ips, bool sm) : e
     std::cerr << "plasmodium=* epoch=0" << std::endl;
 #endif
 
+  std::vector<Solution> subsamples;
+  size_t number_of_samples = 0;
+  subsamples.reserve(BATCH_SIZE);
+
   // create samples
-  for (size_t i = 0; i < ss; i++) {
-    samples.emplace(environment.getProblem());
+  for (size_t batch = 0; batch <= ss / BATCH_SIZE; batch++) {
+    subsamples.clear();
+
+    for (size_t i = 0; i < BATCH_SIZE; i++) {
+      subsamples.emplace_back(environment.getProblem());
+
+      number_of_samples++;
+      if (number_of_samples > ss)
+        break;
+    }
+
+    std::sort(subsamples.rbegin(), subsamples.rend());
+    for (size_t i = 0; i < ips && i < subsamples.size(); i++) {
+      samples.push(subsamples[i]);
+    }
   }
 
   // best cost
