@@ -38,6 +38,8 @@ unsigned long long TspProblem::cost(Solution solution) {
     total += distance[solution.assignment[i]][solution.assignment[i+1]];
   }
 
+  total += distance[solution.assignment[size-1]][solution.assignment[0]];
+
   return total;
 }
 

@@ -67,7 +67,22 @@ int main(int argc, char** argv) {
 
   experiment.run(time_limit);
 
-  std::cout << (historical_min ? experiment.getHistoricalSolution() : experiment.getSolution()) << std::endl;
+  PUT::Physarum::Solution s = (historical_min ? experiment.getHistoricalSolution() : experiment.getSolution());
+  PUT::Physarum::Solution c = s;
+
+  size_t position_of_first = 0;
+
+  for (size_t i = 0; i < s.assignment.size(); i++) {
+    if (s.assignment[i] == 0) {
+      position_of_first = i;
+      break;
+    }
+  }
+
+  std::copy(s.assignment.begin() + position_of_first, s.assignment.end(), c.assignment.begin());
+  std::copy(s.assignment.begin(), s.assignment.begin() + position_of_first, c.assignment.end() - position_of_first);
+
+  std::cout << c << std::endl;
 
   return 0;
 }
