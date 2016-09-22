@@ -1,2 +1,22 @@
-\chapter{TSP Results}
+\chapter{TSP Approximation}
 \label{chapter:tsp}
+
+A well recognized problem in combinatoral optimisation is the Travelling Salesman Problem (TSP). It is usually presented in a practical form: given a list of $n$ cities and distances between them, find the shortest route that visits each city exactly one time and returns to the origin city \cite{kruskal1956shortest}. Such problem is NP-hard, although very useful in many practical cases.
+
+Any TSP problem can be converted into QAP, thus TSP can be though as speciaisation of Quadratic Assignment Problem. To do such conversion TSP distance matrix can be used without any changes as QAP distance matrix, while QAP flow matrix is filled with same constant values.
+
+Introduced in this thesis Physarum-based Metaheuristic is a method of looking through the space search and it is not dependant on any specific problem. As such it can be used with ease for other problems than QAP --- a definition of neighbourhood and cost function is required. As a example, we made simplified tests of the algorithm, approximating TSP tour.
+
+\section*{Implementation}
+
+While any instance of TSP could be tread as an instance of QAP, we preffered to create a speciaised implementation of \texttt{Problem} class, as it need not to store any flow values. A \texttt{TspProblem} has been created, which defines $cost$ as sum of distances between each of cities in the tour. The same neighbourhood as in QAP is used: a single pair swap in a tour, creating neighbourhood of size $\frac{n\cdot(n-1)}{2}$ for every possible tour.
+
+An input format is simplier than with QAP, as only single matrix needs to be provided --- first line of input contains size of the problem $n$, followed by $n{\times}n$ numbers representing the distance matrix. Output is defined as in QAP --- the problem size $n$, followed by total distances $f$, followed by $n$ numbers representing the tour (rearranged so it starts with city numbered one).
+
+Using \texttt{build.sh} script, executable files \texttt{bin/physarum-tsp} and \texttt{bin/physarum-tsp-debug} can be created. Configuration options are the same as with QAP version (table \ref{table:pi_options}).
+
+\section*{Parameters}
+% TODO parameters (E_crawl), time
+
+\section*{Results}
+% TODO comparison with others
