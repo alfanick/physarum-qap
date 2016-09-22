@@ -7,6 +7,7 @@ Any TSP problem can be converted into QAP, thus TSP can be though as speciaisati
 
 Introduced in this thesis Physarum-based Metaheuristic is a method of looking through the space search and it is not dependant on any specific problem. As such it can be used with ease for other problems than QAP --- a definition of neighbourhood and cost function is required. As a example, we made simplified tests of the algorithm, approximating TSP tour.
 
+
 \section*{Implementation}
 
 While any instance of TSP could be tread as an instance of QAP, we preffered to create a speciaised implementation of \texttt{Problem} class, as it need not to store any flow values. A \texttt{TspProblem} has been created, which defines $cost$ as sum of distances between each of cities in the tour. The same neighbourhood as in QAP is used: a single pair swap in a tour, creating neighbourhood of size $\frac{n\cdot(n-1)}{2}$ for every possible tour.
@@ -15,8 +16,13 @@ An input format is simplier than with QAP, as only single matrix needs to be pro
 
 Using \texttt{build.sh} script, executable files \texttt{bin/physarum-tsp} and \texttt{bin/physarum-tsp-debug} can be created. Configuration options are the same as with QAP version (table \ref{table:pi_options}).
 
-\section*{Parameters}
-% TODO parameters (E_crawl), time
 
 \section*{Results}
+
+Test dataset is a subset of TSPLIB, which is library containing multiple instances of synthetic and practical problem definitions with optimal tours \cite{reinhel2014tsplib}. Data from the TSPLIB have been preprocessed to be compliant with the input format.
+
+% TODO parameters (E_crawl), time
+
+
+\section*{Conclusion}
 % TODO comparison with others
