@@ -63,7 +63,10 @@ class PlotGenerator:
         width = 1.0/(len(self.groups) + 2)
         i = 0
 
-        for group_name, solutions in self.groups.iteritems():
+        gnames = sorted(self.groups.keys(), reverse=True)
+
+        for group_name in gnames:
+            solutions = self.groups[group_name]
             if exclude_avg and group_name.endswith('_avg'):
                 continue
 
@@ -73,8 +76,18 @@ class PlotGenerator:
                 data[group_name][baseline_solution.name] = comparator(solutions[idx], baseline_solution)
 
             values = [data[group_name][k] for k in sorted(data[group_name])]
+            c = self.COLORS[i%len(self.COLORS)]
+
+            if group_name.endswith('avg'):
+                c = 'b'
+            elif group_name.endswith('min'):
+                c = 'g'
+            elif group_name.endswith('max'):
+                c = 'r'
+
+
             b = plt.bar(np.arange(len(solutions)) + i * width, values, width,
-                        color = self.COLORS[i%len(self.COLORS)])
+                        color = c)
             i += 1
             lgnd[b[0]] = group_name
 
@@ -84,7 +97,8 @@ class PlotGenerator:
         plt.set_xticklabels([v.name for v in self.baseline], rotation=45)
         plt.set_xticks(np.arange(len(self.baseline)) + width)
 
-        plt.legend(lgnd.keys(), lgnd.values(), loc='best')
+        plt.legend(sorted(lgnd.keys(), key=lambda x: lgnd[x], reverse=True),
+                sorted(lgnd.values(), reverse=True), loc='best')
 
         return [figure]
 

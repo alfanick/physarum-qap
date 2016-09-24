@@ -20,3 +20,7 @@
 ./generate_comparison.py -s data/qapdatsol/tai{12a,12b,15a,15b,20a,20b,25b,30b,35b,40b,50b,60a,60b,64c,80a,80b,100b,150b,256c}*.sln results/multiple/tai/tai{12a,12b,15a,15b,20a,20b,25b,30b,35b,40b,50b,60a,60b,64c,80a,80b,100b,150b,256c}*.sln -o doc/figures/algorithm/metaheuristic/charts/multiple/tai -f png -a
 ./generate_comparison.py -s data/qapdatsol/sko*.sln results/multiple/sko/sko{81,90,100}*.sln -o doc/figures/algorithm/metaheuristic/charts/multiple/sko -f png -a
 ./generate_comparison.py -s data/qapdatsol/sko*.sln results/multiple/sko/sko{81,90,100}*.sln -o doc/figures/algorithm/metaheuristic/charts/multiple/sko -f eps -a
+./generate_comparison.py -s data/tsplib/{bays29,berlin52,bier127,ch130,ch150,d198,eil101,st70,swiss42}.sln results/tsp/multiple/tsp/*.sln -o doc/figures/algorithm/metaheuristic/charts/tsp/final/ -b tsplib -f eps -a
+./generate_comparison.py -s data/tsplib/{bays29,berlin52,bier127,ch130,ch150,d198,eil101,st70,swiss42}.sln results/tsp/multiple/tsp/*.sln -o doc/figures/algorithm/metaheuristic/charts/tsp/final/ -b tsplib -f png -a
+./generate_comparison.py -s data/qapdatsol/lipa*a.sln results/comparison/lipa/**.sln -o doc/figures/algorithm/metaheuristic/charts/complipaimproved -f png
+./generate_comparison.py -s data/qapdatsol/lipa*a.sln results/comparison/lipa/**.sln -o doc/figures/algorithm/metaheuristic/charts/complipaimproved -f eps
