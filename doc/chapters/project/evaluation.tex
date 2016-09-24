@@ -34,7 +34,7 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
     \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_visited_solutions_lipa90a.\eop}
     \caption{instance \texttt{lipa90a} $n=90$}
   \end{subfigure}
-  
+
   \caption{Number of visited solutions with different colony size $l$ and samples $k$}
   \label{figure:am_visited_solutions}
 \end{figure}
@@ -74,19 +74,19 @@ Larger colonies are merging earlier than smaller colonies (figure \ref{figure:am
     \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_best_cost_nug20.\eop}
     \caption{instance \texttt{nug20} $n=20$}
   \end{subfigure}
-  
+
   \caption{Cost of the best detected solution by any plasmodium with a different colony size $l$ and samples $k$}
   \label{figure:am_best_cost}
 \end{figure}
 
-For small test cases a regularity has been observed --- larger populations tend to find better results in earlier epochs (figure \ref{figure:am_best_cost}). Furthermore, larger $\frac{l}{k}$ proportions (number of plasmodia vs number of samples) are preferred as they exhibit the same characteristic --- when the same number of samples is used, more plasmodia started on these samples yield better results earlier. Plasmodium initialised on a bad solution can crawl towards better one, where a plasmodium initialised on a relatively good solution may not find any better in its local neighbourhood. Thus one should use $l$ close to $k$ to fully use the algorithm potential. 
+For small test cases a regularity has been observed --- larger populations tend to find better results in earlier epochs (figure \ref{figure:am_best_cost}). Furthermore, larger $\frac{l}{k}$ proportions (number of plasmodia vs number of samples) are preferred as they exhibit the same characteristic --- when the same number of samples is used, more plasmodia started on these samples yield better results earlier. Plasmodium initialised on a bad solution can crawl towards better one, where a plasmodium initialised on a relatively good solution may not find any better in its local neighbourhood. Thus one should use $l$ close to $k$ to fully use the algorithm potential.
 
 
 \subsection{Energy values}
 
 Essential parts of the algorithm are $E_{explore}$ and $E_{crawl}$ energy values. The first one has a direct effect on the size of a frontier and number of explored solutions, while the second one has an effect on the size of the plasmodium. Indeed, large values of $E_{explore}$ cause the frontier to be rather small, as few solutions can be explored and added as interesting to the frontier (figure \ref{figure:am_energy_frontier}). On the other hand, larger values of $E_{crawl}$ make plasmodium to occupy less food sources (figure \ref{figure:am_energy_size}).
 
-Moreover there is a latent relation between frontier size and $E_{crawl}$ value --- the frontier size tend to oscillate when $E_{crawl}$ is rather large (figure \ref{figure:am_energy_frontier}), it is so because a plasmodium must conserve the energy for a crawl phase instead of an exploration phase. We also can notice a strong relationship between $E_{explore}$ and cost of the explored best solution (figure \ref{figure:am_energy_cost}) --- small values of $E_{explore}$ tend to visit minimal solutions in earlier epochs. 
+Moreover there is a latent relation between frontier size and $E_{crawl}$ value --- the frontier size tend to oscillate when $E_{crawl}$ is rather large (figure \ref{figure:am_energy_frontier}), it is so because a plasmodium must conserve the energy for a crawl phase instead of an exploration phase. We also can notice a strong relationship between $E_{explore}$ and cost of the explored best solution (figure \ref{figure:am_energy_cost}) --- small values of $E_{explore}$ tend to visit minimal solutions in earlier epochs.
 
 \begin{figure}
   \centering
@@ -126,7 +126,7 @@ Another parameter that can be used to tune the algorithm is $E_{initial}$ --- in
   \label{figure:am_energy_initial}
 \end{figure}
 
-An unfortunate consequence of the algorithm design is $O(n!)$ space complexity, on a par with $O(n!)$ computation complexity in the worst case (figure \ref{figure:am_energy_spacetime}), however a wise selection of $E_{explore}$ and $E_{crawl}$ energies results in a stricter bounded computations. If every solution is visited, ${\Delta}E_{solution}$ values must be stored $n!$ times, however this is the worst case scenario, rather not likely to happen in practice. Rather small number of solutions are crawled and occupied during work of the program, it would require extremely small $E_{explore}$ values to force the algorithm to occupy every solution, therefore using $O(n!)$ memory and $O(n!)$ computation steps - using sane values of energy averts these adverse effects. As the tests are time-bounded instead of epoch-bounded, a more complex exploration phase results in a lower count of epochs. 
+An unfortunate consequence of the algorithm design is $O(n!)$ space complexity, on a par with $O(n!)$ computation complexity in the worst case (figure \ref{figure:am_energy_spacetime}), however a wise selection of $E_{explore}$ and $E_{crawl}$ energies results in a stricter bounded computations. If every solution is visited, ${\Delta}E_{solution}$ values must be stored $n!$ times, however this is the worst case scenario, rather not likely to happen in practice. Rather small number of solutions are crawled and occupied during work of the program, it would require extremely small $E_{explore}$ values to force the algorithm to occupy every solution, therefore using $O(n!)$ memory and $O(n!)$ computation steps - using sane values of energy averts these adverse effects. As the tests are time-bounded instead of epoch-bounded, a more complex exploration phase results in a lower count of epochs.
 
 \begin{figure}
   \centering
@@ -140,7 +140,7 @@ An unfortunate consequence of the algorithm design is $O(n!)$ space complexity, 
     \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_spacetime_time.\eop}
     \caption{Total time}
   \end{subfigure}
-  
+
   \caption{Resources usage with different $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20})}
   \label{figure:am_energy_spacetime}
 \end{figure}
@@ -176,7 +176,7 @@ Extreme values of $E_{explore}$ combined with large values $E_{crawl}$ results i
     \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_energy_death_5_45.\eop}
     \caption{$E_{explore}=0.5$, $E_{crawl}=0.45$}
   \end{subfigure}
-  
+
   \caption{State of colony with different extreme $E_{explore}$ and $E_{crawl}$ (dataset \texttt{lipa20a} $n=20$, $l=10$, $k=30$)}
   \label{figure:am_energy_death}
 \end{figure}
@@ -184,7 +184,7 @@ Extreme values of $E_{explore}$ combined with large values $E_{crawl}$ results i
 
 \subsection{Cost to food transformation}
 
-An important step is the cost to food transformation --- each solution's cost is transformed into nutritional energy using equation \ref{equation:m_e_solution}. Every solution is compared to the best solution from the sampling phase, every quotient $\frac{calibrated\_cost}{cost(solution)}$ is amplified using the exponential function with the base $q$, linearly scaled using a coefficient $a$ (usually $a=q^{-1}$). 
+An important step is the cost to food transformation --- each solution's cost is transformed into nutritional energy using equation \ref{equation:m_e_solution}. Every solution is compared to the best solution from the sampling phase, every quotient $\frac{calibrated\_cost}{cost(solution)}$ is amplified using the exponential function with the base $q$, linearly scaled using a coefficient $a$ (usually $a=q^{-1}$).
 
 Using such transformation gives solutions equal to the best sample an unit value of $E_{solution}=1$, worse solutions carry lower energy, while better solutions carry bigger energy. Modifying the base $q$ (and a corresponding scale $a$) can be used to intensify this difference.
 
@@ -192,7 +192,7 @@ Using such transformation gives solutions equal to the best sample an unit value
   \centering
 
   \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_ctf_food.\eop}
-  
+
   \caption{Plasmodium energy $E_{plasmodium}$ with different base $q$ and scale $a$ (dataset \texttt{lipa20a} $n=20$, $l=1$, $k=10$)}
   \label{figure:am_ctf_food}
 \end{figure}
@@ -201,7 +201,7 @@ Using such transformation gives solutions equal to the best sample an unit value
   \centering
 
   \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_ctf_frontier.\eop}
-  
+
   \caption{Size of frontier with different base $q$ and scale $a$ (dataset \texttt{lipa20a} $n=20$, $l=1$, $k=10$)}
   \label{figure:am_ctf_frontier}
 \end{figure}
@@ -236,16 +236,16 @@ The first experiments have been done on \texttt{lipa} dataset, which is made of 
     \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/complipaoriginal/similarity.eps}
     \caption{Similarity with optimal assignment}
   \end{subfigure}
-  
+
   \caption{Results for \texttt{lipa} dataset}
   \label{figure:am_lipa_results}
 \end{figure}
 
-Obtained results (figure \ref{figure:am_lipa_results}) look promising, but are not truly satisfactory. For small instances a relative error is quite large, even though most of the assignment is the same as the optimal assignment. A conclusion can be made, that plasmodium is close to the solution, however it might have missed it or crawled out of it. Furthermore, for larger instances there is almost no similarity between computed and the optimal assignment, even though a relative distance is acceptable ($dist < 1\%$) --- the plasmodia have crawled into a local minima far from optimal neighbourhood. 
+Obtained results (figure \ref{figure:am_lipa_results}) look promising, but are not truly satisfactory. For small instances a relative error is quite large, even though most of the assignment is the same as the optimal assignment. A conclusion can be made, that plasmodium is close to the solution, however it might have missed it or crawled out of it. Furthermore, for larger instances there is almost no similarity between computed and the optimal assignment, even though a relative distance is acceptable ($dist < 1\%$) --- the plasmodia have crawled into a local minima far from optimal neighbourhood.
 
 \subsubsection{Improved algorithm}
 
-A solution for this sub-efficient behaviour has been quickly found. In earlier evaluations of the algorithm (figure \ref{figure:am_best_cost}), we observed that plasmodia can crawl out of optimal solutions. This behaviour is a result of plasmodia avoiding being stuck in a local optimum, however it has no knowledge if the optimum is local or a global minimum. 
+A solution for this sub-efficient behaviour has been quickly found. In earlier evaluations of the algorithm (figure \ref{figure:am_best_cost}), we observed that plasmodia can crawl out of optimal solutions. This behaviour is a result of plasmodia avoiding being stuck in a local optimum, however it has no knowledge if the optimum is local or a global minimum.
 
 At this point a minor improvement to the algorithm has been added --- each plasmodium stores the best solution it explored during its lifetime. This does not change a behaviour of the plasmodium, it just adds another observation of the plasmodial behaviour. While original algorithm returned the best occupied solution by any plasmodium, the improved algorithm returns the best solution ever found by any plasmodium.
 
@@ -260,7 +260,7 @@ At this point a minor improvement to the algorithm has been added --- each plasm
     \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/complipaimproved/similarity.eps}
     \caption{Similarity with optimal assignment}
   \end{subfigure}
-  
+
   \caption{Results for \texttt{lipa} dataset for original and improved algorithm}
   \label{figure:am_lipa_results_improved}
 \end{figure}
@@ -284,7 +284,7 @@ Using generic parameters (population $l=100$, samples $k=300$, $E_{explore}=0.00
       \includegraphics[width=1.0\textwidth]{algorithm/metaheuristic/charts/multiple/#1/similarity.eps}
       \caption{Similarity with optimal assignment}
     \end{subfigure}
-    
+
     \caption{Aggregated results for \texttt{#1} dataset}
     \label{figure:am_qaplib_result:#1}
   \end{figure}
@@ -308,7 +308,7 @@ Two datasets \texttt{chr} and \texttt{lipab} can be considered unusually difficu
 
 \subsubsection{Optimising large instances}
 
-Solving large QAP is especially practical and indeed requires usage of heuristic methods. For such large instances of $n>50$, the number of possible arrangements is unimaginable. Our algorithm gives acceptable results for many large inputs like \texttt{lipa80a}, \texttt{lipa90a} (figure \ref{figure:am_qaplib_result:lipaa}) with distance of less than $1\%$, or whole \texttt{sko} dataset where average distance is less than $2.5\%$ (figure \ref{figure:am_qaplib_result:sko}). 
+Solving large QAP is especially practical and indeed requires usage of heuristic methods. For such large instances of $n>50$, the number of possible arrangements is unimaginable. Our algorithm gives acceptable results for many large inputs like \texttt{lipa80a}, \texttt{lipa90a} (figure \ref{figure:am_qaplib_result:lipaa}) with distance of less than $1\%$, or whole \texttt{sko} dataset where average distance is less than $2.5\%$ (figure \ref{figure:am_qaplib_result:sko}).
 
 However there are some testcases where the approximated assignment is far from being optimal: \texttt{tai100b} ($dist>7\%$), \texttt{tai150b} ($dist>15\%$) or \texttt{tai256c} ($dist>6\%$). For such cases, generic parameters of the algorithm are not suitable and some more work on their selection muse be done.
 
@@ -318,7 +318,7 @@ As the space search of such problems is huge, used number of samples $k=300$ is 
   \centering
 
   \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/u/am_tai_frontier.\eop}
-  
+
   \caption{Cost of the best detected solution by any plasmodium with different initial sample size on large nontrivial dataset \texttt{tai150} $n=150$}
   \label{figure:am_tai_frontier}
 \end{figure}
@@ -330,11 +330,11 @@ Some more research should be done before using the Physarum-based Metaheuristic 
 \subsection{Final results}
 
 % TODO cite
-We have compared our algorithm to some industry leading solutions such as \textit{ANGEL}, ant colony, simulated annealing, \textit{GRASP} and MILP \cite{TODO}. While some works are lacking of results for some datasets, a comparison of a distance to the optimal solution can be seen in table \ref{table:result_comparison_distance}, while exact costs of the resulting assignment are visible in table \ref{table:result_comparison_cost}. 
+We have compared our algorithm to some industry leading solutions such as \textit{ANGEL}, ant colony, simulated annealing, \textit{GRASP} and MILP \cite{TODO}. While some works are lacking of results for some datasets, a comparison of a distance to the optimal solution can be seen in table \ref{table:result_comparison_distance}, while exact costs of the resulting assignment are visible in table \ref{table:result_comparison_cost}.
 
 \begin{table}
   \centering
-  \caption{Comparison of distance to optimal solution using different methods \cite{TODO}}
+  \caption{Comparison of distance to optimal solution using different methods \cite{tseng2006hybrid, karami2013analysis, ramakrishnan1998tight, maniezzo1999ant}}
   \label{table:result_comparison_distance}
 
   \pgfplotstabletypeset[
@@ -373,7 +373,7 @@ We have compared our algorithm to some industry leading solutions such as \texti
 
 \begin{table}
   \centering
-  \caption{Cost obtained using various methods \cite{TODO}}
+  \caption{Cost obtained using various methods \cite{tseng2006hybrid, karami2013analysis, ramakrishnan1998tight, maniezzo1999ant}}
   \label{table:result_comparison_cost}
 
   \pgfplotstabletypeset[
