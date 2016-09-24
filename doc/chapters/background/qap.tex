@@ -1,8 +1,8 @@
 \section{Quadratic Assignment Problem}
 \label{section:background_qap}
 
-The Quadratic Assignment Problem is an enormous challenge in combinatorial optimization.
-Its history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957} and since the presentation of the original formulation, there were no dramatic advances in improvement of solving methods.
+The Quadratic Assignment Problem (QAP) is an enormous challenge in the combinatorial optimization.
+Its history starts with Tjalling Koopmans and Martin Beckmann, who presented a book named \textit{Assignment Problems and the Location of Economic Activities} in 1957 \cite{koopmans-beckmann1957} and since the presentation of the original formulation, there were no dramatic advances in the improvement of solving methods.
 They have focused on the allocation of indivisible resources using the assignment of plants to location as an example.
 Two problems were considered, first in which the transportation costs between plants could be ignored and second where the costs are included.
 
@@ -22,13 +22,12 @@ Introducing an assumption that some elements from one set are dependent on other
 In this situation, we have two collections as before and a matrix with weights, where each matrix's element represents one combination of assignment.
 Here, choosing the solution for even a small number of elements could be demanding.
 
-Nonetheless, the problem's importance could be shown by real life patterns existing in many fields of studies.
-
+The problem's importance could be shown by real life patterns existing in many fields of studies.
 In production, assigning different factories to locations is one of them.
 Plenty of companies need to divide responsibilities between each facility, so they could create various parts of a product, which would be later assembled together at the main branch.
 The factories need to communicate constantly and allow movement of items between them.
 Here, the essential factor is the distance.
-The most dependent branches should be closer to each other in order to fasten production.
+The most dependent branches should be closer to each other in order to accelerate production.
 It fits perfectly the presented dilemma because minimising the total cost of transportation could be achieved only by allocating items smartly.
 It also matches the model - there are two sets, locations, and factories, with an equal number of elements and facilities dependent on others.
 
@@ -44,13 +43,13 @@ Similar to factories and location, here, offices and floors or rooms are allocat
 \subsection{Mathematical definition}
 The Quadratic Assignment Problem (QAP) can be generally presented as:
 \begin{equation}
-min \sum_{a, b \in P } w(a, b) * d( f(a), f(b))
+min \sum_{a, b \in F} w(a, b) * d( f(a), f(b))
 \end{equation}
 
 where $w$ is a weight function $w: F \times F \mapsto R$ between $m$ different facilities ($F$) and $d$ is a distance function $d: L \times L \mapsto R$ between $m$ various locations ($L$). $y = f(x)$ means assignment of the facility $x$ to location $y$.
 
 This could be extended to a quadratic integer problem formulation:
-Let m be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment Problem (QAP) can be formulated as
+Let $m$ be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment Problem (QAP) can be formulated as
 \begin{align}
   \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}x_{ij}x_{pq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
@@ -60,28 +59,27 @@ Let m be positive integer and $M = { 1, 2, ..., m }$. The Quadratic Assignment P
 
 where $a_{ijpq}$ indicates the ratio of flow between factories $i$ and $p$ and distance between their assigned locations $j = f(i)$ and $q = f(p)$.
 The assignment of factory $i$ to location $j$ is symbolised by $x_{ij} = 1$.
-Additionally the $b_{ij}$ is the cost of such assignment, which may or may not be taken into consideration depending of the instance of the problem.
+Additionally the $b_{ij}$ is the cost of such assignment, which may or may not be taken into consideration depending on the instance of the problem.
 
 This formulation is the most generalised model of quadratic assignment problem.
 It could have been defined differently, however, this shows the objective function as a quadratic one, which clearly indicated the name.
 The discrete nature and the complexity of quadratic objective function cause difficulties in finding an optimal solution thus making the problem NP-hard.
-Horowitz and Sahni have proved that in their book \cite{horowitz1978fundamentals} by showing that QAP needs an exponential time algorithm to solve optimally.
+Horowitz and Sahni have proved in their book \cite{horowitz1978fundamentals} that QAP needs an exponential time algorithm to solve optimally.
 
 
 \subsection{Known algorithms}
 \subsubsection{Exact solutions}
 
-The most simple method of resolving QAP is by using an enumeration or popularly named "branch and bound", which is to evaluate all of the $m!$ permutations (assignments) and recording the best solution.
+The most simple method of resolving QAP is by using an enumeration, which evaluates all of the $m!$ permutations (assignments) and records the best solution \cite{frazer1997602}.
 Every calculation must be done from the start.
 This requires $m^2$ steps and must be computed $m!$ times, which makes it useless for bigger instances.
 However, when the problem is small, it has an advantage due to simplicity - the implementation is simple and requires little memory.
 
-Surprisingly, also the time could be better. Franzer presented in his paper \cite{frazer1997602} that for test problem with $m=10$ the enumeration could be faster than linear programming. Comparing memory usage also gave amazing results thus proving that linear or 0-1 programming are not appropriate solution methods in this case.
+Surprisingly, also the time could be improved. Franzer presented in his paper \cite{frazer1997602} that for test problem with $m=10$ the enumeration could be faster than linear programming. Comparisions of the memory usage also gave amazing results thus proving that linear or 0-1 programming are not the most efficient, therefore appropriate, solution methods in this case.
 
 \subsubsection{Linearizations}
-A great approach to resolving complex problem is to reduce it to a linear programming problem.
-Unfortunately, most of the time this could be impractical even for small m.
-The first to transform the problem was Lawler \cite{lawler1963}, who represented it by an equivalent 0-1 linear programming problem and facilities the computations. He based his thinking on a travelling salesman problem looking for similarities between these two \cite{charnsethikul1988exact}.
+One approach to resolve a complex problem is to reduce it to a linear programming problem.
+Unfortunately, most of the time this could be impractical even for small $m$. Lawler \cite{lawler1963} was the first to transform the problem. He represented it by an equivalent 0-1 linear programming problem and facilities the computations. He based his thinking on a travelling salesman problem looking for similarities between these two \cite{charnsethikul1988exact}.
 
 Defining $m^4$ variables $y_{ijpq}$ as $m^2$ variables $x_{ij}$ where
 \begin{equation}
@@ -97,10 +95,9 @@ the problem can be linearised and stated as
   &\null x_{ij} + x_{pq} - 2y_{ijpq} \leq 0, \; i, j, p, q \in M \\
   &\null y_{ijij} = 0 \; or \; 1, \; i, j, p, q \in M \\
 \end{align}
-In result there are $m^4 + m^2$ binary variables and $m^4 + 2 m^2 + 1$ constraints.
-His definition has still been impractical for any bigger m.
+As the result there are $m^4 + m^2$ binary variables and $m^4 + 2 m^2 + 1$ constraints. However, Lawler's definition is still impractical for any bigger $m$.
 
-Kaufmann and Broeckx \cite{kaufman1978algorithm} created another linearisation, which has the smallest number of variables and constraints and is based on the method suggested by Glover.
+Kaufmann and Broeckx \cite{kaufman1978algorithm} created another linearisation, which has the smallest number of variables and constraints and is based on the method suggested by Glover \cite{gueye2009linearization}.
 Such manipulation reduces the complexity of the problem thus making calculations faster.
 The authors rearrange the objective function into
 \begin{equation}
@@ -122,7 +119,7 @@ Additionally introducing $m^2$ constraints $ c_{ij} := \sum_{p \in M} \sum_{q \i
   &\null w_{ij} \geq 0, \; i, j \in M \\
 \end{align}
 
-In result there are $m^2$ real variables, $m^2$ binary variables and $m^2 + 2m$ constraints.
+As the result there are $m^2$ real variables, $m^2$ binary variables and $m^2 + 2m$ constraints.
 This improves slightly previous methods.
 However, Kaku and Thompson \cite{kaku1986exact} reported that for small sizes, such as m = 8, the requirements become too large and optimality could not be proved.
 
@@ -132,7 +129,7 @@ Obtaining their mixed integer linear programming formulation could be achieved b
   y_{ijpq} := x_{ij} x_{pq}
 \end{equation}
 
-The outcome definition being
+The outcome definition is as follows
 \begin{align}
   \text{minimize} &\null \sum_{i \in M} \sum_{j \in M} \sum_{p \in M} \sum_{q \in M} a_{ijpq}y_{ijpq} + \sum_{i \in M} \sum_{j \in M} b_{ij} x_{ij} \\
   \text{subject to} &\null \sum_{i \in M} x_{ij} = 1, \; j \in M \\
@@ -146,7 +143,7 @@ The outcome definition being
   &\null 1 \geq y_{ijpq} \geq 0, \; i, j, p, q \in M
 \end{align}
 
-In result there are $m^4$ real variables, $m^2$ binary variables and $m^4 + 4m^3+m^2+2m$ constraints.
+In this case, there are $m^4$ real variables, $m^2$ binary variables and $m^4 + 4m^3+m^2+2m$ constraints.
 
 Adams and Johnson \cite{adams1994improved} presented also a new 0-1 linear integer programming formulation.
 It has similarities to the previous definition.
@@ -161,45 +158,42 @@ It has similarities to the previous definition.
   &\null y_{ijpq} \geq 0, \; i, j, p, q \in M
 \end{align}
 
-In result there are $m^2$ binary variables, $m^4$ continuous variables and $m^4+2m^3+2m$ constraints.
+So we have are $m^2$ binary variables, $m^4$ continuous variables and $m^4+2m^3+2m$ constraints.
 
 \subsubsection{Metaheuristics}
-Methods presented previously are not efficient with bigger instances.
+Methods presented previously are not efficient to bigger instances.
 In order to enhance the results, heuristics were used.
 These approximate solution techniques have been adopted to facility combinatorial problems.
-After it became clear, that many of dilemmas are NP-hard, the role of heuristics increased.
+After it became clear that many of dilemmas are NP-hard, the role of heuristics increased.
 Even though problems of dimensions $m > 20$ are still impractical to resolve due to high computational time, heuristics slightly improved a situation for medium size cases.
 
 \paragraph{Greedy}
 
 The easiest heuristic is a greedy algorithm.
-In each step, a choice is made trying to locally better the current solution.
+In each step, a choice is made trying to locally improve at the current solution.
 After a while, when the algorithm does not see a chance to improve, it stops.
-The biggest disadvantage is that it may never reach global optimum due to locking in a local one.
-
-There is also a steepest algorithm, where the next result is the best neighbour.
+The biggest disadvantage of this approach is that it may never reach global optimum due to locking in a local one. A type of such method is a steepest algorithm, where the next result is the best neighbour.
 
 
 \paragraph{Genetic algorithm}
 
 A genetic algorithm (GA) is inspired by the processes of natural selection.
-It uses the analogies from a real world such as mutation, crossover and selection and belongs to the class of evolutionary algorithms (EA).
+It uses the analogies from a real world such as mutation, crossover and selection occurring in biology and belongs to the class of evolutionary algorithms (EA).
 Its high-quality solutions make it commonly utilised.
 The first genetic algorithm was presented by Holland \cite{holland1975adaptation} in 1975.
 
-In the beginning, there is a set of initial feasible solutions, which are generated randomly.
+At the beginning, there is a set of initial feasible solutions, which are generated randomly.
 This is called the \textit{initial population}.
 An \textit{individual} is usually an element of the initial population.
 From the current group, the algorithm selects a number of \textit{parents}, which are pairs of individuals.
-Each pair of the parents is used to \textit{child} out the next feasible solution using \textit{cross-over rules}.
+Each pair of the parents is used to create a new feasible solution, \textit{child}, using \textit{cross-over rules}.
 In the situation that the child solution is corrupted, it needs to be thrown out of the current population.
 Until fulfilment of \textit{stop criterion}, which examples are run-time, a specific number of operation etc, these steps are continued.
-
 Periodically, \textit{mutations} or \textit{immigrants} are applied to population.
-They improve the overall quality of outcome by modification of current individuals or replacement of them.
+They diversify the genes by modification of current individuals or replacement of them so that the overall quality of future results could be improved.
 
 QAP has been tested with such genetic algorithm.
-The first one, presented by Tate and Smith \cite{tate1995genetic}, did not achieve great results - for the small size of instances, it strived to provide the optimal solution.
+The first one, presented by Tate and Smith \cite{tate1995genetic}, did not achieve great results - for the small size of instances, it struggled to provide the optimal solution.
 
 Even though it seemed that GA did not suit property for QAP, hybrid approaches showed otherwise.
 They introduced local optimization tools by using \textit{tournaments}.
@@ -212,31 +206,31 @@ A good example was presented by Ahuja, Orlin, and Tiwari \cite{ahuja2000greedy} 
 
 In the beginning of heuristics, the most popular approach was Local Search.
 Starting from one solution, the algorithm was improving it by applying slight modifications.
-
 Tabu search is a metaheuristic local search method created by Glover \cite{glover1986future} in 1986, which improves the problems encountered in Local Search.
 Its goal is to conquer local optimality using not only advancing the result, but also worsening.
 It is achieved by remembering already visited outcomes, which helps to see promising directions for further exploration.
+This approach shows the best results for QAP.
 
 The method has few main elements, which needs to be defined in order to understand the procedure:
 \begin{itemize}
   \item A \textit{search space} is a space of all possible solutions that could be visited during the search. This includes all feasible answers of the problem.
-  \item A \textit{neighbourhood structure} is a subset of search space, which could be accomplished by applying a single \textit{transformation} to a current solution.
+  \item A \textit{neighbourhood structure} is a subset of search space, which could be achiveved by applying a single \textit{transformation} to a current solution.
   \item A \textit{move} is an operation, which changes solution $x$ to a neighbour $x'$. In the case of QAP, the neighbourhood could be created by exchanging one pair of the solution.
   \item A \textit{tabu list} is a list containing forbidden (tabu) moves and it is updated constantly with each iteration. It consists of the records of the recent history of transformations and prevents cycling back to already visited result.
-  \item An \textit{aspiration criterion} is a condition associated with each tabu move, which permits cancelling its tabu state. A most common example is allowing the tabu move if the value of the objective function is superior to current. This obviously means that the solution was not previously visited.
+  \item An \textit{aspiration criterion} is a condition associated with each tabu move, which permits cancelling its tabu state. A most common example is allowing the tabu move if the value of the objective function is superior to current. This means that the solution was not previously visited.
 \end{itemize}
 
-In the beginning, the feasible solution is chosen and the tabu list is updated.
+At the beginning, the feasible solution is chosen and the tabu list is updated.
 There is also a list of neighbours available.
 The algorithm chooses the best neighbouring solution, which could be produced by a non-tabu move.
 The neighbour does not have to raise the value of objective function.
 Afterwards, the neighbour is the current result and the algorithm goes from the start.
-The calculations are ended after \textit{termination criteria}, which could be: fixed number of iterations, the number of iterations without an improvement in the value, after reaching the threshold value.
+The calculations are ended after \textit{termination criteria}, which could be either fixed number of iterations or the number of iterations without an improvement in the value, after reaching the threshold value.
 
 In order to prevent visiting the same solutions over and over, a tabu criterion is used.
 It identifies moves, which could lead to cycles, and adds them to the tabu list.
 However, such moves could be applied if the aspiration criterion shows that they could introduce potentially winning solutions.
-The tabu list is an essential change comparing to local search.
+The tabu list is an essential change comparing to the local search.
 
 Each tabu search algorithm could be implemented slightly differently, which impede measurement of performance.
 Currently, three different tabu search methods were proposed.
@@ -248,7 +242,6 @@ Here, a maximum and a minimum are defined and the size of the tabu list is chose
 Third, a reactive tabu search proposed by Battiti and Tecchiolli \cite{battiti1994reactive}.
 The size of the tabu list is adapting to the current situation.
 When the cycle is identified, the size is increased according to the length of the repetition.
-This approach shows the best results for QAP.
 
 \paragraph{Simulated annealing}
 
@@ -274,7 +267,7 @@ It starts at 1.0 symbolising heat and that all particles are randomly arranged i
 With each iteration it is multiplied by a constant typically between 0.8 and 0.99 and as the temperature decreases the probability tends to concentrate on low energy states.
 This slightly decreases the value and simulates slow cooling of the metal.
 It is also used as a stopping criterion - algorithm stops when the temperature reach 0.
-In the end, at thermal equilibrium, the probability that a system is in a configuration $i$ with energy $E_i$ is given by Boltzmann distribution:
+At the end, at thermal equilibrium, the probability that a system is in a configuration $i$ with energy $E_i$ is given by Boltzmann distribution:
 
 \begin{equation}
   p_i = \frac{exp(-\frac{E_i}{kT})}{S}
@@ -290,7 +283,7 @@ They have presented that if the problem could have a neighbourhood defined, it c
 Other authors presenting SA to solve QAP are Wilhelm and Ward \cite{wilhelm1987solving} and Connolly \cite{connolly1990improved}.
 Each of them defined neighbour as a solution with one pair-exchange from the current.
 The difference between them is the implementation of the cooling method.
-Due to the fact that SA is very dependent on its control parameters, it may present varying performance.
+Due to the fact that SA is very dependent on its control parameters, its performance may vary.
 
 \paragraph{Ant colony}
 
@@ -301,7 +294,7 @@ In general, these insects do not have high intelligence - their knowledge is lim
 They are also capable of distinguishing the pheromones between their self and others.
 Nevertheless, this information allows them to solve rather complex problems.
 
-In the beginning, ants move randomly in the vicinity of their nest, guided only by coincidence.
+At the beginning, ants move randomly in the vicinity of their nest, guided only by coincidence.
 However, after finding a food source, the lucky ant takes it back to the nest.
 On its way home, it releases the trail of pheromones on the ground.
 Each ant travelling the same path with food will also leave some pheromones, which will accumulate.
@@ -316,7 +309,7 @@ In ants behaviour, few analogies to the computational algorithms could be distin
 \end{itemize}
 
 The most recent algorithms provided the best results.
-The nontrivial instance of QAP with size $ m = 36 $ was solved optimally by a benchmark library QAPLIB, which revolutionised further research \cite{dorigo2004ant}.
-This revolutionised further research and attracted scientists to analyse on the usage of ant colony optimization (AOC) in case of the QAP.
+The nontrivial instance of QAP with size $ m = 36 $ was solved optimally by a benchmark library QAPLIB \cite{dorigo2004ant}.
+This revolutionised further research and attracted scientists to analyse the usage of ant colony optimization (AOC) in case of the QAP.
 AS-QAP, MMAS-QAP, ANTS-QAP are few examples of the QAP specific implementation of the AOC.
 
