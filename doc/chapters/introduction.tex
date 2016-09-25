@@ -7,7 +7,7 @@ A good example of such interdisciplinary connection is a situation when the comp
 
 In computer science, this dilemma can be stated as the Quadratic Assignment Problem (QAP).  The QAP is a combinatorial optimisation problem, which was defined by Koopmans and Beckmann in 1957 \cite{koopmans-beckmann1957}, and is a generalisation of an assignment problem. It is NP-hard thus even for small instances finding results is done by approximate methods.
 
-The QAP can be formulated as follows: Given $ n $ different facilities ($F$) and $ n $ different locations ($L$), a weight function $ w: F \times F \mapsto R $ between facilities and a distance function $ d: L \times L \mapsto R $ between locations, find the assignment minimising this cost function:
+The QAP can be formulated as follows: Given $ n $ different facilities ($F$) and $ n $ different locations ($L$), a weight function $ w: F \times F \mapsto R $ between facilities and a distance function $ d: L \times L \mapsto R $ between locations, find the assignment $f$ minimising this cost function:
 
 \begin{equation}
 min \sum_{a, b \in F} w(a, b) * d( f(a), f(b))
