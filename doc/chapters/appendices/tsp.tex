@@ -1,27 +1,25 @@
 \chapter{TSP Approximation}
 \label{chapter:tsp}
 
-A well recognized problem in combinatoral optimisation is the Travelling Salesman Problem (TSP). It is usually presented in a practical form: given a list of $n$ cities and distances between them, find the shortest route that visits each city exactly one time and returns to the origin city \cite{kruskal1956shortest}. Such problem is NP-hard, although very useful in many practical cases.
+A well recognized problem in combinatoral optimisation is the Travelling Salesman Problem (TSP). It is usually presented in a practical form: given a list of $n$ cities and distances between them, find the shortest route that visits each city exactly one time and returns to the origin city \cite{kruskal1956shortest}. Such problem is NP-hard, although it is very useful in many practical cases. Any TSP problem can be converted into QAP, thus TSP can be though as a speciaisation of Quadratic Assignment Problem. To do such conversion a TSP distance matrix can be used without any changes as the QAP distance matrix, while a QAP flow matrix is filled with same constant values.
 
-Any TSP problem can be converted into QAP, thus TSP can be though as speciaisation of Quadratic Assignment Problem. To do such conversion TSP distance matrix can be used without any changes as QAP distance matrix, while QAP flow matrix is filled with same constant values.
-
-Introduced in this thesis Physarum-based Metaheuristic is a method of looking through the space search and it is not dependant on any specific problem. As such it can be used with ease for other problems than QAP --- a definition of neighbourhood and cost function is required. As a example, we made simplified tests of the algorithm, approximating TSP tour.
+Introduced in this thesis Physarum-based Metaheuristic is a method of looking through the space search and it is not dependant on any specific problem. It can be used with ease for other problems than QAP --- a definition of neighbourhood and a cost function is required. As a example, we made simplified tests of the algorithm, approximating TSP tour.
 
 
 \section*{Implementation}
 
-While any instance of TSP could be tread as an instance of QAP, we preffered to create a speciaised implementation of \texttt{Problem} class, as it need not to store any flow values. A \texttt{TspProblem} has been created, which defines $cost$ as sum of distances between each of cities in the tour. The same neighbourhood as in QAP is used: a single pair swap in a tour, creating neighbourhood of size $\frac{n\cdot(n-1)}{2}$ for every possible tour.
+While any instance of TSP could be treated as an instance of QAP, we preferred to create a specialised implementation of the \texttt{Problem} class, as it needs not to store any flow values. A \texttt{TspProblem} has been created, which defines $cost$ as a sum of distances between each of the cities in the tour. The same neighbourhood as in QAP is used: a single pair swap in a tour, thus creating the neighbourhood of size $\frac{n\cdot(n-1)}{2}$ for every possible tour.
 
-An input format is simplier than with QAP, as only single matrix needs to be provided --- first line of input contains size of the problem $n$, followed by $n{\times}n$ numbers representing the distance matrix. Output is defined as in QAP --- the problem size $n$, followed by total distances $f$, followed by $n$ numbers representing the tour (rearranged so it starts with city numbered one).
+An input format is simplier than with QAP, as only a single matrix needs to be provided --- the first line of the input contains a size of the problem $n$, followed by $n{\times}n$ numbers representing the distance matrix. The output is defined as in QAP --- the problem size $n$, followed by a total distance of the tour $f$, followed by a list of $n$ numbers representing the tour (rearranged so it starts with the city numbered one).
 
-Using \texttt{build.sh} script, executable files \texttt{bin/physarum-tsp} and \texttt{bin/physarum-tsp-debug} can be created. Configuration options are the same as with QAP version (table \ref{table:pi_options}).
+Using \texttt{build.sh} script, the executable files \texttt{bin/physarum-tsp} and \texttt{bin/physarum-tsp-debug} can be created. The configuration options are the same as with QAP version (table \ref{table:pi_options}).
 
 
 \section*{Results}
 
-Test dataset is a subset of TSPLIB, which is library containing multiple instances of synthetic and practical problem definitions with optimal tours \cite{reinhelt2014tsplib}. Data from the TSPLIB has been preprocessed to be compliant with the input format.
+The test dataset is a subset of TSPLIB, which is a library containing multiple instances of synthetic and practical problem definitions with the optimal tours \cite{reinhelt2014tsplib}. The data from the TSPLIB has been preprocessed to be compliant with the input format.
 
-In comparison to QAP use case, it has been observed that larger values of $E_{explore}$ are preffered (figure \ref{figure:tsp_explore_frontier}). Using large values of $E_{explore}$ forces the plasmodium to preffer deeper crawling than local exploration. Furthermore, usage of $E_{explore}=0.01$ gives plasmodium the most energy, even though less solutions are explored (figure \ref{figure:tsp_explore_energy}).
+In comparison to QAP usecase, it has been observed that larger values of $E_{explore}$ are preferred (figure \ref{figure:tsp_explore_frontier}). Usage of large values of $E_{explore}$ forces the plasmodium to prefer a deeper crawling than a local exploration. Furthermore, usage of $E_{explore}=0.01$ gives the plasmodium the most energy, even though less solutions are explored (figure \ref{figure:tsp_explore_energy}).
 
 \begin{figure}
   \centering
@@ -41,7 +39,7 @@ In comparison to QAP use case, it has been observed that larger values of $E_{ex
   \label{figure:tsp_explore_energy}
 \end{figure}
 
-However, it could be seen that usage of default exponential base $q=10$ and scaling factor $a=0.1$ in cost-to-food transformation makes energy vary very much with each epoch. This is subefficient behaviour and should be controlled --- providing too much energy for mildly better solution causes the plasmodium to stay for longer in local minima neighbourhood. THe neighbourhood in TSP is characterised differently than in QAP, even a small change can result in large change of tour length. Different scaling factor has been tested and rather smaller values of $q$ (and $a=\frac{1}{q}$) are preffered (figure \ref{figure:tsp_ctf_energy}). As result of choosing smaller values of exponential base $q$, the algorithm behaves less erratically, finding better solutions (figure \ref{figure:tsp_ctf_frontier}). 
+However, it can be seen that usage of default exponential base $q=10$ and a scaling factor $a=0.1$ in cost-to-food transformation, makes the energy vary much with each epoch. This is a subefficient behaviour and should be controlled --- providing too much energy for a mildly better solution causes the plasmodium to stay longer in a local minima neighbourhood. The neighbourhood in TSP have different characteristics than QAP, even a small change can result in a large change of length of the tour. Different scaling factors have been tested and rather smaller values of $q$ (and $a=\frac{1}{q}$) are preferred (figure \ref{figure:tsp_ctf_energy}). As a result of choosing smaller values of the exponential base $q$, the algorithm behaves less erratically, which leads to finding better solutions (figure \ref{figure:tsp_ctf_frontier}). 
 
 \begin{figure}
   \centering
@@ -61,7 +59,7 @@ However, it could be seen that usage of default exponential base $q=10$ and scal
   \label{figure:tsp_ctf_frontier}
 \end{figure}
 
-Considered TSP instances are rather large, therefore using large number of initial samples $k$ is recommended (figure \ref{figure:tsp_samples_cost}). Colony of virtual plasmodium is started on better solutions, requiring less epochs for being close to optimum.
+Considered TSP instances are rather large, therefore using a large number of initial samples $k$ is recommended (figure \ref{figure:tsp_samples_cost}). The colony of virtual plasmodium is started on a better solutions, thus requiring less epochs for being close to optimum.
 
 \begin{figure}
   \centering
@@ -72,9 +70,7 @@ Considered TSP instances are rather large, therefore using large number of initi
   \label{figure:tsp_samples_cost}
 \end{figure}
 
-Even though rather large values of $E_{explore}$ are preffered for algorithm stabilisation, when using large number of samples $k=1000000$, initial solution can be quite close to the optimum, therefore exploring their local neighbourhood thoroughly could result in finding even better solutions at initial epochs. 
-
-In order to allow such behaviour, some initial energy $E_{initial}$ must be introduced, so more exhaustive exploration phase can be done even the same $E_{explore}$ is used. Selecting a rather large $E_{initial}=100$ allows for exploring extra $10000$ neighbour solutions (when $E_{explore}=0.01$), resulting with better overall results (figure \ref{figure:tsp_initial_cost}).
+Even though a rather large values of $E_{explore}$ are preferred for the algorithm's stabilisation, when using a large number of samples $k=1000000$, an initial solution can be quite close to the optimum. Therefore, the thorough exploration of their local neighbourhood could result in finding even better solutions at initial epochs. In order to allow such a behaviour, some initial energy $E_{initial}$ must be introduced, so more exhaustive exploration phase can be done, though the same $E_{explore}$ is used. Selecting a rather large $E_{initial}=100$ allows for exploring extra $10000$ neighbour solutions (when $E_{explore}=0.01$), resulting with better overall results (figure \ref{figure:tsp_initial_cost}).
 
 \begin{figure}
   \centering
@@ -87,7 +83,7 @@ In order to allow such behaviour, some initial energy $E_{initial}$ must be intr
 
 \section*{Conclusion}
 
-Usage the Physarum-based Metaheuristic for approximating tours of Travelling Salesman Problem required different tuning of the algorithm as the problem has much different characterstics than QAP. Using the parameters that have been chosen experimentally (scaling factor $a=0.8$, exponential base $q=1.25$, $E_{explore}=0.01$, $l=10$, $k=1000000$, $E_{initial}=100.0$, $E_{crawl}=0.001$), tests have been performed on subset of instances varying in size from the \texttt{TSPLIB}. In total tests have been performed ten times for each instance, time limited to $t=10n$, but no longer than 3600~s. Aggregated results in form of distance to optimal length are provided in figure \ref{figure:tsp_final}.
+The usage the Physarum-based Metaheuristic for approximating tours of Travelling Salesman Problem required different tuning of the algorithm as the problem has much different characterstics than QAP. Using the parameters that have been chosen experimentally (a scaling factor $a=0.8$, an exponential base $q=1.25$, $E_{explore}=0.01$, $l=10$, $k=1000000$, $E_{initial}=100.0$, $E_{crawl}=0.001$), tests have been performed on a subset of instances varying in size from the \texttt{TSPLIB}. In total tests have been performed ten times for each instance, time limited to $t=10n$, but no longer than 3600~s. Aggregated results in a form of a distance to the optimal length are provided in a figure \ref{figure:tsp_final}.
 
 \begin{figure}
   \centering
@@ -98,4 +94,4 @@ Usage the Physarum-based Metaheuristic for approximating tours of Travelling Sal
   \label{figure:tsp_final}
 \end{figure}
 
-In the end it can be seen, that can be seen that proposed algorithm behaves quite well on multiple datasets, yielding results at most $10\%$ worse than optimal tours, however on some datasets approximated tour are far from optimal and cannot be considered useful. Some further work is needed in order to make use of Physarum-based Metaheuristic for reliable approximation of TSP tours.
+In the end it can be seen, that can be seen that proposed algorithm behaves quite well on multiple datasets, yielding results at most $10\%$ worse than optimal tours, however on some datasets approximated tours are far from optimal and cannot be considered useful. Some further work is needed in order to make the results of Physarum-based Metaheuristic a reliable approximations of the TSP tours.
