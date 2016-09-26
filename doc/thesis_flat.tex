@@ -106,13 +106,13 @@ Last but not least, we feel the need to express gratitude to our parents, famili
 \cleardoublepage
 \chapter*{Abstract}
 
-The Quadratic Assignment Problem is an optimisation problem with many practical use cases, even though its solutions are usually approximated. It is a representant of NP-hard computation class, therefore there is no algorithm known for solving this problem in polynomial time. Even for a small instances, the computation of the exact assignment can take too much time, which makes it unpractical. This creates a need for various heuristical methods for approximating the solution, which can be used in fields of logistics, computer aided design or even molecular chemistry.
+The Quadratic Assignment Problem is an optimisation problem with many practical use cases, however, its solutions are usually approximated. It is a representant of the NP-hard computation class, therefore there is no algorithm known for solving this problem in a polynomial time. Even for small instances, the computation of the exact assignment can take too much time, which makes it unpractical. This creates a need for various heuristical methods for approximating the solution, which can be used in fields of logistics, computer aided design or even molecular chemistry.
 
-Recently, an emerging computational behaviour of \textit{Physarum polycephalum} is a subject for thorough research. Many works already describe this slime mould as useful in various branches of the computing science. The plasmodial form of \textit{Physarum polycephalum} is used to solve a maze problem, provide a design for a robust network or even approximate the Travelling Salesman Problem. The slime mould is even mathematically modelled and simulated on various levels.
+Recently, an emerging computational behaviour of \textit{Physarum polycephalum} is a subject for thorough research. Many works have described this slime mould as useful in various branches of the computing science. The plasmodial form of \textit{Physarum polycephalum} is used to solve a maze problem, provide a design for a robust network or approximate the Travelling Salesman Problem. Moreover, the slime mould is even mathematically modelled and simulated on various levels.
 
-In context of these observations, we transform the gained knowledge of both fields of QAP and \textit{Physarum polycephalum} into an algorithm leading to an approximation of Quadratic Assignment Problem. By observations of a living plasmodium, some of its behaviour is used in a design of the Physarum-based Metaheuristic. This novel method of looking through the search space is used to solve QAP.
+In context of these observations, we fuse the knowledge of both fields: QAP and \textit{Physarum polycephalum} into an algorithm that leads to an approximation of Quadratic Assignment Problem. Observations of a living plasmodium allowed us to use some of its behaviour in a design of the Physarum-based Metaheuristic. This novel method of looking through the search space is used to solve the QAP.
 
-As a part of this thesis an implementation of the proposed algorithm is given. It is thoroughfully tested and compared to the already existing methods. It provides useful solutions for many practical use cases, thus proving the suitability for such sophisticated problems. Furthermore, it can be tuned to solve complex instances of QAP or even used for approximating other optimisation problems.
+As a part of this thesis an implementation of the proposed algorithm is given. It is thoroughfully tested and compared to the already existing methods. Our method provides useful solutions for many practical use cases, thus proving the suitability for such sophisticated problems. Furthermore, it can be tuned to solve complex instances of QAP or even used for approximating other optimisation problems.
 \cleardoublepage
 
 % Table of contents.
@@ -408,6 +408,7 @@ Based on this model Jeff Jones and Andy Adamatzky proposed a method of a shrinki
 
 
 \subsection{Observations}
+\label{ss:obervations}
 
 Using the financial support from Poznan University of Technology, we obtained the culture of \textit{Physarum polycephalum} from Carolina Biological Supply. The access to the living organism allowed us to observe its behaviour in a variety of conditions. As for computer scientists, who have no experience in wet lab works, it was a very challenging task to handle alive slime mould, yet very educative one --- detailed methods of handling the organism are presented in Appendix \ref{chapter:protocol}.
 
@@ -1605,19 +1606,18 @@ During the work on this thesis, we have come with ideas for a further research a
 
 \chapter{\textit{Physarum polycephalum} Maintenance Protocol}
 \label{chapter:protocol}
-
-A small living organism, such as the subject of this thesis, \textit{Physarum polycephalum} must be handled with care. Its observations are the basis for works of the proposed algorithm and should be unbiased and repeatable. In order to allow so, a set of procedures and hints must be used. Furthermore, the authors have no background microbiology or any related fields, which makes this task especially cumbersome. However, the methods presented here allowed the organism to survive for over 6~months, which was enough to make valuable observations and conduct some basic experiments.
+Observations of a living \textit{Physarum polycephalum} are the basis for the proposed algorithm. As even examination should be unbiased and repeatable. Therefore an appropriate set of procedures should be used. The authors have no background in microbiology or any related fields, which makes this task especially cumbersome. However, the methods presented here allowed the organism to survive for over 6~months, which was enough to make valuable observations. Such a long time included experiment sessions, each lasting for about a day or two, included in section \ref{ss:obervations}.
 
 
 \section*{Storage}
 
-The organism arrived safely on a Petri dish, which was placed inside a large transportation box, among other things. It was not affected by a long journey (from supplier Carolina Biological Supply,~USA to Poznan University of Technology,~Poland), even though it ways X-rayed many times on its way to us. It was equipped with enough oatmeal food sources to survive such a journey (figure \ref{figure:p_initial_petri}).
+The organism arrived safely on a Petri dish, which was placed inside a large transportation box, among other things. It was not affected by a long journey (from supplier Carolina Biological Supply,~USA to Poznan University of Technology,~Poland), even though it was X-rayed many times on its way to us. It was equipped with enough oatmeal food sources to survive such a journey (figure \ref{figure:p_initial_petri}).
 
-On the day of arrival, as per hints from \cite{adamatzky2010physarum}, the organism was moved to a large plastic box, filled with a 2\%~non-nutrient~agar substrate (figure \ref{figure:p_box}). A large $20\times20$~cm surface of the box allowed \textit{Physarum polycephalum} to move freely, without any limitations. A thick layer of the substrate was enough for keeping the organism well moisted for about 12~weeks time, after that time the organism has been replanted to a similar box.
+On the day of arrival, as per hints from \cite{adamatzky2010physarum}, the organism was moved to a large plastic box, filled with a 2\%~non-nutrient~agar substrate (figure \ref{figure:p_box}). A large $20\times20$~cm surface of the box allowed \textit{Physarum polycephalum} to move freely, without any limitations. A thick layer of the substrate was enough for keeping the organism well moisted for about 12~weeks time. After that time the organism has been replanted to a similar box.
 
-This box has been kept inside a shoebox, which created a perfectly dark environment for the organism. The box has been opened only when needed, minising the time of exposing the slime mould to the light. Furthermore, when detailed observations or experiments had to be made, some of the plasmodium have been subcultured to an individual Petri~dish (figure \ref{figure:p_multiple_petri}). This minised the influence of external conditions on the culture of \textit{Physarum polycephalum}, as it was still kept in the dark box. 
+This box has been kept inside a shoebox, which created a perfectly dark environment for the organism. The box has been opened only when needed, minimizing the time of exposition of the slime mould to the light. Furthermore, when detailed observations or experiments had to be made, some of the plasmodium have been subcultured to an individual Petri~dish (figure \ref{figure:p_multiple_petri}). This minimized the influence of external conditions on the culture of \textit{Physarum polycephalum}, as it was still kept in the dark box.
 
-The box has been placed in a shadow, with temperatures varying from 20~$^{\circ}$C to 25~$^{\circ}$C. Unfortunately, we could not stabilise the temperature more, as the experiments have been made at home.
+The box has been placed in a shadow, with temperatures varying from 20~$^{\circ}$C to 25~$^{\circ}$C. Unfortunately, we were not able to stabilise the temperature more, as the experiments have been made at home.
 
 \begin{figure}
   \centering
@@ -1649,14 +1649,14 @@ The box has been placed in a shadow, with temperatures varying from 20~$^{\circ}
 
 \subsection*{The substrate}
 
-It is recommended by the supplier to cultivate \textit{Physarum polycephalum} on a sterile 2\%~non-nutrient~agar. The agar is a powder obtained from the algae, with an ability to bound water, while being neutral to many microorganisms (unlike gelatine). When it is mixed with water it creates a jelly-like substance which can be used as a substrate in Petri~dish. The supplier provided a few bottles of already prepared sterile agar substrate. However, in a room temperature it is a solid substance. The agar solution must be heated in order to be transfered to a Petri~dish or an other vesel. A common protocol recommends usage of a microwave oven \cite{hanson1978microwave} and it was used as a quick and practical solution to this problem. 
+It is recommended by the supplier to cultivate \textit{Physarum polycephalum} on a sterile 2\%~non-nutrient~agar. The agar is a powder obtained from the algae, with an ability to bound water, while being neutral to many microorganisms (unlike gelatine). When it is mixed with water it creates a jelly-like substance which can be used as a substrate in Petri~dish. The supplier provided a few bottles of already prepared sterile agar substrate. However, in a room temperature it is a solid substance. The agar solution must be heated in order to be transferred to a Petri~dish or an other vesel. A common protocol recommends usage of a microwave oven \cite{hanson1978microwave} and it was used as a quick and practical solution to this problem.
 
-When this premade substrate was exhauseted, we have created our solution of 2\%~non-nutrient~agar using an agar used for cooking and distilled water. We ensured to boil the solution for a while and stored it in a preboiled bottles, therefore minising a chance of contamination, even though the solution was not truly sterile. This homemade solution compared to the premade substrate, made no observable difference in a behaviour of \textit{Physarum polycephalum}.
+When this premade substrate was exhauseted, we have created our solution of 2\%~non-nutrient~agar using an agar used for cooking and distilled water. We ensured to boil the solution for a while and stored it in preboiled bottles, therefore minimizing a chance of contamination, even though the solution was not truly sterile. This homemade solution compared to the premade substrate, made no observable difference in a behaviour of \textit{Physarum polycephalum}.
 
 
 \section*{Nutrients}
 
-Multiple sources recommend usage of a sterile oatmeals as main source of nutrients for the slime mould \cite{nakagaki2000intelligence,nakagaki2004obtaining,adamatzky2010physarum}. Initially some amount of sterile oatmeal has been provided by the supplier, however it was quickly used up. The ecological, organic oatmeals have been bought and sterilised by cooking with distilled water. Such a porridge has been used as a main source of nutrients for \textit{Physarum polycephalum} (figure \ref{figure:p_porridge}).
+Multiple sources recommend usage of sterile oatmeals as the main source of nutrients for the slime mould \cite{nakagaki2000intelligence,nakagaki2004obtaining,adamatzky2010physarum}. Initially some amount of sterile oatmeal has been provided by the supplier, however, it was quickly used up. The ecological, organic oatmeals have been bought and sterilised by cooking with distilled water. Such a porridge has been used as a main source of nutrients for \textit{Physarum polycephalum} (figure \ref{figure:p_porridge}).
 
 \begin{figure}
   \centering
@@ -1667,7 +1667,7 @@ Multiple sources recommend usage of a sterile oatmeals as main source of nutrien
   \label{figure:p_porridge}
 \end{figure}
 
-Furthermore, a regular humidification was required to keep the organism in its plasmodial stage. A rule of thumb from \cite{adamatzky2010physarum} was used: ``If it's too mushy it's too dry, if it's too smelly it's too wet''. The organism has been sprayed with a distilled water when needed. When no distilled water was available, the tap water has been used, though it slightly affected mobility of the slime mould.
+Furthermore, a regular humidification was required to keep the organism in its plasmodial stage. A rule of thumb from \cite{adamatzky2010physarum} was used: ``If it's too mushy it's too dry, if it's too smelly it's too wet''. The organism has been sprayed with a distilled water when needed. When no distilled water was available, the tap water has been used, though it slightly affected the mobility of the slime mould.
 
 \chapter{Benchmark Results}
 \label{chapter:results}
@@ -1798,16 +1798,16 @@ Presented here are results of experiments using an improved Physarum-based Metah
 \chapter{TSP Approximation}
 \label{chapter:tsp}
 
-A well recognized problem in combinatoral optimisation is the Travelling Salesman Problem (TSP). It is usually presented in a practical form: given a list of $n$ cities and distances between them, find the shortest route that visits each city exactly one time and returns to the origin city \cite{kruskal1956shortest}. Such problem is NP-hard, although it is very useful in many practical cases. Any TSP problem can be converted into QAP, thus TSP can be though as a speciaisation of Quadratic Assignment Problem. To do such conversion a TSP distance matrix can be used without any changes as the QAP distance matrix, while a QAP flow matrix is filled with same constant values.
+A well-recognized problem in combinatorial optimisation is the Travelling Salesman Problem (TSP). It is usually presented in a practical form: given a list of $n$ cities and distances between them, find the shortest route that visits each city exactly one time and returns to the city of origin \cite{kruskal1956shortest}. The problem is NP-hard and finding solution is not trivial. However, it reflects many practical examples and the ability to quickly solve it is very desirable. Any TSP problem can be converted into QAP, thus TSP can be though as a specialisation of Quadratic Assignment Problem. To do such conversion a TSP distance matrix can be used without any changes as the QAP distance matrix, while a QAP flow matrix is filled with same constant values.
 
-Introduced in this thesis Physarum-based Metaheuristic is a method of looking through the space search and it is not dependant on any specific problem. It can be used with ease for other problems than QAP --- a definition of neighbourhood and a cost function is required. As a example, we made simplified tests of the algorithm, approximating TSP tour.
+The Physarum-based Metaheuristic that was introduced in this thesis, is a method of looking through the space search and it is not dependant on any specific problem. It can be used with ease for other problems than QAP, however, a definition of the neighbourhood and a cost function is required. As an example, we made simplified tests of the algorithm, approximating TSP tour.
 
 
 \section*{Implementation}
 
 While any instance of TSP could be treated as an instance of QAP, we preferred to create a specialised implementation of the \texttt{Problem} class, as it needs not to store any flow values. A \texttt{TspProblem} has been created, which defines $cost$ as a sum of distances between each of the cities in the tour. The same neighbourhood as in QAP is used: a single pair swap in a tour, thus creating the neighbourhood of size $\frac{n\cdot(n-1)}{2}$ for every possible tour.
 
-An input format is simplier than with QAP, as only a single matrix needs to be provided --- the first line of the input contains a size of the problem $n$, followed by $n{\times}n$ numbers representing the distance matrix. The output is defined as in QAP --- the problem size $n$, followed by a total distance of the tour $f$, followed by a list of $n$ numbers representing the tour (rearranged so it starts with the city numbered one).
+An input format is simpler than with QAP, as only a single matrix needs to be provided --- the first line of the input contains a size of the problem $n$, followed by $n{\times}n$ numbers representing the distance matrix. The output is defined as in QAP --- the problem size $n$, followed by a total distance of the tour $f$, followed by a list of $n$ numbers representing the tour (rearranged so it starts with the city numbered one).
 
 Using \texttt{build.sh} script, the executable files \texttt{bin/physarum-tsp} and \texttt{bin/physarum-tsp-debug} can be created. The configuration options are the same as with QAP version (table \ref{table:pi_options}).
 
@@ -1816,14 +1816,16 @@ Using \texttt{build.sh} script, the executable files \texttt{bin/physarum-tsp} a
 
 The test dataset is a subset of TSPLIB, which is a library containing multiple instances of synthetic and practical problem definitions with the optimal tours \cite{reinhelt2014tsplib}. The data from the TSPLIB has been preprocessed to be compliant with the input format.
 
-In comparison to QAP usecase, it has been observed that larger values of $E_{explore}$ are preferred (figure \ref{figure:tsp_explore_frontier}). Usage of large values of $E_{explore}$ forces the plasmodium to prefer a deeper crawling than a local exploration. Furthermore, usage of $E_{explore}=0.01$ gives the plasmodium the most energy, even though less solutions are explored (figure \ref{figure:tsp_explore_energy}).
+In comparison to QAP usecase, it has been observed that larger values of $E_{explore}$ are preferred (figure \ref{figure:tsp_explore_frontier}). Usage of large values of $E_{explore}$ forces the plasmodium to prefer a deeper crawling than a local exploration. Furthermore, usage of $E_{explore}=0.01$ gives the plasmodium the biggest amount of the energy, even though less solutions are explored (figure \ref{figure:tsp_explore_energy}).
+
+
 
 \begin{figure}
   \centering
 
   \includegraphics[width=1.1\textwidth,center]{algorithm/metaheuristic/charts/tsp/u/tsp_explore_frontier.\eop}
 
-  \caption{Cost of the best detected solution with different explore energy $E_{explore}$ (dataset \texttt{berlin52})}
+  \caption{Cost of the best detected solution with different exploration energy $E_{explore}$ (dataset \texttt{berlin52})}
   \label{figure:tsp_explore_frontier}
 \end{figure}
 
@@ -1836,7 +1838,7 @@ In comparison to QAP usecase, it has been observed that larger values of $E_{exp
   \label{figure:tsp_explore_energy}
 \end{figure}
 
-However, it can be seen that usage of default exponential base $q=10$ and a scaling factor $a=0.1$ in cost-to-food transformation, makes the energy vary much with each epoch. This is a subefficient behaviour and should be controlled --- providing too much energy for a mildly better solution causes the plasmodium to stay longer in a local minima neighbourhood. The neighbourhood in TSP have different characteristics than QAP, even a small change can result in a large change of length of the tour. Different scaling factors have been tested and rather smaller values of $q$ (and $a=\frac{1}{q}$) are preferred (figure \ref{figure:tsp_ctf_energy}). As a result of choosing smaller values of the exponential base $q$, the algorithm behaves less erratically, which leads to finding better solutions (figure \ref{figure:tsp_ctf_frontier}). 
+However, it can be seen that usage of the default exponential base $q=10$ and a scaling factor $a=0.1$ in the cost-to-food transformation, makes the energy vary much with each epoch. This is a subefficient behaviour and should be controlled --- providing more energy for a mildly better solution causes the plasmodium to stay longer in a local minima neighbourhood. The neighbourhood in TSP have different characteristics than QAP, even a small change can result in a large change of length of the tour. Different scaling factors have been tested, that showed that rather smaller values of $q$ (and $a=\frac{1}{q}$) are preferred (figure \ref{figure:tsp_ctf_energy}). As a result of choosing smaller values of the exponential base $q$, the algorithm behaves less erratically, which leads to better solutions (figure \ref{figure:tsp_ctf_frontier}).
 
 \begin{figure}
   \centering
@@ -1856,7 +1858,7 @@ However, it can be seen that usage of default exponential base $q=10$ and a scal
   \label{figure:tsp_ctf_frontier}
 \end{figure}
 
-Considered TSP instances are rather large, therefore using a large number of initial samples $k$ is recommended (figure \ref{figure:tsp_samples_cost}). The colony of virtual plasmodium is started on a better solutions, thus requiring less epochs for being close to optimum.
+Considered TSP instances are rather large, therefore using a large number of initial samples $k$ is recommended (figure \ref{figure:tsp_samples_cost}). The colony of virtual plasmodium is started on better solutions, thus requiring fewer epochs for being close to optimum.
 
 \begin{figure}
   \centering
@@ -1867,7 +1869,7 @@ Considered TSP instances are rather large, therefore using a large number of ini
   \label{figure:tsp_samples_cost}
 \end{figure}
 
-Even though a rather large values of $E_{explore}$ are preferred for the algorithm's stabilisation, when using a large number of samples $k=1000000$, an initial solution can be quite close to the optimum. Therefore, the thorough exploration of their local neighbourhood could result in finding even better solutions at initial epochs. In order to allow such a behaviour, some initial energy $E_{initial}$ must be introduced, so more exhaustive exploration phase can be done, though the same $E_{explore}$ is used. Selecting a rather large $E_{initial}=100$ allows for exploring extra $10000$ neighbour solutions (when $E_{explore}=0.01$), resulting with better overall results (figure \ref{figure:tsp_initial_cost}).
+Even though a rather large values of $E_{explore}$ are preferred for the algorithm's stabilisation, when using a large number of samples $k=1000000$, an initial solution can be quite close to the optimum. Therefore, the thorough exploration of the local neighbourhood could result in finding even better solutions at initial epochs. In order to allow such a behaviour, some initial energy $E_{initial}$ must be introduced, so more exhaustive exploration phase can be done, though the same $E_{explore}$ is used. Selecting a rather large $E_{initial}=100$ allows for exploring extra $10000$ neighbour solutions (when $E_{explore}=0.01$), resulting in better overall results (figure \ref{figure:tsp_initial_cost}).
 
 \begin{figure}
   \centering
@@ -1880,7 +1882,7 @@ Even though a rather large values of $E_{explore}$ are preferred for the algorit
 
 \section*{Conclusion}
 
-The usage the Physarum-based Metaheuristic for approximating tours of Travelling Salesman Problem required different tuning of the algorithm as the problem has much different characterstics than QAP. Using the parameters that have been chosen experimentally (a scaling factor $a=0.8$, an exponential base $q=1.25$, $E_{explore}=0.01$, $l=10$, $k=1000000$, $E_{initial}=100.0$, $E_{crawl}=0.001$), tests have been performed on a subset of instances varying in size from the \texttt{TSPLIB}. In total tests have been performed ten times for each instance, time limited to $t=10n$, but no longer than 3600~s. Aggregated results in a form of a distance to the optimal length are provided in a figure \ref{figure:tsp_final}.
+The usage the Physarum-based Metaheuristic to approximate tours of the Travelling Salesman Problem required different tuning of the algorithm as the problem has much different characteristics than QAP. Using the parameters that have been chosen experimentally (a scaling factor $a=0.8$, an exponential base $q=1.25$, $E_{explore}=0.01$, $l=10$, $k=1000000$, $E_{initial}=100.0$, $E_{crawl}=0.001$), tests have been performed on a subset of instances varying in size, that were selected from the \texttt{TSPLIB}. In total tests have been performed ten times for each instance, time limited to $t=10n$, but no longer than 3600~s. Aggregated results in a form of a distance to the optimal length are provided in a figure \ref{figure:tsp_final}.
 
 \begin{figure}
   \centering
@@ -1891,7 +1893,7 @@ The usage the Physarum-based Metaheuristic for approximating tours of Travelling
   \label{figure:tsp_final}
 \end{figure}
 
-In the end it can be seen, that can be seen that proposed algorithm behaves quite well on multiple datasets, yielding results at most $10\%$ worse than optimal tours, however on some datasets approximated tours are far from optimal and cannot be considered useful. Some further work is needed in order to make the results of Physarum-based Metaheuristic a reliable approximations of the TSP tours.
+In the end, it can be seen that proposed algorithm behaves quite well on multiple datasets, yielding results at most $10\%$ worse than optimal tours, however on some datasets approximated tours are far from optimal and cannot be considered useful. Some further work is needed in order to make the results of Physarum-based Metaheuristic reliable approximations of the TSP tours.
 
 % Bibliography (books, articles) starts here.
 \bibliographystyle{alpha}{\raggedright\sloppy\small\bibliography{bibliography}}
